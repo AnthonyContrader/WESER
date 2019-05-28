@@ -27,14 +27,17 @@ public class LoginDAO {
             statement.setString(2, password);
             
             String userType=null;
+           
             ResultSet rs;
             if(statement.executeQuery().next()) {
             	rs = statement.executeQuery();
             	rs.next();
             	userType = rs.getString("user_type");
-            }
             
-            return userType;
+            	System.out.println("Benvenuto "+userType);
+            }
+                       
+           return userType;
         }
         catch (SQLException e) {
             GestoreEccezioni.getInstance().gestisciEccezione(e);
