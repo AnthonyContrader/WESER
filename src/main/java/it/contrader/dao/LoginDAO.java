@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import it.contrader.controller.GestoreEccezioni;
 import it.contrader.main.ConnectionSingleton;
 
+
 public class LoginDAO {
 
     private final String QUERY_LOGIN = "select * from users where username = ? and password = ?";
