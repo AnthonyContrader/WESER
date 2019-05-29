@@ -28,7 +28,7 @@ public class UserReadView implements View {
 	public void showOptions() {
 		int userIdToRead;
 
-		System.out.println("Inserisci l'ID dell'utente:");
+		System.out.println("Insert user ID ");
 
 		try {
 			userIdToRead = Integer.parseInt(getInput());
@@ -37,9 +37,13 @@ public class UserReadView implements View {
 			System.out.println("Id: " + userDB.getUserId());
 			System.out.println("Username: " + userDB.getUsername());
 			System.out.println("User type: " + userDB.getUsertype());
+			System.out.println("Password: " + userDB.getPassword());
+			System.out.println("Name: " + userDB.getName());
+			System.out.println("Surname: " + userDB.getSurname());
+			System.out.println("Social Security Number: " + userDB.getCf());
 			
 			//Wait user to show
-			System.out.println("Premi un tasto per continuare");
+			System.out.println("Press any key to continue");
 			try {
 				getInput();
 			} catch (Exception e) {
@@ -47,7 +51,7 @@ public class UserReadView implements View {
 			}
 
 		} catch (Exception e) {
-			System.out.println("Valore inserito errato.");
+			System.out.println("Wrong entered value");
 		}
 
 	}

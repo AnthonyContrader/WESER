@@ -14,23 +14,28 @@ public class HomeAdminView implements View {
     private String choice;
 
     public void showResults(Request request) {
-    	System.out.println("Benvenuto in WMES "+request.get("nomeUtente").toString());
+    	System.out.println("Wellcome in Weser "+request.get("nomeUtente").toString());
     }
 
 
     public void showOptions() {
-        System.out.println("-------MENU-------\n");
-        System.out.println("Seleziona cosa vuoi gestire:");
-        System.out.println("[U]tenti [E]sci");
+        System.out.println("\n ADMINISTRATOR MENU \n");
+        System.out.println("Choose operation");
+        System.out.println("[1]  Users administation");
+        System.out.println("[2]  Devices administration");
+        System.out.println("[3]  Return to login");
         this.choice = this.getInput();
     }
 
     public void submit() {
-        if (choice.equalsIgnoreCase("U")) {
+        if (choice.equalsIgnoreCase("1")) {
         	MainDispatcher.getInstance().callView("User", null);
         }
+        if (choice.equalsIgnoreCase("2")) {
+        	MainDispatcher.getInstance().callView("Device", null);
+        }
         
-        if (choice.equalsIgnoreCase("L"))
+        if (choice.equalsIgnoreCase("3"))
             MainDispatcher.getInstance().callAction("Login", "doControl", null);
         else {
             Request request = new Request();

@@ -35,7 +35,6 @@ public class LoginDAO {
             	rs.next();
             	userType = rs.getString("user_type");
             
-            	System.out.println("Benvenuto "+userType);
             }
                        
            return userType;

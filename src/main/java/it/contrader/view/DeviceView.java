@@ -4,18 +4,18 @@ import java.util.List;
 import java.util.Scanner;
 
 import it.contrader.controller.Request;
-import it.contrader.controller.UserController;
+import it.contrader.controller.DeviceController;
 import it.contrader.main.MainDispatcher;
-import it.contrader.model.User;
+import it.contrader.model.Device;
 
-public class UserView implements View {
+public class DeviceView implements View {
 
-	private UserController usersController;
+	private DeviceController devicesController;
 	private Request request;
 	private String choice;
 	
-	public UserView() {
-		this.usersController = new UserController();
+	public DeviceView() {
+		this.devicesController = new DeviceController();
 	}
 
 	@Override
@@ -25,19 +25,19 @@ public class UserView implements View {
 	@Override
 	public void showOptions() {
 		
-		System.out.println("\n USERS ADMINISTRATION \n");
-		System.out.println("ID\t Username\t User type\t Password\t Name\t Surname\t Social Security Number");
+		System.out.println("\n DEVICES ADMINISTRATION \n");
+		System.out.println("ID\t Registration number\t Device type\t Description\t Min pressure\t Max pressure\t Min circulation\t Max circulation\t Min #breath\t Max #breath\t Min temperature\t Max temperature");
 		System.out.print("------------------------------------------------------");
-		List<User> users = usersController.getAllUser();
+		List<Device> users = devicesController.getAllDevice();
 		System.out.println();
 		users.forEach(user -> System.out.println(user.toString()));
 		System.out.println();
 		
 		System.out.println("Choose operation");
-		System.out.println("[1] Users list");
-		System.out.println("[2] Insert new user");
-		System.out.println("[3] Update existing user");
-		System.out.println("[4] Delete existing user");
+		System.out.println("[1] Devices list");
+		System.out.println("[2] Insert new device");
+		System.out.println("[3] Update existing device");
+		System.out.println("[4] Delete existing device");
 		System.out.println("[5] Return to login");
 		try {
 			this.choice = getInput();
@@ -57,7 +57,7 @@ public class UserView implements View {
 
 	@Override
 	public void submit() {
-		    MainDispatcher.getInstance().callAction("User", "doControl", this.request);
+		    MainDispatcher.getInstance().callAction("Device", "doControl", this.request);
 	}
 
 }

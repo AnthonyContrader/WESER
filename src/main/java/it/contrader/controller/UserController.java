@@ -45,20 +45,20 @@ public class UserController implements Controller {
 		if (mode == "menu") {
 			MainDispatcher.getInstance().callView("User", null);
 		} else {
-			switch (choice.toUpperCase()) {
-			case "L":
+			switch (choice) {
+			case "1":
 				MainDispatcher.getInstance().callView(sub_package + "UserRead", null);
 				break;
-			case "I":
+			case "2":
 				MainDispatcher.getInstance().callView(sub_package + "UserInsert", null);
 				break;
-			case "M":
+			case "3":
 				MainDispatcher.getInstance().callView(sub_package + "UserUpdate", null);
 				break;
-			case "C":
+			case "4":
 				MainDispatcher.getInstance().callView(sub_package + "UserDelete", null);
 				break;
-			case "E":
+			case "5":
 				MainDispatcher.getInstance().callView("Login", null);
 				break;
 			default:
