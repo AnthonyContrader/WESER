@@ -25,17 +25,11 @@ public class DeviceDocController implements Controller {
 		return this.deviceDocsService.readDeviceDoc(deviceDocId);
 	}
 
-	public boolean insertDeviceDoc(DeviceDocDTO deviceDocsDTO) {
-		return this.deviceDocsService.insertDeviceDoc(deviceDocsDTO);
-	}
 
 	public boolean updateDeviceDoc(DeviceDocDTO deviceDocsDTO) {
 		return this.deviceDocsService.updateDeviceDoc(deviceDocsDTO);
 	}
 
-	public boolean deleteDeviceDoc(Integer deviceDocsId) {
-		return this.deviceDocsService.deleteDeviceDoc(deviceDocsId);
-	}
 
 	@Override
 	public void doControl(Request request) {

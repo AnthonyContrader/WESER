@@ -6,7 +6,7 @@ import java.util.Scanner;
 import it.contrader.controller.Request;
 import it.contrader.controller.DeviceDocController;
 import it.contrader.main.MainDispatcher;
-import it.contrader.model.Device;
+import it.contrader.model.DeviceDoc;
 
 public class DeviceDocView implements View {
 
@@ -26,17 +26,18 @@ public class DeviceDocView implements View {
 	public void showOptions() {
 		
 		System.out.println("\n DEVICES ADMINISTRATION \n");
-		System.out.println("ID\t Registration number\t Device type\t Description\t Min pressure\t Max pressure\t Min circulation\t Max circulation\t Min #breath\t Max #breath\t Min temperature\t Max temperature");
-		System.out.print("------------------------------------------------------");
-		List<Device> devices = devicesDocController.getAllDevice();
+		
+		System.out.println("ID\t Registration number\t Device type\t Description\t Min pressure\t Max pressure\t Min circulation\t Max circulation\t Min #breath\t Max #breath\t Min temperature\t Max temperature\t");
+		System.out.print("--------------------------------------------------------------------------------");
+		List<DeviceDoc> devices = devicesDocController.getAllDeviceDoc();
 		System.out.println();
 		devices.forEach(device -> System.out.println(device.toString()));
 		System.out.println();
 		
 		System.out.println("Choose operation");
-		System.out.println("[1] Devices list");
-		System.out.println("[2] Update existing device parameters");
-		System.out.println("[3] Return to login");
+		System.out.println("[1]Devices list");
+		System.out.println("[2]Update existing device parameters");
+		System.out.println("[3]Return to login");
 		try {
 			this.choice = getInput();
 		} catch(Exception e) {
@@ -55,7 +56,7 @@ public class DeviceDocView implements View {
 
 	@Override
 	public void submit() {
-		    MainDispatcher.getInstance().callAction("Device", "doControl", this.request);
+		    MainDispatcher.getInstance().callAction("DeviceDoc", "doControl", this.request);
 	}
 
 }
