@@ -51,7 +51,7 @@ public class UserReadView implements View {
 			}
 
 		} catch (Exception e) {
-			System.out.println("Wrong entered value");
+			System.out.println("Incorrect entry");
 		}
 
 	}

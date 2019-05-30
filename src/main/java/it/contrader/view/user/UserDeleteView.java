@@ -30,7 +30,7 @@ public class UserDeleteView implements View {
 		//String usersId;
 
 		//users = userController.getAllUser();
-		System.out.println("Seleziona l'utente da cancellare: ");
+		System.out.println("Select user to delete: ");
 		//System.out.println();
 		//user.forEach(user -> System.out.println(user));
 		//System.out.println();
@@ -41,7 +41,7 @@ public class UserDeleteView implements View {
 			userController.deleteUser(Integer.parseInt(usersId));
 			
 		} else {
-			System.out.println("Valore inserito errato");
+			System.out.println("Incorrect entry");
 		}
 	}
 

@@ -37,7 +37,6 @@ public class ConnectionSingleton {
                 
                 
     			Class c = Class.forName(driver);
-    			System.out.println("Ho caricato: " + c.getName());
                 String url = "jdbc:" + vendor + "://" + host + ":" + port + "/" + dbName+"?"+jdbcAdditionalParams;
     			connection = (Connection) DriverManager.getConnection(url, username, password);
 
