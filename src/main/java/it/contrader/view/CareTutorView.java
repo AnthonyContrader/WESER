@@ -4,18 +4,18 @@ import java.util.List;
 import java.util.Scanner;
 
 import it.contrader.controller.Request;
-import it.contrader.controller.CareController;
+import it.contrader.controller.CareTutorController;
 import it.contrader.main.MainDispatcher;
-import it.contrader.model.Care;
+import it.contrader.model.CareTutor;
 
 public class CareTutorView implements View {
 
-	private CareController caresController;
+	private CareTutorController caresTutorController;
 	private Request request;
 	private String choice;
 	
 	public CareTutorView() {
-		this.caresController = new CareController();
+		this.caresTutorController = new CareTutorController();
 	}
 
 	@Override
@@ -28,7 +28,7 @@ public class CareTutorView implements View {
 		System.out.println("\n CARE TUTOR VIEW \n");
 		System.out.println("ID\t Patient name\t Patient SSC\t Patient age\t Patology\t Care name\t Quantity\t Notes");
 		System.out.print("------------------------------------------------------");
-		List<Care> cares = caresController.getAllCare();
+		List<CareTutor> cares = caresTutorController.getAllCareTutor();
 		System.out.println();
 		cares.forEach(care -> System.out.println(care.toString()));
 		System.out.println();

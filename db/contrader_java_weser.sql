@@ -33,7 +33,6 @@ CREATE TABLE `users` (
   `cf` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Insert all users';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
@@ -51,17 +50,17 @@ DROP TABLE IF EXISTS `devices`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `devices` (
   `dev_id` int(11) NOT NULL AUTO_INCREMENT,
-  `reg_number` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `reg_number` varchar(50) COLLATE utf8_unicode_ci  NOT NULL,
   `dev_type` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `description` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  `min_press` int(4) NULL,
-  `max_press` int(4) NULL,
-  `min_cir` int(4) NULL,
-  `max_cir` int(4) NULL,
-  `min_breath` int(4) NULL,
-  `max_breath` int(4) NULL,
-  `min_temp` float(2,1) NULL,
-  `max_temp` float(2,1) NULL,
+  `description` varchar(200) COLLATE utf8_unicode_ciNOT NOT NULL,
+  `min_press` int(4) NOT NULL,
+  `max_press` int(4) NOT NULL,
+  `min_cir` int(4) NOT NULL,
+  `max_cir` int(4) NOT NULL,
+  `min_breath` int(4) NOT NULL,
+  `max_breath` int(4) NOT NULL,
+  `min_temp` float(4.1) NOT NULL,
+  `max_temp` float(4.1) NOT NULL,
   
   PRIMARY KEY (`dev_id`)
   ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Insert all devices';

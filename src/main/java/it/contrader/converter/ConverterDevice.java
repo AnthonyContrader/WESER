@@ -35,6 +35,7 @@ public class ConverterDevice {
 			device.setDevId(deviceDTO.getDevId());
 			device.setRegnumber(deviceDTO.getRegnumber());
 			device.setDescription(deviceDTO.getDescription());
+			device.setDevtype(deviceDTO.getDevtype());
 			device.setMinpress(deviceDTO.getMinpress());
 			device.setMaxpress(deviceDTO.getMaxpress());
 			device.setMincir(deviceDTO.getMincir());

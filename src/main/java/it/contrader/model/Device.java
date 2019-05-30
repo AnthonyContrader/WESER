@@ -31,12 +31,12 @@ public class Device {
 		this.maxtemp = maxtemp;
 	}
 
-	public int getDevId() {
-		return devId;
-	}
-
 	public void setDevId(int devId) {
 		this.devId = devId;
+	}
+	
+	public int getDevId() {
+		return devId;
 	}
 
 	public String getRegnumber() {

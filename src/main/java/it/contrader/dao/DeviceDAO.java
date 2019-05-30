@@ -15,7 +15,7 @@ public class DeviceDAO {
 	private final String QUERY_INSERT_D = "insert into devices (reg_number, dev_type, description, min_press, max_press, min_cir, max_cir, min_breath, max_breath, min_temp, max_temp) values (?,?,?,?,?,?,?,?,?,?,?)";
 	private final String QUERY_READ_D = "select * from devices where dev_id = ?";
 
-	private final String QUERY_UPDATE_D = "UPDATE devices SET reg_number = ?, dev_type = ?, description = ?, min_press = ?, max_press = ?, min_cir = ?  min_breath = ?  max_breath = ?  min_temp = ? max_temp = ? WHERE dev_id = ?";
+	private final String QUERY_UPDATE_D = "UPDATE devices SET reg_number = ?, dev_type = ?, description = ?, min_press = ?,max_press = ?, min_cir = ?, max_cir = ? , min_breath = ?  ,max_breath = ? , min_temp = ?, max_temp = ? WHERE dev_id = ?";
 	private final String QUERY_DELETE_D = "delete from devices where dev_id = ?";
 
 	public DeviceDAO() {
@@ -88,7 +88,7 @@ public class DeviceDAO {
 			float mintemp, maxtemp;
 			
 
-			regnumber = resultSet.getString("regnumber");
+			regnumber = resultSet.getString("reg_number");
 			devtype = resultSet.getString("dev_type");
 			description = resultSet.getString("description");
 			minpress = resultSet.getInt("min_press");

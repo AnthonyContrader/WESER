@@ -30,14 +30,20 @@ public class LoginDAO {
             String userType=null;
            
             ResultSet rs;
+           
+            	
+            
             if(statement.executeQuery().next()) {
             	rs = statement.executeQuery();
             	rs.next();
             	userType = rs.getString("user_type");
             
             }
-                       
+            else {
+               	System.out.println("\nWrong username or password\n");
+               } 
            return userType;
+           
         }
         catch (SQLException e) {
             GestoreEccezioni.getInstance().gestisciEccezione(e);

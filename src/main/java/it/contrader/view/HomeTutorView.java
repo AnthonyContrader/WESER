@@ -23,7 +23,7 @@ public class HomeTutorView implements View {
         System.out.println("Choose operation");
         System.out.println("[1]  Payment menu");
         System.out.println("[2]  Emergency number menu");
-        System.out.println("[3]  View patient medial record");
+        System.out.println("[3]  View patient care");
         System.out.println("[4]  Return to login");
         this.choice = this.getInput();
     }

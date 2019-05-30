@@ -124,7 +124,7 @@ public class DeviceUpdateView implements View {
 		return scanner.nextInt();
 	}
 	
-	public Float getFloat() {
+	public float getFloat() {
 		Scanner scanner = new Scanner(System.in);
 		return scanner.nextFloat();
 	}
