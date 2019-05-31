@@ -33,7 +33,7 @@ public class HomeTutorView implements View {
         	MainDispatcher.getInstance().callView("Payment", null);
         }
         if (choice.equalsIgnoreCase("2")) {
-        	MainDispatcher.getInstance().callView("EmergencyNumber", null);
+        	MainDispatcher.getInstance().callView("Emergency", null);
         }
         
         if (choice.equalsIgnoreCase("3")) {

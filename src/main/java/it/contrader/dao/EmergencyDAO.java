@@ -11,12 +11,12 @@ import it.contrader.model.Emergency;
 
 public class EmergencyDAO {
 
-	private final String QUERY_ALL = "select * from emergencys";
-	private final String QUERY_INSERT = "insert into emergencys (em_num) values (?)";
-	private final String QUERY_READ = "select * from emergencys where id_em = ?";
+	private final String QUERY_ALL = "select * from emergency";
+	private final String QUERY_INSERT = "insert into emergency (em_num) values (?)";
+	private final String QUERY_READ = "select * from emergency where id_em = ?";
 
-	private final String QUERY_UPDATE = "UPDATE emergencys SET em_num = ? WHERE id_em = ?";
-	private final String QUERY_DELETE = "delete from emergencys where id_em = ?";
+	private final String QUERY_UPDATE = "UPDATE emergency SET em_num = ? WHERE id_em = ?";
+	private final String QUERY_DELETE = "delete from emergency where id_em = ?";
 
 	public EmergencyDAO() {
 

@@ -8,13 +8,13 @@ import it.contrader.controller.EmergencyController;
 import it.contrader.main.MainDispatcher;
 import it.contrader.model.Emergency;
 
-public class EmergencyNumberView implements View {
+public class EmergencyView implements View {
 
 	private EmergencyController emergencysController;
 	private Request request;
 	private String choice;
 	
-	public EmergencyNumberView() {
+	public EmergencyView() {
 		this.emergencysController = new EmergencyController();
 	}
 
