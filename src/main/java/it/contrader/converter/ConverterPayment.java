@@ -11,6 +11,7 @@ public class ConverterPayment {
 	public static PaymentDTO toDTO(Payment payment) {
 		PaymentDTO paymentDTO = null;
 		if (payment != null) {
+			paymentDTO= new PaymentDTO();
 			paymentDTO.setPay_id(payment.getPay_id());
 			paymentDTO.setCard_type(payment.getCard_type());
 			paymentDTO.setCard_number(payment.getCard_number());
@@ -25,12 +26,12 @@ public class ConverterPayment {
 		Payment payment = null;
 		if (paymentDTO != null) {
 			payment = new Payment();
-			payment.setPay_id(payment.getPay_id());
-			payment.setCard_type(payment.getCard_type());
-			payment.setCard_number(payment.getCard_number());
-			payment.setCard_owner(payment.getCard_owner());
-			payment.setCard_expire(payment.getCard_expire());
-			payment.setCVV(payment.getCVV());
+			payment.setPay_id(paymentDTO.getPay_id());
+			payment.setCard_type(paymentDTO.getCard_type());
+			payment.setCard_number(paymentDTO.getCard_number());
+			payment.setCard_owner(paymentDTO.getCard_owner());
+			payment.setCard_expire(paymentDTO.getCard_expire());
+			payment.setCVV(paymentDTO.getCVV());
 		}
 		return payment;
 	}

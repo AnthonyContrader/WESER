@@ -6,7 +6,7 @@ public class Payment {
 	private String card_number;
 	private String card_owner;
 	private String card_expire;
-	private int CVV;
+	private int cvv;
 
 	public Payment() {
 	}
@@ -16,7 +16,7 @@ public class Payment {
 		this.card_number = card_number;
 		this.card_owner = card_owner;
 		this.card_expire = card_expire;
-		this.CVV = CVV;
+		this.cvv = CVV;
 	}
 
    
@@ -61,11 +61,11 @@ public class Payment {
 	}
 	
 	public int getCVV() {
-		return CVV;
+		return cvv;
 	}
 
 	public void setCVV(int CVV) {
-		this.CVV = CVV;
+		this.cvv = CVV;
 	}
 	
 	@Override
