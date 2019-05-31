@@ -53,7 +53,7 @@ public class CareTutorReadView implements View {
 			}
 
 		} catch (Exception e) {
-			System.out.println("Incorect entry");
+			System.out.println("Incorrect entry");
 		}
 
 	}
@@ -66,10 +66,10 @@ public class CareTutorReadView implements View {
 
 	@Override
 	public void submit() {
-		request = new Request();
-		request.put("mode", "menu");
-		request.put("choice", "");
-		MainDispatcher.getInstance().callAction("CareTutor", "doControl", request);
+		Request request = new Request();
+//		request.put("mode", "menu");
+//		request.put("choice", "");
+		MainDispatcher.getInstance().callView("HomeTutor", request);
 	}
 
 }

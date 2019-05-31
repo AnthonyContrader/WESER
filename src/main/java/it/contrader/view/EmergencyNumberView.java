@@ -34,7 +34,7 @@ public class EmergencyNumberView implements View {
 		System.out.println();
 		
 		System.out.println("Choose operation");
-		System.out.println("[1] Emergency numbers list");
+		System.out.println("[1] Emergency number view");
 		System.out.println("[2] Insert new number");
 		System.out.println("[3] Update existing number");
 		System.out.println("[4] Delete existing number");

@@ -34,7 +34,7 @@ public class CareView implements View {
 		System.out.println();
 		
 		System.out.println("Choose operation");
-		System.out.println("[1] Cares list");
+		System.out.println("[1] Patient care view");
 		System.out.println("[2] Insert new care");
 		System.out.println("[3] Update existing care");
 		System.out.println("[4] Delete existing care");

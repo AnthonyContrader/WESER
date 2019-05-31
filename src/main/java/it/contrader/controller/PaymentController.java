@@ -21,8 +21,8 @@ public class PaymentController implements Controller {
 		return this.paymentsService.getAllPayment();
 	}
 
-	public PaymentDTO readPayment(int pay_id) {
-		return this.paymentsService.readPayment(pay_id);
+	public PaymentDTO readPayment(int pay_Id) {
+		return this.paymentsService.readPayment(pay_Id);
 	}
 
 	public boolean insertPayment(PaymentDTO paymentsDTO) {

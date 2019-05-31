@@ -75,12 +75,12 @@ public class DeviceDocUpdateView implements View {
 					deviceDocDTO.setMaxbreath(maxbreath);
 			
 				System.out.println("Insert new min temperature ");
-				mintemp = getInt();
+				mintemp = getFloat();
 				if (!(mintemp < 0))
 					deviceDocDTO.setMintemp(mintemp);
 
 				System.out.println("Insert new max temperature ");
-				maxtemp = getInt();
+				maxtemp = getFloat();
 				if (!(maxtemp < 0))
 					deviceDocDTO.setMaxtemp(maxtemp);
 				

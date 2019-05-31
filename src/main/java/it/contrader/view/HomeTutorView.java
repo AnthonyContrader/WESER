@@ -14,7 +14,7 @@ public class HomeTutorView implements View {
     private String choice;
 
     public void showResults(Request request) {
-    	System.out.println("Wellcome in Weser "+request.get("nomeUtente").toString());
+    	System.out.println("Welcome in Weser "+request.get("nomeUtente").toString());
     }
 
 

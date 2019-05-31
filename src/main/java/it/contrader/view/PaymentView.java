@@ -34,7 +34,7 @@ public class PaymentView implements View {
 		System.out.println();
 		
 		System.out.println("Choose operation");
-		System.out.println("[1] Cards list");
+		System.out.println("[1] Card view");
 		System.out.println("[2] Insert new card");
 		System.out.println("[3] Update existing card");
 		System.out.println("[4] Delete existing card");

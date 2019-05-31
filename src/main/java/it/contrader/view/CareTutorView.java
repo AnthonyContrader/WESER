@@ -34,7 +34,7 @@ public class CareTutorView implements View {
 		System.out.println();
 		
 		
-		System.out.println("[1] Return to login");
+		System.out.println("[1] Patient care view");
 		try {
 			this.choice = getInput();
 		} catch(Exception e) {

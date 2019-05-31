@@ -35,7 +35,7 @@ public class DeviceDocView implements View {
 		System.out.println();
 		
 		System.out.println("Choose operation");
-		System.out.println("[1]Devices list");
+		System.out.println("[1]Device view");
 		System.out.println("[2]Update existing device parameters");
 		System.out.println("[3]Return to login");
 		try {

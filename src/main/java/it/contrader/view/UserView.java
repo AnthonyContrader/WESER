@@ -34,7 +34,7 @@ public class UserView implements View {
 		System.out.println();
 		
 		System.out.println("Choose operation");
-		System.out.println("[1] Users list");
+		System.out.println("[1] User view");
 		System.out.println("[2] Insert new user");
 		System.out.println("[3] Update existing user");
 		System.out.println("[4] Delete existing user");

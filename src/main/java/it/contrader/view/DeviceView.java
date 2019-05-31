@@ -34,7 +34,7 @@ public class DeviceView implements View {
 		System.out.println();
 		
 		System.out.println("Choose operation");
-		System.out.println("[1] Devices list");
+		System.out.println("[1] Device view");
 		System.out.println("[2] Insert new device");
 		System.out.println("[3] Update existing device");
 		System.out.println("[4] Delete existing device");
