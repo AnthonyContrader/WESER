@@ -21,8 +21,8 @@ public class EmergencyController implements Controller {
 		return this.emergencysService.getAllEmergency();
 	}
 
-	public EmergencyDTO readEmergency(int emergencyId) {
-		return this.emergencysService.readEmergency(emergencyId);
+	public EmergencyDTO readEmergency(int Id_em) {
+		return this.emergencysService.readEmergency(Id_em);
 	}
 
 	public boolean insertEmergency(EmergencyDTO emergencysDTO) {
