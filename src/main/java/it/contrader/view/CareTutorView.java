@@ -53,6 +53,5 @@ public class CareTutorView implements View {
 
 	@Override
 	public void submit() {
-		MainDispatcher.getInstance().callView("Login", null);
-
+		MainDispatcher.getInstance().callAction("Care", "doControl", this.request);
 }}

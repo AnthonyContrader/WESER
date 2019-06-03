@@ -69,7 +69,7 @@ public class CareTutorReadView implements View {
 		Request request = new Request();
 //		request.put("mode", "menu");
 //		request.put("choice", "");
-		MainDispatcher.getInstance().callView("HomeTutor", request);
+		//MainDispatcher.getInstance().callView("HomeTutor", request);
 	}
 
 }

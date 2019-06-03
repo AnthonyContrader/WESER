@@ -36,7 +36,7 @@ public class PaymentInsertView implements View {
 		System.out.println("Insert CVV");
 		CVV=getInt();
 		
-		if (!card_type.equals("") && !card_type.equals("") && !card_owner.equals("") && !card_expire.equals("") && !(CVV < 0)) {
+		if (!card_type.equals("") && !card_number.equals("") && !card_owner.equals("") && !card_expire.equals("") && !(CVV < 0)) {
 			paymentsController.insertPayment(new PaymentDTO(card_type, card_number, card_owner, card_expire, CVV));
 		}
 	}

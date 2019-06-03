@@ -32,7 +32,8 @@ public class DeviceDocUpdateView implements View {
 		 * List<Device> devices; Integer devicesId; String password; devices =
 		 * devicesController.getAllDevices();
 		 */
-		System.out.println("\n Devices update \n");
+		System.out.println("\nDevices update \n");
+		System.out.println("\nThe parameters signed by * are required \n");
 		// System.out.println();
 		// devices.forEach(us_type -> System.out.println(us_type.toString()));
 		// System.out.println();
@@ -44,42 +45,42 @@ public class DeviceDocUpdateView implements View {
 			if (deviceDocIdToUpdate != 0) {
 				deviceDocDTO.setDevId(deviceDocIdToUpdate);
 
-				System.out.println("Insert new min pressure ");
+				System.out.println("Insert new min pressure(*) ");
 				minpress = getInt();
 				if (!(minpress < 0))
 					deviceDocDTO.setMinpress(minpress);
 
-				System.out.println("Insert new max pressure ");
+				System.out.println("Insert new max pressure(*) ");
 				maxpress = getInt();
 				if (!(maxpress < 0))
 					deviceDocDTO.setMaxpress(maxpress);
 				
-				System.out.println("Insert new min heartbeats ");
+				System.out.println("Insert new min heartbeats(*) ");
 				mincir = getInt();
 				if (!(mincir < 0))
 					deviceDocDTO.setMincir(mincir);
 
-				System.out.println("Insert new max heartbeats ");
+				System.out.println("Insert new max heartbeats(*) ");
 				maxcir = getInt();
 				if (!(maxcir < 0))
 					deviceDocDTO.setMaxcir(maxcir);
 				
-				System.out.println("Insert new min breaths ");
+				System.out.println("Insert new min breaths(*) ");
 				minbreath = getInt();
 				if (!(minbreath < 0))
 					deviceDocDTO.setMinbreath(minbreath);
 
-				System.out.println("Insert new max breaths ");
+				System.out.println("Insert new max breaths(*) ");
 				maxbreath = getInt();
 				if (!(maxbreath < 0))
 					deviceDocDTO.setMaxbreath(maxbreath);
 			
-				System.out.println("Insert new min temperature ");
+				System.out.println("Insert new min temperature(*) ");
 				mintemp = getFloat();
 				if (!(mintemp < 0))
 					deviceDocDTO.setMintemp(mintemp);
 
-				System.out.println("Insert new max temperature ");
+				System.out.println("Insert new max temperature(*) ");
 				maxtemp = getFloat();
 				if (!(maxtemp < 0))
 					deviceDocDTO.setMaxtemp(maxtemp);
@@ -88,7 +89,7 @@ public class DeviceDocUpdateView implements View {
 
 			}
 		} catch (Exception e) {
-			System.out.println("Incorrect entry");
+			System.out.println("Incorrect entry or required parameters not included");
 		}
 
 	}

@@ -41,7 +41,7 @@ public class HomeTutorView implements View {
         }
         
         if (choice.equalsIgnoreCase("4"))
-            MainDispatcher.getInstance().callAction("Login", "doControl", null);
+            MainDispatcher.getInstance().callAction("HomeTutor", "doControl", null);
         else {
             Request request = new Request();
             request.put("choice", choice);

@@ -12,10 +12,10 @@ import it.contrader.model.Payment;
 public class PaymentDAO {
 
 	private final String QUERY_ALL = "select * from payments";
-	private final String QUERY_INSERT = "insert into payments (payment_type, card_number, card_owner, card_expire, CVV) values (?,?,?,?,?)";
+	private final String QUERY_INSERT = "insert into payments (card_type, card_number, card_owner, card_expire, cvv) values (?,?,?,?,?)";
 	private final String QUERY_READ = "select * from payments where pay_id = ?";
 
-	private final String QUERY_UPDATE = "UPDATE payments SET payment_type = ?, card_number = ?, card_owner = ?, card_expire = ?, CVV = ? WHERE pay_id = ?";
+	private final String QUERY_UPDATE = "UPDATE payments SET card_type = ?, card_number = ?, card_owner = ?, card_expire = ?, cvv = ? WHERE pay_id = ?";
 	private final String QUERY_DELETE = "delete from payments where pay_id = ?";
 
 	public PaymentDAO() {
@@ -35,7 +35,7 @@ public class PaymentDAO {
 				String card_number = resultSet.getString("card_number");
 				String card_owner = resultSet.getString("card_owner");
 				String card_expire = resultSet.getString("card_expire");
-				int CVV = resultSet.getInt("CVV");
+				int CVV = resultSet.getInt("cvv");
 				payment = new Payment(card_type, card_number, card_owner, card_expire, CVV);
 				payment.setPay_id(pay_id);
 				paymentsList.add(payment);
@@ -55,7 +55,6 @@ public class PaymentDAO {
 			preparedStatement.setString(3, payment.getCard_owner());
 			preparedStatement.setString(4, payment.getCard_expire());
 			preparedStatement.setInt(5, payment.getCVV());
-			preparedStatement.setInt(6, payment.getPay_id());
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -79,7 +78,7 @@ public class PaymentDAO {
 			card_number = resultSet.getString("card_number");
 			card_owner = resultSet.getString("card_owner");
 			card_expire = resultSet.getString("card_expire");
-		    CVV = resultSet.getInt("CVV");
+		    CVV = resultSet.getInt("cvv");
 			Payment payment = new Payment(card_type, card_number, card_owner, card_expire, CVV);
 			payment.setPay_id(resultSet.getInt("pay_id"));
 
