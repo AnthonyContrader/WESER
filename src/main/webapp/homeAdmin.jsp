@@ -3,7 +3,7 @@
 <title>Administrator menu</title>
 </head>
 <body>
-	<h1>Welcome: ${utente}</h1>
+	<h1>Welcome: ${nomeUtente}</h1>
 	<h2>------- Administrator Menu -------</h2>
 
 	<h3>1. User Administrator</h3>

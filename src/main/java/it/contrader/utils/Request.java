@@ -1,6 +1,5 @@
 package it.contrader.utils;
 
-
 import java.util.HashMap;
 import java.util.Map;
 

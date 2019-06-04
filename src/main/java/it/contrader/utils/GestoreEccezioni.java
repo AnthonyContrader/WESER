@@ -13,6 +13,4 @@ public class GestoreEccezioni {
     public void gestisciEccezione(Throwable e){
         e.printStackTrace();
     }
-
-
 }

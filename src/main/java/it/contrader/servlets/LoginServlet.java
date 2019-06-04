@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet {
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		final HttpSession session = request.getSession();
-		session.setAttribute("utente", null);
+		session.setAttribute("nomeUtente", null);
 
 		if (request != null) {
 			try {
@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
 			final Request  login = usersService.login(nomeUtente, password);
 
 			if (login != null)
-				session.setAttribute("utente", login);
+				session.setAttribute("nomeUtente", login);
 			
 
 			try {

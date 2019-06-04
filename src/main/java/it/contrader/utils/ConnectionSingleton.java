@@ -25,7 +25,7 @@ public class ConnectionSingleton {
                 String dbName = "weser";
                 String username = "root";
                 String password = "root";
-                String jdbcAdditionalParams="useUnicode=true&useJDBCCompliantTimezoneShift=true&useSSL=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+                String jdbcAdditionalParams="useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
                 //Class c = Class.forName(driver);
                 
                 
