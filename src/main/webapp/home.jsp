@@ -1,38 +1,24 @@
 <html>
 <head>
-<title>Menu Principale</title>
+<title>Login WESER</title>
 </head>
 <body>
-	<h1>Benvenuto: ${utente}</h1>
-	<h2>------- MENU PRINCIPALE -------</h2>
 
-	<h3>1. Esempio</h3>
-	<form action="MenuServlet" method="post">
-		<button type="submit" value="esempioManager" name="richiesta">
-			bottone esempio</button>
-	</form>
-	<!--  
-     <h3>2. Badges</h3>
-     <form action="BadgeServlet" method="post">
-     <button type="submit" value="badgesManagement" name="richiesta"> Management badge</button>
-     </form>
-     
-     <h3>3. Assegnazione Badges</h3>
-     <form action="AssegnazioneServlet" method="post">
-     <button type="submit" value="assegnazioneManagement" name="richiesta"> Management Assegnazione</button>
-     </form>
-     
-     <h3>4. Indietro</h3>
-     <form action="CustomersServlet" method="post">
-     <input type="submit" value="indietro" name="richiesta">
-     </form>
-     
-       <h3>5.logout<h3>
-     <form action="LogoutServlet" method="post">
-     <input type="submit" value="Logout" name="Logout">
-     </form>
--->
-
+	<h2 style="color: blue; background=white;">------- USER LOGIN -------</h2>
+	<div>
+		<form action="LoginServlet" method="post">
+			<h3 style="color:red; ">
+				username: <input type="text" id="user" name="username"
+					placeholder="Insert username">
+			</h3>
+			<h3 style="color:red;">
+				password: <input type="password" id="pass" name="password"
+					placeholder="Insert password">
+			</h3>
+			<button type="submit" value="Login" name="pulsante">Login</button>
+			<br> <a href="register.jsp"> Register </a>
+		</form>
+	</div>
 
 </body>
 </html>

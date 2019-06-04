@@ -1,10 +1,9 @@
-package it.contrader.utils;
+package it.contrader.main;
 
 public class Application {
 
-    public static void main(String[] args)
-    {
-
+    public static void main(String[] args) {
+        MainDispatcher.getInstance().callAction("Login", "doControl", null);
     }
 
 }

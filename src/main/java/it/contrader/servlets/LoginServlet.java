@@ -8,12 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import it.contrader.dto.UsersDTO;
-import it.contrader.service.UsersServiceDTO;
+import it.contrader.dto.UserDTO;
+import it.contrader.service.UserService;
+import it.contrader.utils.Request;
 
 public class LoginServlet extends HttpServlet {
 
-	private final UsersServiceDTO usersServiceDTO = new UsersServiceDTO();
+	private final UsersService usersServiceDTO = new UsersService();
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,20 +25,23 @@ public class LoginServlet extends HttpServlet {
 		if (request != null) {
 			final String nomeUtente = request.getParameter("username").toString();
 			final String password = request.getParameter("password").toString();
-			// recuperiamo l'utente
-			final UsersDTO usersDTO = usersServiceDTO.getUserByUsernameAndPasword(nomeUtente, password);
+			final Request r = UserService.login(nomeUtente, password);
+			
+			request.setAttribute("id", r.get("id"));
 
-			if (usersDTO != null)
-				session.setAttribute("utente", usersDTO);
-
+			if (r != null)
 			// verifichiamo che tipo di ruolo ha all'interno dell'applicazione
 			// e lo reindirizziamo nella jsp opportuna
-			switch (usersDTO.getRuolo()) {
-			case "ADMIN":
-				getServletContext().getRequestDispatcher("/home.jsp").forward(request, response);
+			
+			switch (r.get("type").toString()) {
+			case "admin":
+				getServletContext().getRequestDispatcher("/homeAdmin.jsp").forward(request, response);
 				break;
-			case "CHAT MASTER":
-				getServletContext().getRequestDispatcher("/home.jsp").forward(request, response);
+			case "trainer":
+				getServletContext().getRequestDispatcher("/homeTrainer.jsp").forward(request, response);
+				break;
+			case "player":
+				getServletContext().getRequestDispatcher("/homePlayer.jsp").forward(request, response);
 				break;
 			default:
 				getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
