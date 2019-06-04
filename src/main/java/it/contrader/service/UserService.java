@@ -47,8 +47,8 @@ public class UserService{
 		return this.loginDAO.login(username, password);
 	}
 	
-	public String register (String username, String password,String usertype,String name,String surname,String ssc) {
-		return this.registerDAO.register(username, usertype,password,name,surname,ssc);
+	public String register (String username,String usertype, String password, String name,String surname,String ssc) {
+		return this.registerDAO.register(username, usertype, password, name, surname, ssc);
 	}
 	
 	public boolean updateUser(UserDTO userDTO) {

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import it.contrader.service.UserService;
+import it.contrader.utils.Request;
+
 
 
 public class RegisterServlet extends HttpServlet {
@@ -22,14 +24,14 @@ public class RegisterServlet extends HttpServlet {
 		session.setAttribute("nomeUtente", null);
 
 		if (request != null) {
-			final String nomeUtente = request.getParameter("username").toString();
-			final String usertype = request.getParameter("user_type").toString();
-			final String password = request.getParameter("password").toString();
-			final String name = request.getParameter("name").toString();
-			final String surname = request.getParameter("surname").toString();
-			final String ssc = request.getParameter("cf").toString();
+			final String nomeUtente = request.getParameter("username");
+			final String usertype = request.getParameter("usertype");
+			final String password = request.getParameter("password");
+			final String name = request.getParameter("name");
+			final String surname = request.getParameter("surname");
+			final String ssc = request.getParameter("cf");
 			// recuperiamo l'utente
-			usersService.register(nomeUtente,usertype, password,name,surname,ssc);
+			usersService.register(nomeUtente, usertype, password, name, surname, ssc);
 
 			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 		

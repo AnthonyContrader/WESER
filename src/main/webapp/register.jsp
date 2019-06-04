@@ -27,7 +27,7 @@
 					placeholder="insert surname">
 			</h3>
 			<h3>
-				Social secure code: <input type="text" id="ssc" name="ssc"
+				Social secure code: <input type="text" id="cf" name="cf"
 					placeholder="insert Social security number">
 			</h3>
 			<button type="submit" value="Register" name="pulsante">Register</button>
