@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
-import it.contrader.controller.GestoreEccezioni;
-import it.contrader.main.ConnectionSingleton;
+import it.contrader.utils.GestoreEccezioni;
+import it.contrader.utils.ConnectionSingleton;
 import it.contrader.model.Payment;
 
 public class PaymentDAO {

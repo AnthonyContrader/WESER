@@ -1,12 +1,8 @@
-package it.contrader.main;
+package it.contrader.utils;
 
-import java.io.FileInputStream;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.util.Properties;
-
-import it.contrader.controller.GestoreEccezioni;
+import it.contrader.utils.GestoreEccezioni;
 
 
 public class ConnectionSingleton {
@@ -23,13 +19,13 @@ public class ConnectionSingleton {
         if (connection == null) {
             try {
                 String vendor = "mysql";
-                String driver = "com.mysql.cj.jdbc.Driver";
-                String host = "127.0.0.1";
+                String driver = "com.mysql.jdbc.Driver";
+                String host = "localhost";
                 String port = "3306";
                 String dbName = "weser";
                 String username = "root";
                 String password = "root";
-                String jdbcAdditionalParams="useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+                String jdbcAdditionalParams="useUnicode=true&useJDBCCompliantTimezoneShift=true&useSSL=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
                 //Class c = Class.forName(driver);
                 
                 

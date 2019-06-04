@@ -7,15 +7,15 @@
 	<div>
 		<form action="RegisterServlet" method="post">
 			<h3>
-				username: <input type="text" id="user" name="username"
+				username: <input type="text" id="username" name="username"
 					placeholder="insert username">
 			</h3>
 			<h3>
-				user type: <input type="text" id="type" name="usertype"
+				user type: <input type="text" id="usertype" name="usertype"
 					placeholder="insert user type ">
 			</h3>
 			<h3>
-				password: <input type="password" id="pass" name="password"
+				password: <input type="password" id="password" name="password"
 					placeholder="insert password">
 			</h3>
 			<h3>
@@ -27,8 +27,8 @@
 					placeholder="insert surname">
 			</h3>
 			<h3>
-				Social secure code: <input type="text" id="cf" name="cf"
-					placeholder="inserisci username">
+				Social secure code: <input type="text" id="ssc" name="ssc"
+					placeholder="insert Social security number">
 			</h3>
 			<button type="submit" value="Register" name="pulsante">Register</button>
 		</form>

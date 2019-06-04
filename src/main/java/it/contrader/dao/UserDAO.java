@@ -12,30 +12,155 @@ import it.contrader.model.User;
 public class UserDAO {
 
 	private final String QUERY_ALL = "select * from users";
-	private final String QUERY_INSERT = "insert into users (name, type) values (?,?)";
-	private final String QUERY_INSERT_PLAYER = "insert into player (id_user) values (?)";
-	private final String QUERY_READ = "select * from users where id_user=?";
-	private final String QUERY_RIGHTS = "update user set type = ? where id_user = ?";
+	private final String QUERY_INSERT = "insert into users (username, user_type, password, name, surname, cf) values (?,?,?,?,?,?)";
+	private final String QUERY_READ = "select * from users where user_id = ?";
 
-	private final String QUERY_UPDATE = "UPDATE user SET name=?, type=? WHERE id_user=?";
-	private final String QUERY_DELETE = "delete from user where id_user=?";
-	private final String QUERY_DELETE_CHECK = "select (type) from user where id_user = ?";
-	private final String QUERY_ADD_PLAYER_INFO = "UPDATE player SET info=? WHERE id_user=?";
-	
-	private final String QUERY_CREATE_B_DATA = "insert into biomedical_data () values ()";
-	private final String QUERY_GET_LAST_B_DATA = "select max(id_biomedical_data) as id_biomedical_data from biomedical_data";
-	private final String QUERY_INSERT_B_DATA_PLAYER = "update player set id_biomedical_data = ? where id_user = ?";
+	private final String QUERY_UPDATE = "UPDATE users SET username = ?, user_type = ?, password = ?, name = ?, surname = ?, cf = ? WHERE user_id = ?";
+	private final String QUERY_DELETE = "delete from users where user_id = ?";
 
-	private final String QUERY_ALL_PLAYER_TRAINING = "select user.id_user, user.name, player.role, player.id_training, training.info as 'training type', player.info as 'player info' \n" + 
-													 "from user \n" + 
-													 "join player\n" + 
-													 "on user.id_user = player.id_user\n" + 
-													 "left join training\n" + 
-													 "on player.id_training = training.id_training;";
-	
-	private final String QUERY_ALL_PLAYER_TEAM = "select user.id_user, user.name, player.role\n" +
-												 "from user\n" +
-												 "join player\n" + 
-												 "on user.id_user = player.id_user\n" +
-												 "left join playerteam\n" + 
+	public UserDAO() {
+
+	}
+
+	public List<User> getAllUser() {
+		List<User> usersList = new ArrayList<>();
+		Connection connection = ConnectionSingleton.getInstance();
+		try {
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
+			User user;
+			while (resultSet.next()) {
+				int userId = resultSet.getInt("user_id");
+				String username = resultSet.getString("username");
+				String usertype = resultSet.getString("user_type");
+				String password = resultSet.getString("password");
+				String name = resultSet.getString("name");
+				String surname = resultSet.getString("surname");
+				String cf = resultSet.getString("cf");
+				user = new User(username, usertype, password, name, surname, cf);
+				user.setUserId(userId);
+				usersList.add(user);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return usersList;
+	}
+
+	public boolean insertUser(User user) {
+		Connection connection = ConnectionSingleton.getInstance();
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_INSERT);
+			preparedStatement.setString(1, user.getUsername());
+			preparedStatement.setString(2, user.getUsertype());
+			preparedStatement.setString(3, user.getPassword());
+			preparedStatement.setString(4, user.getName());
+			preparedStatement.setString(5, user.getSurname());
+			preparedStatement.setString(6, user.getCf());
+			preparedStatement.execute();
+			return true;
+		} catch (SQLException e) {
+			GestoreEccezioni.getInstance().gestisciEccezione(e);
+			return false;
+		}
+
+	}
+
+	public User readUser(int userId) {
+		Connection connection = ConnectionSingleton.getInstance();
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
+			preparedStatement.setInt(1, userId);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			resultSet.next();
+			String username, usertype, password, name, surname, cf;
+
+			username = resultSet.getString("username");
+			usertype = resultSet.getString("user_type");
+			password = resultSet.getString("password");
+			name = resultSet.getString("name");
+			surname = resultSet.getString("surname");
+			cf = resultSet.getString("cf");
+			User user = new User(username, usertype, password, name, surname, cf);
+			user.setUserId(resultSet.getInt("user_id"));
+
+			return user;
+		} catch (SQLException e) {
+			GestoreEccezioni.getInstance().gestisciEccezione(e);
+			return null;
+		}
+
+	}
+
+	public boolean updateUser(User userToUpdate) {
+		Connection connection = ConnectionSingleton.getInstance();
+
+		// Check if id is present
+		if (userToUpdate.getUserId() == 0)
+			return false;
+
+		User userRead = readUser(userToUpdate.getUserId());
+		if (!userRead.equals(userToUpdate)) {
+			try {
+				// Fill the userToUpdate object
+				if (userToUpdate.getUsername() == null || userToUpdate.getUsername().equals("")) {
+					userToUpdate.setUsername(userRead.getUsername());
+				}
 				
+				
+				if (userToUpdate.getUsertype() == null || userToUpdate.getUsertype().equals("")) {
+					userToUpdate.setUsertype(userRead.getUsertype());
+				}
+				
+				if (userToUpdate.getPassword() == null || userToUpdate.getPassword().equals("")) {
+					userToUpdate.setPassword(userRead.getPassword());
+				}
+				
+				if (userToUpdate.getName() == null || userToUpdate.getName().equals("")) {
+					userToUpdate.setName(userRead.getName());
+				}
+				
+				if (userToUpdate.getSurname() == null || userToUpdate.getSurname().equals("")) {
+					userToUpdate.setSurname(userRead.getSurname());
+				}
+				
+				if (userToUpdate.getCf() == null || userToUpdate.getCf().equals("")) {
+					userToUpdate.setCf(userRead.getCf());
+				}
+				// Update the user
+				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
+				preparedStatement.setString(1, userToUpdate.getUsername());
+				preparedStatement.setString(2, userToUpdate.getUsertype());
+				preparedStatement.setString(3, userToUpdate.getPassword());
+				preparedStatement.setString(4, userToUpdate.getName());
+				preparedStatement.setString(5, userToUpdate.getSurname());
+				preparedStatement.setString(6, userToUpdate.getCf());
+				preparedStatement.setInt(7, userToUpdate.getUserId());
+				int a = preparedStatement.executeUpdate();
+				if (a > 0)
+					return true;
+				else
+					return false;
+
+			} catch (SQLException e) {
+				return false;
+			}
+		}
+
+		return false;
+		
+	}
+
+	public boolean deleteUser(Integer id) {
+		Connection connection = ConnectionSingleton.getInstance();
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DELETE);
+			preparedStatement.setInt(1, id);
+			int n = preparedStatement.executeUpdate();
+			if (n != 0)
+				return true;
+		} catch (SQLException e) {
+		}
+		return false;
+	}
+}

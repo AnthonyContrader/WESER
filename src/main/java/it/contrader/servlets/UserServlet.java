@@ -20,76 +20,74 @@ import it.contrader.service.UserService;
  * Per chi farà User dovrà anche occuparsi del Login che abbiamo lasciato come struttura e va modificata in modo opportuno
  *
  */
-public class UsersServlet extends HttpServlet {
-
+public class UserServlet extends HttpServlet {
+	
 	private final UserService usersService = new UserService();
-	private List<UsersDTO> allUsers= new ArrayList<>();
+
+
+	private final UserService usersServiceDTO = new UserService();
+	private List<UserDTO> allUsers= new ArrayList<>();
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		final String choice = request.getParameter("request");
+		final String choice = request.getParameter("richiesta");
 		final HttpSession session = request.getSession(true);
 
 		switch (choice) {
 
 		case "userList":
-			allUsers = this.usersService.getAllUser();
+			allUsers = this.usersServiceDTO.getAllUsers();
 			request.setAttribute("allUsers", allUsers);
 			getServletContext().getRequestDispatcher("/users.jsp").forward(request, response);
 			break;			
 
 		case "insert":
 			final String username = request.getParameter("username");
-			final String usertype = request.getParameter("user_type");
 			final String password = request.getParameter("password");
+			final String usertype = request.getParameter("user_type");
 			final String name = request.getParameter("name");
 			final String surname = request.getParameter("surname");
 			final String ssc = request.getParameter("cf");
-			final UsersDTO users = new UsersDTO(username,usertype, password, name,surname,ssc);
+			final UserDTO users = new UserDTO(username,usertype, password,name,surname,ssc);
 			usersService.insertUser(users);
 			showAllUsers(request, response);
 			break;
 					
 		case "update":
-			System.out.println("Inser the user id to update: "+Integer.parseInt(request.getParameter("userid")));
+			System.out.println("Insert the user id to update: "+Integer.parseInt(request.getParameter("userid")));
 			System.out.println("Insert new username: "+request.getParameter("username"));
 			System.out.println("Insert new user type: "+request.getParameter("usertype"));
 			System.out.println("Insert new password: "+request.getParameter("password"));
-			System.out.println("Insert new name: "+request.getParameter("name"));
-			System.out.println("Insert new surname: "+request.getParameter("surname"));
-			System.out.println("Insert new social security number: "+request.getParameter("ssc"));
+			System.out.println("ruolo: "+request.getParameter("ruolo"));
 
 		     	
-			final Integer userid = Integer.parseInt(request.getParameter("user_id"));
-			final String username = request.getParameter("username");
-			final String usertype = request.getParameter("user_type");
-			final String password = request.getParameter("password");
-			final String name = request.getParameter("name");
-			final String surname = request.getParameter("surname");
-			final String ssc = request.getParameter("cf");
-			final UsersDTO user = new UsersDTO(userid,username,usertype,password,name,surname, ssc);
+			final Integer idUpdate = Integer.parseInt(request.getParameter("id"));
+			final String usernameUpdate = request.getParameter("username");
+			final String passwordUpdate = request.getParameter("password");
+			final String ruoloUpdate = request.getParameter("ruolo");
+			final UsersDTO user = new UsersDTO(idUpdate, usernameUpdate,passwordUpdate, ruoloUpdate);
 					
 				
 					
-			usersService.updateUser(user);
+			usersServiceDTO.updateUsers(user);
 			showAllUsers(request, response);
 			break;
 
 		case "delete":
-			System.out.println("Inser the user id to delete: "+Integer.parseInt(request.getParameter("userid")));
+			final Integer idUpdat = Integer.parseInt(request.getParameter("id"));
 			
-		     	
-			final Integer userid = Integer.parseInt(request.getParameter("user_id"));
-			
-			
-			usersService.deleteUser(Integer userid);
+			final UsersDTO use = new UsersDTO(idUpdat,"" ,"","");
+			usersServiceDTO.deleteUsers(use);
 			showAllUsers(request, response);
 			break;
 
-
-		case "back":
+		case "Indietro":
 			response.sendRedirect("home.jsp");
+			break;
+
+		case "LogsMenu":
+			response.sendRedirect("homeLogs.jsp");
 			break;
 
 				}
@@ -102,7 +100,7 @@ public class UsersServlet extends HttpServlet {
 
 private void showAllUsers(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
-	allUsers = this.usersService.getAllUser();
+	allUsers = this.usersServiceDTO.getAllUsers();
 	request.setAttribute("allUsers", allUsers);
 	getServletContext().getRequestDispatcher("/users.jsp").forward(request, response);
 }

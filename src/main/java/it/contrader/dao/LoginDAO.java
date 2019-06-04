@@ -11,7 +11,7 @@ import it.contrader.utils.ConnectionSingleton;
 
 public class LoginDAO {
 
-    private final String QUERY_LOGIN = "select * from users where username = ? AND password = ?";
+    private final String QUERY_LOGIN = "select * from users where username = ? AND cf = ?";
     /**
      * 
      * @param username

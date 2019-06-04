@@ -4,8 +4,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.contrader.controller.GestoreEccezioni;
-import it.contrader.main.ConnectionSingleton;
+import it.contrader.utils.GestoreEccezioni;
+import it.contrader.utils.ConnectionSingleton;
 import it.contrader.model.DeviceDoc;
 
 public class DeviceDocDAO {

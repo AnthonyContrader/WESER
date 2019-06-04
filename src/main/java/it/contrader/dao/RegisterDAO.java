@@ -10,7 +10,7 @@ import it.contrader.utils.ConnectionSingleton;
 
 public class RegisterDAO {
 
-    private final String QUERY_REGISTER = "INSERT INTO users (username, user_type password,name,surname,cf) VALUES (?,?,?,?,? ?)";
+    private final String QUERY_REGISTER = "INSERT INTO users (username, user_type, password,name,surname,cf) VALUES (?,?,?,?,?,?)";
     
     public String register(String username, String password,String usertype,String name,String surname,String cf) {
 
@@ -18,17 +18,17 @@ public class RegisterDAO {
         try {
             PreparedStatement statement = connection.prepareStatement(QUERY_REGISTER);
             statement.setString(1, username);
-            statement.setString(1, usertype);
-            statement.setString(2, password);
-            statement.setString(1, name);
-            statement.setString(1, surname);
-            statement.setString(1, cf);
-            String userType=null;
+            statement.setString(2, usertype);
+            statement.setString(3, password);
+            statement.setString(4, name);
+            statement.setString(5, surname);
+            statement.setString(6, cf);
+            //String userType=null;
             	statement.execute();
             	
            
             
-            return userType;
+           return usertype;
         }
         catch (SQLException e) {
             GestoreEccezioni.getInstance().gestisciEccezione(e);

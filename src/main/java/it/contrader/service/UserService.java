@@ -40,12 +40,19 @@ public class UserService{
 		return listDTO;
 	}
 	
+	public boolean insertUser(UserDTO userDTO) {
+		return this.usersDAO.insertUser(ConverterUser.toEntity(userDTO));
+	}
 	public Request login (String username, String password) {
 		return this.loginDAO.login(username, password);
 	}
 	
-	public String register (String username, String password) {
-		return this.registerDAO.register(username, password);
+	public String register (String username, String password,String usertype,String name,String surname,String ssc) {
+		return this.registerDAO.register(username, usertype,password,name,surname,ssc);
+	}
+	
+	public boolean updateUser(UserDTO userDTO) {
+		return this.usersDAO.updateUser(ConverterUser.toEntity(userDTO));
 	}
 	
 	public boolean delete (int id_user) {
@@ -56,26 +63,8 @@ public class UserService{
 		return this.usersDAO.getAllUser();
 	}
 	
-	public boolean setUserRights(int userId, String userType) {
-		return this.usersDAO.setUserRights(userId, userType);
-	}
-	
-	public boolean addPlayerInfo(int userId, String player_info) {
-		return this.usersDAO.addPlayerInfo(userId, player_info);	
-	}
-	
-	public Player getPlayerInfo(int userId) {
-		return this.usersDAO.getPlayerInfo(userId);	
-	}
 	
 	
-	public Player getTrainingInfo(int userId) {
-		return this.usersDAO.getPlayerInfo(userId);	
-	}
-	
-	public List<Player> getAllPlayerTraining() {
-		return this.usersDAO.getAllPlayerTraining();
-	}	
-	
+
 	
 }
