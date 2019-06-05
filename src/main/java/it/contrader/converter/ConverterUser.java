@@ -11,50 +11,38 @@ public class ConverterUser {
 	public static UserDTO toDTO(User user) {
 		UserDTO userDTO = null;
 		if (user != null) {
-			userDTO = new UserDTO();
+			userDTO = new UserDTO( user.getUsername(), user.getUsertype(), user.getPassword(), user.getName(), user.getSurname(), user.getCf());
 			userDTO.setUserId(user.getUserId());
-			userDTO.setUsername(user.getUsername());
-			userDTO.setUsertype(user.getUsertype());
-			userDTO.setPassword(user.getPassword());
-			userDTO.setName(user.getName());
-			userDTO.setSurname(user.getSurname());
-			userDTO.setCf(user.getCf());
 		}
 		return userDTO;
 	}
 
-	public static User toEntity(UserDTO userDTO) {
-		User user = null;
-		if (userDTO != null) {
-			user = new User();
-			user.setUserId(userDTO.getUserId());
-			user.setUsername(userDTO.getUsername());
-			user.setUsertype(userDTO.getUsertype());
-			user.setPassword(userDTO.getPassword());
-			user.setName(userDTO.getName());
-			user.setSurname(userDTO.getSurname());
-			user.setCf(userDTO.getCf());
-		}
-		return user;
-	}
+     public static User toEntity(UserDTO userDTO) {
+    	 User user = null;
+    	 if (userDTO != null) {
+    		 user= new User(userDTO.getUsername(),
+			userDTO.getUsertype(),
+			userDTO.getPassword(),
+			userDTO.getName(),
+			userDTO.getSurname(),
+			userDTO.getCf());
+			
+			if (userDTO.getUserId() != 0)
+				user.setUserId(userDTO.getUserId ());
+	
+    	 }
+    	 return user;
+     }
 
-	public static List<UserDTO> toListDTO(List<User> list) {
-		List<UserDTO> listUserDTO = new ArrayList<>();
-		if (!list.isEmpty()) {
-			for (User user : list) {
-				listUserDTO.add(ConverterUser.toDTO(user));
-			}
-		}
-		return listUserDTO;
-	}
-
-	public static List<User> toListEntity(List<UserDTO> listUserDTO) {
-		List<User> list = new ArrayList<>();
-		if (!listUserDTO.isEmpty()) {
-			for (UserDTO userDTO : listUserDTO) {
-				list.add(ConverterUser.toEntity(userDTO));
-			}
-		}
-		return list;
-	}
+	/*
+	 * public static List<UserDTO> toListDTO(List<User> list) { List<UserDTO>
+	 * listUserDTO = new ArrayList<>(); if (!list.isEmpty()) { for (User user :
+	 * list) { listUserDTO.add(ConverterUser.toDTO(user)); } } return listUserDTO; }
+	 * 
+	 * public static List<User> toListEntity(List<UserDTO> listUserDTO) { List<User>
+	 * list = new ArrayList<>(); if (!listUserDTO.isEmpty()) { for (UserDTO userDTO
+	 * : listUserDTO) { list.add(ConverterUser.toEntity(userDTO)); } } return list;
+	 * }
+	 */
+     
 }

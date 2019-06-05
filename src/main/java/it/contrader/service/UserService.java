@@ -33,8 +33,8 @@ public class UserService{
 		List<User> list = usersDAO.getAllUser();
 		List<UserDTO> listDTO = new ArrayList<>();
 
-		for (User users : list) {
-			listDTO.add(ConverterUser.toDTO(users));
+		for (User user : list) {
+			listDTO.add(ConverterUser.toDTO(user));
 		}
 
 		return listDTO;

@@ -8,6 +8,9 @@ import java.util.Vector;
 import it.contrader.utils.GestoreEccezioni;
 import it.contrader.utils.ConnectionSingleton;
 import it.contrader.model.User;
+import it.contrader.dto.UserDTO;
+import it.contrader.service.UserService;
+
 
 public class UserDAO {
 

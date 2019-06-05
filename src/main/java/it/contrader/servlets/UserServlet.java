@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import it.contrader.converter.ConverterUser;
 import it.contrader.dto.UserDTO;
 import it.contrader.service.UserService;
 
@@ -27,22 +26,23 @@ public class UserServlet extends HttpServlet {
 
 	private final UserService usersServiceDTO = new UserService();
 	private List<UserDTO> allUsers= new ArrayList<>();
+	private int userId;
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		final String choice = request.getParameter("richiesta");
+		final String choice = request.getParameter("action");
 		final HttpSession session = request.getSession(true);
 
 		switch (choice) {
 
-		case "userList":
+		case "UsersList":
 			allUsers = this.usersServiceDTO.getAllUsers();
 			request.setAttribute("allUsers", allUsers);
-			getServletContext().getRequestDispatcher("/users.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/user.jsp").forward(request, response);
 			break;			
 
-		case "insert":
+		case "Insert":
 			final String username = request.getParameter("username");
 			final String password = request.getParameter("password");
 			final String usertype = request.getParameter("user_type");
@@ -51,57 +51,53 @@ public class UserServlet extends HttpServlet {
 			final String ssc = request.getParameter("cf");
 			final UserDTO users = new UserDTO(username,usertype, password,name,surname,ssc);
 			usersService.insertUser(users);
-			showAllUsers(request, response);
+			showAllUser(request, response);
 			break;
 					
-		case "update":
-			System.out.println("Insert the user id to update: "+Integer.parseInt(request.getParameter("userid")));
+		case "Update":
+			System.out.println("Insert the user id to update: "+Integer.parseInt(request.getParameter("userId")));
 			System.out.println("Insert new username: "+request.getParameter("username"));
 			System.out.println("Insert new user type: "+request.getParameter("usertype"));
 			System.out.println("Insert new password: "+request.getParameter("password"));
-			System.out.println("ruolo: "+request.getParameter("ruolo"));
+			System.out.println("Insert new name: "+request.getParameter("name"));
+			System.out.println("Insert new surname: "+request.getParameter("surname"));
+			System.out.println("Insert new Social Security Number: "+request.getParameter("ssc"));
 
 		     	
-			final Integer idUpdate = Integer.parseInt(request.getParameter("id"));
 			final String usernameUpdate = request.getParameter("username");
+			final String usertypeUpdate = request.getParameter("usertype");
 			final String passwordUpdate = request.getParameter("password");
-			final String ruoloUpdate = request.getParameter("ruolo");
-			final UsersDTO user = new UsersDTO(idUpdate, usernameUpdate,passwordUpdate, ruoloUpdate);
+			final String nameUpdate = request.getParameter("name");
+			final String surnameUpdate = request.getParameter("surname");
+			final String sscUpdate = request.getParameter("ssc");
+			final UserDTO user = new UserDTO(usernameUpdate,usertypeUpdate, passwordUpdate, nameUpdate, surnameUpdate, sscUpdate);
 					
-				
-					
-			usersServiceDTO.updateUsers(user);
-			showAllUsers(request, response);
+							
+			usersService.updateUser(user);
+			showAllUser(request, response);
 			break;
 
-		case "delete":
-			final Integer idUpdat = Integer.parseInt(request.getParameter("id"));
+		case "Delete":
+			final Integer idDelete = Integer.parseInt(request.getParameter("userId"));
 			
-			final UsersDTO use = new UsersDTO(idUpdat,"" ,"","");
-			usersServiceDTO.deleteUsers(use);
-			showAllUsers(request, response);
+			final UserDTO use = new UserDTO("" ,"","","","","");
+			usersService.delete(userId);
+			showAllUser(request, response);
 			break;
 
-		case "Indietro":
-			response.sendRedirect("home.jsp");
-			break;
-
-		case "LogsMenu":
-			response.sendRedirect("homeLogs.jsp");
+		case "Back":
+			response.sendRedirect("index.jsp");
 			break;
 
 				}
 
 			}
 
-		
+	private void showAllUser(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+			allUsers = this.usersServiceDTO.getAllUsers();
+			request.getSession().setAttribute("usersList", allUsers);
+			getServletContext().getRequestDispatcher("/user.jsp").forward(request, response);
 
-	
-
-private void showAllUsers(HttpServletRequest request, HttpServletResponse response)
-		throws ServletException, IOException {
-	allUsers = this.usersServiceDTO.getAllUsers();
-	request.setAttribute("allUsers", allUsers);
-	getServletContext().getRequestDispatcher("/users.jsp").forward(request, response);
-}
+		}
 }

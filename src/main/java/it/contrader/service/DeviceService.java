@@ -1,11 +1,15 @@
 package it.contrader.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.converter.ConverterDevice;
+import it.contrader.converter.ConverterUser;
 import it.contrader.dao.DeviceDAO;
 import it.contrader.dto.DeviceDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.model.Device;
+import it.contrader.model.User;
 
 public class DeviceService {
 
@@ -15,8 +19,16 @@ public class DeviceService {
 		this.deviceDAO = new DeviceDAO();
 	}
 
-	public List<Device> getAllDevice() {
-		return this.deviceDAO.getAllDevice();
+	public List<DeviceDTO> getAllDevice() {
+		
+		List<Device> list = deviceDAO.getAllDevice();
+		List<DeviceDTO> listDTO = new ArrayList<>();
+
+		for (Device devices : list) {
+			listDTO.add(ConverterDevice.toDTO(devices));
+		}
+
+		return listDTO;
 	}
 
 	public boolean insertDevice(DeviceDTO deviceDTO) {
