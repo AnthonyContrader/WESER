@@ -17,6 +17,34 @@ public class PaymentDAO {
 
 	private final String QUERY_UPDATE = "UPDATE payments SET card_type = ?, card_number = ?, card_owner = ?, card_expire = ?, cvv = ? WHERE pay_id = ?";
 	private final String QUERY_DELETE = "delete from payments where pay_id = ?";
+    public String register(String cardname, String cardtype, String cardown, String cardexp, int cvv) {
+    	
+    	 Connection connection = ConnectionSingleton.getInstance();
+         try {
+             PreparedStatement statement = connection.prepareStatement(QUERY_ALL);
+             statement.setString(1, cardname);
+             statement.setString(2, cardtype);
+             statement.setString(3, cardown);
+             statement.setString(4, cardexp);
+             statement.setString(5, cvv);
+             //String userType=null;
+             //ResultSet rs = null;
+             //if(statement.executeQuery().next()) {
+             //	rs.next();
+       
+             	statement.execute();	
+             //}
+             
+             //return userType;
+             	return "";
+            // return register(username, usertype, password, name, surname, ssc);
+             
+         }
+         catch (SQLException e) {
+             GestoreEccezioni.getInstance().gestisciEccezione(e);
+             return null;
+         }
+    }
 
 	public PaymentDAO() {
 
@@ -39,6 +67,7 @@ public class PaymentDAO {
 				payment = new Payment(card_type, card_number, card_owner, card_expire, CVV);
 				payment.setPay_id(pay_id);
 				paymentsList.add(payment);
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

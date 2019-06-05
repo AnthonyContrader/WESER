@@ -1,5 +1,6 @@
 package it.contrader.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.converter.ConverterPayment;
@@ -7,32 +8,45 @@ import it.contrader.dao.PaymentDAO;
 import it.contrader.dto.PaymentDTO;
 import it.contrader.model.Payment;
 
+
 public class PaymentService {
 
-	private PaymentDAO paymentDAO;
+	private final PaymentDAO paymentsDAO;
 
 	public PaymentService() {
-		this.paymentDAO = new PaymentDAO();
+		this.paymentsDAO = new PaymentDAO();
 	}
 
-	public List<Payment> getAllPayment() {
-		return this.paymentDAO.getAllPayment();
+	
+	public List<PaymentDTO> getAllPayment() {
+
+		List<Payment> list = paymentsDAO.getAllPayment();
+		List<PaymentDTO> listDTO = new ArrayList<>();
+
+		for (Payment payments: list) {
+			listDTO.add(ConverterPayment.toDTO(payments));
+		}
+
+		return listDTO;
 	}
 
-	public boolean insertPayment(PaymentDTO paymentDTO) {
-		return this.paymentDAO.insertPayment(ConverterPayment.toEntity(paymentDTO));
+	public String register (String cardtype,String cardname, String cardown, String cardexp,int cvv) {
+		return this.paymentsDAO.register(cardtype, cardname, cardown, cardexp, cvv);
+	}
+	public  boolean insertPayment(PaymentDTO paymentDTO) {
+		return this.paymentsDAO.insertPayment((ConverterPayment.toEntity(paymentDTO)));
 	}
 	
 	public PaymentDTO readPayment(int paymentId) {
-		return ConverterPayment.toDTO(this.paymentDAO.readPayment(paymentId));
+		return ConverterPayment.toDTO(this.paymentsDAO.readPayment(paymentId));
 	}
 	
 	public boolean updatePayment(PaymentDTO paymentDTO) {
-		return this.paymentDAO.updatePayment(ConverterPayment.toEntity(paymentDTO));
+		return this.paymentsDAO.updatePayment(ConverterPayment.toEntity(paymentDTO));
 	}
 	
 	public boolean deletePayment(int paymentId) {
-		return this.paymentDAO.deletePayment(paymentId);
+		return this.paymentsDAO.deletePayment(paymentId);
 	}
 	
 	
