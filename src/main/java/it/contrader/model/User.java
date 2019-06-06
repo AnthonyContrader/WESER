@@ -3,8 +3,8 @@ package it.contrader.model;
 public class User {
 	private int userId;
 	private String username;
-	private String password;
 	private String usertype;
+	private String password;
 	private String cf;
 	private String surname;
 	private String name;
@@ -68,9 +68,6 @@ public class User {
 			return false;
 		}
 		
-		if (!this.getUsertype().equals(userCompare.getUsertype())) {
-			return false;
-		}
 		
 		return true;
 				

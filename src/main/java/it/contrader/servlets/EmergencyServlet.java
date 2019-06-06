@@ -14,7 +14,6 @@ import it.contrader.dto.UserDTO;
 import it.contrader.service.UserServiceDTO;
 
 
-@SuppressWarnings("serial")
 public class UserServlet extends HttpServlet {
 
 	private final UserServiceDTO userServiceDTO = new UserServiceDTO();
@@ -41,7 +40,7 @@ public class UserServlet extends HttpServlet {
 		case "insert":
 			// final Integer id = Integer.parseInt(request.getParameter("user_id"));
 			final String username = request.getParameter("username");
-			final String usertype = request.getParameter("user_type");
+			final String usertype = request.getParameter("usertype");
 			final String password = request.getParameter("password");
 			final String name = request.getParameter("name");
 			final String surname = request.getParameter("surname");
@@ -70,7 +69,7 @@ public class UserServlet extends HttpServlet {
 
 			final Integer idUpdate = Integer.parseInt(request.getParameter("user_id"));
 			final String usernameUpdate = request.getParameter("username");
-			final String usertypeUpdate= request.getParameter("user_type");
+			final String usertypeUpdate= request.getParameter("usertype");
 			final String passwordUpdate = request.getParameter("password");
 			final String nameUpdate = request.getParameter("name");
 			final String surnameUpdate = request.getParameter("surname");
@@ -92,12 +91,12 @@ public class UserServlet extends HttpServlet {
 			break;
 
 		case "indietro":
-			getServletContext().getRequestDispatcher("JspApp/homeAdmin.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("homeAdmin.jsp").forward(request, response);
 
 			break;
 
 		case "logsMenu":
-			getServletContext().getRequestDispatcher("JspApp/index.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("index.jsp").forward(request, response);
 			break;
 
 		}

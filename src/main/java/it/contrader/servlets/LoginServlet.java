@@ -1,6 +1,5 @@
 package it.contrader.servlets;
 
-
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -12,10 +11,7 @@ import javax.servlet.http.HttpSession;
 import it.contrader.service.UserServiceDTO;
 import it.contrader.dto.UserDTO;
 
-
-
 public class LoginServlet extends HttpServlet {
-
 
 	private final UserServiceDTO usersServiceDTO = new UserServiceDTO();
 

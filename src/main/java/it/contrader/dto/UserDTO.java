@@ -4,18 +4,18 @@ public class UserDTO {
 
 	private Integer id;
 	private String username;
-	private String password;
 	private String usertype;
+	private String password;
 	private String name;
 	private String surname;
 	private String cf;
 	
-	public UserDTO(String username, String password, String usertype, String name, String surname, String cf) {
+	public UserDTO(String username, String usertype,String password, String name, String surname, String cf) {
 		super();
-		//this.id = id;
+		this.id = id;
 		this.username = username;
-		this.password = password;
 		this.usertype = usertype;
+		this.password = password;
 		this.name=name;
 		this.surname=surname;
 		this.cf=cf;
@@ -85,9 +85,6 @@ public class UserDTO {
 			return false;
 		}
 		
-		if (!this.getUsertype().equals(userCompare.getUsertype())) {
-			return false;
-		}
 		
 		return true;		
 	}
