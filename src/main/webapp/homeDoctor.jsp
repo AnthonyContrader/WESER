@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Home Admin</title>
+<title>Home Doctor</title>
 
 </head>
 <body>
@@ -15,10 +15,9 @@
 
 	</div>
 	<div class="contenitore">
-		<a href="UserServlet?richiesta=UserManager"><span class="fs"> User Management </span></a>
+		<a href="DoctorServlet?richiesta=CareManager"><span class="fs"> Care Management </span></a>
 		<br>
-		<a href="DeviceServlet?richiesta=DeviceManager"><span class="fs"> Device Management </span></a>
-		<br>
+		<a href="DeviceServlet?richiesta=DeviceManager"><span class="fs"> Update device parameters </span></a>
 		<br>
 		<a href="LogoutServlet" target="self"><span class="fs"> Logout </span></a>
 	</div>

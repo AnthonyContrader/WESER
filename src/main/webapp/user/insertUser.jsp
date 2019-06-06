@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Inserisci nuovo utente</title>
+<title>Inserisci new user</title>
 
 </head>
 <body>
@@ -19,13 +19,8 @@
 	<br>
 	<br>
 	<form method="POST" action="/JspApp/UserServlet?richiesta=insert">
-
-		User type: <select style="width: 275px;" name="user_type">
-			<option value="admin">Admin</option>
-			<option value="bo">Business Owner</option>
-		</select>
 		<br>
-		<br>
+	    <br>
 		Username: <input type="text" size="40" maxlength="40" name="username" />
 		<br>
 		<br>

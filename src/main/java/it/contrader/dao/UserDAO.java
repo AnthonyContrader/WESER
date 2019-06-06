@@ -126,6 +126,8 @@ public class UserDAO {
 			preparedStatement.setString(4, userToUpdate.getName());
 			preparedStatement.setString(5, userToUpdate.getSurname());
 			preparedStatement.setString(6, userToUpdate.getCf());
+			preparedStatement.setInt(7, userToUpdate.getUserId());
+
 			int a = preparedStatement.executeUpdate();
 			if (a > 0)
 				return true;
@@ -169,12 +171,12 @@ public class UserDAO {
 			while (resultSet.next()) {
 				int userId=resultSet.getInt("user_id");
 				 String usernameS = resultSet.getString("username");
-				String usertype = resultSet.getString("user_type");
+				String usertypeS = resultSet.getString("user_type");
 				 String passwordS = resultSet.getString("password");
 				String name = resultSet.getString("name");
 				String surname = resultSet.getString("surname");
 				String cf = resultSet.getString("cf");
-				utente = new User(usernameS, usertype,passwordS,name,surname,cf);
+				utente = new User(usernameS, usertypeS,passwordS,name,surname,cf);
 				utente.setUserId(userId);
 			}
 

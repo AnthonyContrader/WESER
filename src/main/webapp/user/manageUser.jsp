@@ -29,8 +29,11 @@
 		<tr>
 			<th>ID</th>
 			<th>Username</th>
-			<th>Password</th>
 			<th>User Type</th>
+			<th>Password</th>
+			<th>Name</th>
+			<th>Surname</th>
+			<th>SSC</th>
 			<th>Update</th>
 			<th>Delete</th>
 		</tr>
@@ -45,23 +48,18 @@
 			<td><%=user.getName()%></td>
 			<td><%=user.getSurname()%></td>
 			<td><%=user.getCf()%></td>
-
+			<td><a href="UserServlet?richiesta=updateRedirect&id=<%=user.getId() %>">Update</a></td>
+			<td><a href="UserServlet?richiesta=delete&id=<%=user.getId() %>" >Delete</a></td>
 		</tr>
 		<%
 			}
 		%>
 	</table>
-	<form name="deleteForm">
-	<input type="text" name="idDel"value="" method="post" action="/JspApp/UserServlet?richiesta=delete?id=idDel">Insert id to delete</form>
-	<button name="delete" value="delete" type="submit">Delete</button>
-	<br>
+	
 	<br>
 	<a href="/JspApp/UserServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New User</i></a>
-	<a href="/JspApp/UserServlet?richiesta=delete"><i class="fas fa-plus-circle fa-lg"> Delete User</i></a>
-
-	<br>
-	<br>
-	<a href="/JspApp/UserServlet?richiesta=indietro"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<br>	
+	<a href="UserServlet?richiesta=indietro"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 </body>
