@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import it.contrader.dto.UserDTO;
-import it.contrader.service.UserServiceDTO;
+import it.contrader.dto.EmergencyDTO;
+import it.contrader.service.EmergencyServiceDTO;
 
 
-public class UserServlet extends HttpServlet {
+public class EmergencyServlet extends HttpServlet {
 
-	private final UserServiceDTO userServiceDTO = new UserServiceDTO();
-	private List<UserDTO> allUsers = new ArrayList<>();
+	private final EmergencyServiceDTO emergencyServiceDTO = new EmergencyServiceDTO();
+	private List<EmergencyDTO> allEmergencys = new ArrayList<>();
 
 
 	public void service(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
@@ -27,67 +27,57 @@ public class UserServlet extends HttpServlet {
 
 		switch (scelta) {
 
-		case "UserManager":
-			allUsers = this.userServiceDTO.getAllUsers();
-			request.setAttribute("allUser", allUsers);
-			getServletContext().getRequestDispatcher("/user/manageUser.jsp").forward(request, response);
+		case "EmergencyManager":
+			allEmergencys = this.emergencyServiceDTO.getAllEmergencys();
+			request.setAttribute("allEmergency", allEmergencys);
+			getServletContext().getRequestDispatcher("/emergency/manageEmergency.jsp").forward(request, response);
 			break;
 
 		case "insertRedirect":
-			getServletContext().getRequestDispatcher("/user/insertUser.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/emergency/insertEmergency.jsp").forward(request, response);
 			break;
 
 		case "insert":
-			// final Integer id = Integer.parseInt(request.getParameter("user_id"));
-			final String username = request.getParameter("username");
-			final String usertype = request.getParameter("usertype");
-			final String password = request.getParameter("password");
-			final String name = request.getParameter("name");
-			final String surname = request.getParameter("surname");
-			final String cf = request.getParameter("cf");
-			final UserDTO users = new UserDTO(username,usertype, password, name,surname,cf);
-			userServiceDTO.insertUsers(users);
-			showAllUsers(request, response);
+			// final Integer id = Integer.parseInt(request.getParameter("emergency_id"));
+			final String emnum = request.getParameter("emnum");
+			final EmergencyDTO emergencys = new EmergencyDTO(emnum);
+			emergencyServiceDTO.insertEmergencys(emergencys);
+			showAllEmergencys(request, response);
 			break;
 
 		case "updateRedirect":
-			int id = Integer.parseInt(request.getParameter("id"));
-			UserDTO userUpdate = new UserDTO("", "", "","","","");
-			userUpdate.setId(id);
+			int id = Integer.parseInt(request.getParameter("emId"));
+			EmergencyDTO emergencyUpdate = new EmergencyDTO("");
+			emergencyUpdate.setEmId(id);
 
-			userUpdate = this.userServiceDTO.readUser(userUpdate);
-			request.setAttribute("userUpdate", userUpdate);
-			getServletContext().getRequestDispatcher("/user/updateUser.jsp").forward(request, response);
+			emergencyUpdate = this.emergencyServiceDTO.readEmergency(emergencyUpdate);
+			request.setAttribute("emergencyUpdate", emergencyUpdate);
+			getServletContext().getRequestDispatcher("/emergency/updateEmergency.jsp").forward(request, response);
 
 			break;
 
 		case "update":
-			//System.out.println("ID: " + Integer.parseInt(request.getParameter("user_id")));
-			//System.out.println("username: " + request.getParameter("user_user"));
-			//System.out.println("password: " + request.getParameter("user_pass"));
-			//System.out.println("Tipo utente: " + request.getParameter("user_type"));
+			//System.out.println("ID: " + Integer.parseInt(request.getParameter("emergency_id")));
+			//System.out.println("emergencyname: " + request.getParameter("emergency_emergency"));
+			//System.out.println("password: " + request.getParameter("emergency_pass"));
+			//System.out.println("Tipo utente: " + request.getParameter("emergency_type"));
 
-			final Integer idUpdate = Integer.parseInt(request.getParameter("user_id"));
-			final String usernameUpdate = request.getParameter("username");
-			final String usertypeUpdate= request.getParameter("usertype");
-			final String passwordUpdate = request.getParameter("password");
-			final String nameUpdate = request.getParameter("name");
-			final String surnameUpdate = request.getParameter("surname");
-			final String cfUpdate = request.getParameter("cf");
-			final UserDTO user = new UserDTO(usernameUpdate,usertypeUpdate, passwordUpdate, nameUpdate,surnameUpdate,cfUpdate);
-			user.setId(idUpdate);
+			final Integer emIdUpdate = Integer.parseInt(request.getParameter("emId"));
+			final String emnumUpdate = request.getParameter("emnum");
+			final EmergencyDTO emergency = new EmergencyDTO(emnumUpdate);
+			emergency.setEmId(emIdUpdate);
 
-			userServiceDTO.updateUser(user);
-			showAllUsers(request, response);
+			emergencyServiceDTO.updateEmergency(emergency);
+			showAllEmergencys(request, response);
 			break;
 
 		case "delete":
-			final Integer deleteId = Integer.parseInt(request.getParameter("id"));
+			final Integer deleteemId = Integer.parseInt(request.getParameter("emId"));
 
-			final UserDTO userdelete = new UserDTO("", "", "","","","");
-			userdelete.setId(deleteId);
-			userServiceDTO.deleteUsers(userdelete);
-			showAllUsers(request, response);
+			final EmergencyDTO emergencydelete = new EmergencyDTO("");
+			emergencydelete.setEmId(deleteemId);
+			emergencyServiceDTO.deleteEmergencys(emergencydelete);
+			showAllEmergencys(request, response);
 			break;
 
 		case "indietro":
@@ -103,10 +93,10 @@ public class UserServlet extends HttpServlet {
 
 	}
 
-	private void showAllUsers(HttpServletRequest request, HttpServletResponse response)
+	private void showAllEmergencys(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		allUsers = this.userServiceDTO.getAllUsers();
-		request.setAttribute("allUser", allUsers);
-		getServletContext().getRequestDispatcher("/user/manageUser.jsp").forward(request, response);
+		allEmergencys = this.emergencyServiceDTO.getAllEmergencys();
+		request.setAttribute("allEmergency", allEmergencys);
+		getServletContext().getRequestDispatcher("/emergency/manageEmergency.jsp").forward(request, response);
 	}
 }

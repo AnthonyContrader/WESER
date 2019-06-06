@@ -1,0 +1,86 @@
+package it.contrader.dto;
+
+public class PaymentDTO {
+
+	private Integer payId;
+	private String cardnum;
+	private String cardtype;
+	private String cardown;
+	private String cardexp;
+	private int cvv;
+	
+	public PaymentDTO(String cardnum, String cardtype, String cardown, String cardexp, int cvv) {
+		super();
+		//this.id = id;
+		this.cardnum = cardnum;
+		this.cardtype = cardtype;
+		this.cardown=cardown;
+		this.cardexp=cardexp;
+		this.cvv=cvv;
+	}
+
+	public String getCardown() {
+		return cardown;
+	}
+
+	public void setCardown(String cardown) {
+		this.cardown = cardown;
+	}
+
+	public String getCardexp() {
+		return cardexp;
+	}
+
+	public void setCardexp(String cardexp) {
+		this.cardexp = cardexp;
+	}
+
+	public int getCVV() {
+		return cvv;
+	}
+
+	public void setCVV(int cvv) {
+		this.cvv = cvv;
+	}
+
+	public Integer getPayId() {
+		return payId;
+	}
+
+	public void setPayId(Integer payId) {
+		this.payId = payId;
+	}
+
+
+	public String getCardnum() {
+		return cardnum;
+	}
+
+	public void setCardnum(String cardnum) {
+		this.cardnum = cardnum;
+	}
+	public String getCardtype() {
+		return cardtype;
+	}
+
+	public void setCardtype(String cardtype) {
+		this.cardtype = cardtype;
+	}
+	
+	public boolean equals(PaymentDTO paymentCompare)  {
+		
+		if (!this.getCardnum().equals(paymentCompare.getCardnum())) {
+			return false;
+		}
+		
+		if (!this.getCardtype().equals(paymentCompare.getCardtype())) {
+			return false;
+		}
+		
+		return true;		
+	}
+
+
+	
+
+}

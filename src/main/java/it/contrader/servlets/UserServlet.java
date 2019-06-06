@@ -15,7 +15,7 @@ import it.contrader.dto.*;
 import it.contrader.service.DoctorServiceDTO;
 
 
-public class DoctorServlet extends HttpServlet {
+public class UserServlet extends HttpServlet {
 
 	private final DoctorServiceDTO doctorServiceDTO = new DoctorServiceDTO();
 	private List<DoctorDTO> allDoctors = new ArrayList<>();
@@ -53,7 +53,7 @@ public class DoctorServlet extends HttpServlet {
 			break;
 
 		case "updateRedirect":
-			int careId = Integer.parseInt(request.getParameter("careId"));
+			int careId = Integer.parseInt(request.getParameter("id"));
 			DoctorDTO doctorUpdate = new DoctorDTO("","",0,"","","","");
 			doctorUpdate.setCareid(careId);
 
