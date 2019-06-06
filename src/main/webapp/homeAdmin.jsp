@@ -1,30 +1,25 @@
+<%@ page import="it.contrader.dto.*"%>
+<%@ page import="java.util.*"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<!DOCTYPE html>
 <html>
 <head>
-<title>Administrator menu</title>
+<meta charset="ISO-8859-1">
+<title>Home Admin</title>
+
 </head>
 <body>
-	<h1>Welcome: ${nomeUtente}</h1>
-<h2>Administrator Menu </h2>
+	<div class="pre_contenitore">
 
-	<h3>1. Users Administration</h3>
-	<form action="UserServlet?action=UsersList" method="post">
-		<button type="submit">Users</button>
-	</form>
-	
-	<h3>2. Devices Administration</h3>
-	<form action="device.jsp" method="post">
-		<button type="submit">Devices</button>
-	</form>
-	
-	<h3>3. Pathologies Administration</h3>
-	<form action="adminPathologies.jsp" method="post">
-		<button type="submit">Pathologies</button>
-	</form>
+		<p>Welcome!</p>
 
-	<form action="index.jsp" method="post">
-		<button type="submit" value="esempioManager" name="richiesta">
-			Exit</button>
-	</form>
-	
+	</div>
+	<div class="contenitore">
+		<a href="UserServlet?richiesta=UserManager"><span class="fs"> User Management </span></a>
+		<br>
+		<br>
+		<br>
+		<a href="LogoutServlet" target="self"><span class="fs"> Logout </span></a>
+	</div>
 </body>
 </html>

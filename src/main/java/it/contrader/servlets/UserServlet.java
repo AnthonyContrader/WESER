@@ -11,93 +11,103 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import it.contrader.dto.UserDTO;
-import it.contrader.service.UserService;
+import it.contrader.service.UserServiceDTO;
 
 
-/**
- * La servlet si occupa di parlare con la JSP e utilizza i servizi opportuni.
- * Per chi farà User dovrà anche occuparsi del Login che abbiamo lasciato come struttura e va modificata in modo opportuno
- *
- */
+@SuppressWarnings("serial")
 public class UserServlet extends HttpServlet {
-	
-	private final UserService usersService = new UserService();
+
+	private final UserServiceDTO userServiceDTO = new UserServiceDTO();
+	private List<UserDTO> allUsers = new ArrayList<>();
 
 
-	private final UserService usersServiceDTO = new UserService();
-	private List<UserDTO> allUsers= new ArrayList<>();
-	private int userId;
+	public void service(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 
-	@Override
-	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		final String choice = request.getParameter("action");
+		final String scelta = request.getParameter("richiesta");
 		final HttpSession session = request.getSession(true);
 
-		switch (choice) {
+		switch (scelta) {
 
-		case "UsersList":
-			allUsers = this.usersServiceDTO.getAllUsers();
-			request.setAttribute("allUsers", allUsers);
-			getServletContext().getRequestDispatcher("/user.jsp").forward(request, response);
-			break;			
+		case "UserManager":
+			allUsers = this.userServiceDTO.getAllUsers();
+			request.setAttribute("allUser", allUsers);
+			getServletContext().getRequestDispatcher("/user/manageUser.jsp").forward(request, response);
+			break;
 
-		case "Insert":
+		case "insertRedirect":
+			getServletContext().getRequestDispatcher("/user/insertUser.jsp").forward(request, response);
+			break;
+
+		case "insert":
+			// final Integer id = Integer.parseInt(request.getParameter("user_id"));
 			final String username = request.getParameter("username");
-			final String password = request.getParameter("password");
 			final String usertype = request.getParameter("user_type");
+			final String password = request.getParameter("password");
 			final String name = request.getParameter("name");
 			final String surname = request.getParameter("surname");
-			final String ssc = request.getParameter("cf");
-			final UserDTO users = new UserDTO(username,usertype, password,name,surname,ssc);
-			usersService.insertUser(users);
-			showAllUser(request, response);
+			final String cf = request.getParameter("cf");
+			final UserDTO users = new UserDTO(username,usertype, password, name,surname,cf);
+			userServiceDTO.insertUsers(users);
+			showAllUsers(request, response);
 			break;
-					
-		case "Update":
-			System.out.println("Insert the user id to update: "+Integer.parseInt(request.getParameter("userId")));
-			System.out.println("Insert new username: "+request.getParameter("username"));
-			System.out.println("Insert new user type: "+request.getParameter("usertype"));
-			System.out.println("Insert new password: "+request.getParameter("password"));
-			System.out.println("Insert new name: "+request.getParameter("name"));
-			System.out.println("Insert new surname: "+request.getParameter("surname"));
-			System.out.println("Insert new Social Security Number: "+request.getParameter("ssc"));
 
-		     	
+		case "updateRedirect":
+			int id = Integer.parseInt(request.getParameter("id"));
+			UserDTO userUpdate = new UserDTO("", "", "","","","");
+			userUpdate.setId(id);
+
+			userUpdate = this.userServiceDTO.readUser(userUpdate);
+			request.setAttribute("userUpdate", userUpdate);
+			getServletContext().getRequestDispatcher("/user/updateUser.jsp").forward(request, response);
+
+			break;
+
+		case "update":
+			//System.out.println("ID: " + Integer.parseInt(request.getParameter("user_id")));
+			//System.out.println("username: " + request.getParameter("user_user"));
+			//System.out.println("password: " + request.getParameter("user_pass"));
+			//System.out.println("Tipo utente: " + request.getParameter("user_type"));
+
+			final Integer idUpdate = Integer.parseInt(request.getParameter("user_id"));
 			final String usernameUpdate = request.getParameter("username");
-			final String usertypeUpdate = request.getParameter("usertype");
+			final String usertypeUpdate= request.getParameter("user_type");
 			final String passwordUpdate = request.getParameter("password");
 			final String nameUpdate = request.getParameter("name");
 			final String surnameUpdate = request.getParameter("surname");
-			final String sscUpdate = request.getParameter("ssc");
-			final UserDTO user = new UserDTO(usernameUpdate,usertypeUpdate, passwordUpdate, nameUpdate, surnameUpdate, sscUpdate);
-					
-							
-			usersService.updateUser(user);
-			showAllUser(request, response);
+			final String cfUpdate = request.getParameter("cf");
+			final UserDTO user = new UserDTO(usernameUpdate,usertypeUpdate, passwordUpdate, nameUpdate,surnameUpdate,cfUpdate);
+			user.setId(idUpdate);
+
+			userServiceDTO.updateUser(user);
+			showAllUsers(request, response);
 			break;
 
-		case "Delete":
-			final Integer idDelete = Integer.parseInt(request.getParameter("userId"));
-			
-			final UserDTO use = new UserDTO("" ,"","","","","");
-			usersService.delete(userId);
-			showAllUser(request, response);
+		case "delete":
+			final Integer deleteId = Integer.parseInt(request.getParameter("id"));
+
+			final UserDTO userdelete = new UserDTO("", "", "","","","");
+			userdelete.setId(deleteId);
+			userServiceDTO.deleteUsers(userdelete);
+			showAllUsers(request, response);
 			break;
 
-		case "Back":
-			response.sendRedirect("index.jsp");
+		case "indietro":
+			getServletContext().getRequestDispatcher("JspApp/homeAdmin.jsp").forward(request, response);
+
 			break;
 
-				}
-
-			}
-
-	private void showAllUser(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-			allUsers = this.usersServiceDTO.getAllUsers();
-			request.getSession().setAttribute("usersList", allUsers);
-			getServletContext().getRequestDispatcher("/user.jsp").forward(request, response);
+		case "logsMenu":
+			getServletContext().getRequestDispatcher("JspApp/index.jsp").forward(request, response);
+			break;
 
 		}
+
+	}
+
+	private void showAllUsers(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		allUsers = this.userServiceDTO.getAllUsers();
+		request.setAttribute("allUser", allUsers);
+		getServletContext().getRequestDispatcher("/user/manageUser.jsp").forward(request, response);
+	}
 }

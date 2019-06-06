@@ -20,7 +20,7 @@
  </servlet>
  <servlet>
   <servlet-name>UserServlet</servlet-name>
-  <servlet-class>UserServlet</servlet-class>
+  <servlet-class>it.contrader.servlets.UserServlet</servlet-class>
  </servlet>
  <servlet-mapping>
   <servlet-name>LoginServlet</servlet-name>
@@ -37,6 +37,10 @@
  <servlet-mapping>
   <servlet-name>UserServlet</servlet-name>
   <url-pattern>/UserServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>PaymentServlet</servlet-name>
+  <url-pattern>/PaymentServlet</url-pattern>
  </servlet-mapping>
  <session-config>
   <session-timeout>4000</session-timeout>

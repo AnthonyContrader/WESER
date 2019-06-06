@@ -1,24 +1,40 @@
 <html>
 <head>
-<title>Login WESER</title>
+<title>Login</title>
+
 </head>
 <body>
 
-	<h2 style="color: violet; background=white; align:center;" >------- USER LOGIN -------</h2>
-	<div>
-		<form action="LoginServlet" method="post">
-			<h3 style="color:orange; ">
-				username: <input type="text" id="user" name="username"
-					placeholder="Insert username">
-			</h3>
-			<h3 style="color:orange;">
-				password: <input type="password" id="pass" name="password"
-					placeholder="Insert password">
-			</h3>
-			<button type="submit" value="Login" name="pulsante">Sign in</button>
+	<div class="pre_contenitore">
+		<p>Login</p>
+	</div>
+	<div class="contenitore">
+		<form action="LoginServlet?session" method="post">
+			<p>Enter your login details</p>
+			<p>
+				<br>
+				<label>Username</label>
+				<br>
+				<input type="text" name="username" class="username" placeholder="Username">
+			</p>
+			<p>
+				<label>Password</label>
+				<br>
+				<input type="Password" name="password" class="password" placeholder="Password">
+			</p>
+			<button type="submit" value="Login" class="btn btn-warning">Sign in</button>
+	   <!-- <br>
 			<br>
+			<div class="spinner-border text-muted"></div>
+			<div class="spinner-border text-primary"></div>
+			<div class="spinner-border text-success"></div>
+			<div class="spinner-border text-info"></div>
+			<div class="spinner-border text-warning"></div>
+			<div class="spinner-border text-danger"></div>
+			<div class="spinner-border text-secondary"></div>
+-->
 		</form>
-	<a href="register.jsp" target="_blank">Register</a>
-</div>
+	</div>
+
 </body>
 </html>
