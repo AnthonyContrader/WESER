@@ -10,10 +10,10 @@ import java.util.List;
 public class DeviceDAO {
 
 	private final String QUERY_ALL = "select * from devices";
-	private final String QUERY_INSERT = "insert into devices (regnumber, devtype,description,maxpress,minpress,maxcir,mincir,maxbreath,minbreath,maxpress,minpress) values (?,?,?,?,?,?,?,?,?,?,?)";
-	private final String QUERY_READ = "select * from devices where devId=?";
+	private final String QUERY_INSERT = "insert into devices (reg_number, dev_type,description,min_press,max_press,min_cir,max_cir,min_breath,max_breath,min_temp,max_temp,) values (?,?,?,?,?,?,?,?,?,?,?)";
+	private final String QUERY_READ = "select * from devices where dev_id=?";
 
-	private final String QUERY_UPDATE = "UPDATE devices SET regnumber=?, devtype=?,description=?, maxpress=?,minpress=?,maxcir=?,mincir=?,maxbreath=?,minbreath=?,maxtemp=?,mintemp=? WHERE devId=?";
+	private final String QUERY_UPDATE = "UPDATE devices SET reg_number=?, dev_type=?,description=?, min_press=?,max_press=?,min_cir=?,max_cir=?,,min_breath=?,max_breath=?,min_temp=?,max_temp=? WHERE dev_id=?";
 	private final String QUERY_DELETE = "delete from devices where devId=?";
 	public DeviceDAO() {
 
@@ -27,18 +27,18 @@ public class DeviceDAO {
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
 			Device device;
 			while (resultSet.next()) {
-				int devId = resultSet.getInt("devId");
-				String regnumber = resultSet.getString("regnumber");
-				String devtype = resultSet.getString("devtype");
+				int devId = resultSet.getInt("dev_id");
+				String regnumber = resultSet.getString("reg_number");
+				String devtype = resultSet.getString("dev_type");
 				String description = resultSet.getString("description");
-				int minpress = resultSet.getInt("minpress");
-				int maxpress = resultSet.getInt("maxpress");
-				int mincir = resultSet.getInt("mincir");
-				int maxcir = resultSet.getInt("maxcir");
-				int minbreath = resultSet.getInt("minbreath");
-				int maxbreath = resultSet.getInt("maxbreath");
-				float mintemp = resultSet.getInt("mintemp");
-				float maxtemp = resultSet.getInt("maxtemp");
+				int minpress = resultSet.getInt("min_press");
+				int maxpress = resultSet.getInt("max_press");
+				int mincir = resultSet.getInt("min_cir");
+				int maxcir = resultSet.getInt("max_cir");
+				int minbreath = resultSet.getInt("min_breath");
+				int maxbreath = resultSet.getInt("max_breath");
+				float mintemp = resultSet.getInt("min_temp");
+				float maxtemp = resultSet.getInt("max_temp");
 				device = new Device(regnumber,devtype,description,minpress,maxpress,mincir,maxcir,minbreath,maxbreath,mintemp,maxtemp);
 				device.setDevId(devId);
 				devicesList.add(device);
@@ -85,20 +85,20 @@ public class DeviceDAO {
 			int minpress,maxpress,mincir,maxcir,minbreath,maxbreath;
 			float mintemp,maxtemp;
 
-			regnumber = resultSet.getString("regnumber");
-			devtype = resultSet.getString("devtype");
+			regnumber = resultSet.getString("reg_number");
+			devtype = resultSet.getString("dev_type");
 			description = resultSet.getString("description");
-			minpress = resultSet.getInt("minpress");
-			maxpress = resultSet.getInt("maxpress");
-			mincir = resultSet.getInt("mincir");
-			maxcir = resultSet.getInt("maxcir");
-			minbreath = resultSet.getInt("minbreath");
-			maxbreath = resultSet.getInt("maxbreath");
-			mintemp = resultSet.getInt("mintemp");
-			maxtemp = resultSet.getInt("maxtemp");
+			minpress = resultSet.getInt("min_press");
+			maxpress = resultSet.getInt("max_press");
+			mincir = resultSet.getInt("min_cir");
+			maxcir = resultSet.getInt("max_cir");
+			minbreath = resultSet.getInt("min_breath");
+			maxbreath = resultSet.getInt("max_breath");
+			mintemp = resultSet.getInt("min_temp");
+			maxtemp = resultSet.getInt("max_temp");
 			device = new Device(regnumber,devtype,description,minpress,maxpress,mincir,maxcir,minbreath,maxbreath,mintemp,maxtemp);
 			device.setDevId(devId);
-			device.setDevId(resultSet.getInt("devId"));
+			device.setDevId(resultSet.getInt("dev_id"));
 
 			return device;
 		} catch (SQLException e) {

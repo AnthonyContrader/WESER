@@ -10,11 +10,11 @@ import java.util.List;
 public class EmergencyDAO {
 
 	private final String QUERY_ALL = "select * from emergencys";
-	private final String QUERY_INSERT = "insert into emergencys (emnum) values (?)";
-	private final String QUERY_READ = "select * from emergencys where emId=?";
+	private final String QUERY_INSERT = "insert into emergencys (em_num) values (?)";
+	private final String QUERY_READ = "select * from emergencys where id_em=?";
 
-	private final String QUERY_UPDATE = "UPDATE emergencys SET emnum=?";
-	private final String QUERY_DELETE = "delete from emergencys where emId=?";
+	private final String QUERY_UPDATE = "UPDATE emergencys SET em_num=?";
+	private final String QUERY_DELETE = "delete from emergencys where id_em=?";
 	public EmergencyDAO() {
 
 	}
@@ -27,8 +27,8 @@ public class EmergencyDAO {
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
 			Emergency emergency;
 			while (resultSet.next()) {
-				int emId = resultSet.getInt("emId");
-				String emnum = resultSet.getString("emnum");
+				int emId = resultSet.getInt("id_em");
+				String emnum = resultSet.getString("em_num");
 				emergency = new Emergency(emnum);
 				emergency.setEmId(emId);
 				emergencysList.add(emergency);
@@ -63,9 +63,9 @@ public class EmergencyDAO {
 			resultSet.next();
 			String emnum;
 
-			emnum = resultSet.getString("emnum");
+			emnum = resultSet.getString("em_num");
 			emergency = new Emergency(emnum);
-			emergency.setEmId(resultSet.getInt("emId"));
+			emergency.setEmId(resultSet.getInt("id_em"));
 
 			return emergency;
 		} catch (SQLException e) {

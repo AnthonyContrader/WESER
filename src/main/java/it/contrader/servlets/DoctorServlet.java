@@ -33,13 +33,19 @@ public class DoctorServlet extends HttpServlet {
 			request.setAttribute("allDoctor", allDoctors);
 			getServletContext().getRequestDispatcher("/care/manageCare.jsp").forward(request, response);
 			break;
+			
+		case "CareManagerT":
+			allDoctors = this.doctorServiceDTO.getAllDoctors();
+			request.setAttribute("allDoctor", allDoctors);
+			getServletContext().getRequestDispatcher("/care/manageCareT.jsp").forward(request, response);
+			break;
 
 		case "insertRedirect":
 			getServletContext().getRequestDispatcher("/care/insertCare.jsp").forward(request, response);
 			break;
 
 		case "insert":
-			final Integer id = Integer.parseInt(request.getParameter("doctor_id"));
+			final Integer id = Integer.parseInt(request.getParameter("careid"));
 			final String patname = request.getParameter("patname");
 			final String patcf = request.getParameter("patcf");
 			final int patage = Integer.parseInt(request.getParameter("patage"));
@@ -69,7 +75,7 @@ public class DoctorServlet extends HttpServlet {
 			//System.out.println("password: " + request.getParameter("doctor_pass"));
 			//System.out.println("Tipo utente: " + request.getParameter("doctor_type"));
 
-			final Integer idUpdate = Integer.parseInt(request.getParameter("doctor_id"));
+			final Integer idUpdate = Integer.parseInt(request.getParameter("careid"));
 			final String patnameUpdate = request.getParameter("patname");
 			final String patcfUpdate= request.getParameter("patcf");
 			final Integer patageUpdate = Integer.parseInt(request.getParameter("patage"));

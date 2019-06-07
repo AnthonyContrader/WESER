@@ -12,31 +12,33 @@ import it.contrader.service.UserServiceDTO;
 import it.contrader.dto.UserDTO;
 
 public class LoginServlet extends HttpServlet {
-
-	private final UserServiceDTO usersServiceDTO = new UserServiceDTO();
+	
+	private  UserServiceDTO usersServiceDTO = new UserServiceDTO();
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		final HttpSession session = request.getSession();
-		session.setAttribute("utente", null);
+		session.setAttribute("utente",null);
 
 		if (request != null) {
-			final String nomeUtente = request.getParameter("username").toString().trim();
-			final String password = request.getParameter("password").toString().trim();
+			final String nomeUtente = request.getParameter("username").toString();
+			final String password = request.getParameter("password").toString();
 			final UserDTO userDTO = usersServiceDTO.getUserByUsernameAndPasword(nomeUtente, password);
-
+			//System.out.println(userDTO.getUsername());
+			//System.out.println(userDTO.getPassword());
 			if (userDTO != null)
-				session.setAttribute("utente", userDTO);
+				session.setAttribute("utente", userDTO.getUsername());
 
-			switch (userDTO.getUsertype().toLowerCase()) {
+			switch (userDTO.getUsertype())
+					{
 			case "admin":
 				getServletContext().getRequestDispatcher("/homeAdmin.jsp").forward(request, response);
 				break;
 			case "tutor":
 				getServletContext().getRequestDispatcher("/homeTutor.jsp").forward(request, response);
 				break;
-			case "dotor":
+			case "doctor":
 				getServletContext().getRequestDispatcher("/homeDoctor.jsp").forward(request, response);
 				break;
 			default:

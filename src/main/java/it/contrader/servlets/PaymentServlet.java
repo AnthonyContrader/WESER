@@ -90,13 +90,13 @@ public class PaymentServlet extends HttpServlet {
 			break;
 
 		case "indietro":
-			getServletContext().getRequestDispatcher("JspApp/homeAdmin.jsp").forward(request, response);
-
+			response.sendRedirect("homeTutor.jsp");
 			break;
 
 		case "logsMenu":
-			getServletContext().getRequestDispatcher("JspApp/index.jsp").forward(request, response);
+			response.sendRedirect("index.jsp");
 			break;
+
 
 		}
 

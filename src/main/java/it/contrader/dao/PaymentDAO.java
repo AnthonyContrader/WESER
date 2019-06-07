@@ -10,11 +10,11 @@ import java.util.List;
 public class PaymentDAO {
 
 	private final String QUERY_ALL = "select * from payments";
-	private final String QUERY_INSERT = "insert into payments (cardtype,cardnum,cardown,cardexp,cvv) values (?,?,?,?,?)";
-	private final String QUERY_READ = "select * from payments where payId=?";
+	private final String QUERY_INSERT = "insert into payments (card_type,card_number,card_owner,card_expire,cvv) values (?,?,?,?,?)";
+	private final String QUERY_READ = "select * from payments where pay_id=?";
 
-	private final String QUERY_UPDATE = "UPDATE payments SET cardtype=?, cardnum=?, cardown=?,cardexp=?,cvv=? WHERE payId=?";
-	private final String QUERY_DELETE = "delete from payments where payId=?";
+	private final String QUERY_UPDATE = "UPDATE payments SET card_type=?, card_number=?, card_owner=?,card_expire=?,cvv=? WHERE pay_id=?";
+	private final String QUERY_DELETE = "delete from payments where pay_id=?";
 
 	public PaymentDAO() {
 
@@ -28,11 +28,11 @@ public class PaymentDAO {
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
 			Payment payment;
 			while (resultSet.next()) {
-				int payId = resultSet.getInt("payId");
-				String cardtype = resultSet.getString("cardtype");
-				String cardnum = resultSet.getString("cardnum");
-				String cardown = resultSet.getString("cardown");
-				String cardexp = resultSet.getString("cardexp");
+				int payId = resultSet.getInt("pay_id");
+				String cardtype = resultSet.getString("card_type");
+				String cardnum = resultSet.getString("card_number");
+				String cardown = resultSet.getString("card_owner");
+				String cardexp = resultSet.getString("card_expire");
 				int cvv = resultSet.getInt("cvv");
 				payment = new Payment(cardtype,cardnum,cardown,cardexp,cvv);
 				payment.setPayId(payId);
@@ -48,7 +48,7 @@ public class PaymentDAO {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_INSERT);
-			preparedStatement.setString(1, payment.getCardown());
+			preparedStatement.setString(1, payment.getCardtype());
 			preparedStatement.setString(2, payment.getCardnum());
 			preparedStatement.setString(3, payment.getCardown());
 			preparedStatement.setString(4, payment.getCardexp());
@@ -73,13 +73,13 @@ public class PaymentDAO {
 			String cardtype,cardnum,cardown,cardexp;
 			int cvv;
 
-			cardtype = resultSet.getString("cardtype");
-			cardnum = resultSet.getString("cardnum");
-			cardown = resultSet.getString("cardown");
-			cardexp = resultSet.getString("cardexp");
+			cardtype = resultSet.getString("card_type");
+			cardnum = resultSet.getString("card_number");
+			cardown = resultSet.getString("card_owner");
+			cardexp = resultSet.getString("card_expire");
 			cvv = resultSet.getInt("cvv");
 			payment = new Payment(cardtype,cardnum,cardown,cardexp,cvv);
-			payment.setPayId(resultSet.getInt("payId"));
+			payment.setPayId(resultSet.getInt("pay_id"));
 
 			return payment;
 		} catch (SQLException e) {
@@ -117,11 +117,12 @@ public class PaymentDAO {
 			*/
 			// Update the payment
 			PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
-			preparedStatement.setString(1, paymentToUpdate.getCardown());
+			preparedStatement.setString(1, paymentToUpdate.getCardtype());
 			preparedStatement.setString(2, paymentToUpdate.getCardnum());
 			preparedStatement.setString(3, paymentToUpdate.getCardown());
 			preparedStatement.setString(4, paymentToUpdate.getCardexp());
 			preparedStatement.setInt(5, paymentToUpdate.getCVV());
+			preparedStatement.setInt(6, paymentToUpdate.getPayId());
 			int a = preparedStatement.executeUpdate();
 			if (a > 0)
 				return true;

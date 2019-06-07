@@ -16,7 +16,7 @@ public class DeviceConverter {
 
 		Device device = null;
 		if (deviceDTO != null) {
-			device = new Device(deviceDTO.getRegnumber(),deviceDTO.getDevtype(),deviceDTO.getDescription(),deviceDTO.getMaxpress(),deviceDTO.getMinpress(),deviceDTO.getMaxcir(),deviceDTO.getMincir(),deviceDTO.getMaxbreath(),deviceDTO.getMinbreath(),deviceDTO.getMaxtemp(),deviceDTO.getMintemp());
+			device = new Device(deviceDTO.getRegnumber(),deviceDTO.getDevtype(),deviceDTO.getDescription(),deviceDTO.getMinpress(),deviceDTO.getMaxpress(),deviceDTO.getMincir(),deviceDTO.getMaxcir(),deviceDTO.getMinbreath(),deviceDTO.getMaxbreath(),deviceDTO.getMintemp(),deviceDTO.getMaxtemp());
 
 			if (deviceDTO.getDevId() != 0)
 				device.setDevId(deviceDTO.getDevId());
@@ -34,7 +34,7 @@ public class DeviceConverter {
 
 		DeviceDTO deviceDTO = null;
 		if (device != null) {
-			deviceDTO = new DeviceDTO(device.getRegnumber(),device.getDevtype(),device.getDescription(),device.getMaxpress(),device.getMinpress(),device.getMaxcir(),device.getMincir(),device.getMaxbreath(),device.getMinbreath(),device.getMaxtemp(),device.getMintemp());
+			deviceDTO = new DeviceDTO(device.getRegnumber(),device.getDevtype(),device.getDescription(),device.getMinpress(),device.getMaxpress(),device.getMincir(),device.getMaxcir(),device.getMinbreath(),device.getMaxbreath(),device.getMintemp(),device.getMaxtemp());
 			deviceDTO.setDevId(device.getDevId());
 			// deviceDTO.setId(device.getDeviceId());
 		}

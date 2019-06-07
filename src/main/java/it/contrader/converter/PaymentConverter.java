@@ -27,7 +27,7 @@ public static Payment toEntity(PaymentDTO paymentDTO) {
 
 		PaymentDTO paymentDTO = null;
 		if (payment != null) {
-			paymentDTO = new PaymentDTO(payment.Cardtype(),payment.getCardnum(),payment.getCardown(),payment.getCardexp(),payment.getCVV());
+			paymentDTO = new PaymentDTO(payment.getCardtype(),payment.getCardnum(),payment.getCardown(),payment.getCardexp(),payment.getCVV());
 			paymentDTO.setPayId(payment.getPayId());
 			// paymentDTO.setId(payment.getPaymentId());
 		}

@@ -35,7 +35,7 @@ public class Payment {
 		this.cardnum = cardnum;
 	}
 
-	public String Cardtype() {
+	public String getCardtype() {
 		return cardtype;
 	}
 
@@ -46,15 +46,11 @@ public class Payment {
 	
 	@Override
 	public String toString() {
-		return this.getPayId()+"\t"+this.getCardnum()+"\t"+this.Cardtype();
+		return this.getPayId()+"\t"+this.getCardnum()+"\t"+this.getCardtype();
 	}
 	
 		public boolean equals(Payment paymentCompare)  {
 		if (!this.getCardnum().equals(paymentCompare.getCardnum())) {
-			return false;
-		}
-		
-		if (!this.Cardtype().equals(paymentCompare.Cardtype())) {
 			return false;
 		}
 		
@@ -74,7 +70,7 @@ public class Payment {
 		return cardexp;
 	}
 
-	public void setSurname(String cardexp) {
+	public void setCardexp(String cardexp) {
 		this.cardexp = cardexp;
 	}
 

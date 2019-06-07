@@ -7,7 +7,7 @@
 
 
 <%
-	UserDTO updateUser = (UserDTO) request.getAttribute("userUpdate");
+	DoctorDTO updateDoctor = (DoctorDTO) request.getAttribute("doctorUpdate");
 %>
 </head>
 
@@ -16,39 +16,42 @@
 
 		<div class="pre_contenitore">
 
-			<p>User Update</p>
+			<p>Doctor Update</p>
 
 		</div>
 		<br>
 		<br>
-		<form method="POST" action="UserServlet?richiesta=update">
+		<form method="POST" action="DoctorServlet?richiesta=update">
 
 					
-			<input type="hidden" name="user_id" value="<%=updateUser.getId()%>" />
+			<input type="hidden" name="careid" value="<%=updateDoctor.getCareid()%>" />
 			<br>
 			<br>
-			Username: <input type="text" size="40" maxlength="40" name="username" value="<%=updateUser.getUsername()%>" />
+			Patient name: <input type="text" size="40" maxlength="40" name="patname" value="<%=updateDoctor.getPatname()%>" />
 			<br>
 			<br>
-			User type: <input type="text" size="40" maxlength="40" name="usertype" value="<%=updateUser.getUsertype()%>" />
+			Patient SSC: <input type="text" size="40" maxlength="40" name="patcf" value="<%=updateDoctor.getPatcf()%>" />
 			<br>
 			<br>
-			Password: <input type="text" size="40" maxlength="40" name="password" value="<%=updateUser.getPassword()%>" />
+			Patient age: <input type="text" size="40" maxlength="40" name="patage" value="<%=updateDoctor.getPatage()%>" />
 			<br>
 			<br>
-			Name: <input type="text" size="40" maxlength="40" name="name" value="<%=updateUser.getName()%>" />
+			Patology: <input type="text" size="40" maxlength="40" name="patology" value="<%=updateDoctor.getPatology()%>" />
 			<br>
 			<br>
-			Surname: <input type="text" size="40" maxlength="40" name="surname" value="<%=updateUser.getSurname()%>" />
+			Care name: <input type="text" size="40" maxlength="40" name="carename" value="<%=updateDoctor.getCarename()%>" />
 			<br>
 			<br>
-			Social secure code: <input type="text" size="40" maxlength="40" name="cf" value="<%=updateUser.getCf() %>" />
+			Quantity: <input type="text" size="40" maxlength="40" name="quantity" value="<%=updateDoctor.getQuantity() %>" />
+			<br>
+			<br>
+			Notes <input type="text" size="40" maxlength="40" name="notes" value="<%=updateDoctor.getNotes() %>" />
 			<br>
 			<br>
 			<input type="submit" value="Update">
 			<br>
 			<br>
-			<a href="/JspApp/UserServlet?richiesta=UserManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+			<a href="/JspApp/DoctorServlet?richiesta=CareManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 		</form>
 

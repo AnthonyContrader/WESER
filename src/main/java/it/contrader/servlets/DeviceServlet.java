@@ -40,21 +40,26 @@ public class DeviceServlet extends HttpServlet {
 
 		case "insert":
 			// final Integer id = Integer.parseInt(request.getParameter("device_id"));
-			final String devicename = request.getParameter("devicename");
-			final String devicetype = request.getParameter("device_type");
-			final String password = request.getParameter("password");
-			final String name = request.getParameter("name");
-			final String surname = request.getParameter("surname");
-			final String cf = request.getParameter("cf");
-			final DeviceDTO devices = new DeviceDTO(devicename,devicetype, password, name,surname,cf);
+			final String regnumber = request.getParameter("regnumber");
+			final String devtype = request.getParameter("devtype");
+			final String description = request.getParameter("description");
+			final int minpress = Integer.parseInt(request.getParameter("minpress"));
+			final int maxpress = Integer.parseInt(request.getParameter("maxpress"));
+			final int mincirr = Integer.parseInt(request.getParameter("mincir"));
+			final int maxcirr = Integer.parseInt(request.getParameter("maxcir"));
+			final int minbreath = Integer.parseInt(request.getParameter("minbreath"));
+			final int maxbreath = Integer.parseInt(request.getParameter("maxbreath"));
+			final float mintemp = Float.parseFloat(request.getParameter("mintemp"));
+			final float maxtemp = Float.parseFloat(request.getParameter("maxtemp"));
+			final DeviceDTO devices = new DeviceDTO(regnumber,devtype, description, minpress,maxpress,mincirr,maxcirr,minbreath,maxbreath,mintemp,maxtemp);
 			deviceServiceDTO.insertDevices(devices);
 			showAllDevices(request, response);
 			break;
 
 		case "updateRedirect":
 			int id = Integer.parseInt(request.getParameter("id"));
-			DeviceDTO deviceUpdate = new DeviceDTO("", "", "","","","");
-			deviceUpdate.setId(id);
+			DeviceDTO deviceUpdate = new DeviceDTO("", "", "",0,0,0,0,0,0,0,0);
+			deviceUpdate.setDevId(id);
 
 			deviceUpdate = this.deviceServiceDTO.readDevice(deviceUpdate);
 			request.setAttribute("deviceUpdate", deviceUpdate);
@@ -68,15 +73,20 @@ public class DeviceServlet extends HttpServlet {
 			//System.out.println("password: " + request.getParameter("device_pass"));
 			//System.out.println("Tipo utente: " + request.getParameter("device_type"));
 
-			final Integer idUpdate = Integer.parseInt(request.getParameter("device_id"));
-			final String devicenameUpdate = request.getParameter("devicename");
-			final String devicetypeUpdate= request.getParameter("device_type");
-			final String passwordUpdate = request.getParameter("password");
-			final String nameUpdate = request.getParameter("name");
-			final String surnameUpdate = request.getParameter("surname");
-			final String cfUpdate = request.getParameter("cf");
-			final DeviceDTO device = new DeviceDTO(devicenameUpdate,devicetypeUpdate, passwordUpdate, nameUpdate,surnameUpdate,cfUpdate);
-			device.setId(idUpdate);
+			final Integer idUpdate = Integer.parseInt(request.getParameter("devId"));
+			final String regnumberUpdate = request.getParameter("regnumber");
+			final String devtypeUpdate = request.getParameter("devtype");
+			final String descriptionUpdate = request.getParameter("description");
+			final int minpressUpdate = Integer.parseInt(request.getParameter("minpress"));
+			final int maxpressUpdate = Integer.parseInt(request.getParameter("maxpress"));
+			final int mincirrUpdate = Integer.parseInt(request.getParameter("mincir"));
+			final int maxcirrUpdate = Integer.parseInt(request.getParameter("maxcir"));
+			final int minbreathUpdate = Integer.parseInt(request.getParameter("minbreath"));
+			final int maxbreathUpdate = Integer.parseInt(request.getParameter("maxbreath"));
+			final float mintempUpdate = Float.parseFloat(request.getParameter("mintemp"));
+			final float maxtempUpdate = Float.parseFloat(request.getParameter("maxtemp"));
+			final DeviceDTO device = new DeviceDTO(regnumberUpdate,devtypeUpdate, descriptionUpdate, minpressUpdate,maxpressUpdate,mincirrUpdate,maxcirrUpdate,minbreathUpdate,maxbreathUpdate,mintempUpdate,maxtempUpdate);
+			device.setDevId(idUpdate);
 
 			deviceServiceDTO.updateDevice(device);
 			showAllDevices(request, response);
@@ -85,20 +95,23 @@ public class DeviceServlet extends HttpServlet {
 		case "delete":
 			final Integer deleteId = Integer.parseInt(request.getParameter("id"));
 
-			final DeviceDTO devicedelete = new DeviceDTO("", "", "","","","");
-			devicedelete.setId(deleteId);
+			final DeviceDTO devicedelete =  new DeviceDTO("", "", "",0,0,0,0,0,0,0,0);
+			devicedelete.setDevId(deleteId);
 			deviceServiceDTO.deleteDevices(devicedelete);
 			showAllDevices(request, response);
 			break;
 
 		case "indietro":
-			getServletContext().getRequestDispatcher("JspApp/homeAdmin.jsp").forward(request, response);
-
+			response.sendRedirect("homeAdmin.jsp");
+			break;
+		case "indietroD":
+			response.sendRedirect("homeDoctor.jsp");
 			break;
 
 		case "logsMenu":
-			getServletContext().getRequestDispatcher("JspApp/index.jsp").forward(request, response);
+			response.sendRedirect("index.jsp");
 			break;
+
 
 		}
 

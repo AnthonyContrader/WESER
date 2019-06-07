@@ -10,15 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import it.contrader.dto.*;
-
-import it.contrader.service.DoctorServiceDTO;
+import it.contrader.dto.UserDTO;
+import it.contrader.service.UserServiceDTO;
 
 
 public class UserServlet extends HttpServlet {
 
-	private final DoctorServiceDTO doctorServiceDTO = new DoctorServiceDTO();
-	private List<DoctorDTO> allDoctors = new ArrayList<>();
+	private final UserServiceDTO userServiceDTO = new UserServiceDTO();
+	private List<UserDTO> allUsers = new ArrayList<>();
 
 
 	public void service(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
@@ -28,88 +27,82 @@ public class UserServlet extends HttpServlet {
 
 		switch (scelta) {
 
-		case "CareManager":
-			allDoctors = this.doctorServiceDTO.getAllDoctors();
-			request.setAttribute("allDoctor", allDoctors);
-			getServletContext().getRequestDispatcher("/care/manageCare.jsp").forward(request, response);
+		case "UserManager":
+			allUsers = this.userServiceDTO.getAllUsers();
+			request.setAttribute("allUser", allUsers);
+			getServletContext().getRequestDispatcher("/user/manageUser.jsp").forward(request, response);
 			break;
 
 		case "insertRedirect":
-			getServletContext().getRequestDispatcher("/care/insertCare.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/user/insertUser.jsp").forward(request, response);
 			break;
 
 		case "insert":
-			final Integer id = Integer.parseInt(request.getParameter("doctor_id"));
-			final String patname = request.getParameter("patname");
-			final String patcf = request.getParameter("patcf");
-			final int patage = Integer.parseInt(request.getParameter("patage"));
-			final String patology = request.getParameter("patology");
-			final String carename = request.getParameter("carename");
-			final String quantity = request.getParameter("quantity");
-			final String notes = request.getParameter("notes");
-			final DoctorDTO doctors = new DoctorDTO(patname,patcf, patage, patology,carename,quantity,notes);
-			doctorServiceDTO.insertDoctors(doctors);
-			showAllDoctors(request, response);
+			// final Integer id = Integer.parseInt(request.getParameter("user_id"));
+			final String username = request.getParameter("username");
+			final String usertype = request.getParameter("usertype");
+			final String password = request.getParameter("password");
+			final String name = request.getParameter("name");
+			final String surname = request.getParameter("surname");
+			final String cf = request.getParameter("cf");
+			final UserDTO users = new UserDTO(username,usertype, password, name,surname,cf);
+			userServiceDTO.insertUsers(users);
+			showAllUsers(request, response);
 			break;
 
 		case "updateRedirect":
-			int careId = Integer.parseInt(request.getParameter("id"));
-			DoctorDTO doctorUpdate = new DoctorDTO("","",0,"","","","");
-			doctorUpdate.setCareid(careId);
+			int id = Integer.parseInt(request.getParameter("id"));
+			UserDTO userUpdate = new UserDTO("", "", "","","","");
+			userUpdate.setId(id);
 
-			doctorUpdate = this.doctorServiceDTO.readDoctor(doctorUpdate);
-			request.setAttribute("doctorUpdate", doctorUpdate);
-			getServletContext().getRequestDispatcher("/care/updateCare.jsp").forward(request, response);
+			userUpdate = this.userServiceDTO.readUser(userUpdate);
+			request.setAttribute("userUpdate", userUpdate);
+			getServletContext().getRequestDispatcher("/user/updateUser.jsp").forward(request, response);
 
 			break;
-
 		case "update":
-			//System.out.println("ID: " + Integer.parseInt(request.getParameter("doctor_id")));
-			//System.out.println("doctorname: " + request.getParameter("doctor_doctor"));
-			//System.out.println("password: " + request.getParameter("doctor_pass"));
-			//System.out.println("Tipo utente: " + request.getParameter("doctor_type"));
+			
+			final Integer idUpdate = Integer.parseInt(request.getParameter("user_id"));
+			final String usernameUpdate = request.getParameter("username");
+			final String usertypeUpdate= request.getParameter("usertype");
+			final String passwordUpdate = request.getParameter("password");
+			final String nameUpdate = request.getParameter("name");
+			final String surnameUpdate = request.getParameter("surname");
+			final String cfUpdate = request.getParameter("cf");
+			final UserDTO user = new UserDTO(usernameUpdate,usertypeUpdate, passwordUpdate, nameUpdate,surnameUpdate,cfUpdate);
+			user.setId(idUpdate);
 
-			final Integer idUpdate = Integer.parseInt(request.getParameter("doctor_id"));
-			final String patnameUpdate = request.getParameter("patname");
-			final String patcfUpdate= request.getParameter("patcf");
-			final Integer patageUpdate = Integer.parseInt(request.getParameter("patage"));
-			final String patologyUpdate = request.getParameter("patology");
-			final String carenameUpdate = request.getParameter("carename");
-			final String quantityUpdate = request.getParameter("quantity");
-			final String noteUpdate = request.getParameter("notes");
-			final DoctorDTO doctor = new DoctorDTO(patnameUpdate,patcfUpdate, patageUpdate, patologyUpdate,carenameUpdate,quantityUpdate,noteUpdate);
-			doctor.setCareid(idUpdate);
-
-			doctorServiceDTO.updateDoctor(doctor);
-			showAllDoctors(request, response);
+			userServiceDTO.updateUser(user);
+			showAllUsers(request, response);
 			break;
+
 
 		case "delete":
 			final Integer deleteId = Integer.parseInt(request.getParameter("id"));
 
-			final DoctorDTO doctordelete = new DoctorDTO("", "", 0,"","","","");
-			doctordelete.setCareid(deleteId);
-			doctorServiceDTO.deleteDoctors(doctordelete);
-			showAllDoctors(request, response);
+			final UserDTO userdelete = new UserDTO("", "", "","","","");
+			userdelete.setId(deleteId);
+			userServiceDTO.deleteUsers(userdelete);
+			showAllUsers(request, response);
 			break;
 
 		case "indietro":
-			getServletContext().getRequestDispatcher("homeAdmin.jsp").forward(request, response);
-
+			response.sendRedirect("homeAdmin.jsp");
 			break;
 
 		case "logsMenu":
-			getServletContext().getRequestDispatcher("index.jsp").forward(request, response);
+			response.sendRedirect("index.jsp");
 			break;
+
 
 		}
 
 	}
 
-	private void showAllDoctors(HttpServletRequest request, HttpServletResponse response)
+	private void showAllUsers(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		allDoctors = this.doctorServiceDTO.getAllDoctors();
-		request.setAttribute("allDoctor", allDoctors);
-		getServletContext().getRequestDispatcher("/care/manageCare.jsp").forward(request, response);
+		allUsers = this.userServiceDTO.getAllUsers();
+		request.setAttribute("allUser", allUsers);
+		getServletContext().getRequestDispatcher("/user/manageUser.jsp").forward(request, response);
 	}
 }
