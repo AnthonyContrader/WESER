@@ -35,7 +35,7 @@ public class Payment {
 		this.cardnum = cardnum;
 	}
 
-	public String Cardtype() {
+	public String getCardtype() {
 		return cardtype;
 	}
 
@@ -43,25 +43,6 @@ public class Payment {
 		this.cardtype = cardtype;
 	}
 	
-	
-	@Override
-	public String toString() {
-		return this.getPayId()+"\t"+this.getCardnum()+"\t"+this.Cardtype();
-	}
-	
-		public boolean equals(Payment paymentCompare)  {
-		if (!this.getCardnum().equals(paymentCompare.getCardnum())) {
-			return false;
-		}
-		
-		if (!this.Cardtype().equals(paymentCompare.Cardtype())) {
-			return false;
-		}
-		
-		return true;
-				
-	}
-
 	public int getCVV() {
 		return cvv;
 	}
@@ -74,7 +55,7 @@ public class Payment {
 		return cardexp;
 	}
 
-	public void setSurname(String cardexp) {
+	public void setCardexp(String cardexp) {
 		this.cardexp = cardexp;
 	}
 

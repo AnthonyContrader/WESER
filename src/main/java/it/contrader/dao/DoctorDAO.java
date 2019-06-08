@@ -130,6 +130,7 @@ public class DoctorDAO {
 			preparedStatement.setString(5, doctorToUpdate.getCarename());
 			preparedStatement.setString(6, doctorToUpdate.getQuantity());
 			preparedStatement.setString(7, doctorToUpdate.getNotes());
+			preparedStatement.setInt(8, doctorToUpdate.getCareid());
 			preparedStatement.execute();
 
 			int a = preparedStatement.executeUpdate();

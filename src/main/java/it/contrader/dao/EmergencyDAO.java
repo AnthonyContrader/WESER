@@ -9,12 +9,12 @@ import java.util.List;
 
 public class EmergencyDAO {
 
-	private final String QUERY_ALL = "select * from emergencys";
-	private final String QUERY_INSERT = "insert into emergencys (emnum) values (?)";
-	private final String QUERY_READ = "select * from emergencys where emId=?";
+	private final String QUERY_ALL = "select * from emergency";
+	private final String QUERY_INSERT = "insert into emergency (em_num) values (?)";
+	private final String QUERY_READ = "select * from emergency where id_em=?";
 
-	private final String QUERY_UPDATE = "UPDATE emergencys SET emnum=?";
-	private final String QUERY_DELETE = "delete from emergencys where emId=?";
+	private final String QUERY_UPDATE = "UPDATE emergency SET em_num=? where id_em=?";
+	private final String QUERY_DELETE = "delete from emergency where id_em=?";
 	public EmergencyDAO() {
 
 	}
@@ -27,8 +27,8 @@ public class EmergencyDAO {
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
 			Emergency emergency;
 			while (resultSet.next()) {
-				int emId = resultSet.getInt("emId");
-				String emnum = resultSet.getString("emnum");
+				int emId = resultSet.getInt("id_em");
+				String emnum = resultSet.getString("em_num");
 				emergency = new Emergency(emnum);
 				emergency.setEmId(emId);
 				emergencysList.add(emergency);
@@ -63,9 +63,9 @@ public class EmergencyDAO {
 			resultSet.next();
 			String emnum;
 
-			emnum = resultSet.getString("emnum");
+			emnum = resultSet.getString("em_num");
 			emergency = new Emergency(emnum);
-			emergency.setEmId(resultSet.getInt("emId"));
+			emergency.setEmId(resultSet.getInt("id_em"));
 
 			return emergency;
 		} catch (SQLException e) {
@@ -104,6 +104,7 @@ public class EmergencyDAO {
 			// Update the emergency
 			PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 			preparedStatement.setString(1, emergencyToUpdate.getEmnum());
+			preparedStatement.setInt(2, emergencyToUpdate.getEmId());
 			int a = preparedStatement.executeUpdate();
 			if (a > 0)
 				return true;

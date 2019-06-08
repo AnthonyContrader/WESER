@@ -48,12 +48,12 @@ public class EmergencyServiceDTO {
 		
 }
 	
-	public boolean deleteEmergencys (EmergencyDTO emergencyDTO) {
+	public boolean deleteEmergency (EmergencyDTO emergencyDTO) {
 		return this.emergencyDAO.deleteEmergency(EmergencyConverter.toEntity(emergencyDTO));
 		
 }
 	
-	public boolean insertEmergencys (EmergencyDTO emergencysDTO) {
+	public boolean insertEmergency (EmergencyDTO emergencysDTO) {
 		return this.emergencyDAO.insertEmergency(EmergencyConverter.toEntity(emergencysDTO));
 	
 }

@@ -5,8 +5,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Gestione Utenti</title>
-	
+<title>Cares Management</title>
+	<link rel="stylesheet" type="text/css" href="/JspApp/css/style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<style>
+/*contenitore in cima dove c'è scritto "Login"*/
+.pre_contenitore {
+	width: 320px;
+	margin: auto;
+	height: 50px;
+	border: 1px solid black;
+	border-radius: 40px 40px 40px 40px;
+	background-color: rgba(0, 0, 0, 0.9);
+	box-shadow: 20px 30px 20px #000000;
+	padding: 20px;
+}
+
+.pre_contenitore p {
+	color: white;
+	text-align: center;
+	font-size: 1.9em;
+	font-family: arial;
+	line-height: 2px;
+}
+</style>
 </head>
 <%
 	List<DoctorDTO> allDoctor = (List<DoctorDTO>) request.getAttribute("allDoctor");
@@ -44,8 +67,8 @@
 		<tr>
 			<td><%=doctor.getCareid() %></td>
 			<td><%=doctor.getPatname()%></td>
-			<td><%=doctor.getPatage()%></td>
 			<td><%=doctor.getPatcf()%></td>
+			<td><%=doctor.getPatage()%></td>
 			<td><%=doctor.getPatology()%></td>
 			<td><%=doctor.getCarename()%></td>
 			<td><%=doctor.getQuantity()%></td>
@@ -59,9 +82,9 @@
 	</table>
 	
 	<br>
-	<a href="/JspApp/DoctorServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New Doctor</i></a>
+	<a href="DoctorServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New Care</i></a>
 	<br>	
-	<a href="DoctorServlet?richiesta=indietro"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<a href="/JspApp/homeDoctor.jsp"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 </body>

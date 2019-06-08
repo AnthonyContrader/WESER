@@ -23,7 +23,7 @@ public class DeviceDTO {
 		this.description = description;
 		this.minpress = minpress;
 		this.maxpress = maxpress;
-		this.mincir = maxcir;
+		this.mincir = mincir;
 		this.maxcir = maxcir;
 		this.minbreath = maxbreath;
 		this.maxbreath = maxbreath;
@@ -120,19 +120,7 @@ public class DeviceDTO {
 	public void setDevId(int devId) {
 		this.devId = devId;
 	}
-	
-	public boolean equals(DeviceDTO deviceCompare)  {
-		if (!this.getRegnumber().equals(deviceCompare.getRegnumber())) {
-			return false;
-		}
-		
-		if (!this.getDevtype().equals(deviceCompare.getDevtype())) {
-			return false;
-		}
-		
-		
-		return true;		
-	}
+
 	
 
 }

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import it.contrader.dto.EmergencyDTO;
+import it.contrader.dto.PaymentDTO;
 import it.contrader.service.EmergencyServiceDTO;
 
 
@@ -38,15 +39,15 @@ public class EmergencyServlet extends HttpServlet {
 			break;
 
 		case "insert":
-			// final Integer id = Integer.parseInt(request.getParameter("emergency_id"));
+			// final Integer id = Integer.parseInt(request.getParameter("user_id"));
 			final String emnum = request.getParameter("emnum");
 			final EmergencyDTO emergencys = new EmergencyDTO(emnum);
-			emergencyServiceDTO.insertEmergencys(emergencys);
+			emergencyServiceDTO.insertEmergency(emergencys);
 			showAllEmergencys(request, response);
 			break;
 
 		case "updateRedirect":
-			int id = Integer.parseInt(request.getParameter("emId"));
+			int id = Integer.parseInt(request.getParameter("id"));
 			EmergencyDTO emergencyUpdate = new EmergencyDTO("");
 			emergencyUpdate.setEmId(id);
 
@@ -57,39 +58,37 @@ public class EmergencyServlet extends HttpServlet {
 			break;
 
 		case "update":
-			//System.out.println("ID: " + Integer.parseInt(request.getParameter("emergency_id")));
-			//System.out.println("emergencyname: " + request.getParameter("emergency_emergency"));
-			//System.out.println("password: " + request.getParameter("emergency_pass"));
-			//System.out.println("Tipo utente: " + request.getParameter("emergency_type"));
-
-			final Integer emIdUpdate = Integer.parseInt(request.getParameter("emId"));
+			
+			final int emergencyIdUpdate = Integer.parseInt(request.getParameter("emId"));
 			final String emnumUpdate = request.getParameter("emnum");
 			final EmergencyDTO emergency = new EmergencyDTO(emnumUpdate);
-			emergency.setEmId(emIdUpdate);
+			emergency.setEmId(emergencyIdUpdate);
 
 			emergencyServiceDTO.updateEmergency(emergency);
 			showAllEmergencys(request, response);
 			break;
 
 		case "delete":
-			final Integer deleteemId = Integer.parseInt(request.getParameter("emId"));
+			final Integer deleteId = Integer.parseInt(request.getParameter("id"));
 
-			final EmergencyDTO emergencydelete = new EmergencyDTO("");
-			emergencydelete.setEmId(deleteemId);
-			emergencyServiceDTO.deleteEmergencys(emergencydelete);
+			final EmergencyDTO emergencyDelete = new EmergencyDTO("");
+			emergencyDelete.setEmId(deleteId);
+			emergencyServiceDTO.deleteEmergency(emergencyDelete);
 			showAllEmergencys(request, response);
 			break;
 
-		case "indietro":
-			getServletContext().getRequestDispatcher("homeAdmin.jsp").forward(request, response);
 
+		case "indietro":
+			response.sendRedirect("homeTutor.jsp");
 			break;
 
 		case "logsMenu":
-			getServletContext().getRequestDispatcher("index.jsp").forward(request, response);
+			response.sendRedirect("index.jsp");
 			break;
 
+
 		}
+
 
 	}
 

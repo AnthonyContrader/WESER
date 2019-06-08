@@ -33,13 +33,18 @@ public class DoctorServlet extends HttpServlet {
 			request.setAttribute("allDoctor", allDoctors);
 			getServletContext().getRequestDispatcher("/care/manageCare.jsp").forward(request, response);
 			break;
+			
+		case "CareManagerT":
+			allDoctors = this.doctorServiceDTO.getAllDoctors();
+			request.setAttribute("allDoctor", allDoctors);
+			getServletContext().getRequestDispatcher("/care/manageCareT.jsp").forward(request, response);
+			break;
 
 		case "insertRedirect":
 			getServletContext().getRequestDispatcher("/care/insertCare.jsp").forward(request, response);
 			break;
 
 		case "insert":
-			final Integer id = Integer.parseInt(request.getParameter("doctor_id"));
 			final String patname = request.getParameter("patname");
 			final String patcf = request.getParameter("patcf");
 			final int patage = Integer.parseInt(request.getParameter("patage"));
@@ -53,9 +58,9 @@ public class DoctorServlet extends HttpServlet {
 			break;
 
 		case "updateRedirect":
-			int careId = Integer.parseInt(request.getParameter("careId"));
+			int id = Integer.parseInt(request.getParameter("id"));
 			DoctorDTO doctorUpdate = new DoctorDTO("","",0,"","","","");
-			doctorUpdate.setCareid(careId);
+			doctorUpdate.setCareid(id);
 
 			doctorUpdate = this.doctorServiceDTO.readDoctor(doctorUpdate);
 			request.setAttribute("doctorUpdate", doctorUpdate);
@@ -64,12 +69,8 @@ public class DoctorServlet extends HttpServlet {
 			break;
 
 		case "update":
-			//System.out.println("ID: " + Integer.parseInt(request.getParameter("doctor_id")));
-			//System.out.println("doctorname: " + request.getParameter("doctor_doctor"));
-			//System.out.println("password: " + request.getParameter("doctor_pass"));
-			//System.out.println("Tipo utente: " + request.getParameter("doctor_type"));
 
-			final Integer idUpdate = Integer.parseInt(request.getParameter("doctor_id"));
+			final Integer idUpdate = Integer.parseInt(request.getParameter("care_id"));
 			final String patnameUpdate = request.getParameter("patname");
 			final String patcfUpdate= request.getParameter("patcf");
 			final Integer patageUpdate = Integer.parseInt(request.getParameter("patage"));
@@ -94,10 +95,14 @@ public class DoctorServlet extends HttpServlet {
 			break;
 
 		case "indietro":
-			getServletContext().getRequestDispatcher("homeAdmin.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("homeDoctor.jsp").forward(request, response);
 
 			break;
 
+		case "indietrotutor":
+			getServletContext().getRequestDispatcher("homeTutor.jsp").forward(request, response);
+
+			break;
 		case "logsMenu":
 			getServletContext().getRequestDispatcher("index.jsp").forward(request, response);
 			break;

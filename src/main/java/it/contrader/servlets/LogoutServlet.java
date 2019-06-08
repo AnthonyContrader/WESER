@@ -1,4 +1,4 @@
-package it.contrader.servlets;
+package wmes.servlet;
 
 
 import javax.servlet.ServletException;
@@ -13,6 +13,6 @@ public class LogoutServlet extends HttpServlet {
     public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         session.invalidate();
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("/index.jsp");
     }
 }

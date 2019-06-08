@@ -32,12 +32,4 @@ public class Emergency {
 		return this.getEmId()+"\t"+this.getEmnum();
 	}
 	
-	public boolean equals(Emergency emergencyCompare)  {
-		if (!this.getEmnum().equals(emergencyCompare.getEmnum())) {
-			return false;
-		}
-		
-		return true;
-				
-	}
 }

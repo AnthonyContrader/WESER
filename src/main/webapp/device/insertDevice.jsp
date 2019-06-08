@@ -6,41 +6,78 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Inserisci new user</title>
-
+<title>Insert new device</title>
+<link rel="stylesheet" type="text/css" href="/JspApp/css/style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<style>
+/*contenitore in cima dove c'è scritto "Login"*/
+.pre_contenitore {
+	width: 320px;
+	margin: auto;
+	height: 50px;
+	border: 1px solid black;
+	border-radius: 40px 40px 40px 40px;
+	background-color: rgba(0, 0, 0, 0.9);
+	box-shadow: 20px 30px 20px #000000;
+	padding: 20px;
+}
+.pre_contenitore p {
+	color: white;
+	text-align: center;
+	font-size: 1.9em;
+	font-family: arial;
+	line-height: 2px;
+}
+</style>
 </head>
 <body>
 	<div class="pre_contenitore">
 
-		<p>New User</p>
+		<p>New Device</p>
 
 	</div>
 
 	<br>
 	<br>
-	<form method="POST" action="/JspApp/UserServlet?richiesta=insert">
+	<form method="POST" action="/JspApp/DeviceServlet?richiesta=insert">
 		<br>
 	    <br>
-		Username: <input type="text" size="40" maxlength="40" name="username" />
+		Reg number: <input type="text" size="40" maxlength="40" name="regnumber" />
 		<br>
 		<br>
-		User type: <input type="text" size="40" maxlength="40" name="usertype" />
+		Device type: <input type="text" size="40" maxlength="40" name="devtype" />
 		<br>
 		<br>
-		Password: <input type="password" size="40" maxlength="40" name="password" />
+		Description: <input type="text" size="40" maxlength="40" name="description" />
 		<br>
 		<br>
-		name: <input type="text" size="40" maxlength="40" name="name" />
+		Min press: <input type="text" size="40" maxlength="40" name="minpress" />
 		<br>
 		<br>
-		surname: <input type="text" size="40" maxlength="40" name="surname" />
+		Max press: <input type="text" size="40" maxlength="40" name="maxpress" />
 		<br>
 		<br>
-		social secure code: <input type="text" size="40" maxlength="40" name="cf" />
+		Min circ <input type="text" size="40" maxlength="40" name="mincir" />
+		<br>
+		<br>
+		Max circ <input type="text" size="40" maxlength="40" name="maxcir" />
+		<br>
+		<br>
+		Min breath<input type="text" size="40" maxlength="40" name="minbreath" />
+		<br>
+		<br>
+		Max breath <input type="text" size="40" maxlength="40" name="maxbreath" />
+		<br>
+		<br>
+		Min temp <input type="text" size="40" maxlength="40" name="mintemp" />
+		<br>
+		<br>
+		Max temp <input type="text" size="40" maxlength="40" name="maxtemp" />
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>
-		<a href="/JspApp/UserServlet?richiesta=UserManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<a href="/JspApp/UserServlet?richiesta=DeviceManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 	</form>
 </body>

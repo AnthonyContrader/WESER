@@ -5,18 +5,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Gestione Utenti</title>
-	
+<title>Device Management</title>
+	<link rel="stylesheet" type="text/css" href="/JspApp/css/style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<style>
+/*contenitore in cima dove c'è scritto "Login"*/
+.pre_contenitore {
+	width: 320px;
+	margin: auto;
+	height: 50px;
+	border: 1px solid black;
+	border-radius: 40px 40px 40px 40px;
+	background-color: rgba(0, 0, 0, 0.9);
+	box-shadow: 20px 30px 20px #000000;
+	padding: 20px;
+}
+.pre_contenitore p {
+	color: white;
+	text-align: center;
+	font-size: 1.9em;
+	font-family: arial;
+	line-height: 2px;
+}
+</style>
 </head>
 <%
-	List<UserDTO> allUser = (List<UserDTO>) request.getAttribute("allUser");
+	List<DeviceDTO> allDevice = (List<DeviceDTO>) request.getAttribute("allDevice");
 %>
 
 <body>
 
 	<div>
 
-		<p>User Management</p>
+		<p>Device Management</p>
 
 	</div>
 	<br>
@@ -28,28 +50,39 @@
 	<table>
 		<tr>
 			<th>ID</th>
-			<th>Username</th>
-			<th>User Type</th>
-			<th>Password</th>
-			<th>Name</th>
-			<th>Surname</th>
-			<th>SSC</th>
+			<th>Registration N°</th>
+			<th>Device Type</th>
+			<th>Description</th>
+			<th>Min press</th>
+			<th>Max press</th>
+			<th>Min circ</th>
+			<th>Max circ</th>
+			<th>Min breath</th>
+			<th>Max breath</th>
+			<th>Min temp</th>
+			<th>Max temp</th>
 			<th>Update</th>
 			<th>Delete</th>
 		</tr>
 		<%
-			for (UserDTO user : allUser) {
+			for (DeviceDTO device : allDevice) {
 		%>
 		<tr>
-			<td><%=user.getId() %></td>
-			<td><%=user.getUsername()%></td>
-			<td><%=user.getUsertype()%></td>
-			<td><%=user.getPassword()%></td>
-			<td><%=user.getName()%></td>
-			<td><%=user.getSurname()%></td>
-			<td><%=user.getCf()%></td>
-			<td><a href="UserServlet?richiesta=updateRedirect&id=<%=user.getId() %>">Update</a></td>
-			<td><a href="UserServlet?richiesta=delete&id=<%=user.getId() %>" >Delete</a></td>
+			<td><%=device.getDevId() %></td>
+			<td><%=device.getRegnumber()%></td>
+			<td><%=device.getDevtype()%></td>
+			<td><%=device.getDescription()%></td>
+			<td><%=device.getMinpress()%></td>
+			<td><%=device.getMaxpress()%></td>
+			<td><%=device.getMincir() %></td>
+			<td><%=device.getMaxcir() %></td>
+			<td><%=device.getMinbreath()%></td>
+			<td><%=device.getMaxbreath() %></td>
+			<td><%=device.getMintemp() %></td>
+			<td><%=device.getMaxtemp() %></td>
+			
+			<td><a href="DeviceServlet?richiesta=updateRedirect&id=<%=device.getDevId() %>">Update</a></td>
+			<td><a href="DeviceServlet?richiesta=delete&id=<%=device.getDevId() %>" >Delete</a></td>
 		</tr>
 		<%
 			}
@@ -57,9 +90,9 @@
 	</table>
 	
 	<br>
-	<a href="/JspApp/UserServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New User</i></a>
+	<a href="/JspApp/DeviceServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New Device</i></a>
 	<br>	
-	<a href="UserServlet?richiesta=indietro"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<a href="/JspApp/homeAdmin.jsp"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 </body>

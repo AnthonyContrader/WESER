@@ -1,0 +1,36 @@
+body{
+	background-image: url("http://rowingsicilia.org/wp-content/uploads/2016/01/sfondo-sito-11.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+    text-align: center;
+    color:white;
+}
+
+table {
+  border-collapse: collapse;
+  width: 60%;
+  margin: 0 auto;
+}
+
+table, th, td {
+  border: 2px solid black;
+}
+
+th {
+  height: 50px;
+}
+
+a {
+    text-decoration:none;
+color:orange;
+}
+
+
+.center {
+	text-align:center;
+}
+
+.fs{
+font-size:20px;
+}

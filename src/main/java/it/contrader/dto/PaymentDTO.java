@@ -11,7 +11,7 @@ public class PaymentDTO {
 	
 	public PaymentDTO(String cardnum, String cardtype, String cardown, String cardexp, int cvv) {
 		super();
-		//this.id = id;
+		this.payId = payId;
 		this.cardnum = cardnum;
 		this.cardtype = cardtype;
 		this.cardown=cardown;
@@ -67,20 +67,7 @@ public class PaymentDTO {
 		this.cardtype = cardtype;
 	}
 	
-	public boolean equals(PaymentDTO paymentCompare)  {
-		
-		if (!this.getCardnum().equals(paymentCompare.getCardnum())) {
-			return false;
-		}
-		
-		if (!this.getCardtype().equals(paymentCompare.getCardtype())) {
-			return false;
-		}
-		
-		return true;		
-	}
-
-
+	
 	
 
 }

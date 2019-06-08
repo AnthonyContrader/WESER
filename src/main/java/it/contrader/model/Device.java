@@ -14,7 +14,6 @@ public class Device {
 	private float mintemp;
 	private float maxtemp;
 	
-	public Device() {}
 	
 	public Device(String regnumber, String devtype, String description, int minpress, int maxpress, int mincir, int maxcir, int minbreath, int maxbreath, float mintemp, float maxtemp) {
 		this.devId = devId;
