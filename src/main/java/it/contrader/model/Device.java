@@ -17,15 +17,15 @@ public class Device {
 	public Device() {}
 
 	public Device(String regnumber, String devtype, String description, int minpress, int maxpress, int mincir, int maxcir, int minbreath, int maxbreath, float mintemp, float maxtemp) {
-		this.devId = devId;
+		//this.devId = devId;
 		this.regnumber = regnumber;
 		this.devtype = devtype;
 		this.description = description;
 		this.minpress = minpress;
 		this.maxpress = maxpress;
-		this.mincir = maxcir;
+		this.mincir = mincir;
 		this.maxcir = maxcir;
-		this.minbreath = maxbreath;
+		this.minbreath = minbreath;
 		this.maxbreath = maxbreath;
 		this.mintemp = mintemp;
 		this.maxtemp = maxtemp;

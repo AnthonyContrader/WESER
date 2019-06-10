@@ -19,7 +19,7 @@ public class DeviceServlet extends HttpServlet {
 	private final DeviceServiceDTO deviceServiceDTO = new DeviceServiceDTO();
 	private List<DeviceDTO> allDevices = new ArrayList<>();
 
-
+    @Override
 	public void service(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 
 		final String scelta = request.getParameter("richiesta");
@@ -74,7 +74,7 @@ public class DeviceServlet extends HttpServlet {
 
 		case "update":
 			
-			final Integer idUpdate = Integer.parseInt(request.getParameter("dev_id"));
+			final int idUpdate = Integer.parseInt(request.getParameter("dev_id"));
 			final String regnumberUpdate = request.getParameter("regnumber");
 			final String devtypeUpdate= request.getParameter("devtype");
 			final String descriptionUpdate = request.getParameter("description");
@@ -96,7 +96,7 @@ public class DeviceServlet extends HttpServlet {
 		
 
 		case "delete":
-			final Integer deleteId = Integer.parseInt(request.getParameter("id"));
+			final int deleteId = Integer.parseInt(request.getParameter("id"));
 
 			final DeviceDTO devicedelete =  new DeviceDTO("", "", "",0,0,0,0,0,0,0,0);
 			devicedelete.setDevId(deleteId);
@@ -110,7 +110,7 @@ public class DeviceServlet extends HttpServlet {
 		case "indietroD":
 			response.sendRedirect("homeDoctor.jsp");
 			break;
-		case "indietrot":
+		case "indietroT":
 			response.sendRedirect("homeTutor.jsp");
 			break;
 

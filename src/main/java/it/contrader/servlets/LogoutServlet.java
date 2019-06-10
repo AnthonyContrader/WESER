@@ -1,4 +1,4 @@
-package wmes.servlet;
+package it.contrader.servlets;
 
 
 import javax.servlet.ServletException;

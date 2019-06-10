@@ -18,7 +18,7 @@ public class DeviceDTO {
 	
 	public DeviceDTO(String regnumber, String devtype, String description, int minpress, int maxpress, int mincir, int maxcir, int minbreath, int maxbreath, float mintemp, float maxtemp) {
 		super();
-		this.devId = devId;
+		//this.devId = devId;
 		this.regnumber = regnumber;
 		this.devtype = devtype;
 		this.description = description;
@@ -26,7 +26,7 @@ public class DeviceDTO {
 		this.maxpress = maxpress;
 		this.mincir = mincir;
 		this.maxcir = maxcir;
-		this.minbreath = maxbreath;
+		this.minbreath = minbreath;
 		this.maxbreath = maxbreath;
 		this.mintemp = mintemp;
 		this.maxtemp = maxtemp;

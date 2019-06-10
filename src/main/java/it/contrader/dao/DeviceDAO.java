@@ -1,4 +1,5 @@
 package it.contrader.dao;
+
 import it.contrader.model.Device;
 import it.contrader.utils.ConnectionSingleton;
 import it.contrader.utils.GestoreEccezioni;
@@ -37,8 +38,8 @@ public class DeviceDAO {
 				int maxcir = resultSet.getInt("max_cir");
 				int minbreath = resultSet.getInt("min_breath");
 				int maxbreath = resultSet.getInt("max_breath");
-				float mintemp = resultSet.getInt("min_temp");
-				float maxtemp = resultSet.getInt("max_temp");
+				float mintemp = resultSet.getFloat("min_temp");
+				float maxtemp = resultSet.getFloat("max_temp");
 				device = new Device(regnumber,devtype,description,minpress,maxpress,mincir,maxcir,minbreath,maxbreath,mintemp,maxtemp);
 				device.setDevId(devId);
 				devicesList.add(device);

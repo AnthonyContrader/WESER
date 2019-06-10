@@ -69,6 +69,7 @@
 		%>
 		<tr>
 			<td><%=device.getDevId() %></td>
+			<td><%=device.getRegnumber() %></td>
 			<td><%=device.getDevtype()%></td>
 			<td><%=device.getDescription()%></td>
 			<td><%=device.getMinpress()%></td>
