@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Device Management</title>
+<title>Device management</title>
 	<link rel="stylesheet" type="text/css" href="/JspApp/css/style.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -21,6 +21,7 @@
 	box-shadow: 20px 30px 20px #000000;
 	padding: 20px;
 }
+
 .pre_contenitore p {
 	color: white;
 	text-align: center;
@@ -50,8 +51,8 @@
 	<table>
 		<tr>
 			<th>ID</th>
-			<th>Registration N°</th>
-			<th>Device Type</th>
+			<th>Reg number</th>
+			<th>Dev Type</th>
 			<th>Description</th>
 			<th>Min press</th>
 			<th>Max press</th>
@@ -61,7 +62,6 @@
 			<th>Max breath</th>
 			<th>Min temp</th>
 			<th>Max temp</th>
-			<th>Update</th>
 			<th>Delete</th>
 		</tr>
 		<%
@@ -69,18 +69,16 @@
 		%>
 		<tr>
 			<td><%=device.getDevId() %></td>
-			<td><%=device.getRegnumber()%></td>
 			<td><%=device.getDevtype()%></td>
 			<td><%=device.getDescription()%></td>
 			<td><%=device.getMinpress()%></td>
 			<td><%=device.getMaxpress()%></td>
-			<td><%=device.getMincir() %></td>
-			<td><%=device.getMaxcir() %></td>
+			<td><%=device.getMincir()%></td>
+			<td><%=device.getMaxcir()%></td>
 			<td><%=device.getMinbreath()%></td>
-			<td><%=device.getMaxbreath() %></td>
-			<td><%=device.getMintemp() %></td>
-			<td><%=device.getMaxtemp() %></td>
-			
+			<td><%=device.getMaxbreath()%></td>
+			<td><%=device.getMintemp()%></td>
+			<td><%=device.getMaxtemp()%></td>
 			<td><a href="DeviceServlet?richiesta=updateRedirect&id=<%=device.getDevId() %>">Update</a></td>
 			<td><a href="DeviceServlet?richiesta=delete&id=<%=device.getDevId() %>" >Delete</a></td>
 		</tr>
@@ -92,7 +90,7 @@
 	<br>
 	<a href="/JspApp/DeviceServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New Device</i></a>
 	<br>	
-	<a href="/JspApp/homeAdmin.jsp"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<a href="DeviceServlet?richiesta=indietro"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 </body>

@@ -83,6 +83,8 @@
 	
 	<br>
 	<a href="DoctorServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New Care</i></a>
+	<br><br>
+	<a href=""><i class="fas fa-binoculars fa-lg"> Search patology care</i></a><br>
 	<br>	
 	<a href="/JspApp/homeDoctor.jsp"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 

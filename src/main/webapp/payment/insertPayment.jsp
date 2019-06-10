@@ -41,7 +41,7 @@
 
 	<br>
 	<br>
-	<form method="POST" action="/JspApp/PaymentServlet?richiesta=insert">
+	<form method="POST" action="PaymentServlet?richiesta=insert">
 
 		<br>
 		<br>

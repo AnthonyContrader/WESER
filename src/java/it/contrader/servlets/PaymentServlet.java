@@ -62,12 +62,8 @@ public class PaymentServlet extends HttpServlet {
 			break;
 
 		case "update":
-			//System.out.println("ID: " + Integer.parseInt(request.getParameter("payment_id")));
-			//System.out.println("paymentname: " + request.getParameter("payment_payment"));
-			//System.out.println("password: " + request.getParameter("payment_pass"));
-			//System.out.println("Tipo utente: " + request.getParameter("payment_type"));
-
-			final int payIdUpdate = Integer.parseInt(request.getParameter("payId"));
+		
+			final int payIdUpdate = Integer.parseInt(request.getParameter("pay_id"));
 			final String cardtypeUpdate= request.getParameter("cardtype");
 			final String cardnumUpdate = request.getParameter("cardnum");
 			final String cardownUpdate = request.getParameter("cardown");

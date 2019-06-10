@@ -62,7 +62,6 @@
 			<th>Min temp</th>
 			<th>Max temp</th>
 			<th>Update</th>
-			<th>Delete</th>
 		</tr>
 		<%
 			for (DeviceDTO device : allDevice) {

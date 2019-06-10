@@ -9,7 +9,7 @@ public class PaymentDTO {
 	private String cardexp;
 	private int cvv;
 	
-	public PaymentDTO(String cardnum, String cardtype, String cardown, String cardexp, int cvv) {
+	public PaymentDTO(String cardtype, String cardnum, String cardown, String cardexp, int cvv) {
 		super();
 		this.payId = payId;
 		this.cardnum = cardnum;
@@ -35,11 +35,11 @@ public class PaymentDTO {
 		this.cardexp = cardexp;
 	}
 
-	public int getCVV() {
+	public int getCvv() {
 		return cvv;
 	}
 
-	public void setCVV(int cvv) {
+	public void setCvv(int cvv) {
 		this.cvv = cvv;
 	}
 
@@ -66,21 +66,6 @@ public class PaymentDTO {
 	public void setCardtype(String cardtype) {
 		this.cardtype = cardtype;
 	}
-	
-	public boolean equals(PaymentDTO paymentCompare)  {
-		
-		if (!this.getCardnum().equals(paymentCompare.getCardnum())) {
-			return false;
-		}
-		
-		if (!this.getCardtype().equals(paymentCompare.getCardtype())) {
-			return false;
-		}
-		
-		return true;		
-	}
-
-
 	
 
 }

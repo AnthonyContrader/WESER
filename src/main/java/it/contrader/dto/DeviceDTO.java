@@ -15,6 +15,7 @@ public class DeviceDTO {
 	private float mintemp;
 	private float maxtemp;
 	
+	
 	public DeviceDTO(String regnumber, String devtype, String description, int minpress, int maxpress, int mincir, int maxcir, int minbreath, int maxbreath, float mintemp, float maxtemp) {
 		super();
 		this.devId = devId;
@@ -30,6 +31,14 @@ public class DeviceDTO {
 		this.mintemp = mintemp;
 		this.maxtemp = maxtemp;
 		
+	}
+
+	public int getDevId() {
+		return devId;
+	}
+
+	public void setDevId(int devId) {
+		this.devId = devId;
 	}
 
 	public String getRegnumber() {
@@ -63,6 +72,7 @@ public class DeviceDTO {
 	public void setMinpress(int minpress) {
 		this.minpress = minpress;
 	}
+
 	public int getMaxpress() {
 		return maxpress;
 	}
@@ -70,6 +80,7 @@ public class DeviceDTO {
 	public void setMaxpress(int maxpress) {
 		this.maxpress = maxpress;
 	}
+
 	public int getMincir() {
 		return mincir;
 	}
@@ -77,6 +88,7 @@ public class DeviceDTO {
 	public void setMincir(int mincir) {
 		this.mincir = mincir;
 	}
+
 	public int getMaxcir() {
 		return maxcir;
 	}
@@ -84,6 +96,7 @@ public class DeviceDTO {
 	public void setMaxcir(int maxcir) {
 		this.maxcir = maxcir;
 	}
+
 	public int getMinbreath() {
 		return minbreath;
 	}
@@ -91,13 +104,15 @@ public class DeviceDTO {
 	public void setMinbreath(int minbreath) {
 		this.minbreath = minbreath;
 	}
+
 	public int getMaxbreath() {
 		return maxbreath;
 	}
 
-	public void setMaxbreath(Integer maxbreath) {
+	public void setMaxbreath(int maxbreath) {
 		this.maxbreath = maxbreath;
 	}
+
 	public float getMintemp() {
 		return mintemp;
 	}
@@ -105,6 +120,7 @@ public class DeviceDTO {
 	public void setMintemp(float mintemp) {
 		this.mintemp = mintemp;
 	}
+
 	public float getMaxtemp() {
 		return maxtemp;
 	}
@@ -112,15 +128,6 @@ public class DeviceDTO {
 	public void setMaxtemp(float maxtemp) {
 		this.maxtemp = maxtemp;
 	}
-	public int getDevId() {
-		return devId;
-	}
-
-
-	public void setDevId(int devId) {
-		this.devId = devId;
-	}
 
 	
-
 }

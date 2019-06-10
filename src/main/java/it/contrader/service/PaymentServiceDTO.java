@@ -39,7 +39,6 @@ public class PaymentServiceDTO {
 	}
 	
 
-
 	public PaymentDTO readPayment(PaymentDTO paymentDTO) {
 		return PaymentConverter.toDTO(this.paymentDAO.readPayment(PaymentConverter.toEntity(paymentDTO)));
 	}

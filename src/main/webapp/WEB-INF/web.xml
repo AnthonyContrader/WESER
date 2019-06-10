@@ -10,11 +10,6 @@
   <servlet-class>it.contrader.servlets.RegisterServlet</servlet-class>
  </servlet>
  <servlet>
-  <display-name>PaymentServlets</display-name>
-  <servlet-name>PaymentServlet</servlet-name>
-  <servlet-class>it.contrader.servlets.PaymentServlet</servlet-class>
- </servlet>
- <servlet>
   <servlet-name>DoctorServlet</servlet-name>
   <servlet-class>it.contrader.servlets.DoctorServlet</servlet-class>
  </servlet>
@@ -38,6 +33,11 @@
   <servlet-name>EmergencyServlet</servlet-name>
   <servlet-class>it.contrader.servlets.EmergencyServlet</servlet-class>
  </servlet>
+ <servlet>
+  <display-name>PaymentServlet</display-name>
+  <servlet-name>PaymentServlet</servlet-name>
+  <servlet-class>it.contrader.servlets.PaymentServlet</servlet-class>
+ </servlet>
  <servlet-mapping>
   <servlet-name>RegisterServlet</servlet-name>
   <url-pattern>/RegisterServlet</url-pattern>
@@ -45,10 +45,6 @@
  <servlet-mapping>
   <servlet-name>UserServlet</servlet-name>
   <url-pattern>/UserServlet</url-pattern>
- </servlet-mapping>
- <servlet-mapping>
-  <servlet-name>PaymentServlet</servlet-name>
-  <url-pattern>/PaymentServlet</url-pattern>
  </servlet-mapping>
  <servlet-mapping>
   <servlet-name>DoctorServlet</servlet-name>
@@ -69,6 +65,10 @@
  <servlet-mapping>
   <servlet-name>EmergencyServlet</servlet-name>
   <url-pattern>/EmergencyServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>PaymentServlet</servlet-name>
+  <url-pattern>/PaymentServlet</url-pattern>
  </servlet-mapping>
  <session-config>
   <session-timeout>4000</session-timeout>

@@ -52,7 +52,7 @@ public class PaymentDAO {
 			preparedStatement.setString(2, payment.getCardnum());
 			preparedStatement.setString(3, payment.getCardown());
 			preparedStatement.setString(4, payment.getCardexp());
-			preparedStatement.setInt(5, payment.getCVV());
+			preparedStatement.setInt(5, payment.getCvv());
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -96,32 +96,14 @@ public class PaymentDAO {
 		if (paymentToUpdate.getPayId() == 0)
 			return false;
 
-		// Payment paymentRead = readPayment(paymentToUpdate);
-		// if (!paymentRead.equals(paymentToUpdate)) {
 		try {
-			// Fill the paymentToUpdate object
-			/*
-			if (paymentToUpdate.getPaymentname() == null || paymentToUpdate.getPaymentname().equals("")) {
-			 
-				paymentToUpdate.setPayment(paymentRead.getPaymentname());
-			}
-
-			if (paymentToUpdate.getPassword() == null || paymentToUpdate.getPassword().equals("")) {
-				paymentToUpdate.setPassword(paymentRead.getPassword());
-			}
-
-			if (paymentToUpdate.getPaymenttype() == null || paymentToUpdate.getPaymenttype().equals("")) {
-				paymentToUpdate.setPaymenttype(paymentRead.getPaymenttype());
-			}
 			
-			*/
-			// Update the payment
 			PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 			preparedStatement.setString(1, paymentToUpdate.getCardtype());
 			preparedStatement.setString(2, paymentToUpdate.getCardnum());
 			preparedStatement.setString(3, paymentToUpdate.getCardown());
 			preparedStatement.setString(4, paymentToUpdate.getCardexp());
-			preparedStatement.setInt(5, paymentToUpdate.getCVV());
+			preparedStatement.setInt(5, paymentToUpdate.getCvv());
 			preparedStatement.setInt(6, paymentToUpdate.getPayId());
 			int a = preparedStatement.executeUpdate();
 			if (a > 0)

@@ -42,27 +42,12 @@ public class Payment {
 	public void setCardtype(String cardtype) {
 		this.cardtype = cardtype;
 	}
-	
-	
-	@Override
-	public String toString() {
-		return this.getPayId()+"\t"+this.getCardnum()+"\t"+this.getCardtype();
-	}
-	
-		public boolean equals(Payment paymentCompare)  {
-		if (!this.getCardnum().equals(paymentCompare.getCardnum())) {
-			return false;
-		}
-		
-		return true;
-				
-	}
 
-	public int getCVV() {
+	public int getCvv() {
 		return cvv;
 	}
 
-	public void setCVV(int cvv) {
+	public void setCvv(int cvv) {
 		this.cvv = cvv;
 	}
 
@@ -80,6 +65,20 @@ public class Payment {
 
 	public void setCardown(String cardown) {
 		this.cardown = cardown;
+	}
+	
+	@Override
+	public String toString() {
+		return this.getPayId()+"\t"+this.getCardnum()+"\t"+this.getCardtype();
+	}
+	
+		public boolean equals(Payment paymentCompare)  {
+		if (!this.getCardnum().equals(paymentCompare.getCardnum())) {
+			return false;
+		}
+		
+		return true;
+				
 	}
 
 }

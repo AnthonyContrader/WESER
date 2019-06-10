@@ -1,9 +1,10 @@
 <%@ page import="it.contrader.dto.*"%>
 <%@ page import="java.util.*"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
+<link rel="stylesheet" type="text/css" href="/JspApp/css/style.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <style>
@@ -27,7 +28,6 @@
 	line-height: 2px;
 }
 </style>
-
 <%
 	PaymentDTO updatePayment = (PaymentDTO) request.getAttribute("paymentUpdate");
 %>
@@ -45,30 +45,30 @@
 		<br>
 		<form method="POST" action="/JspApp/PaymentServlet?richiesta=update">
 
-			<br>
-			<input type="hidden" name="payId" value="<%=updatePayment.getPayId()%>" />
-			<br>
-			Card Type: <input type="text" size="40" maxlength="40" name="cardtype" value="<%=updatePayment.getCardtype()%>" />
+					
+			<input type="hidden" name="pay_id" value="<%=updatePayment.getPayid()%>" />
 			<br>
 			<br>
-			Card Number: <input type="text" size="40" maxlength="40" name="cardnum" value="<%=updatePayment.getCardnum()%>" />
+			Card type: <input type="text" size="40" maxlength="40" name="cardtype" value="<%=updatePayment.getCardtype()%>" />
 			<br>
 			<br>
-			Card Owner: <input type="text" size="40" maxlength="40" name="cardown" value="<%=updatePayment.getCardown()%>" />
+			Card name: <input type="text" size="40" maxlength="40" name="cardnum" value="<%=updatePayment.getCardnum()%>" />
 			<br>
 			<br>
-			Card Expire: <input type="text" size="40" maxlength="40" name="cardexp" value="<%=updatePayment.getCardexp()%>" />
+			Card owner: <input type="text" size="40" maxlength="40" name="cardown" value="<%=updatePayment.getCardown()%>" />
 			<br>
 			<br>
-			CVV: <input type="text" size="40" maxlength="40" name="cvv" value="<%=updatePayment.getCVV()%>" />
-			<br><br>
-			<input type="SUBMIT" value="Update">
-		
-
+			Card expire: <input type="text" size="40" maxlength="40" name="cardexp" value="<%=updatePayment.getCardexp()%>" />
 			<br>
 			<br>
-			<a href="/JspApp/UserServlet?richiesta=PaymentManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
-
+			Cvv: <input type="text" size="40" maxlength="40" name="cvv" value="<%=updatePayment.getCvv() %>" />
+			<br>
+			<br>
+			<input type="submit" value="Update">
+			<br>
+			<br>
+			
+		<a href="PaymentServlet?richiesta=PaymentManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 		</form>
 
 	</div>

@@ -11,11 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import it.contrader.dto.DeviceDTO;
-import it.contrader.dto.UserDTO;
 import it.contrader.service.DeviceServiceDTO;
 
 
-@SuppressWarnings("serial")
 public class DeviceServlet extends HttpServlet {
 
 	private final DeviceServiceDTO deviceServiceDTO = new DeviceServiceDTO();
@@ -76,7 +74,7 @@ public class DeviceServlet extends HttpServlet {
 
 		case "update":
 			
-			
+			final Integer idUpdate = Integer.parseInt(request.getParameter("dev_id"));
 			final String regnumberUpdate = request.getParameter("regnumber");
 			final String devtypeUpdate= request.getParameter("devtype");
 			final String descriptionUpdate = request.getParameter("description");
@@ -88,13 +86,14 @@ public class DeviceServlet extends HttpServlet {
 			final int maxbreathUpdate = Integer.parseInt(request.getParameter("maxbreath"));
 			final float mintempUpdate = Float.parseFloat(request.getParameter("mintemp"));
 			final float maxtempUpdate = Float.parseFloat(request.getParameter("maxtemp"));
-			final Integer idUpdate = Integer.parseInt(request.getParameter("dev_id"));
 			final DeviceDTO device = new DeviceDTO(regnumberUpdate,devtypeUpdate,descriptionUpdate,minpressUpdate,maxpressUpdate,mincirUpdate,maxcirUpdate,minbreathUpdate,maxbreathUpdate,mintempUpdate,maxtempUpdate);
 			device.setDevId(idUpdate);
 
 			deviceServiceDTO.updateDevice(device);
 			showAllDevices(request, response);
 			break;
+
+		
 
 		case "delete":
 			final Integer deleteId = Integer.parseInt(request.getParameter("id"));

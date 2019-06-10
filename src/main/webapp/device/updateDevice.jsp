@@ -50,13 +50,13 @@
 			<input type="hidden" name="dev_id" value="<%=updateDevice.getDevId()%>" />
 			<br>
 			<br>
-			Reg number: <input type="text" size="40" maxlength="40" name="regnumber" value="<%=updateDevice.getRegnumber() %>"/>
+			Reg number: <input type="text" size="40" maxlength="40" name="regnumber" value="<%=updateDevice.getRegnumber()%>" />
 			<br>
 			<br>
-			Dev type: <input type="text" size="40" maxlength="40" name="devtype" value="<%=updateDevice.getDevtype() %>" />
+			Device type: <input type="text" size="40" maxlength="40" name="devtype" value="<%=updateDevice.getDevtype()%>" />
 			<br>
 			<br>
-			Description: <input type="text" size="40" maxlength="40" name="description" value="<%=updateDevice.getDescription() %>" />
+			Description: <input type="text" size="40" maxlength="40" name="description" value="<%=updateDevice.getDescription()%>" />
 			<br>
 			<br>
 			Min press: <input type="text" size="40" maxlength="40" name="minpress" value="<%=updateDevice.getMinpress()%>" />
@@ -65,7 +65,7 @@
 			Max press: <input type="text" size="40" maxlength="40" name="maxpress" value="<%=updateDevice.getMaxpress()%>" />
 			<br>
 			<br>
-			Min cirr: <input type="text" size="40" maxlength="40" name="mincir" value="<%=updateDevice.getMincir()%>" />
+			Min cirr: <input type="text" size="40" maxlength="40" name="mincir" value="<%=updateDevice.getMincir() %>" />
 			<br>
 			<br>
 			Max cirr: <input type="text" size="40" maxlength="40" name="maxcir" value="<%=updateDevice.getMaxcir() %>" />
@@ -77,7 +77,7 @@
 			Max breath: <input type="text" size="40" maxlength="40" name="maxbreath" value="<%=updateDevice.getMaxbreath() %>" />
 			<br>
 			<br>
-			Min temp: <input type="text" size="40" maxlength="40" name="mintemp" value="<%=updateDevice.getMintemp() %>" />
+			Min temp: <input type="text" size="40" maxlength="40" name="mintemp" value="<%=updateDevice.getMintemp()%>" />
 			<br>
 			<br>
 			Max temp: <input type="text" size="40" maxlength="40" name="maxtemp" value="<%=updateDevice.getMaxtemp() %>" />
@@ -93,4 +93,3 @@
 	</div>
 </body>
 </html>
-

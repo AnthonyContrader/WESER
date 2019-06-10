@@ -1,19 +1,24 @@
 package it.contrader.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
 import it.contrader.model.Payment;
 import it.contrader.utils.ConnectionSingleton;
 import it.contrader.utils.GestoreEccezioni;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-
 public class PaymentDAO {
 
 	private final String QUERY_ALL = "select * from payments";
-	private final String QUERY_INSERT = "insert into payments (card_type,card_number,card_owner,card_expire,cvv) values (?,?,?,?,?)";
+	private final String QUERY_INSERT = "insert into payments (card_type, card_number,card_owner,card_expire,cvv) values (?,?,?,?,?)";
 	private final String QUERY_READ = "select * from payments where pay_id=?";
 
-	private final String QUERY_UPDATE = "UPDATE payments SET card_type=?, card_number=?, card_owner=?,card_expire=?,cvv=? WHERE pay_id=?";
+	private final String QUERY_UPDATE = "UPDATE payments SET card_type=?, card_number=?,card_owner=?, card_expire=?,cvv=? WHERE pay_id=?";
 	private final String QUERY_DELETE = "delete from payments where pay_id=?";
 
 	public PaymentDAO() {
@@ -34,7 +39,7 @@ public class PaymentDAO {
 				String cardown = resultSet.getString("card_owner");
 				String cardexp = resultSet.getString("card_expire");
 				int cvv = resultSet.getInt("cvv");
-				payment = new Payment(cardtype,cardnum,cardown,cardexp,cvv);
+				payment = new Payment(cardtype, cardnum,cardown,cardexp,cvv);
 				payment.setPayId(payId);
 				paymentsList.add(payment);
 			}
@@ -52,7 +57,7 @@ public class PaymentDAO {
 			preparedStatement.setString(2, payment.getCardnum());
 			preparedStatement.setString(3, payment.getCardown());
 			preparedStatement.setString(4, payment.getCardexp());
-			preparedStatement.setInt(5, payment.getCVV());
+			preparedStatement.setInt(5, payment.getCvv());
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -65,9 +70,9 @@ public class PaymentDAO {
 	public Payment readPayment(Payment payment) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
-			int payId = payment.getPayId();
+			int paymentId = payment.getPayId();
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
-			preparedStatement.setInt(1, payId);
+			preparedStatement.setInt(1, paymentId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
 			String cardtype,cardnum,cardown,cardexp;
@@ -121,8 +126,10 @@ public class PaymentDAO {
 			preparedStatement.setString(2, paymentToUpdate.getCardnum());
 			preparedStatement.setString(3, paymentToUpdate.getCardown());
 			preparedStatement.setString(4, paymentToUpdate.getCardexp());
-			preparedStatement.setInt(5, paymentToUpdate.getCVV());
+			preparedStatement.setInt(5, paymentToUpdate.getCvv());
 			preparedStatement.setInt(6, paymentToUpdate.getPayId());
+			preparedStatement.execute();
+
 			int a = preparedStatement.executeUpdate();
 			if (a > 0)
 				return true;
@@ -139,11 +146,11 @@ public class PaymentDAO {
 	}
 
 	public boolean deletePayment(Payment payment) {
-		int payId = payment.getPayId();
+		int id = payment.getPayId();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DELETE);
-			preparedStatement.setInt(1, payId);
+			preparedStatement.setInt(1, id);
 			int n = preparedStatement.executeUpdate();
 			if (n != 0)
 				return true;
@@ -152,6 +159,5 @@ public class PaymentDAO {
 		return false;
 	}
 
-	
 	
 }

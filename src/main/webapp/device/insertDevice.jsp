@@ -22,6 +22,7 @@
 	box-shadow: 20px 30px 20px #000000;
 	padding: 20px;
 }
+
 .pre_contenitore p {
 	color: white;
 	text-align: center;
@@ -34,7 +35,7 @@
 <body>
 	<div class="pre_contenitore">
 
-		<p>New Device</p>
+		<p>New User</p>
 
 	</div>
 
@@ -43,7 +44,7 @@
 	<form method="POST" action="/JspApp/DeviceServlet?richiesta=insert">
 		<br>
 	    <br>
-		Reg number: <input type="text" size="40" maxlength="40" name="regnumber" />
+		Registration number: <input type="text" size="40" maxlength="40" name="regnumber" />
 		<br>
 		<br>
 		Device type: <input type="text" size="40" maxlength="40" name="devtype" />
@@ -58,26 +59,27 @@
 		Max press: <input type="text" size="40" maxlength="40" name="maxpress" />
 		<br>
 		<br>
-		Min circ <input type="text" size="40" maxlength="40" name="mincir" />
+		Min circ: <input type="text" size="40" maxlength="40" name="mincir" />
 		<br>
 		<br>
-		Max circ <input type="text" size="40" maxlength="40" name="maxcir" />
+		Max circ: <input type="text" size="40" maxlength="40" name="maxcir" />
 		<br>
 		<br>
-		Min breath<input type="text" size="40" maxlength="40" name="minbreath" />
+		Min breath: <input type="text" size="40" maxlength="40" name="minbreath" />
 		<br>
 		<br>
-		Max breath <input type="text" size="40" maxlength="40" name="maxbreath" />
+		Max breath: <input type="text" size="40" maxlength="40" name="maxbreath" />
 		<br>
 		<br>
-		Min temp <input type="text" size="40" maxlength="40" name="mintemp" />
+		Min temp: <input type="text" size="40" maxlength="40" name="mintemp" />
 		<br>
 		<br>
-		Max temp <input type="text" size="40" maxlength="40" name="maxtemp" />
+		Max temp: <input type="text" size="40" maxlength="40" name="maxtemp" />
+		<br>
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>
-		<a href="/JspApp/UserServlet?richiesta=DeviceManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<a href="/JspApp/DeviceServlet?richiesta=DeviceManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 	</form>
 </body>

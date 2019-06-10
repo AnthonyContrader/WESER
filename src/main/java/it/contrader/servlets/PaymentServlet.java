@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import it.contrader.dto.PaymentDTO;
+import it.contrader.dto.*;
+
 import it.contrader.service.PaymentServiceDTO;
 
 
-@SuppressWarnings("serial")
 public class PaymentServlet extends HttpServlet {
 
 	private final PaymentServiceDTO paymentServiceDTO = new PaymentServiceDTO();
@@ -39,12 +39,11 @@ public class PaymentServlet extends HttpServlet {
 			break;
 
 		case "insert":
-			// final Integer id = Integer.parseInt(request.getParameter("user_id"));
 			final String cardtype = request.getParameter("cardtype");
 			final String cardnum = request.getParameter("cardnum");
 			final String cardown = request.getParameter("cardown");
 			final String cardexp = request.getParameter("cardexp");
-			final int cvv = Integer.parseInt(request.getParameter("cvv"));
+			final Integer cvv = Integer.parseInt(request.getParameter("cvv"));
 			final PaymentDTO payments = new PaymentDTO(cardtype,cardnum, cardown, cardexp,cvv);
 			paymentServiceDTO.insertPayments(payments);
 			showAllPayments(request, response);
@@ -52,8 +51,8 @@ public class PaymentServlet extends HttpServlet {
 
 		case "updateRedirect":
 			int id = Integer.parseInt(request.getParameter("id"));
-			PaymentDTO paymentUpdate = new PaymentDTO("", "", "","",0);
-			paymentUpdate.setPayId(id);
+			PaymentDTO paymentUpdate = new PaymentDTO("","","","",0);
+			paymentUpdate.setPayid(id);
 
 			paymentUpdate = this.paymentServiceDTO.readPayment(paymentUpdate);
 			request.setAttribute("paymentUpdate", paymentUpdate);
@@ -62,15 +61,15 @@ public class PaymentServlet extends HttpServlet {
 			break;
 
 		case "update":
-			
-			final int payIdUpdate = Integer.parseInt(request.getParameter("payId"));
+
+			final Integer idUpdate = Integer.parseInt(request.getParameter("pay_id"));
 			final String cardtypeUpdate = request.getParameter("cardtype");
-			final String cardnumUpdate = request.getParameter("cardnum");
+			final String cardnumUpdate= request.getParameter("cardnum");
 			final String cardownUpdate = request.getParameter("cardown");
 			final String cardexpUpdate = request.getParameter("cardexp");
 			final Integer cvvUpdate = Integer.parseInt(request.getParameter("cvv"));
 			final PaymentDTO payment = new PaymentDTO(cardtypeUpdate,cardnumUpdate, cardownUpdate, cardexpUpdate,cvvUpdate);
-			payment.setPayId(payIdUpdate);
+			payment.setPayid(idUpdate);
 
 			paymentServiceDTO.updatePayment(payment);
 			showAllPayments(request, response);
@@ -79,20 +78,20 @@ public class PaymentServlet extends HttpServlet {
 		case "delete":
 			final Integer deleteId = Integer.parseInt(request.getParameter("id"));
 
-			final PaymentDTO paymentDelete = new PaymentDTO("", "", "","",0);
-			paymentDelete.setPayId(deleteId);
-			paymentServiceDTO.deletePayments(paymentDelete);
+			final PaymentDTO paymentdelete = new PaymentDTO("", "","","",0);
+			paymentdelete.setPayid(deleteId);
+			paymentServiceDTO.deletePayments(paymentdelete);
 			showAllPayments(request, response);
 			break;
 
 		case "indietro":
-			response.sendRedirect("homeTutor.jsp");
-			break;
+			getServletContext().getRequestDispatcher("homeTutor.jsp").forward(request, response);
 
+
+			break;
 		case "logsMenu":
-			response.sendRedirect("index.jsp");
+			getServletContext().getRequestDispatcher("index.jsp").forward(request, response);
 			break;
-
 
 		}
 
