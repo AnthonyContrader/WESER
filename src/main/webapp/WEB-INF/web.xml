@@ -38,6 +38,11 @@
   <servlet-name>PaymentServlet</servlet-name>
   <servlet-class>it.contrader.servlets.PaymentServlet</servlet-class>
  </servlet>
+ <servlet>
+  <display-name>ReadingServlet</display-name>
+  <servlet-name>ReadingServlet</servlet-name>
+  <servlet-class>it.contrader.servlets.ReadingServlet</servlet-class>
+ </servlet>
  <servlet-mapping>
   <servlet-name>RegisterServlet</servlet-name>
   <url-pattern>/RegisterServlet</url-pattern>
@@ -69,6 +74,10 @@
  <servlet-mapping>
   <servlet-name>PaymentServlet</servlet-name>
   <url-pattern>/PaymentServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>ReadingServlet</servlet-name>
+  <url-pattern>/ReadingServlet</url-pattern>
  </servlet-mapping>
  <session-config>
   <session-timeout>4000</session-timeout>

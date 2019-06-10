@@ -44,6 +44,8 @@
 		<br>
 		<a href="DeviceServlet?richiesta=DeviceManagerD"><span class="fs"> Update device parameters </span></a>
 		<br>
+		<a href="ReadingServlet?richiesta=ReadingManager"><span class="fs"> Readings device </span></a>
+		<br>
 		<a href="index.jsp"> Logout</a>
 	</div>
 </body>

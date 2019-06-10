@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert new device</title>
+<title>Insert new reading</title>
 <link rel="stylesheet" type="text/css" href="/JspApp/css/style.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -35,22 +35,19 @@
 <body>
 	<div class="pre_contenitore">
 
-		<p>New Device</p>
+		<p>New Reading</p>
 
 	</div>
 
 	<br>
 	<br>
-	<form method="POST" action="/JspApp/DeviceServlet?richiesta=insert">
+	<form method="POST" action="/JspApp/ReadingServlet?richiesta=insert">
 		<br>
 	    <br>
-		Registration number: <input type="text" size="40" maxlength="40" name="regnumber" />
+		Patient ssc: <input type="text" size="40" maxlength="40" name="patcf" />
 		<br>
 		<br>
-		Device type: <input type="text" size="40" maxlength="40" name="devtype" />
-		<br>
-		<br>
-		Description: <input type="text" size="40" maxlength="40" name="description" />
+		Reg device: <input type="text" size="40" maxlength="40" name="regdev" />
 		<br>
 		<br>
 		Min press: <input type="text" size="40" maxlength="40" name="minpress" />
@@ -79,7 +76,7 @@
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>
-		<a href="/JspApp/DeviceServlet?richiesta=DeviceManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<a href="/JspApp/ReadingServlet?richiesta=ReadingManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 	</form>
 </body>
