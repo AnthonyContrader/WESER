@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DeviceDTO {
+	
+	private int iddev;
 
 	private String regnumber;
 	

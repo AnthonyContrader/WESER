@@ -1,5 +1,7 @@
 package it.contrader.dto;
 
+import java.sql.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReadingDTO {
+	
+	private int idread;
 
 	private String patcf;
 	
@@ -28,7 +32,14 @@ public class ReadingDTO {
 	private float mintemp;
 	
 	private float maxtemp;
-	
-	
-	
+
+	public void setPeriod(java.util.Date period) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public java.util.Date getPeriod() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
