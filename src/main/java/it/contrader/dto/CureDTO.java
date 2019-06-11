@@ -8,7 +8,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CureDTO {
-
+	
+	private int idcure;
+	
 	private String patname;
 	
 	private String patcf;
