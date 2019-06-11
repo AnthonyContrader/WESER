@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CureDTO {
 	
-	private int idcure;
+	private Integer idcure;
 	
 	private String patname;
 	

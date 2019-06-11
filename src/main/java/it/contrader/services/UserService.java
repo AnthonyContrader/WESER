@@ -57,4 +57,9 @@ public class UserService {
 		
 	
 	}
+
+	public List<UserDTO> findUserDTOById(String content) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

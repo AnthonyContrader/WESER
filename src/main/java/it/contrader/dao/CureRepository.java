@@ -9,5 +9,7 @@ import it.contrader.model.Cure;
 public interface CureRepository extends CrudRepository<Cure, Integer> {
 
 	public List<Cure> findAllByCure(Cure cure);
+
+	public List<Cure> findAllById(Integer id);
 }
  
