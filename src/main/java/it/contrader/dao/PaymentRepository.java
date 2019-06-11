@@ -9,5 +9,7 @@ import it.contrader.model.Payment;
 public interface PaymentRepository extends CrudRepository<Payment, Integer> {
 
 	public List<Payment> findAllByPayment(Payment payment);
+
+	public List<Payment> findAllById();
 }
  

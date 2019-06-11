@@ -9,5 +9,8 @@ import it.contrader.model.Emergency;
 public interface EmergencyRepository extends CrudRepository<Emergency, Integer> {
 
 	public List<Emergency> findAllByEmergency(Emergency emergency);
+
+
+	public List<Emergency> findAllById();
 }
  
