@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PatologyDTO {
+	
+	private int idpato;
 
 	private String pato;
 	

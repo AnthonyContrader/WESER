@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PaymentDTO {
+	
+	private int idpay;
 
 	private String cardtype;
 	
