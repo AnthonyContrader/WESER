@@ -55,28 +55,29 @@
 		Patient SSC: <input type="text" size="40" maxlength="40" name="patcf" />
 		<br>
 		<br>
-		Min press: <input type="text" size="40" maxlength="40" name="patominpress" />
+		Min press: <input type="number" min="0" max="999" name="patominpress" />
 		<br>
 		<br>
-		Max press: <input type="text" size="40" maxlength="40" name="patomaxpress" />
+		Max press: <input type="number" min="0" max="999" name="patomaxpress" />
 		<br>
 		<br>
-		Min circ <input type="text" size="40" maxlength="40" name="patomincir" />
+		Min circ <input type="number" min="0" max="999" name="patomincir" />
 		<br>
 		<br>
-		Max circ <input type="text" size="40" maxlength="40" name="patomaxcir" />
+		Max circ <input type="number" min="0" max="999" name="patomaxcir" />
 		<br>
 		<br>
-		Min breath<input type="text" size="40" maxlength="40" name="patominbreath" />
+		Min breath<input type="number" min="0" max="999" name="patominbreath" />
 		<br>
 		<br>
-		Max breath <input type="text" size="40" maxlength="40" name="patomaxbreath" />
+		Max breath <input type="number" min="0" max="999" name="patomaxbreath" />
 		<br>
 		<br>
-		Min temp <input type="text" size="40" maxlength="40" name="patomintemp" />
+		Min temp <input type="number" step="any" min="0" max="999" name="patomintemp" />
 		<br>
 		<br>
-		Max temp <input type="text" size="40" maxlength="40" name="patomaxtemp" />
+		Max temp <input type="number" step="any" min="0" max="999" name="patomaxtemp" />
+		<br>
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>

@@ -53,28 +53,28 @@
 		Description: <input type="text" size="40" maxlength="40" name="description" />
 		<br>
 		<br>
-		Min press: <input type="text" size="40" maxlength="40" name="minpress" />
+		Min press: <input type="number" min="0" max="999" name="minpress" />
 		<br>
 		<br>
-		Max press: <input type="text" size="40" maxlength="40" name="maxpress" />
+		Max press: <input type="number" min="0" max="999" name="maxpress" />
 		<br>
 		<br>
-		Min circ: <input type="text" size="40" maxlength="40" name="mincir" />
+		Min circ: <input type="number" min="0" max="999" name="mincir" />
 		<br>
 		<br>
-		Max circ: <input type="text" size="40" maxlength="40" name="maxcir" />
+		Max circ: <input type="number" min="0" max="999" name="maxcir" />
 		<br>
 		<br>
-		Min breath: <input type="text" size="40" maxlength="40" name="minbreath" />
+		Min breath: <input type="number" min="0" max="999" name="minbreath" />
 		<br>
 		<br>
-		Max breath: <input type="text" size="40" maxlength="40" name="maxbreath" />
+		Max breath: <input type="number" min="0" max="999" name="maxbreath" />
 		<br>
 		<br>
-		Min temp: <input type="text" size="40" maxlength="40" name="mintemp" />
+		Min temp: <input type="number" step="any" min="0" max="999" name="mintemp" />
 		<br>
 		<br>
-		Max temp: <input type="text" size="40" maxlength="40" name="maxtemp" />
+		Max temp: <input type="number" step="any" min="0" max="999" name="maxtemp" />
 		<br>
 		<input type="SUBMIT" value="Add">
 		<br>

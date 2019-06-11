@@ -3,9 +3,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Cancella Utente</title>
+<title>Cancella cura</title>
 </head>
 <body>
-	<h1>Utente eliminato con successo</h1>
+	<h1>Cura eliminata con successo</h1>
 </body>
 </html> 

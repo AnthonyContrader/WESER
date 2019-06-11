@@ -94,7 +94,7 @@
 	<br>
 	<a href="/JspApp/PatologyServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New Patology</i></a>
 	<br>	
-	<a href="/JspApp/homeAdmin.jsp"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<a href="/JspApp/homeDoctor.jsp"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 </body>

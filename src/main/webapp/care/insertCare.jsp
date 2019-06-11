@@ -50,7 +50,7 @@
 		Patient SSC: <input type="text" size="40" maxlength="40" name="patcf" />
 		<br>
 		<br>
-		Patient age: <input type="text" size="40" maxlength="40" name="patage" />
+		Patient age: <input type="number" min="1" max="150" name="patage" />
 		<br>
 		<br>
 		Patology: <input type="text" size="40" maxlength="40" name="patology" />

@@ -46,6 +46,8 @@
 		<br>
 		<a href="ReadingServlet?richiesta=ReadingManager"><span class="fs"> Readings device </span></a>
 		<br>
+		<a href="PatologyServlet?richiesta=PatologyManager"><span class="fs"> Patology Management </span></a>
+		<br>
 		<a href="index.jsp"> Logout</a>
 	</div>
 </body>

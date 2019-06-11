@@ -47,7 +47,7 @@
 		<form method="POST" action="PatologyServlet?richiesta=update">
 
 					
-			<input type="hidden" name="pat_id" value="<%=updatePatology.getPatologyid()%>" />
+			<input type="hidden" name="patologyid" value="<%=updatePatology.getPatologyid()%>" />
 			<br>
 			<br>
 			Patology: <input type="text" size="40" maxlength="40" name="patology" value="<%=updatePatology.getPatology() %>"/>
@@ -62,28 +62,28 @@
 			Patient SSC: <input type="text" size="40" maxlength="40" name="patcf" value="<%=updatePatology.getPatcf() %>" />
 			<br>
 			<br>
-			Min press: <input type="text" size="40" maxlength="40" name="patominpress" value="<%=updatePatology.getPatominpress()%>" />
+			Min press: <input type="number" min="0" max="999" name="patominpress" value="<%=updatePatology.getPatominpress()%>" />
 			<br>
 			<br>
-			Max press: <input type="text" size="40" maxlength="40" name="patomaxpress" value="<%=updatePatology.getPatomaxpress()%>" />
+			Max press: <input type="number" min="0" max="999" name="patomaxpress" value="<%=updatePatology.getPatomaxpress()%>" />
 			<br>
 			<br>
-			Min cir: <input type="text" size="40" maxlength="40" name="patomincir" value="<%=updatePatology.getPatomincir()%>" />
+			Min cir: <input type="number" min="0" max="999" name="patomincir" value="<%=updatePatology.getPatomincir()%>" />
 			<br>
 			<br>
-			Max cir: <input type="text" size="40" maxlength="40" name="patomaxcir" value="<%=updatePatology.getPatomaxcir() %>" />
+			Max cir: <input type="number" min="0" max="999" name="patomaxcir" value="<%=updatePatology.getPatomaxcir() %>" />
 			<br>
 			<br>
-			Min breath: <input type="text" size="40" maxlength="40" name="patominbreath" value="<%=updatePatology.getPatominbreath() %>" />
+			Min breath: <input type="number" min="0" max="999" name="patominbreath" value="<%=updatePatology.getPatominbreath() %>" />
 			<br>
 			<br>
-			Max breath: <input type="text" size="40" maxlength="40" name="patomaxbreath" value="<%=updatePatology.getPatomaxbreath() %>" />
+			Max breath: <input type="number" min="0" max="999" name="patomaxbreath" value="<%=updatePatology.getPatomaxbreath() %>" />
 			<br>
 			<br>
-			Min temp: <input type="text" size="40" maxlength="40" name="patomintemp" value="<%=updatePatology.getPatomintemp() %>" />
+			Min temp: <input type="number" min="0" max="999" step="any" name="patomintemp" value="<%=updatePatology.getPatomintemp() %>" />
 			<br>
 			<br>
-			Max temp: <input type="text" size="40" maxlength="40" name="patomaxtemp" value="<%=updatePatology.getPatomaxtemp() %>" />
+			Max temp: <input type="number" min="0" max="999" step="any" name="patomaxtemp" value="<%=updatePatology.getPatomaxtemp() %>" />
 			<br>
 			<br>
 			<input type="submit" value="update">

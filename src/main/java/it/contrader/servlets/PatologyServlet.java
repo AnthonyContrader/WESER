@@ -73,10 +73,8 @@ public class PatologyServlet extends HttpServlet {
 		case "update":
 			
 			
-			final String patoUpdate = request.getParameter("pat_id");
-			
+			final String patoUpdate = request.getParameter("patology");
 			final String carenameUpdate = request.getParameter("carename");
-			System.out.println(request.getParameter("carename"));
 			final String quantityUpdate= request.getParameter("quantity");
 			final String patcfUpdate = request.getParameter("patcf");
 			final int patominpressUpdate = Integer.parseInt(request.getParameter("patominpress"));
@@ -87,7 +85,7 @@ public class PatologyServlet extends HttpServlet {
 			final int patomaxbreathUpdate = Integer.parseInt(request.getParameter("patomaxbreath"));
 			final float patomintempUpdate = Float.parseFloat(request.getParameter("patomintemp"));
 			final float patomaxtempUpdate = Float.parseFloat(request.getParameter("patomaxtemp"));
-			final Integer patologyidUpdate = Integer.parseInt(request.getParameter("pat_id"));
+			final int patologyidUpdate = Integer.parseInt(request.getParameter("patologyid"));
 			final PatologyDTO patology = new PatologyDTO(patoUpdate,carenameUpdate,quantityUpdate,patcfUpdate,patominpressUpdate,patomaxpressUpdate,patomincirUpdate,patomaxcirUpdate,patominbreathUpdate,patomaxbreathUpdate,patomintempUpdate,patomaxtempUpdate);
 			patology.setPatologyid(patologyidUpdate);
 
@@ -105,13 +103,7 @@ public class PatologyServlet extends HttpServlet {
 			break;
 
 		case "indietro":
-			response.sendRedirect("homeAdmin.jsp");
-			break;
-		case "indietroD":
 			response.sendRedirect("homeDoctor.jsp");
-			break;
-		case "indietrot":
-			response.sendRedirect("homeTutor.jsp");
 			break;
 
 		case "logsMenu":

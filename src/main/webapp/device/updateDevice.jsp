@@ -59,28 +59,28 @@
 			Description: <input type="text" size="40" maxlength="40" name="description" value="<%=updateDevice.getDescription()%>" />
 			<br>
 			<br>
-			Min press: <input type="text" size="40" maxlength="40" name="minpress" value="<%=updateDevice.getMinpress()%>" />
+			Min press: <input type="number" min="0" max="999" name="minpress" value="<%=updateDevice.getMinpress()%>" />
 			<br>
 			<br>
-			Max press: <input type="text" size="40" maxlength="40" name="maxpress" value="<%=updateDevice.getMaxpress()%>" />
+			Max press: <input type="number" min="0" max="999" name="maxpress" value="<%=updateDevice.getMaxpress()%>" />
 			<br>
 			<br>
-			Min cirr: <input type="text" size="40" maxlength="40" name="mincir" value="<%=updateDevice.getMincir() %>" />
+			Min cirr: <input type="number" min="0" max="999" name="mincir" value="<%=updateDevice.getMincir() %>" />
 			<br>
 			<br>
-			Max cirr: <input type="text" size="40" maxlength="40" name="maxcir" value="<%=updateDevice.getMaxcir() %>" />
+			Max cirr: <input type="number" min="0" max="999" name="maxcir" value="<%=updateDevice.getMaxcir() %>" />
 			<br>
 			<br>
-			Min breath: <input type="text" size="40" maxlength="40" name="minbreath" value="<%=updateDevice.getMinbreath() %>" />
+			Min breath: <input type="number" min="0" max="999" name="minbreath" value="<%=updateDevice.getMinbreath() %>" />
 			<br>
 			<br>
-			Max breath: <input type="text" size="40" maxlength="40" name="maxbreath" value="<%=updateDevice.getMaxbreath() %>" />
+			Max breath: <input type="number" min="0" max="999" name="maxbreath" value="<%=updateDevice.getMaxbreath() %>" />
 			<br>
 			<br>
-			Min temp: <input type="text" size="40" maxlength="40" name="mintemp" value="<%=updateDevice.getMintemp()%>" />
+			Min temp: <input type="number" step="any" min="0" max="999" name="mintemp" value="<%=updateDevice.getMintemp()%>" />
 			<br>
 			<br>
-			Max temp: <input type="text" size="40" maxlength="40" name="maxtemp" value="<%=updateDevice.getMaxtemp() %>" />
+			Max temp: <input type="number" step="any" min="0" max="999" name="maxtemp" value="<%=updateDevice.getMaxtemp() %>" />
 			<br>
 			<br>
 			<input type="submit" value="Update">

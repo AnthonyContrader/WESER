@@ -55,7 +55,7 @@
 			Patient ssc: <input type="text" size="40" maxlength="40" name="patcf" value="<%=updateDoctor.getPatcf()%>" />
 			<br>
 			<br>
-			Patient Age: <input type="text" size="40" maxlength="40" name="patage" value="<%=updateDoctor.getPatage()%>" />
+			Patient age: <input type="number" min="1" max="150" name="patage" value="<%=updateDoctor.getPatage()%>" />
 			<br>
 			<br>
 			Patology: <input type="text" size="40" maxlength="40" name="patology" value="<%=updateDoctor.getPatology()%>" />

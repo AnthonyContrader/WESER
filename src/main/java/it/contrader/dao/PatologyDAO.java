@@ -39,8 +39,8 @@ public class PatologyDAO {
 				int patomaxcir = resultSet.getInt("patomaxcir");
 				int patominbreath = resultSet.getInt("patominbreath");
 				int patomaxbreath = resultSet.getInt("patomaxbreath");
-				float patomintemp	 = resultSet.getInt("patomintemp");
-				float patomaxtemp = resultSet.getInt("patomaxtemp");
+				float patomintemp	 = resultSet.getFloat("patomintemp");
+				float patomaxtemp = resultSet.getFloat("patomaxtemp");
 				
 				patology = new Patology(pato,carename,quantity,patcf,patominpress,patomaxpress,patomincir,patomaxcir,patominbreath,patomaxbreath,patomintemp,patomaxtemp);
 				patology.setPatologyid(patologyid);
@@ -81,9 +81,9 @@ public class PatologyDAO {
 	public Patology readPatology(Patology patology) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
-			int devid = patology.getPatologyid();
+			int patologyid = patology.getPatologyid();
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
-			preparedStatement.setInt(1, devid);
+			preparedStatement.setInt(1, patologyid);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
 			String pato,carename,quantity,patcf;
@@ -100,8 +100,8 @@ public class PatologyDAO {
 			patomaxcir = resultSet.getInt("patomaxcir");
 			patominbreath = resultSet.getInt("patominbreath");
 			patomaxbreath = resultSet.getInt("patomaxbreath");
-			patomintemp	 = resultSet.getInt("patomintemp");
-			patomaxtemp = resultSet.getInt("patomaxtemp");
+			patomintemp	 = resultSet.getFloat("patomintemp");
+			patomaxtemp = resultSet.getFloat("patomaxtemp");
 			
 			patology = new Patology(pato,carename,quantity,patcf,patominpress,patomaxpress,patomincir,patomaxcir,patominbreath,patomaxbreath,patomintemp,patomaxtemp);
 			patology.setPatologyid(resultSet.getInt("patologyid"));
@@ -154,10 +154,8 @@ public class PatologyDAO {
 			preparedStatement.setInt(10, patologyToUpdate.getPatomaxbreath());
 			preparedStatement.setFloat(11, patologyToUpdate.getPatomintemp());
 			preparedStatement.setFloat(12, patologyToUpdate.getPatomaxtemp());
-			
-			preparedStatement.execute();
-
-			int a = preparedStatement.executeUpdate();
+			preparedStatement.setInt(13, patologyToUpdate.getPatologyid());
+            int a = preparedStatement.executeUpdate();
 			if (a > 0)
 				return true;
 			else
