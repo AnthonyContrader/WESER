@@ -51,4 +51,9 @@ public class PatologyService {
 		
 	
 	}
+
+	public List<PatologyDTO> findPatologyDTOById(String content) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -51,4 +51,9 @@ public class PaymentService {
 		
 	
 	}
+
+	public List<PaymentDTO> findPaymentDTOById(String content) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -51,4 +51,9 @@ public class EmergencyService {
 		
 	
 	}
+
+	public List<EmergencyDTO> findEmergencyDTOById(String content) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
