@@ -17,35 +17,41 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class User {
+public class Cure {
 
 	
 	@Id
-	@Column(name = "iduser")
+	@Column(name = "idcure")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer iduser;
+	private Integer idcure;
 
-	@Column(name = "username")
+	@Column(name = "patname")
 	@NotNull
-	private String username;
+	private String patname;
 
-	@Column(name = "password")
+	@Column(name = "patcf")
 	@NotNull
-	private String password;
-
-	@NotNull
-	@Column(name = "usertype")
-	private String usertype;
-
-	@NotNull
-	@Column(name = "name")
-	private String name;
+	private String patcf;
 	
 	@NotNull
-	@Column(name = "surname")
-	private String surname;
+	@Column(name = "patage")
+	private int patage;
+	
+
+	@NotNull
+	@Column(name = "pato")
+	private String pato;
+
+	@NotNull
+	@Column(name = "carename")
+	private String carename;
 	
 	@NotNull
-	@Column(name = "ssn")
-	private String ssn;
+	@Column(name = "quantity")
+	private String quantity;
+	
+	@NotNull
+	@Column(name = "notes")
+	private String notes;
+	
 }

@@ -17,35 +17,32 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class User {
+public class Payment {
 
 	
 	@Id
-	@Column(name = "iduser")
+	@Column(name = "idpay")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer iduser;
+	private Integer idpay;
 
-	@Column(name = "username")
+	@Column(name = "cardtype")
 	@NotNull
-	private String username;
+	private String cardtype;
 
-	@Column(name = "password")
+	@Column(name = "cardnumb")
 	@NotNull
-	private String password;
-
-	@NotNull
-	@Column(name = "usertype")
-	private String usertype;
+	private String cardnumb;
 
 	@NotNull
-	@Column(name = "name")
-	private String name;
+	@Column(name = "cardown")
+	private String cardown;
+
+	@NotNull
+	@Column(name = "cardexp")
+	private String cardexp;
 	
 	@NotNull
-	@Column(name = "surname")
-	private String surname;
+	@Column(name = "cvv")
+	private int cvv;
 	
-	@NotNull
-	@Column(name = "ssn")
-	private String ssn;
 }

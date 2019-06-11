@@ -23,11 +23,10 @@ public class ConnectionSingleton {
               String driver="com.mysql.jdbc.Driver";
               String host="127.0.0.1";
               String port="3306";
-              String dbName="contraderspring";
+              String dbName="weserspring";
               String username="root";
               String password ="root";
               Class c = Class.forName(driver);
-              System.out.println("Ho caricato: " + c.getName());
               String myUrl = "jdbc:" + vendor + "://" + host + ":" + port + "/" + dbName;
               DriverManagerDataSource dataSource = new DriverManagerDataSource(myUrl, username, password);
               dataSource.setDriverClassName(driver);

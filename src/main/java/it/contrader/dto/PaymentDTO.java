@@ -7,17 +7,16 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDTO {
+public class PaymentDTO {
 
-	private String username;
+	private String cardtype;
 	
-	private String password;
+	private String cardnumb;
 
-	private String usertype;
+	private String cardown;
 	
-	private String name;
+	private String cardexp;
 	
-	private String surname;
+	private int cvv;
 	
-	private String ssn;
 }
