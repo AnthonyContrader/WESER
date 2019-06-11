@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.contrader.dto.CureDTO;
+import it.contrader.dto.DeviceDTO;
 import it.contrader.services.CureService;
 
 import java.util.List;
@@ -77,7 +78,8 @@ public class CureController {
 		String carename = request.getParameter("carename").toString();
 		String quantity = request.getParameter("quantity").toString();
 		String notes = request.getParameter("notes").toString();
-		CureDTO cureObj = new CureDTO();
+		
+	    CureDTO cureObj = new CureDTO(0, patname, patcf, patage, pato, carename, quantity, notes);
 		
 		cureService.insertCure(cureObj);
 
