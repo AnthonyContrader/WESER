@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DeviceDTO {
 	
-	private int iddev;
+	private Integer iddev;
 
 	private String regnumber;
 	

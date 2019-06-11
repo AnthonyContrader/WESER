@@ -9,5 +9,7 @@ import it.contrader.model.Device;
 public interface DeviceRepository extends CrudRepository<Device, Integer> {
 
 	public List<Device> findAllByDevice(Device device);
+
+	public List<Device> findAllById(int id);
 }
  
