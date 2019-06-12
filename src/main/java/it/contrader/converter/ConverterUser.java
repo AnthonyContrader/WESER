@@ -15,6 +15,7 @@ public class ConverterUser {
 			userDTO.setIduser(user.getIduser());
 			userDTO.setUsername(user.getUsername());
 			userDTO.setPassword(user.getPassword());
+			userDTO.setUsertype(user.getUsertype());
 			userDTO.setName(user.getName());
 			userDTO.setSurname(user.getSurname());
 			userDTO.setSsn(user.getSsn());
@@ -29,6 +30,7 @@ public class ConverterUser {
 			user.setIduser(userDTO.getIduser());
 			user.setUsername(userDTO.getUsername());
 			user.setPassword(userDTO.getPassword());
+			user.setUsertype(userDTO.getUsertype());
 			user.setName(userDTO.getName());
 			user.setSurname(userDTO.getSurname());
 			user.setSsn(userDTO.getSsn());

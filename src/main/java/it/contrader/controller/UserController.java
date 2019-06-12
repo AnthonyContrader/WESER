@@ -1,13 +1,13 @@
 package it.contrader.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import it.contrader.dto.UserDTO;
 import it.contrader.services.UserService;
@@ -15,97 +15,84 @@ import it.contrader.services.UserService;
 import java.util.List;
 
 
-@Controller
+@CrossOrigin
+@RestController
 @RequestMapping("/User")
 public class UserController {
 
 	private final UserService userService;
-	private HttpSession session;
 	
 	@Autowired
 	public UserController(UserService userService) {
 		this.userService = userService;
 	}
 
-	private void visualUser(HttpServletRequest request){
-		List<UserDTO> allUser = this.userService.getListaUserDTO();
-		request.setAttribute("allUserDTO", allUser);
-	}
-	
 	@RequestMapping(value = "/userManagement", method = RequestMethod.GET)
-	public String userManagement(HttpServletRequest request) {
-		visualUser(request);
-		return "homeUser";		
+	public List<UserDTO> userManagement() {
+		// UserDTO userDTOUserList = new UserDTO();
+		// userDTOUserList.setUserId(userId);
+		return this.userService.findAllUserDTO();
 	}
-	
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String delete(HttpServletRequest request) {
-		int id = Integer.parseInt(request.getParameter("id"));
-		request.setAttribute("id", id);
-		this.userService.deleteUserById(id);
-		visualUser(request);
-		return "homeUser";
 		
-	}
-	
-	@RequestMapping(value = "/insert", method = RequestMethod.GET)
-	public String insert(HttpServletRequest request) {
-		visualUser(request);
-		request.setAttribute("option", "insert");
-		return "insertUser";
-		
-	}
-	
-	@RequestMapping(value = "/searchUser", method = RequestMethod.GET)
-	public String searchUser(HttpServletRequest request) {
-
-		final String content = request.getParameter("search");
-
-		List<UserDTO> allUser = this.userService.findUserDTOById(content);
-		request.setAttribute("allUserDTO", allUser);
-
-		return "homeUser";
-
-	}
-	
-	@RequestMapping(value = "/insertUser", method = RequestMethod.POST)
-	public String insertUser(HttpServletRequest request) {
-		String username = request.getParameter("username").toString();
-		String password = request.getParameter("password").toString();
-		String usertype = request.getParameter("usertype").toString();
-		String name = request.getParameter("name").toString();
-		String surname = request.getParameter("surname").toString();
-		String ssn = request.getParameter("ssn").toString();
-
-		UserDTO userObj = new UserDTO(0,username, password, usertype,name,surname,ssn);
-		
-		userService.insertUser(userObj);
-
-		visualUser(request);
-		return "homeUser";
-	}
-	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginControl(HttpServletRequest request) {
-
-		session = request.getSession();
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-	
-		final UserDTO userDTO = userService.getByUsernameAndPassword(username, password);
-		final String usertypeL = userDTO.getUsertype();
-		if (!StringUtils.isEmpty(usertypeL)) {
-			session.setAttribute("utenteCollegato", userDTO);
-			if (usertypeL.equals("admin")) {
-				return "homeAdmin";
-			} else if (usertypeL.equals("tutor")) {
-				return "homeTutor";
-				
-			}
-			else {
-				return "homeDoctor";
-			}
+		@RequestMapping(value = "/read", method = RequestMethod.GET)
+		public UserDTO read(@RequestParam(value = "userId") int id) {
+			UserDTO readUser = new UserDTO();
+			readUser = this.userService.getUserDTOById(id);
+			return readUser;
 		}
-		return "index";
-	}
+	
+		@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+		public void delete(@RequestParam(value = "userId") int id) {
+			this.userService.deleteUserById(id);
+		}
+		
+		@RequestMapping(value = "/update", method = RequestMethod.PUT)
+		public void update(@RequestBody UserDTO user) {
+			userService.updateUser(user);
+		}
+		
+		@RequestMapping(value = "/insert", method = RequestMethod.POST)
+		public void insert(@RequestBody UserDTO user) {
+			userService.insertUser(user);
+		}
+
+		@RequestMapping(value = "/login", method = RequestMethod.GET)
+		public UserDTO loginControl(@RequestParam(value = "username") String username,
+				@RequestParam(value = "password") String password) {
+
+			// session = request.getSession();
+			// final String username = request.getParameter("username");
+			// final String password = request.getParameter("password");
+			final UserDTO userDTO = userService.getUserByUsernameAndPassword(username, password);
+			final String userType = userDTO.getUsertype();
+			if (!StringUtils.isEmpty(userType)) {
+
+				// session.setAttribute("utente", userDTO);
+
+				/*
+				 * if (userType.equals("admin")) { return "home"; } else if
+				 * (userType.equals("bo")) { return "home"; }
+				 */
+				/*
+				 * switch (userType.toLowerCase()) { case "admin": return
+				 * "redirect:/Home/homeAdmin"; case "bo": return "redirect:/Home/homeBO";
+				 * default: return "index"; }
+				 */
+
+				return userDTO;
+
+			}
+
+			return null;
+			// return "index";
+		}
+
+
+		@RequestMapping(value = "/logout", method = RequestMethod.GET)
+		public void logOut() {
+			// request.getSession().invalidate();
+			// return "index";
+		}
+	
+	
 }

@@ -29,7 +29,7 @@ public class UserService {
 		return ConverterUser.toDTO(userRepository.findById(id).get());
 	}
 
-	public UserDTO getByUsernameAndPassword(String username, String password) {
+	public UserDTO getUserByUsernameAndPassword(String username, String password) {
 
 		final User user = userRepository.findUserByUsernameAndPassword(username, password);
 
@@ -48,9 +48,9 @@ public class UserService {
 		userRepository.deleteById(id);
 	}
 	
-	public List<UserDTO> findUserDTOByUsername(String username) {
+	public List<UserDTO> findAllUserDTO() {
 		
-		final List<User> list = userRepository.findAllByUsername(username);
+		final List<User> list = userRepository.findAll();
 		final List<UserDTO> userDTOs = new ArrayList<>();
 		list.forEach(i -> userDTOs.add(ConverterUser.toDTO(i)));
 		return userDTOs;
@@ -58,8 +58,4 @@ public class UserService {
 	
 	}
 
-	public List<UserDTO> findUserDTOById(String content) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
