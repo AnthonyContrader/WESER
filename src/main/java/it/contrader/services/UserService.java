@@ -48,9 +48,9 @@ public class UserService {
 		userRepository.deleteById(id);
 	}
 	
-	public List<UserDTO> findAllUserDTO() {
+	public List<UserDTO> findAllUserDTO(String username) {
 		
-		final List<User> list = userRepository.findAll();
+		final List<User> list = userRepository.findAllByUsername(username);
 		final List<UserDTO> userDTOs = new ArrayList<>();
 		list.forEach(i -> userDTOs.add(ConverterUser.toDTO(i)));
 		return userDTOs;

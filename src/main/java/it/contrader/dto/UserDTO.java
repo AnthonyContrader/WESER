@@ -26,6 +26,17 @@ public class UserDTO {
 	private String surname;
 
 	private String ssn;
+
+	public UserDTO( String username, String password, String usertype, String name, String surname,
+			String ssn) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.usertype = usertype;
+		this.name = name;
+		this.surname = surname;
+		this.ssn = ssn;
+	}
 	
 	
 

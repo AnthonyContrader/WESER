@@ -1,122 +1,123 @@
 <%@ taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page import= "it.contrader.dto.UserDTO"%>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-
-<!-- Required meta tags-->
-<meta charset="UTF-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="au theme template">
-<meta name="author" content="Hau Nguyen">
-<meta name="keywords" content="au theme template">
-
-<title>LOGIN PAGE</title>
-
-<!-- Fontfaces CSS-->
-<link href="/css/font-face.css" rel="stylesheet" media="all">
-<link href="/vendor/font-awesome-4.7/css/font-awesome.min.css"
-	rel="stylesheet" media="all">
-<link href="/vendor/font-awesome-5/css/fontawesome-all.min.css"
-	rel="stylesheet" media="all">
-<link href="/vendor/mdi-font/css/material-design-iconic-font.min.css"
-	rel="stylesheet" media="all">
-
-<!-- Bootstrap CSS-->
-<link href="/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet"
-	media="all">
-
-<!-- Vendor CSS-->
-<link href="/vendor/animsition/animsition.min.css" rel="stylesheet"
-	media="all">
-<link
-	href="/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css"
-	rel="stylesheet" media="all">
-<link href="/vendor/wow/animate.css" rel="stylesheet" media="all">
-<link href="/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet"
-	media="all">
-<link href="/vendor/slick/slick.css" rel="stylesheet" media="all">
-<link href="/vendor/select2/select2.min.css" rel="stylesheet"
-	media="all">
-<link href="/vendor/perfect-scrollbar/perfect-scrollbar.css"
-	rel="stylesheet" media="all">
-
-<!-- Main CSS-->
-<link href="/css/theme.css" rel="stylesheet" media="all">
-
-
+	<title>Login WESER</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
 </head>
+<body style="background-color: #4D4199;">
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" action="/User/login" method="post">
+					<span class="login100-form-title p-b-43">
+						Please login to your account
+					</span>
+					
+					
+					<div class="wrap-input100 validate-input" data-validate = "Valid password is required">
+						<input class="input100" type="text" name="username">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Username</span>
+					</div>
+					
+					
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+						<input class="input100" type="password" name="password">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Password</span>
+					</div>
 
-<body class="animsition">
-	<div class="page-wrapper">
-		<div class="page-content--bge5">
-			<div class="container">
-				<div class="login-wrap">
-					<div class="login-content">
-						<div class="login-logo">
-							<a href="#"> <img src="/images/icon/WMES1.png"
-								alt="CoolAdmin">
+					<div class="flex-sb-m w-full p-t-3 p-b-32">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								Remember me
+							</label>
+						</div>
+
+						<div>
+							<a href="#" class="txt1">
+								Forgot Password?
 							</a>
 						</div>
-						<div class="login-form">
-							<form action="/User/login" method="post">
-								<div class="form-group">
-									<label>Username</label> <input class="au-input au-input--full"
-										type="text" name="username" placeholder="Username">
-								</div>
-								<div class="form-group">
-									<label>Password</label> <input class="au-input au-input--full"
-										type="password" name="password" placeholder="Password">
-								</div>
-								<div class="login-checkbox">
-									<label> <input type="checkbox" name="remember">Remember
-										Me
-									</label>
-
-								</div>
-								<button class="au-btn au-btn--block au-btn--green m-b-20"
-									type="submit">Sign in</button>
-							</form>
-						</div>
-
-
 					</div>
+			
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Login
+						</button>
+					</div>
+					
+					<div class="text-center p-t-46 p-b-20">
+						<span class="txt2">
+							Login with..
+						</span>
+					</div>
+
+					<div class="login100-form-social flex-c-m">
+						<a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+							<i class="fa fa-facebook-f" aria-hidden="true"></i>
+						</a>
+
+						<a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+							<i class="fa fa-twitter" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+				
+				<div class="login100-more" style="background-image: url('img/logo_full.svg');">
 				</div>
 			</div>
 		</div>
 	</div>
-
-
-
-	<!-- Jquery JS-->
-	<script src="/vendor/jquery-3.2.1.min.js"></script>
-	<!-- Bootstrap JS-->
-	<script src="/vendor/bootstrap-4.1/popper.min.js"></script>
-	<script src="/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-	<!-- Vendor JS       -->
-	<script src="/vendor/slick/slick.min.js">
-		
-	</script>
-	<script src="/vendor/wow/wow.min.js"></script>
-	<script src="/vendor/animsition/animsition.min.js"></script>
-	<script
-		src="/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-		
-	</script>
-	<script src="/vendor/counter-up/jquery.waypoints.min.js"></script>
-	<script src="/vendor/counter-up/jquery.counterup.min.js">
-		
-	</script>
-	<script src="/vendor/circle-progress/circle-progress.min.js"></script>
-	<script src="/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-	<script src="/vendor/chartjs/Chart.bundle.min.js"></script>
-	<script src="/vendor/select2/select2.min.js">
-		
-	</script>
-
-	<!-- Main JS-->
-	<script src="/js/main.js"></script>
+	
+	
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
 
 </body>
 </html>
