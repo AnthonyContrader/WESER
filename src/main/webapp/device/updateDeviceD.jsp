@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>USERS UPDATE</title>
+<title>DEVICE UPDATE</title>
 
 <%
 	DeviceDTO deviceUpdate = (DeviceDTO) request.getAttribute("device");

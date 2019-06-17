@@ -95,7 +95,7 @@
 				</form>
 				
 				<div class="login100-more" style="background-image: url('login/img/logo_full.svg'); width: 352px;
-    height: 700px; align: center">
+    height:800px; align: center">
 				</div>
 			</div>
 		</div>

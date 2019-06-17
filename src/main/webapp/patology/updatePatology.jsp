@@ -1,23 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page import="it.contrader.dto.DeviceDTO" %>
+    <%@ page import="it.contrader.dto.PatologyDTO" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>DEVICE UPDATE</title>
+<title>PATOLOGY UPDATE</title>
 
 <%
-	DeviceDTO deviceUpdate = (DeviceDTO) request.getAttribute("device");
+	PatologyDTO patologyUpdate = (PatologyDTO) request.getAttribute("patology");
 %>
 <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=patology-width, initial-scale=1.0">
   <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
   <meta name="author" content="GeeksLabs">
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
   <link rel="shortcut icon" href="img/favicon.png">
 
-  <title>Update Devices</title>
+  <title>Update Patologys</title>
 
   <!-- Bootstrap CSS -->
   <link href="/dash/css/bootstrap.min.css" rel="stylesheet">
@@ -61,13 +61,13 @@
       </div>
 
       <!--logo start-->
-      <a href="/homeAdmin.jsp" class="logo">WESER</a>
+      <a href="/homeDoctor.jsp" class="logo">WESER</a>
       <!--logo end-->
 
       <div class="top-nav notification-row">
         <!-- notificatoin dropdown start-->
         <ul class="nav pull-right top-menu">
-          <!-- device login dropdown start-->
+          <!-- patology login dropdown start-->
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <b class="caret"></b>
@@ -75,11 +75,11 @@
             <ul class="dropdown-menu extended logout">
               <div class="log-arrow-up"></div>
               <li>
-                <a href="/Device/logout"><i class="icon_key_alt"></i> Log Out</a>
+                <a href="/Patology/logout"><i class="icon_key_alt"></i> Log Out</a>
               </li>
             </ul>
           </li>
-          <!-- device login dropdown end -->
+          <!-- patology login dropdown end -->
         </ul>
         <!-- notificatoin dropdown end-->
       </div>
@@ -96,63 +96,67 @@
         <!--overview start-->
         <div class="row">
           <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa-laptop"></i> Device Update</h3>
+            <h3 class="page-header"><i class="fa fa-laptop"></i> Patology Update</h3>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="homeAdmin.jsp">Home</a></li>
-              <li><i class="fa fa-laptop"></i>Device Update</li>
+              <li><i class="fa fa-home"></i><a href="homeDoctor.jsp">Home</a></li>
+              <li><i class="fa fa-laptop"></i>Patology Update</li>
             </ol>
           </div>
         </div>
         
         <div class="row">
         	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        		<form method="POST" action="/Device/updateDevice">
-			<input type="hidden" name="id" value="<%=deviceUpdate.getId()%>" />
+        		<form method="POST" action="/Patology/updatePatology">
+			<input type="hidden" name="id" value="<%=patologyUpdate.getId()%>" />
 			<table class="table">
 
 			<tr>
-				<td><b>Reg number:</b></td>
-				<td> <input type="text" size="40" maxlength="40" name="regnum" value="<%=deviceUpdate.getRegnum()%>" /></td>
+				<td><b>Patology:</b></td>
+				<td> <input type="text" size="40" maxlength="40" name="pato" value="<%=patologyUpdate.getPato()%>" /></td>
 			</tr>
 			<tr>
-				<td><b>Dev type:</b></td>
-				<td> <input type="text" size="40" maxlength="40" name="devtype" value="<%=deviceUpdate.getDevtype()%>" /></td>
+				<td><b>Cure name:</b></td>
+				<td> <input type="text" size="40" maxlength="40" name="carename" value="<%=patologyUpdate.getCarename()%>" /></td>
 			</tr>
 			<tr>
-					<td><b>Description:</b></td>
-					<td> <input type="text" size="40" maxlenght="40" name="descr" value=<%=deviceUpdate.getDescr() %>></td>
+					<td><b>Patient ssn:</b></td>
+					<td> <input type="text" size="40" maxlenght="40" name="patcf" value=<%=patologyUpdate.getPatcf() %>></td>
 			</tr>
 			<tr>
-				<td><b>Min cir:</b></td>
-				<td> <input type="number" size="40" maxlength="40" name="mincir" value="<%=deviceUpdate.getMincir()%>" /></td>
+					<td><b>Quantity:</b></td>
+					<td> <input type="text" size="40" maxlenght="40" name="quantity" value=<%=patologyUpdate.getQuantity() %>></td>
 			</tr>
 			<tr>
-				<td><b>Max Cir:</b></td> 
-				<td> <input type="number" size="40" maxlength="40" name="maxcir" value="<%=deviceUpdate.getMaxcir()%>" /></td>
+					<td><b>Patominpress:</b></td>
+					<td> <input type="number"  name="patominpress" value=<%=patologyUpdate.getPatominpress() %>></td>
 			</tr>
 			<tr>
-				<td><b>Min pres:</b></td>
-				<td> <input type="number" size="40" maxlength="40" name="minpress" value="<%=deviceUpdate.getMinpress()%>" /></td>
+				<td><b>Patomaxpress:</b></td>
+				<td> <input type="number"  name="patomaxpress" value="<%=patologyUpdate.getPatomaxpress()%>" /></td>
 			</tr>
 			<tr>
-				<td><b>Max pres:</b></td> 
-				<td> <input type="number" size="40" maxlength="40" name="maxpress" value="<%=deviceUpdate.getMaxpress()%>" /></td>
+				<td><b>Patomincir:</b></td> 
+				<td> <input type="number"  name="patomincir" value="<%=patologyUpdate.getPatomincir()%>" /></td>
 			</tr>
 			<tr>
-				<td><b>Min breath:</b></td>
-				<td> <input type="number" size="40" maxlength="40" name="minbreath" value="<%=deviceUpdate.getMinbreath()%>" /></td>
+				<td><b>Patomaxcir:</b></td>
+				<td> <input type="number"  name="patomaxcir" value="<%=patologyUpdate.getPatomaxcir()%>" /></td>
 			</tr>
 			<tr>
-				<td><b>Max breath:</b></td> 
-				<td> <input type="number" size="40" maxlength="40" name="maxbreath" value="<%=deviceUpdate.getMaxbreath()%>" /></td>
+				<td><b>Patominbreath:</b></td> 
+				<td> <input type="number"  name="patominbreath" value="<%=patologyUpdate.getPatominbreath()%>" /></td>
 			</tr>
 			<tr>
-				<td><b>Min temp:</b></td>
-				<td> <input type="number" size="40" maxlength="40" name="mintemp" value="<%=deviceUpdate.getMintemp()%>" /></td>
+				<td><b>Patomaxbreath:</b></td>
+				<td> <input type="number"  name="patomaxbreath" value="<%=patologyUpdate.getPatomaxbreath()%>" /></td>
 			</tr>
 			<tr>
-				<td><b>Max temp:</b></td> 
-				<td> <input type="number" size="40" maxlength="40" name="maxtemp" value="<%=deviceUpdate.getMaxtemp()%>" /></td>
+				<td><b>Patomintemp:</b></td>
+				<td> <input type="number"  name="patomintemp" value="<%=patologyUpdate.getPatomintemp()%>" /></td>
+			</tr>
+			<tr>
+				<td><b>Patomaxtemp:</b></td> 
+				<td> <input type="number"  name="patomaxtemp" value="<%=patologyUpdate.getPatomaxtemp()%>" /></td>
 			</tr>
 			
 			
@@ -164,7 +168,7 @@
 
 			<br>
 			<br>
-			<a class="btn btn-primary btn-lg btn-block" href="/Device/deviceManagement">Back</a>
+			<a class="btn btn-primary btn-lg btn-block" href="/Patology/patologyManagement">Back</a>
 
 		</form>
             </div>
