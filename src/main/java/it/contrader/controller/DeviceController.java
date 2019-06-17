@@ -100,7 +100,31 @@ public class DeviceController {
 			
 		}
 		
-		
+		@RequestMapping(value = "/updateDeviceD", method = RequestMethod.POST)
+		public String updateDeviceD(HttpServletRequest request)
+		{
+			int idUpdate = Integer.parseInt(request.getParameter("id"));
+			String regUpdate = request.getParameter("regnum");
+			String typeUpdate = request.getParameter("devtype");
+			String descUpdate = request.getParameter("descr");
+			int mincirUpdate = Integer.parseInt(request.getParameter("mincir"));
+			int maxcirUpdate = Integer.parseInt(request.getParameter("maxcir"));
+			int minpresUpdate = Integer.parseInt(request.getParameter("minpress"));
+			int maxpresUpdate = Integer.parseInt(request.getParameter("maxpress"));
+			int minbreathUpdate = Integer.parseInt(request.getParameter("minbreath"));
+			int maxbreathUpdate = Integer.parseInt(request.getParameter("maxbreath"));
+			float mintempUpdate = Float.parseFloat(request.getParameter("mintemp"));
+			float maxtempUpdate = Float.parseFloat(request.getParameter("maxtemp"));
+			
+			
+			final DeviceDTO device = new DeviceDTO(regUpdate,typeUpdate,descUpdate,mincirUpdate,maxcirUpdate,minpresUpdate,maxpresUpdate,minbreathUpdate,maxbreathUpdate,mintempUpdate,maxtempUpdate);
+			device.setId(idUpdate);
+			
+			deviceService.updateDevice(device);
+			request.setAttribute("device", getDevices());
+			return "device/deviceManagementD";	
+			
+		}
 		@RequestMapping(value = "/insertDevice", method = RequestMethod.POST)
 		public String insertDevice(HttpServletRequest request) {
 			String reg = request.getParameter("regnum");

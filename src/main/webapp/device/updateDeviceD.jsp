@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page import="it.contrader.dto.UserDTO" %>
+    <%@ page import="it.contrader.dto.DeviceDTO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +8,7 @@
 <title>USERS UPDATE</title>
 
 <%
-	UserDTO userUpdate = (UserDTO) request.getAttribute("user");
+	DeviceDTO deviceUpdate = (DeviceDTO) request.getAttribute("device");
 %>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,7 @@
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
   <link rel="shortcut icon" href="img/favicon.png">
 
-  <title>Update Users</title>
+  <title>Update Devices</title>
 
   <!-- Bootstrap CSS -->
   <link href="/dash/css/bootstrap.min.css" rel="stylesheet">
@@ -61,26 +61,25 @@
       </div>
 
       <!--logo start-->
-      <a href="/homeAdmin.jsp" class="logo">WESER</a>
+      <a href="/homeDoctor.jsp" class="logo">WESER</a>
       <!--logo end-->
 
       <div class="top-nav notification-row">
         <!-- notificatoin dropdown start-->
         <ul class="nav pull-right top-menu">
-          <!-- user login dropdown start-->
+          <!-- device login dropdown start-->
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="username">${utenteCollegato}</span>
                             <b class="caret"></b>
                         </a>
             <ul class="dropdown-menu extended logout">
               <div class="log-arrow-up"></div>
               <li>
-                <a href="/User/logout"><i class="icon_key_alt"></i> Log Out</a>
+                <a href="/Device/logout"><i class="icon_key_alt"></i> Log Out</a>
               </li>
             </ul>
           </li>
-          <!-- user login dropdown end -->
+          <!-- device login dropdown end -->
         </ul>
         <!-- notificatoin dropdown end-->
       </div>
@@ -88,7 +87,7 @@
     <!--header end-->
 
     <!--sidebar start-->
-    <%@ include file="/function/menuAdmin.jsp" %>
+  <%@ include file="/function/menuDoctor.jsp" %>
     <!--sidebar end-->
 
     <!--main content start-->
@@ -97,44 +96,63 @@
         <!--overview start-->
         <div class="row">
           <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa-laptop"></i> User Update</h3>
+            <h3 class="page-header"><i class="fa fa-laptop"></i> Device Update</h3>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-              <li><i class="fa fa-laptop"></i>User Update</li>
+              <li><i class="fa fa-home"></i><a href="homeAdmin.jsp">Home</a></li>
+              <li><i class="fa fa-laptop"></i>Device Update</li>
             </ol>
           </div>
         </div>
         
         <div class="row">
         	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        		<form method="POST" action="/User/updateUser">
-			<input type="hidden" name="id" value="<%=userUpdate.getId()%>" />
+        		<form method="POST" action="/Device/updateDevice">
+			<input type="hidden" name="id" value="<%=deviceUpdate.getId()%>" />
 			<table class="table">
 
 			<tr>
-				<td><b>Username:</b></td>
-				<td> <input type="text" size="40" maxlength="40" name="username" value="<%=userUpdate.getUsername()%>" /></td>
+				<td><b>Reg number:</b></td>
+				<td> <input type="text" size="40" maxlength="40" name="regnum" value="<%=deviceUpdate.getRegnum()%>" /></td>
 			</tr>
 			<tr>
-				<td><b>Password:</b></td>
-				<td> <input type="text" size="40" maxlength="40" name="password" value="<%=userUpdate.getPassword()%>" /></td>
+				<td><b>Dev type:</b></td>
+				<td> <input type="text" size="40" maxlength="40" name="devtype" value="<%=deviceUpdate.getDevtype()%>" /></td>
 			</tr>
 			<tr>
-					<td><b>Usertype:</b></td>
-					<td> <input type="text" size="40" maxlenght="40" name="usertype" value=<%=userUpdate.getUsertype() %>></td>
+					<td><b>Description:</b></td>
+					<td> <input type="text" size="40" maxlenght="40" name="descr" value=<%=deviceUpdate.getDescr() %>></td>
 			</tr>
 			<tr>
-				<td><b>Name:</b></td>
-				<td> <input type="text" size="40" maxlength="40" name="name" value="<%=userUpdate.getName()%>" /></td>
+				<td><b>Min cir:</b></td>
+				<td> <input type="number" size="40" maxlength="40" name="mincir" value="<%=deviceUpdate.getMincir()%>" /></td>
 			</tr>
 			<tr>
-				<td><b>Surname:</b></td> 
-				<td> <input type="text" size="40" maxlength="40" name="surname" value="<%=userUpdate.getSurname()%>" /></td>
+				<td><b>Max Cir:</b></td> 
+				<td> <input type="number" size="40" maxlength="40" name="maxcir" value="<%=deviceUpdate.getMaxcir()%>" /></td>
 			</tr>
-			
 			<tr>
-				<td><b>SSN:</b></td> 
-				<td> <input type="text" size="40" maxlength="40" name="ssn" value="<%=userUpdate.getSsn() %>" /></td>
+				<td><b>Min pres:</b></td>
+				<td> <input type="number" size="40" maxlength="40" name="minpress" value="<%=deviceUpdate.getMinpress()%>" /></td>
+			</tr>
+			<tr>
+				<td><b>Max pres:</b></td> 
+				<td> <input type="number" size="40" maxlength="40" name="maxpress" value="<%=deviceUpdate.getMaxpress()%>" /></td>
+			</tr>
+			<tr>
+				<td><b>Min breath:</b></td>
+				<td> <input type="number" size="40" maxlength="40" name="minbreath" value="<%=deviceUpdate.getMinbreath()%>" /></td>
+			</tr>
+			<tr>
+				<td><b>Max breath:</b></td> 
+				<td> <input type="number" size="40" maxlength="40" name="maxbreath" value="<%=deviceUpdate.getMaxbreath()%>" /></td>
+			</tr>
+			<tr>
+				<td><b>Min temp:</b></td>
+				<td> <input type="number" size="40" maxlength="40" name="mintemp" value="<%=deviceUpdate.getMintemp()%>" /></td>
+			</tr>
+			<tr>
+				<td><b>Max temp:</b></td> 
+				<td> <input type="number" size="40" maxlength="40" name="maxtemp" value="<%=deviceUpdate.getMaxtemp()%>" /></td>
 			</tr>
 			
 			
@@ -146,7 +164,7 @@
 
 			<br>
 			<br>
-			<a class="btn btn-primary btn-lg btn-block" href="/User/userManagement">Back</a>
+			<a class="btn btn-primary btn-lg btn-block" href="/Device/deviceManagement">Back</a>
 
 		</form>
             </div>

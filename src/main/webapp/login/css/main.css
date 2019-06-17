@@ -206,8 +206,8 @@ iframe {
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-items: left;
   background: #4D4199;
 }
 

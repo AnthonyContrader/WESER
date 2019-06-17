@@ -28,10 +28,12 @@ public class ReadingDTO {
 
 	private float temp;
 	
+	private String giornora;
+	
 	
 	//private Date period;
 
-	public ReadingDTO(String patcf, String regdev, int minpress, int maxpress, int cir, int breath, float temp) {
+	public ReadingDTO(String patcf, String regdev, int minpress, int maxpress, int cir, int breath, float temp, String giornora) {
 		super();
 		this.patcf = patcf;
 		this.regdev = regdev;
@@ -40,6 +42,7 @@ public class ReadingDTO {
 		this.cir = cir;
 		this.breath = breath;
 		this.temp = temp;
+		this.giornora = giornora;
 		//this.period = period;
 	}
 	

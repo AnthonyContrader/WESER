@@ -36,6 +36,12 @@ public class CureController {
 	return "cure/cureManagement";
 	}
 	
+	@RequestMapping(value = "/cureManagementT", method = RequestMethod.GET)
+	public String cureManagementT(HttpServletRequest request) {
+		request.setAttribute("cure", getCures());
+	return "cure/cureManagementT";
+	}
+	
 	public List<CureDTO> getCures() {
 		List<CureDTO> tmp = cureService.getListaCureDTO();
 	List<CureDTO> cureList = new ArrayList<>();

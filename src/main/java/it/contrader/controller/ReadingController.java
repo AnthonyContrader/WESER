@@ -101,10 +101,10 @@ public class ReadingController {
 			int cir =  Integer.parseInt(request.getParameter("cir"));
 			int breath =  Integer.parseInt(request.getParameter("breath"));
 			float temp =  Float.parseFloat(request.getParameter("temp"));
-			//Date period = Date.from();
+			String giornora = request.getParameter("giornora");
 			
 			
-			ReadingDTO readingDTO = new ReadingDTO(patcf,regdev,minpress,maxpress,cir,breath,temp);
+			ReadingDTO readingDTO = new ReadingDTO(patcf,regdev,minpress,maxpress,cir,breath,temp,giornora);
 			
 			readingService.insertReading(readingDTO);
 			

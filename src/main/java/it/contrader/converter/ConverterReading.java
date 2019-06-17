@@ -20,6 +20,7 @@ public class ConverterReading {
 			readingDTO.setCir(reading.getCir());
 			readingDTO.setBreath(reading.getBreath());
 			readingDTO.setTemp(reading.getTemp());
+			readingDTO.setGiornora(reading.getGiornora());
 			//readingDTO.setPeriod(reading.getPeriod());
 		}
 		return readingDTO;
@@ -37,6 +38,7 @@ public class ConverterReading {
 			reading.setCir(readingDTO.getCir());
 			reading.setBreath(readingDTO.getBreath());
 			reading.setTemp(readingDTO.getTemp());
+			reading.setGiornora(readingDTO.getGiornora());
 			//reading.setPeriod(readingDTO.getPeriod());
 		}
 		return reading;

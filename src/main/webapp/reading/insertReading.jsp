@@ -138,6 +138,9 @@
 			<tr>
 				<td>Max temp</td><td><input type="number" step="any" min="0" max="45" name="maxbreath" placeholder="Maxbreath"></td>
 			</tr>
+			<tr>
+				<td>Giorno/ora</td><td><input type="text" name="giornora" placeholder="Giornora"></td>
+			</tr>
 		</table>
 		<br>
 		<button class="btn btn-primary btn-lg btn-block" type="submit">Insert</button>

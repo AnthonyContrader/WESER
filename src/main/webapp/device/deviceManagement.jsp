@@ -61,7 +61,7 @@
       </div>
 
       <!--logo start-->
-      <a href="/homeAdmin.jsp" class="logo"><img src="/login/img/logo_bianco.svg"></a>
+      <a href="/homeAdmin.jsp" class="logo">WESER</a>
       <!--logo end-->
 
       <div class="top-nav notification-row">
@@ -87,32 +87,7 @@
     <!--header end-->
 
     <!--sidebar start-->
-    <aside>
-      <div id="sidebar" class="nav-collapse ">
-        <!-- sidebar menu start-->
-        <ul class="sidebar-menu">
-          <li class="sub-menu">
-            <a class="" href="/homeAdmin.jsp">
-                          <i class="icon_house_alt"></i>
-                          <span>Dashboard</span>
-                      </a>
-          </li>
-          <li class="active">
-            <a href="/User/userManagement" class="">
-                          <i class="icon_document_alt"></i>
-                          <span>User Management</span>
-                      </a>
-          </li>
-          <li class="sub-menu">
-            <a href="/Device/deviceManagement" class="">
-                          <i class="icon_desktop"></i>
-                          <span>Device Management</span>
-                      </a>
-          </li>
-        </ul>
-        <!-- sidebar menu end-->
-      </div>
-    </aside>
+     <%@ include file="/function/menuAdmin.jsp" %>
     <!--sidebar end-->
 
     <!--main content start-->

@@ -1,25 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.List" %>
-<%@	page import="it.contrader.dto.ReadingDTO"%>
+    <%@ page import="it.contrader.dto.CureDTO" %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Readings Management</title>
-	<%
-		List<ReadingDTO> listReading = (List<ReadingDTO>) request.getAttribute("reading");
-	 %>
-	 
-	 <meta charset="utf-8">
+<title>Insert Emergency Number</title>
+<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
   <meta name="author" content="GeeksLabs">
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
   <link rel="shortcut icon" href="img/favicon.png">
 
-  <title>Readings Management</title>
+  <title>Insert Emergency Number</title>
 
   <!-- Bootstrap CSS -->
   <link href="/dash/css/bootstrap.min.css" rel="stylesheet">
@@ -62,75 +58,44 @@
       </div>
 
       <!--logo start-->
-      <a href="/index.jsp" class="logo">WESER</a>
+      <a href="/homeTutor.jsp" class="logo">WESER</a>
       <!--logo end-->
 
-      <div class="top-nav notification-row">
-        <!-- notificatoin dropdown start-->
-        <ul class="nav pull-right top-menu">
-          <!-- user login dropdown start-->
-          <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="username">${utenteCollegato}</span>
-                            <b class="caret"></b>
-                        </a>
-            <ul class="dropdown-menu extended logout">
-              <div class="log-arrow-up"></div>
-              <li>
-                <a href="/User/logout"><i class="icon_key_alt"></i> Log Out</a>
-              </li>
-            </ul>
-          </li>
-          <!-- user login dropdown end -->
-        </ul>
-        <!-- notificatoin dropdown end-->
-      </div>
     </header>
     <!--header end-->
 
-    <%@ include file="/function/menuDoctor.jsp" %>
-   
+    <!--sidebar start-->
+   <%@ include file="/function/menuTutor.jsp" %>
+    <!--sidebar end-->
+
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
         <!--overview start-->
         <div class="row">
           <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa-laptop"></i> Reading Management</h3>
+            <h3 class="page-header"><i class="fa fa-laptop"></i> Insert Emergency Number</h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i>Home</a></li>
-              <li><i class="fa fa-laptop"></i>Reading Management</li>
+              <li><i class="fa fa-laptop"></i>Insert Emergency Number</li>
             </ol>
           </div>
         </div>
         
         <div class="row">
         	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            	<table class="table table-striped">
-		<tr><th>ID</th><th>Patient cf</th><th>Reg device</th><th>Min press</th><th>Max press</th><th>Circulation</th><th>Breath</th><th>Temperature</th><th>Giorno/Ora</th><th colspan=1>Option</th></tr>
-		<%
-			for(ReadingDTO reading: listReading){
-		 %>
-		 	<tr>
-		 	<td><%=reading.getId() %></td>
-			<td><%=reading.getPatcf() %></td>
-			<td><%=reading.getRegdev()%></td>
-			<td><%=reading.getMinpress()%></td>
-			<td><%=reading.getMaxpress()%></td>
-			<td><%=reading.getCir()%></td>
-			<td><%=reading.getBreath()%></td>
-			<td><%=reading.getTemp()%></td>
-			<td><%=reading.getGiornora()%></td>
-		 		<td><a class="btn btn-primary btn-lg btn-block" href="/Reading/deleteReading?id=<%=reading.getId() %>">Delete</a></td>
-		 	</tr>
-		<% 
-			}
-		%>
-	</table>
-	<a class="btn btn-primary btn-lg btn-block" href="/reading/insertReading.jsp">Insert Reading</a>
+        		<form class="insert-form" action="/Emergency/insertEmergency" method="post">
+		<table>
+			<tr>
+				<td>Emergency number</td><td><input type="text" name="num" placeholder="Num"></td>
+			</tr>
+			
+		</table>
+		<br>
+		<button class="btn btn-primary btn-lg btn-block" type="submit">Insert</button>
+	</form>
 	<br>
-	<a class="btn btn-primary btn-lg btn-block" href="/homeDoctor.jsp">Back</a>
-	<br>
+	<a class="btn btn-primary btn-lg btn-block" href="/Emergency/emergencyManagement">Back</a>
             </div>
         </div>
 
@@ -226,6 +191,5 @@
         });
       });
     </script>
-	
 </body>
 </html>

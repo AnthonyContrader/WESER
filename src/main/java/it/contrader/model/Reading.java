@@ -61,6 +61,10 @@ public class Reading {
 	@Column(name = "temp")
 	private float temp;
 	
+	@Column(name = "giornora")
+	@NotNull
+	private String giornora;
+	
 	//@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX") Date period;
 	
 	

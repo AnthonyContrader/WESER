@@ -79,27 +79,8 @@
     <!--header end-->
 
     <!--sidebar start-->
-    <aside>
-      <div id="sidebar" class="nav-collapse ">
-        <!-- sidebar menu start-->
-        <ul class="sidebar-menu">
-          <li class="sub-menu">
-            <a class="" href="/homeAdmin.jsp">
-                          <i class="icon_house_alt"></i>
-                          <span>Dashboard</span>
-                      </a>
-          </li>
-          <li class="active">
-            <a href="/Doctor/deviceManagement" class="">
-                          <i class="icon_document_alt"></i>
-                          <span>Device Management</span>
-                      </a>
-          </li>
-          
-        </ul>
-        <!-- sidebar menu end-->
-      </div>
-    </aside>
+    <%@ include file="/function/menuAdmin.jsp" %>
+ 
     <!--sidebar end-->
 
     <!--main content start-->
