@@ -86,7 +86,7 @@
       </div>
     </header>
     <!--header end-->
- <%@ include file="/function/menuDoctor.jsp" %>
+ <%@ include file="/function/menuTutor.jsp" %>
    
     <!--main content start-->
     <section id="main-content">

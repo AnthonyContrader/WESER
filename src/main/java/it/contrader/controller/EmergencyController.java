@@ -62,7 +62,7 @@ public class EmergencyController {
 		int idEmergency = Integer.parseInt(request.getParameter("id"));
 		EmergencyDTO emergency = emergencyService.getEmergencyDTOById(idEmergency);
 		request.setAttribute("emergency", emergency);
-		return "emergency/emergencyManagement";
+		return "emergency/updateEmergency";
 	}
 	
 	@RequestMapping(value = "/updateEmergency", method = RequestMethod.POST)

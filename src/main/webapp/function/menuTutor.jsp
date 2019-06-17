@@ -3,7 +3,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
           <li class="active">
-            <a class="" href="homeTutor.jsp">
+            <a class="" href="/homeTutor.jsp">
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
                       </a>
@@ -17,7 +17,7 @@
             <ul class="sub">
               <li><a class="" href="/Emergency/emergencyManagement">Emergency number Management</a></li>
               <li><a class="" href="/Payment/paymentManagement">Payment Management</a></li>
-               <li><a class="" href="/Care/careManagement">View Patient care</a></li>
+              <li><a class="" href="/Cure/cureManagementT">View Patient cure</a></li>
             </ul>
           </li>
 

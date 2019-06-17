@@ -14,16 +14,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name="emergency")
-@NamedQuery(name="Emergency.findAll", query="SELECT e FROM Emergency e")
-public class Emergency implements Serializable {
+
+public class Emergency {
 	private static final long serialVersionUID = 1L;
 
 

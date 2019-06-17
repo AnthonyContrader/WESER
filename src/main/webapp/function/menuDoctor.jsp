@@ -3,7 +3,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
           <li class="active">
-            <a class="" href="homeDoctor.jsp">
+            <a class="" href="/homeDoctor.jsp">
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
                       </a>

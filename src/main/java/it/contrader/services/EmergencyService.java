@@ -42,9 +42,9 @@ public class EmergencyService {
 		emergencyRepository.deleteById(id);
 	}
 	
-	public List<EmergencyDTO> findAllEmergencyDTO() {
+	public List<EmergencyDTO> findAllEmergencyByNumDTO(String num) {
 		
-		final List<Emergency> list = (List<Emergency>) emergencyRepository.findAll();
+		final List<Emergency> list = (List<Emergency>) emergencyRepository.findAllByNum(num);
 		final List<EmergencyDTO> emergencyDTOs = new ArrayList<>();
 		list.forEach(i -> emergencyDTOs.add(ConverterEmergency.toDTO(i)));
 		return emergencyDTOs;

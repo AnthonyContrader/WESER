@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Emergency Management</title>
+<title>Emergency number Management</title>
 	<%
 		List<EmergencyDTO> listEmergency = (List<EmergencyDTO>) request.getAttribute("emergency");
 	 %>
@@ -18,7 +18,7 @@
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
   <link rel="shortcut icon" href="img/favicon.png">
 
-  <title>Emergency Management</title>
+  <title>Emergency number Management</title>
 
   <!-- Bootstrap CSS -->
   <link href="/dash/css/bootstrap.min.css" rel="stylesheet">
@@ -61,7 +61,7 @@
       </div>
 
       <!--logo start-->
-      <a href="/homeAdmin.jsp" class="logo">WESER</a>
+      <a href="/homeTutor.jsp" class="logo">WESER</a>
       <!--logo end-->
 
       <div class="top-nav notification-row">
@@ -70,7 +70,6 @@
           <!-- emergency login dropdown start-->
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="emergencyname">${utenteCollegato}</span>
                             <b class="caret"></b>
                         </a>
             <ul class="dropdown-menu extended logout">
@@ -94,10 +93,10 @@
         <!--overview start-->
         <div class="row">
           <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa-laptop"></i> Doctor Management</h3>
+            <h3 class="page-header"><i class="fa fa-laptop"></i> Emergency number Management</h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i>Home</a></li>
-              <li><i class="fa fa-laptop"></i>Doctor Management</li>
+              <li><i class="fa fa-laptop"></i>Emergency number Management</li>
             </ol>
           </div>
         </div>
@@ -105,16 +104,15 @@
         <div class="row">
         	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             	<table class="table table-striped">
-		<tr><th>Id</th>Number</tr>
+		<tr><th>Id</th><th>Emergency number</th><th colspan=2>Option</th></tr>
 		<%
 			for(EmergencyDTO emergency: listEmergency){
 		 %>
 		 	<tr>
 		 		<td><%=emergency.getId()%></td>
 		 		<td><%=emergency.getNum()%></td>
-		 		
-		 		<td><a class="btn btn-primary btn-lg btn-block" href="/Emergency/deleteEmergency?id=<%=emergency.getId() %>">Delete</a></td>
-		 		<td><a class="btn btn-primary btn-lg btn-block"href="/Emergency/redirectUpdate?id=<%=emergency.getId()%>">Update</a></td>
+		 			<td><a class="btn btn-primary btn-lg btn-block" href="/Emergency/deleteEmergency?id=<%=emergency.getId() %>">Delete</a></td>
+		 			<td><a class="btn btn-primary btn-lg btn-block"href="/Emergency/redirectUpdate?id=<%=emergency.getId()%>">Update</a></td>
 		 	</tr>
 		<% 
 			}

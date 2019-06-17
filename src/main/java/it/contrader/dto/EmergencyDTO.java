@@ -17,6 +17,7 @@ public class EmergencyDTO {
     private String num;
 	
 	public EmergencyDTO(String num) {
+		super();
 		this.num = num;
 
 	}
