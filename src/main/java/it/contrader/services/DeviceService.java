@@ -29,6 +29,7 @@ public class DeviceService {
 		return ConverterDevice.toDTO(deviceRepository.findById(id).get());
 	}
 
+
 	public boolean insertDevice(DeviceDTO deviceDTO) {
 		return deviceRepository.save(ConverterDevice.toEntity(deviceDTO)) != null;
 	}
@@ -41,16 +42,14 @@ public class DeviceService {
 		deviceRepository.deleteById(id);
 	}
 	
-	public List<DeviceDTO> findAllDeviceDTO(String regnumber) {
+public List<DeviceDTO> findAllById(int id) {
 		
-		final List<Device> list = deviceRepository.findAllByRegnumber(regnumber);
-		final List<DeviceDTO> deviceDTOs = new ArrayList<>();
-		list.forEach(i -> deviceDTOs.add(ConverterDevice.toDTO(i)));
-		return deviceDTOs;
+		final List<DeviceDTO> list = ConverterDevice.toListDTO(DeviceRepository.findAllById(id));
+		//final List<SensordataDTO> sensordataDTOs = new ArrayList<>();
+		//list.forEach(i -> sensordataDTOs.add(ConverterSensordata.toDTO(i)));
+		return list;
 		
 	
 	}
 
-	
 }
-

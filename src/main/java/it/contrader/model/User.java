@@ -5,73 +5,46 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 //@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
-public class User  {
-	//private static final long serialVersionUID = 1L;
-
+public class User {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="iduser")
-	private int iduser;
-	
-	@Column(name="username")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private int id;
+
+	@Column(name = "username")
 	@NotNull
 	private String username;
-	
-	@Column(name="password")
+
+	@Column(name = "password")
 	@NotNull
 	private String password;
 
-	@Column(name="usertype")
+	@Column(name = "usertype")
 	@NotNull
 	private String usertype;
-	
-	@Column(name="name")
+
+	@Column(name = "name")
 	@NotNull
 	private String name;
-	
-	@Column(name="surname")
+
+	@Column(name = "surname")
 	@NotNull
 	private String surname;
-	
-	@Column(name="ssn")
+
+	@Column(name = "ssn")
 	@NotNull
 	private String ssn;
-
-	//bi-directional many-to-one association to Client
-	//@OneToMany(mappedBy="user")
-	//private List<Cure> cures;
-
-	//bi-directional many-to-one association to Item
-	//@OneToMany(mappedBy="user")
-	//private List<Device> devices;
-
-	//bi-directional many-to-one association to Order
-	//@OneToMany(mappedBy="user")
-	//private List<Emergency> emergencys;
-
-	//bi-directional many-to-one association to Project
-	//@OneToMany(mappedBy="user")
-	//private List<Patology> patologys;
-
-	//bi-directional many-to-one association to Resource
-	//@OneToMany(mappedBy="user")
-	//private List<Payment> payments;
-
-	//bi-directional many-to-one association to Task
-	//@OneToMany(mappedBy="user")
-	//private List<Reading> readings;
-
 
 }

@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ReadingDTO {
 	
-	private Integer idread;
+	private Integer id;
 
 	private String patcf;
 	
@@ -22,34 +22,25 @@ public class ReadingDTO {
 	
 	private int maxpress;
 	
-    private int mincir;
-	
-	private int maxcir;
+    private int cir;
 
-	private int minbreath;
-	
-	private int maxbreath;
+	private int breath;
 
-	private float mintemp;
+	private float temp;
 	
-	private float maxtemp;
 	
-	private Date period;
+	//private Date period;
 
-	public ReadingDTO(String patcf, String regdev, int minpress, int maxpress, int mincir, int maxcir, int minbreath,
-			int maxbreath, float mintemp, float maxtemp, Date period) {
+	public ReadingDTO(String patcf, String regdev, int minpress, int maxpress, int cir, int breath, float temp) {
 		super();
 		this.patcf = patcf;
 		this.regdev = regdev;
 		this.minpress = minpress;
 		this.maxpress = maxpress;
-		this.mincir = mincir;
-		this.maxcir = maxcir;
-		this.minbreath = minbreath;
-		this.maxbreath = maxbreath;
-		this.mintemp = mintemp;
-		this.maxtemp = maxtemp;
-		this.period = period;
+		this.cir = cir;
+		this.breath = breath;
+		this.temp = temp;
+		//this.period = period;
 	}
 	
 	

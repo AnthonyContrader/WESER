@@ -13,24 +13,20 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-import java.util.List;
-
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name="cure")
-@NamedQuery(name="Cure.findAll", query="SELECT c FROM Cure c")
-public class Cure implements Serializable {
+//@NamedQuery(name="Cure.findAll", query="SELECT c FROM Cure c")
+public class Cure {
 	private static final long serialVersionUID = 1L;
 
 	
 	@Id
-	@Column(name = "idcure")
+	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idcure;
+	private int id;
 
 	@Column(name = "patname")
 	@NotNull
@@ -39,24 +35,24 @@ public class Cure implements Serializable {
 	@Column(name = "patcf")
 	@NotNull
 	private String patcf;
-
-	@NotNull
+	
 	@Column(name = "patage")
+	@NotNull
 	private int patage;
 
-	@NotNull
 	@Column(name = "pato")
+	@NotNull
 	private String pato;
 	
-	@NotNull
 	@Column(name = "curename")
+	@NotNull
 	private String curename;
 	
-	@NotNull
 	@Column(name = "quantity")
+	@NotNull
 	private String quantity;
 	
-	@NotNull
 	@Column(name = "notes")
+	@NotNull
 	private String notes;
 }

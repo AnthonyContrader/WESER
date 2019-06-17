@@ -12,10 +12,11 @@ public class ConverterCure {
 		CureDTO cureDTO = null;
 		if (cure != null) {
 			cureDTO = new CureDTO();
-			cureDTO.setIdcure(cure.getIdcure());
+			cureDTO.setId(cure.getId());
 			cureDTO.setPatname(cure.getPatname());
 			cureDTO.setPatcf(cure.getPatcf());
 			cureDTO.setPatage(cure.getPatage());
+			cureDTO.setPato(cure.getPato());
 			cureDTO.setCurename(cure.getCurename());
 			cureDTO.setQuantity(cure.getQuantity());
 			cureDTO.setNotes(cure.getNotes());
@@ -27,10 +28,11 @@ public class ConverterCure {
 		Cure cure = null;
 		if (cureDTO != null) {
 			cure = new Cure();
-			cure.setIdcure(cureDTO.getIdcure());
+			cure.setId(cureDTO.getId());
 			cure.setPatname(cureDTO.getPatname());
 			cure.setPatcf(cureDTO.getPatcf());
 			cure.setPatage(cureDTO.getPatage());
+			cure.setPato(cureDTO.getPato());
 			cure.setCurename(cureDTO.getCurename());
 			cure.setQuantity(cureDTO.getQuantity());
 			cure.setNotes(cureDTO.getNotes());

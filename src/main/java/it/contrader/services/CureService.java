@@ -41,7 +41,7 @@ public class CureService {
 		cureRepository.deleteById(id);
 	}
 	
-	public List<CureDTO> findAllCureDTO(String curename) {
+	public List<CureDTO> findAllCureByCurename(String curename) {
 		
 		final List<Cure> list = cureRepository.findAllByCurename(curename);
 		final List<CureDTO> cureDTOs = new ArrayList<>();

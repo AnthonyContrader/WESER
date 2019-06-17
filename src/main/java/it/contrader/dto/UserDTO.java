@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class UserDTO {
 
 	
-	private int iduser;
+	private int id;
 
 	private String username;
 
@@ -37,21 +37,6 @@ public class UserDTO {
 		this.surname = surname;
 		this.ssn = ssn;
 	}
-	
-	
-
-	//private List<CureDTO> curesDTO;
-	
-	//private List<DeviceDTO> devicesDTO;
-
-	//private List<EmergencyDTO> emergencysDTO;
-
-	//private List<PatologyDTO> patologysDTO;
-
-	//private List<PaymentDTO> paymentsDTO;
-	
-	//private List<ReadingDTO> readingsDTO;
-	
 	
 	
 	

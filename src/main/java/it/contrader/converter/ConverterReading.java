@@ -12,18 +12,15 @@ public class ConverterReading {
 		ReadingDTO readingDTO = null;
 		if (reading != null) {
 			readingDTO = new ReadingDTO();
-			readingDTO.setIdread(reading.getIdread());
+			readingDTO.setId(reading.getId());
 			readingDTO.setPatcf(reading.getPatcf());
 			readingDTO.setRegdev(reading.getRegdev());
 			readingDTO.setMinpress(reading.getMinpress());
 			readingDTO.setMaxpress(reading.getMaxpress());
-			readingDTO.setMincir(reading.getMincir());
-			readingDTO.setMaxcir(reading.getMaxcir());
-			readingDTO.setMinbreath(reading.getMinbreath());
-			readingDTO.setMaxbreath(reading.getMaxbreath());
-			readingDTO.setMintemp(reading.getMintemp());
-			readingDTO.setMaxtemp(reading.getMaxtemp());
-			readingDTO.setPeriod(reading.getPeriod());
+			readingDTO.setCir(reading.getCir());
+			readingDTO.setBreath(reading.getBreath());
+			readingDTO.setTemp(reading.getTemp());
+			//readingDTO.setPeriod(reading.getPeriod());
 		}
 		return readingDTO;
 	}
@@ -32,18 +29,15 @@ public class ConverterReading {
 		Reading reading = null;
 		if (readingDTO != null) {
 			reading = new Reading();
-			reading.setIdread(readingDTO.getIdread());
+			reading.setId(readingDTO.getId());
 			reading.setPatcf(readingDTO.getPatcf());
 			reading.setRegdev(readingDTO.getRegdev());
 			reading.setMinpress(readingDTO.getMinpress());
 			reading.setMaxpress(readingDTO.getMaxpress());
-			reading.setMincir(readingDTO.getMincir());
-			reading.setMaxcir(readingDTO.getMaxcir());
-			reading.setMinbreath(readingDTO.getMinbreath());
-			reading.setMaxbreath(readingDTO.getMaxbreath());
-			reading.setMintemp(readingDTO.getMintemp());
-			reading.setMaxtemp(readingDTO.getMaxtemp());
-			reading.setPeriod(readingDTO.getPeriod());
+			reading.setCir(readingDTO.getCir());
+			reading.setBreath(readingDTO.getBreath());
+			reading.setTemp(readingDTO.getTemp());
+			//reading.setPeriod(readingDTO.getPeriod());
 		}
 		return reading;
 	}

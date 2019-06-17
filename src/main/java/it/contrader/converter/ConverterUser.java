@@ -12,7 +12,7 @@ public class ConverterUser {
 		UserDTO userDTO = null;
 		if (user != null) {
 			userDTO = new UserDTO();
-			userDTO.setIduser(user.getIduser());
+			userDTO.setId(user.getId());
 			userDTO.setUsername(user.getUsername());
 			userDTO.setPassword(user.getPassword());
 			userDTO.setUsertype(user.getUsertype());
@@ -27,7 +27,7 @@ public class ConverterUser {
 		User user = null;
 		if (userDTO != null) {
 			user = new User();
-			user.setIduser(userDTO.getIduser());
+			user.setId(userDTO.getId());
 			user.setUsername(userDTO.getUsername());
 			user.setPassword(userDTO.getPassword());
 			user.setUsertype(userDTO.getUsertype());

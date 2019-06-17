@@ -12,34 +12,36 @@ public class ConverterDevice {
 		DeviceDTO deviceDTO = null;
 		if (device != null) {
 			deviceDTO = new DeviceDTO();
-			deviceDTO.setIddev(device.getIddev());
-			deviceDTO.setRegnumber(device.getRegnumber());
+			deviceDTO.setId(device.getId());
+			deviceDTO.setRegnum(device.getRegnum());
 			deviceDTO.setDevtype(device.getDevtype());
-			deviceDTO.setDescription(device.getDescription());
-			deviceDTO.setMinpress(device.getMinpress());
-			deviceDTO.setMaxpress(device.getMaxpress());
+			deviceDTO.setDescr(device.getDescr());
 			deviceDTO.setMincir(device.getMincir());
 			deviceDTO.setMaxcir(device.getMaxcir());
+			deviceDTO.setMinpress(device.getMinpress());
+			deviceDTO.setMaxpress(device.getMaxpress());
 			deviceDTO.setMinbreath(device.getMinbreath());
 			deviceDTO.setMaxbreath(device.getMaxbreath());
 			deviceDTO.setMintemp(device.getMintemp());
 			deviceDTO.setMaxtemp(device.getMaxtemp());
+			
 		}
 		return deviceDTO;
 	}
 
+	@SuppressWarnings("null")
 	public static Device toEntity(DeviceDTO deviceDTO) {
 		Device device = null;
 		if (deviceDTO != null) {
 			device = new Device();
-			device.setIddev(deviceDTO.getIddev());
-			device.setRegnumber(deviceDTO.getRegnumber());
+			device.setId(deviceDTO.getId());
+			device.setRegnum(deviceDTO.getRegnum());
 			device.setDevtype(deviceDTO.getDevtype());
-			device.setDescription(deviceDTO.getDescription());
-			device.setMinpress(deviceDTO.getMinpress());
-			device.setMaxpress(deviceDTO.getMaxpress());
+			device.setDescr(deviceDTO.getDescr());
 			device.setMincir(deviceDTO.getMincir());
 			device.setMaxcir(deviceDTO.getMaxcir());
+			device.setMinpress(deviceDTO.getMinpress());
+			device.setMaxpress(deviceDTO.getMaxpress());
 			device.setMinbreath(deviceDTO.getMinbreath());
 			device.setMaxbreath(deviceDTO.getMaxbreath());
 			device.setMintemp(deviceDTO.getMintemp());

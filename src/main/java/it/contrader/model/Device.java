@@ -6,72 +6,65 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-import java.util.List;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="device")
-@NamedQuery(name="Device.findAll", query="SELECT d FROM Device d")
-public class Device implements Serializable {
-	private static final long serialVersionUID = 1L;
-	
+//@NamedQuery(name="Device.findAll", query="SELECT d FROM Device d")
+public class Device {
 	@Id
-	@Column(name = "iddev")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer iddev;
+	@Column(name = "id")
+	private int id;
 
-	@Column(name = "regnumber")
+	@Column(name = "regnum")
 	@NotNull
-	private String regnumber;
+	private String regnum;
 
 	@Column(name = "devtype")
 	@NotNull
 	private String devtype;
 
+	@Column(name = "descr")
 	@NotNull
-	@Column(name = "description")
-	private String description;
+	private String descr;
 
+	@Column(name = "mincir")
 	@NotNull
+	private int mincir;
+
+	@Column(name = "maxcir")
+	@NotNull
+	private int maxcir;
+
 	@Column(name = "minpress")
-	private int minpress;
-	
 	@NotNull
+	private int minpress;
+
 	@Column(name = "maxpress")
+	@NotNull
 	private int maxpress;
 	
-	@NotNull
-	@Column(name = "mincir")
-	private int mincir;
-	
-	@NotNull
-	@Column(name = "maxcir")
-	private int maxcir;
-	
-	@NotNull
 	@Column(name = "minbreath")
-	private int minbreath;
-	
 	@NotNull
+	private int minbreath;
+
 	@Column(name = "maxbreath")
+	@NotNull
 	private int maxbreath;
 	
-	@NotNull
 	@Column(name = "mintemp")
-	private float mintemp;
-	
 	@NotNull
+	private float mintemp;
+
 	@Column(name = "maxtemp")
+	@NotNull
 	private float maxtemp;
+	
 }

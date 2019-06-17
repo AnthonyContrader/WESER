@@ -9,13 +9,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DeviceDTO {
 	
-	private Integer iddev;
+	private int id;
 
-	private String regnumber;
+	private String regnum;
 	
 	private String devtype;
 
-	private String description;
+	private String descr;
 	
 	private int minpress;
 	
@@ -33,12 +33,12 @@ public class DeviceDTO {
 	
 	private float maxtemp;
 
-	public DeviceDTO(String regnumber, String devtype, String description, int minpress, int maxpress, int mincir,
+	public DeviceDTO(String regnum, String devtype, String descr, int minpress, int maxpress, int mincir,
 			int maxcir, int minbreath, int maxbreath, float mintemp, float maxtemp) {
 		super();
-		this.regnumber = regnumber;
+		this.regnum = regnum;
 		this.devtype = devtype;
-		this.description = description;
+		this.descr = descr;
 		this.minpress = minpress;
 		this.maxpress = maxpress;
 		this.mincir = mincir;

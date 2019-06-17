@@ -1,6 +1,5 @@
 package it.contrader.model;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -13,10 +12,7 @@ import javax.persistence.Table;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.data.jpa.repository.Temporal;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.lang.Nullable;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,16 +22,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-
-@NamedQuery(name="Reading.findAll", query="SELECT r FROM Reading r")
-public class Reading implements Serializable {
+@Table(name="reading")
+//@NamedQuery(name="Reading.findAll", query="SELECT r FROM Reading r")
+public class Reading {
 	private static final long serialVersionUID = 1L;
 
 	
 	@Id
-	@Column(name = "idread")
+	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idread;
+	private Integer id;
 
 	@Column(name = "patcf")
 	@NotNull
@@ -54,30 +50,18 @@ public class Reading implements Serializable {
 	private int maxpress;
 	
 	@NotNull
-	@Column(name = "mincir")
-	private int mincir;
+	@Column(name = "cir")
+	private int cir;
 	
 	@NotNull
-	@Column(name = "maxcir")
-	private int maxcir;
+	@Column(name = "breath")
+	private int breath;
 	
 	@NotNull
-	@Column(name = "minbreath")
-	private int minbreath;
+	@Column(name = "temp")
+	private float temp;
 	
-	@NotNull
-	@Column(name = "maxbreath")
-	private int maxbreath;
-	
-	@NotNull
-	@Column(name = "mintemp")
-	private float mintemp;
-	
-	@NotNull
-	@Column(name = "maxtemp")
-	private float maxtemp;
-	
-	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX") Date period;
+	//@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX") Date period;
 	
 	
 }

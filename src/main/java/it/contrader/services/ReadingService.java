@@ -41,7 +41,7 @@ public class ReadingService {
 		readingRepository.deleteById(id);
 	}
 	
-	public List<ReadingDTO> findAllReadingDTO(String patcf) {
+	public List<ReadingDTO> findAllReadingByPatcf(String patcf) {
 		
 		final List<Reading> list = readingRepository.findAllByPatcf(patcf);
 		final List<ReadingDTO> readingDTOs = new ArrayList<>();
