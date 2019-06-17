@@ -1,3 +1,2 @@
-# WESER
-Weser project
-Readme file
+# SAMPLE
+Sample Projects
