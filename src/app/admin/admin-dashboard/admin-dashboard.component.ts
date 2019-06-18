@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserDTO } from 'src/dto/userdto';
+import { CureDTO } from 'src/dto/curedto';
 
 /**
  * Componente della dashboard admin. Nell'ngOnInit recupera
@@ -13,11 +14,13 @@ import { UserDTO } from 'src/dto/userdto';
 export class AdminDashboardComponent implements OnInit {
 
   user: UserDTO;
+  cure: CureDTO;
 
   constructor() { }
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('currentUser'));
+    this.cure = JSON.parse(localStorage.getItem('currentCure'));
   }
 
 }
