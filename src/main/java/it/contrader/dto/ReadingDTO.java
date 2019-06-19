@@ -28,7 +28,7 @@ public class ReadingDTO {
 
 	private int mp;
 
-	private int Mpr;
+	private int mpr;
 	
 	private int cir;
 	

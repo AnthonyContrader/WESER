@@ -32,12 +32,18 @@ public class PatologyDTO {
 	
 	private int mp;
 	
-	private int Mpr;
+	private int mpr;
 	
 	private int mc;
-	private  int Mci;
+	
+	private  int mci;
+	
 	private int mb;
-	private int Mbr;
+	
+	private int mbr;
+	
 	private float mt;
-	private float Mte;
+	
+	private float mte;
+	
 }

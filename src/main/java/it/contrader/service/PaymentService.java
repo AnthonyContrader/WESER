@@ -22,7 +22,7 @@ public class PaymentService extends AbstractService<Payment,PaymentDTO> {
 	//ALL crud methods in AbstractService
 	
 	//LOGIN method
-	public PaymentDTO findBId(int id) {
+	public PaymentDTO findById(int id) {
 		return converter.toDTO(((PaymentRepository)repository).findById(id));
 	}
 

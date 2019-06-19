@@ -21,7 +21,7 @@ public class ReadingService extends AbstractService<Reading,ReadingDTO> {
 	//ALL crud methods in AbstractService
 	
 	//LOGIN method
-	public ReadingDTO findBId(int id) {
+	public ReadingDTO findById(int id) {
 		return converter.toDTO(((ReadingRepository)repository).findById(id));
 	}
 

@@ -36,7 +36,7 @@ public class Reading {
 
 	private int mp;
 
-	private int Mpr;
+	private int mpr;
 	
 	private int cir;
 	
