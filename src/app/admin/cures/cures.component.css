@@ -21,12 +21,13 @@ td{
 }
 
 
+
 tr:nth-child(even) {
-	background-color: #ffdb99;
+	background-color: rgb(109, 94, 206);
 }
 
 th {
-	background-color: darkorange;
+	background-color:#4D4199 ;
 	color: #ffffff;
 }
 
@@ -40,9 +41,9 @@ input, select{
 }
 
 input:hover,  input:active, input:focus{
-    border: 2px solid crimson;
+    border: 2px solid #F7931E;
 }
 
 button:hover{
-    background-color: crimson;
+    background-color: #F7931E;
 }

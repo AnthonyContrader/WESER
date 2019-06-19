@@ -5,7 +5,7 @@
 /*Tables*/
 table {
 	border-collapse: collapse;
-	width: 100%;
+	width: 30%;
 	float: left;
 	border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -17,7 +17,7 @@ th, td {
 }
 
 td{
-    font-size: 16px;
+    font-size: 5px;
 }
 
 

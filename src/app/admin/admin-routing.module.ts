@@ -4,6 +4,7 @@ import { AdminLayoutComponent } from '../layout/admin-layout/admin-layout.compon
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { UsersComponent } from './users/users.component';
 import { CuresComponent } from './cures/cures.component';
+import { DevicesComponent } from './devices/devices.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 
 /**
@@ -23,6 +24,7 @@ const routes: Routes = [
     { path: '', component: AdminDashboardComponent},
     { path: 'users', component: UsersComponent},
     { path: 'cures', component: CuresComponent},
+    { path: 'devices', component: DevicesComponent},
     { path: 'work-in-progress', component: WorkInProgressComponent}
   ]}
 ];

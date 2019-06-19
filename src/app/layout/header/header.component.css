@@ -1,6 +1,6 @@
 
 #header{
-    background-color: darkorange;
+    background-color:#4D4199;
 }
 .searchContainer {
     margin-top: 10px;
@@ -47,10 +47,10 @@
       padding-top: 12px;
       height: inherit;
       width: 100%;
-      background-color: #1e282d !important;
+      background-color: rgb(53, 44, 107) !important;
   }
   
   i:hover{
-    background-color: crimson;
+    background-color: #F7931E;
 
   }

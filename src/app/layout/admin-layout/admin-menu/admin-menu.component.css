@@ -3,7 +3,7 @@
     width: 100%;
     top: 0;
     left: 0;
-    background-color: #1e282d;
+    background-color:  #4D4199;
     overflow-x: visible;
     transition: 0.5s;
     padding-top: 0;
@@ -13,7 +13,7 @@
   .menubtn{
       width: 100%;
       text-align: left;
-      background-color: #263238;
+      background-color: #4D4199;
       color: #f1f1f1;
       border: none;
       padding-left: 20px;
@@ -28,11 +28,11 @@
   }
   
   button:focus {
-      background-color: #334247;
+      background-color:  #4D4199;
   }
   
   button:hover, a:hover {
-  background-color: #334247;
+  background-color:  rgb(109, 94, 206);
   color: darkorange;
   }
 
