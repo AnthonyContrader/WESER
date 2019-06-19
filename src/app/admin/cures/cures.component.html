@@ -7,9 +7,6 @@
       <table>
         <tr>
           <th>
-           Id
-          </th>
-          <th>
            Ssn
           </th>
           <th>
@@ -36,9 +33,6 @@
         </tr>
         <tr>
           <td>
-            <input placeholder="id" [(ngModel)]="curetoinsert.id">
-          </td>
-          <td>
             <input placeholder="cf" [(ngModel)]="curetoinsert.cf">
           </td>
           <td>
@@ -63,10 +57,7 @@
             <button (click)="clear()">Clear</button>
           </td>
         </tr>
-        <tr *ngFor="let cure of cures">
-          <td>
-            <input [(ngModel)]="cure.id">
-          </td>
+        <tr *ngFor="let cure of cure">
           <td>
             <input [(ngModel)]="cure.cf">
           </td>

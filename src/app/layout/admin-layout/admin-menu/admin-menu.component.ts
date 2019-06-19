@@ -30,6 +30,12 @@ export class AdminMenuComponent implements OnInit {
     } else { this.isUserCollapsed = false; }
   }
 
+  curescollapse() {
+    if (this.isCureCollapsed === false) {
+      this.isCureCollapsed = true;
+    } else { this.isCureCollapsed = false; }
+  }
+
   accountcollapse() {
     if (this.isAccountCollapsed === false) {
       this.isAccountCollapsed = true;
