@@ -31,7 +31,7 @@ public class Payment {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(unique = true)
+	@Column
 	private String ct;
 	
 	private String cn;

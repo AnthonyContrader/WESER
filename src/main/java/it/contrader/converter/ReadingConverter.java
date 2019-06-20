@@ -21,7 +21,7 @@ public class ReadingConverter extends AbstractConverter<Reading,ReadingDTO> {
 	public Reading toEntity(ReadingDTO readingDTO) {
 		Reading reading = null;
 		if (readingDTO != null) {
-			reading = new Reading(readingDTO.getId(),readingDTO.getCf(),readingDTO.getRd(),readingDTO.getMp(),readingDTO.getMpr(),readingDTO.getCir(),readingDTO.getBre(),readingDTO.getTemp());			
+			reading = new Reading(readingDTO.getId(),readingDTO.getCf(),readingDTO.getRd(),readingDTO.getMp(),readingDTO.getMpr(),readingDTO.getCir(),readingDTO.getBre(),readingDTO.getTemp(),readingDTO.getDataora());			
 		}
 		return reading;
 	}
@@ -30,7 +30,7 @@ public class ReadingConverter extends AbstractConverter<Reading,ReadingDTO> {
 	public ReadingDTO toDTO(Reading reading) {
 		ReadingDTO readingDTO = null;
 		if (reading != null) {
-			readingDTO = new ReadingDTO(reading.getId(),reading.getCf(),reading.getRd(),reading.getMp(),reading.getMpr(),reading.getCir(),reading.getBre(),reading.getTemp());
+			readingDTO = new ReadingDTO(reading.getId(),reading.getCf(),reading.getRd(),reading.getMp(),reading.getMpr(),reading.getCir(),reading.getBre(),reading.getTemp(),reading.getDataora());
 			
 		}
 		return readingDTO;

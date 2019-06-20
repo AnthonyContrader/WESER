@@ -31,7 +31,7 @@ public class Device {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(unique = true)
+	@Column
 	private String devtype;
 	
 	private String descr;

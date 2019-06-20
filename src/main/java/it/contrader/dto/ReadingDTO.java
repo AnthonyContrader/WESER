@@ -36,5 +36,7 @@ public class ReadingDTO {
 
 	private int temp;
 	
+	private String dataora;
+	
 
 }

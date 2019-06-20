@@ -2,6 +2,9 @@ package it.contrader.model;
 
 import javax.persistence.Entity;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+
 import javax.persistence.*;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,7 +32,7 @@ public class Reading {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(unique = true)
+	@Column
 	private String cf;
 
 	private String rd;
@@ -43,5 +46,7 @@ public class Reading {
 	private int bre;
 
 	private int temp;
+	
+	private String dataora;
 
 }

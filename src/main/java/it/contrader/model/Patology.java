@@ -30,7 +30,7 @@ public class Patology {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(unique = true)
+	@Column
 	private String pato;
 	
 	private String carename;
@@ -54,6 +54,8 @@ public class Patology {
 	private float mt;
 	
 	private float mte;
+	
+	private String notes;
 	
 	
 }

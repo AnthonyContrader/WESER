@@ -30,7 +30,7 @@ public class Cure {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(unique = true)
+	@Column
 	private String cf;
 	
 	private String age;

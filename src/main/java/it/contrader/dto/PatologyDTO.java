@@ -46,4 +46,6 @@ public class PatologyDTO {
 	
 	private float mte;
 	
+	private String notes;
+	
 }

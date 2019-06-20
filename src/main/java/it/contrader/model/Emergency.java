@@ -30,7 +30,7 @@ public class Emergency {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(unique = true)
+	@Column
 	private String num;
 	
 }

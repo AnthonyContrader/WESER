@@ -21,7 +21,7 @@ public class PatologyConverter extends AbstractConverter<Patology,PatologyDTO> {
 	public Patology toEntity(PatologyDTO patologyDTO) {
 		Patology patology = null;
 		if (patologyDTO != null) {
-			patology = new Patology(patologyDTO.getId(),patologyDTO.getPato(),patologyDTO.getCarename(),patologyDTO.getCf(),patologyDTO.getQuantity(),patologyDTO.getMp(),patologyDTO.getMpr(),patologyDTO.getMc(),patologyDTO.getMci(),patologyDTO.getMb(),patologyDTO.getMbr(),patologyDTO.getMt(),patologyDTO.getMte());			
+			patology = new Patology(patologyDTO.getId(),patologyDTO.getPato(),patologyDTO.getCarename(),patologyDTO.getCf(),patologyDTO.getQuantity(),patologyDTO.getMp(),patologyDTO.getMpr(),patologyDTO.getMc(),patologyDTO.getMci(),patologyDTO.getMb(),patologyDTO.getMbr(),patologyDTO.getMt(),patologyDTO.getMte(),patologyDTO.getNotes());			
 		}
 		return patology;
 	}
@@ -30,7 +30,7 @@ public class PatologyConverter extends AbstractConverter<Patology,PatologyDTO> {
 	public PatologyDTO toDTO(Patology patology) {
 		PatologyDTO patologyDTO = null;
 		if (patology != null) {
-			patologyDTO = new PatologyDTO(patology.getId(),patology.getPato(),patology.getCarename(),patology.getCf(),patology.getQuantity(),patology.getMp(),patology.getMpr(),patology.getMc(),patology.getMci(),patology.getMb(),patology.getMbr(),patology.getMt(),patology.getMte());			
+			patologyDTO = new PatologyDTO(patology.getId(),patology.getPato(),patology.getCarename(),patology.getCf(),patology.getQuantity(),patology.getMp(),patology.getMpr(),patology.getMc(),patology.getMci(),patology.getMb(),patology.getMbr(),patology.getMt(),patology.getMte(),patology.getNotes());			
 		}
 		return patologyDTO;
 	}
