@@ -5,6 +5,10 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { UsersComponent } from './users/users.component';
 import { CuresComponent } from './cures/cures.component';
 import { DevicesComponent } from './devices/devices.component';
+import { EmergencysComponent } from './emergencys/emergencys.component';
+import { PaymentsComponent } from './payments/payments.component';
+import { ReadingsComponent } from './readings/readings.component';
+import { PatologysComponent } from './patologys/patologys.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 
 /**
@@ -25,6 +29,10 @@ const routes: Routes = [
     { path: 'users', component: UsersComponent},
     { path: 'cures', component: CuresComponent},
     { path: 'devices', component: DevicesComponent},
+    { path: 'emergencys', component: EmergencysComponent},
+    { path: 'payments', component: PaymentsComponent},
+    { path: 'readings', component: ReadingsComponent},
+    { path: 'patologys', component: PatologysComponent},
     { path: 'work-in-progress', component: WorkInProgressComponent}
   ]}
 ];

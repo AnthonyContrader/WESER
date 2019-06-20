@@ -13,6 +13,10 @@ export class AdminMenuComponent implements OnInit {
   isAccountCollapsed = false;
   isCureCollapsed = false;
   isDeviceCollapsed = false;
+  isEmergencyCollapsed = false;
+  isPaymentCollapsed = false;
+  isReadingCollapsed = false;
+  isPatologyCollapsed = false;
 
   constructor(private router: Router) {
   }
@@ -41,6 +45,30 @@ export class AdminMenuComponent implements OnInit {
     if (this.isDeviceCollapsed === false) {
       this.isDeviceCollapsed = true;
     } else { this.isDeviceCollapsed = false; }
+  }
+
+  emergencyscollapse() {
+    if (this.isEmergencyCollapsed === false) {
+      this.isEmergencyCollapsed = true;
+    } else { this.isEmergencyCollapsed = false; }
+  }
+
+  paymentscollapse() {
+    if (this.isPaymentCollapsed === false) {
+      this.isPaymentCollapsed = true;
+    } else { this.isPaymentCollapsed = false; }
+  }
+
+  readingscollapse() {
+    if (this.isReadingCollapsed === false) {
+      this.isReadingCollapsed = true;
+    } else { this.isReadingCollapsed = false; }
+  }
+
+  patologyscollapse() {
+    if (this.isPatologyCollapsed === false) {
+      this.isPatologyCollapsed = true;
+    } else { this.isPatologyCollapsed = false; }
   }
 
   accountcollapse() {
