@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { AdminMenuComponent } from './admin-layout/admin-menu/admin-menu.component';
+import { TutorLayoutComponent } from './tutor-layout/tutor-layout.component';
+import { TutorMenuComponent } from './tutor-layout/tutor-menu/tutor-menu.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 
@@ -15,7 +17,7 @@ import { RouterModule } from '@angular/router';
  * @see AdminLayoutComponent
  */
 @NgModule({
-  declarations: [AdminLayoutComponent, AdminMenuComponent, HeaderComponent],
+  declarations: [AdminLayoutComponent, AdminMenuComponent, TutorLayoutComponent, TutorMenuComponent, HeaderComponent],
   imports: [
     CommonModule,
     RouterModule
