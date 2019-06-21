@@ -25,10 +25,6 @@ public class PatologyDTO {
     private String pato;
 	
 	private String carename;
-
-	private String cf;
-	
-	private String quantity;
 	
 	private int mp;
 	
