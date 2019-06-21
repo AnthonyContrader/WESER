@@ -46,3 +46,9 @@ input:hover,  input:active, input:focus{
 button:hover{
     background-color: #F7931E;
 }
+
+.coll_1 {
+    flex: 0 0 83.333333%;
+	max-width: 83.333333%;
+	overflow: auto;
+}

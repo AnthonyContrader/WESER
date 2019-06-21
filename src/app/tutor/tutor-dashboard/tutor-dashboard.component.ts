@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserDTO } from 'src/dto/userdto';
-import { CureDTO } from 'src/dto/curedto';
-import { DeviceDTO } from 'src/dto/devicedto';
+import { EmergencyDTO } from 'src/dto/emergencydto';
+import { PaymentDTO } from 'src/dto/paymentdto';
 
 /**
  * Componente della dashboard admin. Nell'ngOnInit recupera
@@ -15,15 +15,16 @@ import { DeviceDTO } from 'src/dto/devicedto';
 export class TutorDashboardComponent implements OnInit {
 
   user: UserDTO;
-  cure: CureDTO;
-  device: DeviceDTO;
+  emergency: EmergencyDTO;
+  payment: PaymentDTO;
 
   constructor() { }
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('currentUser'));
-    this.cure = JSON.parse(localStorage.getItem('currentCure'));
-    this.device = JSON.parse(localStorage.getItem('currentDevice'));
+    this.emergency = JSON.parse(localStorage.getItem('currentEmergency'));
+    this.payment = JSON.parse(localStorage.getItem('currentPayment'));
+  
   }
 
 }

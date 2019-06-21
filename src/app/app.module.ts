@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { AdminModule } from './admin/admin.module';
 import { TutorModule } from './tutor/tutor.module';
+import { DoctorModule } from './doctor/doctor.module';
 
 /** 
  * Modulo principale dell'applicazione. Qui vengono importati i moduli secondari. L'UNICA component
@@ -27,7 +28,8 @@ import { TutorModule } from './tutor/tutor.module';
     HttpClientModule,
     LayoutModule,
     AdminModule,
-    TutorModule
+    TutorModule,
+    DoctorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

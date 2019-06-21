@@ -15,15 +15,21 @@ export class PatologyDTO {
 
    carename: string;
 
-   cf: string;
-   quantity: string;
    mp: number;
+
    mpr: number;
+
    mc: number;
+
    mci: number;
+
    mb: number;
+
    mbr: number;
+
    mt: number;
+
    mte: number;
+
    notes: string;
 }

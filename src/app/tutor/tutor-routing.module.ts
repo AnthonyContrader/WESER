@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { TutorLayoutComponent } from '../layout/tutor-layout/tutor-layout.component';
 import { TutorDashboardComponent } from './tutor-dashboard/tutor-dashboard.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
+import { UsersComponent } from './users/users.component';
 import { EmergencysComponent } from './emergencys/emergencys.component';
 import { PaymentsComponent } from './payments/payments.component';
 
@@ -21,6 +22,7 @@ import { PaymentsComponent } from './payments/payments.component';
 const routes: Routes = [
   { path: 'tutor-dashboard', component: TutorLayoutComponent, children:[
     { path: '', component: TutorDashboardComponent},
+    { path: 'users', component: UsersComponent},
     { path: 'work-in-progress', component: WorkInProgressComponent},
     { path: 'emergencys', component: EmergencysComponent},
     { path: 'payments', component: PaymentsComponent}

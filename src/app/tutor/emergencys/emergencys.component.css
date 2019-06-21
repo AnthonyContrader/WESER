@@ -5,7 +5,7 @@
 /*Tables*/
 table {
 	border-collapse: collapse;
-	width: 50%;
+	width: 100%;
 	float: left;
 	border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -17,9 +17,8 @@ th, td {
 }
 
 td{
-    font-size: 8px;
+    font-size: 16px;
 }
-
 
 
 tr:nth-child(even) {
@@ -46,4 +45,10 @@ input:hover,  input:active, input:focus{
 
 button:hover{
     background-color: #F7931E;
+}
+
+.coll_1 {
+    flex: 0 0 83.333333%;
+	max-width: 83.333333%;
+	overflow: auto;
 }

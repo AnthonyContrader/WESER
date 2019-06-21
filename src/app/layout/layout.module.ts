@@ -4,6 +4,8 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { AdminMenuComponent } from './admin-layout/admin-menu/admin-menu.component';
 import { TutorLayoutComponent } from './tutor-layout/tutor-layout.component';
 import { TutorMenuComponent } from './tutor-layout/tutor-menu/tutor-menu.component';
+import { DoctorLayoutComponent } from './doctor-layout/doctor-layout.component';
+import { DoctorMenuComponent } from './doctor-layout/doctor-menu/doctor-menu.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 
@@ -17,7 +19,7 @@ import { RouterModule } from '@angular/router';
  * @see AdminLayoutComponent
  */
 @NgModule({
-  declarations: [AdminLayoutComponent, AdminMenuComponent, TutorLayoutComponent, TutorMenuComponent, HeaderComponent],
+  declarations: [AdminLayoutComponent, AdminMenuComponent, TutorLayoutComponent, TutorMenuComponent, DoctorLayoutComponent, DoctorMenuComponent, HeaderComponent],
   imports: [
     CommonModule,
     RouterModule
