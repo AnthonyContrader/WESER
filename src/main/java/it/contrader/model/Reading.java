@@ -45,7 +45,7 @@ public class Reading {
 	
 	private int bre;
 
-	private int temp;
+	private float temp;
 	
 	private String dataora;
 

@@ -21,7 +21,7 @@ public class CureConverter extends AbstractConverter<Cure,CureDTO> {
 	public Cure toEntity(CureDTO cureDTO) {
 		Cure cure = null;
 		if (cureDTO != null) {
-			cure = new Cure(cureDTO.getId(),cureDTO.getCf(),cureDTO.getAge(),cureDTO.getPato(),cureDTO.getName(),cureDTO.getQuantity(),cureDTO.getNotes());			
+			cure = new Cure(cureDTO.getId(),cureDTO.getCf(),cureDTO.getAge(),cureDTO.getPato(),cureDTO.getName(),cureDTO.getDosage(),cureDTO.getPosology(),cureDTO.getNotes());			
 		}
 		return cure;
 	}
@@ -30,7 +30,7 @@ public class CureConverter extends AbstractConverter<Cure,CureDTO> {
 	public CureDTO toDTO(Cure cure) {
 		CureDTO cureDTO = null;
 		if (cure != null) {
-			cureDTO = new CureDTO(cure.getId(),cure.getCf(),cure.getAge(),cure.getPato(),cure.getName(),cure.getQuantity(),cure.getNotes());
+			cureDTO = new CureDTO(cure.getId(),cure.getCf(),cure.getAge(),cure.getPato(),cure.getName(),cure.getDosage(),cure.getPosology(),cure.getNotes());
 			
 		}
 		return cureDTO;

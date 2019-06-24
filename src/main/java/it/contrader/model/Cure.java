@@ -39,7 +39,9 @@ public class Cure {
 	
 	private String name;
 	
-	private String quantity;
+	private String dosage;
+	
+	private String posology;
 	
 	private String notes;
 
