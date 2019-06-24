@@ -19,7 +19,10 @@
             Cure name
           </th>
           <th>
-            Quantity
+           Dosage
+          </th>
+          <th>
+            Posology
           </th>
           <th>
             Notes
@@ -45,8 +48,11 @@
             <input placeholder="name" [(ngModel)]="curetoinsert.name">
           </td>
           <td>
-            <input placeholder="quantity" [(ngModel)]="curetoinsert.quantity">
+            <input placeholder="dosage" [(ngModel)]="curetoinsert.dosage">
           </td>
+          <td>
+              <input placeholder="posology" [(ngModel)]="curetoinsert.posology">
+            </td>
           <td>
             <input placeholder="notes" [(ngModel)]="curetoinsert.notes">
           </td>
@@ -71,8 +77,11 @@
             <input [(ngModel)]="cure.name">
           </td>
           <td>
-            <input [(ngModel)]="cure.quantity">
+            <input [(ngModel)]="cure.dosage">
           </td>
+          <td>
+              <input [(ngModel)]="cure.posology">
+            </td>
           <td>
             <input [(ngModel)]="cure.notes">
           </td>

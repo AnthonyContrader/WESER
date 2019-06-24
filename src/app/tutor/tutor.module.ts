@@ -7,6 +7,7 @@ import { WorkInProgressComponent } from './work-in-progress/work-in-progress.com
 import { UsersComponent } from './users/users.component';
 import { EmergencysComponent } from './emergencys/emergencys.component';
 import { PaymentsComponent } from './payments/payments.component';
+import { CureTsComponent } from './cureTs/cureTs.component';
 
 /**
  * Modulo dell'admin, qui vengono dichiarate le component che utilizza 
@@ -17,7 +18,7 @@ import { PaymentsComponent } from './payments/payments.component';
  * @see TutorRoutingModule
  */
 @NgModule({
-  declarations: [TutorDashboardComponent, WorkInProgressComponent, UsersComponent, EmergencysComponent, PaymentsComponent ],
+  declarations: [TutorDashboardComponent, WorkInProgressComponent, UsersComponent, EmergencysComponent, PaymentsComponent, CureTsComponent ],
   imports: [
     CommonModule,
     TutorRoutingModule,

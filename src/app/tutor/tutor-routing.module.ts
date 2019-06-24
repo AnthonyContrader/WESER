@@ -6,6 +6,7 @@ import { WorkInProgressComponent } from './work-in-progress/work-in-progress.com
 import { UsersComponent } from './users/users.component';
 import { EmergencysComponent } from './emergencys/emergencys.component';
 import { PaymentsComponent } from './payments/payments.component';
+import { CureTsComponent } from './cureTs/cureTs.component';
 
 /**
  * Modulo di routing dell'admin. Qui ci sono i percorsi che un admin può seguire:
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'tutor-dashboard', component: TutorLayoutComponent, children:[
     { path: '', component: TutorDashboardComponent},
     { path: 'users', component: UsersComponent},
+    { path: 'cureTs', component: CureTsComponent},
     { path: 'work-in-progress', component: WorkInProgressComponent},
     { path: 'emergencys', component: EmergencysComponent},
     { path: 'payments', component: PaymentsComponent}

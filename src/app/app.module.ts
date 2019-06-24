@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
@@ -9,6 +8,7 @@ import { LayoutModule } from './layout/layout.module';
 import { AdminModule } from './admin/admin.module';
 import { TutorModule } from './tutor/tutor.module';
 import { DoctorModule } from './doctor/doctor.module';
+import { DeviceModule } from './device/device.module';
 
 /** 
  * Modulo principale dell'applicazione. Qui vengono importati i moduli secondari. L'UNICA component
@@ -29,7 +29,8 @@ import { DoctorModule } from './doctor/doctor.module';
     LayoutModule,
     AdminModule,
     TutorModule,
-    DoctorModule
+    DoctorModule,
+    DeviceModule
   ],
   providers: [],
   bootstrap: [AppComponent]

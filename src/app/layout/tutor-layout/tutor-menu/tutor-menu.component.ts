@@ -11,6 +11,7 @@ export class TutorMenuComponent implements OnInit {
   isAccountCollapsed = false;
   isEmergencyCollapsed = false;
   isPaymentCollapsed = false;
+  isCureCollapsed = false;
 
   constructor(private router: Router) {
   }
@@ -35,6 +36,11 @@ export class TutorMenuComponent implements OnInit {
     } else { this.isPaymentCollapsed = false; }
   }
 
+  curescollapse() {
+    if (this.isCureCollapsed === false) {
+      this.isCureCollapsed = true;
+    } else { this.isCureCollapsed = false; }
+  }
 
   accountcollapse() {
     if (this.isAccountCollapsed === false) {

@@ -39,6 +39,10 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/doctor-dashboard']);
             break;
           }
+          case 'DEVICE': {
+            this.router.navigate(['/device-dashboard']);
+            break;
+          }
           default:
             this.router.navigate(['/login']);
         }

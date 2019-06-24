@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <div class="sidenav">
             <button class="menubtn">
-                <a [routerLink]="['/doctor-dashboard']"> <i class="fas fa-home" style="margin-right: 10px"> </i>
+                <a [routerLink]="['/device-dashboard']"> <i class="fas fa-home" style="margin-right: 10px"> </i>
                     Dashboard </a>
             </button>
             <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#account"
@@ -11,23 +11,13 @@
             </button>
             <div class="collapsebtn" id="account" *ngIf="isAccountCollapsed">
                 <button class="menubtn" style="background-color:  rgb(109, 94, 206); padding-left: 40px">
-                    <a [routerLink]="['/doctor-dashboard/work-in-progress']"> <i class="fas fa-user-edit"
+                    <a [routerLink]="['/device-dashboard/work-in-progress']"> <i class="fas fa-user-edit"
                             style="margin-right: 15px"></i>
                         Edit Profile</a>
                 </button>
                 <button class="menubtn" style="background-color: rgb(109, 94, 206); padding-left: 40px">
-                    <a [routerLink]="['/doctor-dashboard/work-in-progress']"><i class="fas fa-file-alt"
+                    <a [routerLink]="['/device-dashboard/work-in-progress']"><i class="fas fa-file-alt"
                             style="margin-right: 15px"></i>General Info</a>
-                </button>
-            </div>
-            <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#cures"
-                (click)="curescollapse()">
-                <i class="fas fa fa-plus-square" style="margin-right: 15px"></i>Cures
-            </button>
-            <div class="collapsebtn" id="cures" *ngIf="isCureCollapsed">
-                <button class="menubtn" style="padding-left: 40px; background-color:  rgb(109, 94, 206);">
-                    <a [routerLink]="['/doctor-dashboard/cures']"> <i class="fas fa-edit" style="margin-right: 10px">
-                        </i> Manage Cures </a>
                 </button>
             </div>
             <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#devices"
@@ -36,20 +26,20 @@
             </button>
             <div class="collapsebtn" id="devices" *ngIf="isDeviceCollapsed">
                 <button class="menubtn" style="padding-left: 40px; background-color: rgb(109, 94, 206);">
-                    <a [routerLink]="['/doctor-dashboard/deviceDs']"> <i class="fas fa-edit" style="margin-right: 10px">
+                    <a [routerLink]="['/device-dashboard/devices']"> <i class="fas fa-edit" style="margin-right: 10px">
                         </i> Manage Devices </a>
                 </button>
             </div>
-        <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#patologys"
-            (click)="patologyscollapse()">
-            <i class="fas fa fa-plus-circle" style="margin-right: 15px"></i>Patologys
-        </button>
-        <div class="collapsebtn" id="patologys" *ngIf="isPatologyCollapsed">
-            <button class="menubtn" style="padding-left: 40px; background-color: rgb(109, 94, 206);">
-                <a [routerLink]="['/doctor-dashboard/patologys']"> <i class="fas fa-edit" style="margin-right: 10px">
-                    </i> Manage Patologys </a>
+            <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#readings"
+                (click)="readingscollapse()">
+                <i class="fas fa fa-rss" style="margin-right: 15px"></i>Readings
             </button>
-        </div>
+            <div class="collapsebtn" id="readings" *ngIf="isReadingCollapsed">
+                <button class="menubtn" style="padding-left: 40px; background-color: rgb(109, 94, 206);">
+                    <a [routerLink]="['/device-dashboard/readings']"> <i class="fas fa-edit" style="margin-right: 10px">
+                        </i> Manage Readings </a>
+                </button>
+            </div>
             <button class="menubtn" (click)="logout()">
                 <i class="fas fa-sign-out-alt" style="margin-right: 15px"></i>Logout
             </button>

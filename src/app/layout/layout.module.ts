@@ -6,6 +6,8 @@ import { TutorLayoutComponent } from './tutor-layout/tutor-layout.component';
 import { TutorMenuComponent } from './tutor-layout/tutor-menu/tutor-menu.component';
 import { DoctorLayoutComponent } from './doctor-layout/doctor-layout.component';
 import { DoctorMenuComponent } from './doctor-layout/doctor-menu/doctor-menu.component';
+import { DeviceLayoutComponent } from './device-layout/device-layout.component';
+import { DeviceMenuComponent } from './device-layout/device-menu/device-menu.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 
@@ -19,7 +21,7 @@ import { RouterModule } from '@angular/router';
  * @see AdminLayoutComponent
  */
 @NgModule({
-  declarations: [AdminLayoutComponent, AdminMenuComponent, TutorLayoutComponent, TutorMenuComponent, DoctorLayoutComponent, DoctorMenuComponent, HeaderComponent],
+  declarations: [AdminLayoutComponent, AdminMenuComponent, TutorLayoutComponent, TutorMenuComponent, DoctorLayoutComponent, DoctorMenuComponent, DeviceLayoutComponent, DeviceMenuComponent, HeaderComponent],
   imports: [
     CommonModule,
     RouterModule

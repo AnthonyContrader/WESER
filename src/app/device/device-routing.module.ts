@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DoctorLayoutComponent } from '../layout/doctor-layout/doctor-layout.component';
-import { DoctorDashboardComponent } from './doctor-dashboard/doctor-dashboard.component';
+import { DeviceLayoutComponent } from '../layout/device-layout/device-layout.component';
+import { DeviceDashboardComponent } from './device-dashboard/device-dashboard.component';
 import { UsersComponent } from './users/users.component';
-import { CuresComponent } from './cures/cures.component';
-import { DeviceDsComponent } from './deviceDs/deviceDs.component';
-import { PatologysComponent } from './patologys/patologys.component';
+import { DevicesComponent } from './devices/devices.component';
+import { ReadingsComponent } from './readings/readings.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 
 /**
@@ -16,17 +15,16 @@ import { WorkInProgressComponent } from './work-in-progress/work-in-progress.com
  * 
  * @author Vittorio Valent
  * 
- * @see DoctorLayoutComponent
+ * @see DeviceLayoutComponent
  * 
  * @see layout
  */
 const routes: Routes = [
-  { path: 'doctor-dashboard', component: DoctorLayoutComponent, children:[
-    { path: '', component: DoctorDashboardComponent},
+  { path: 'device-dashboard', component: DeviceLayoutComponent, children:[
+    { path: '', component: DeviceDashboardComponent},
     { path: 'users', component: UsersComponent},
-    { path: 'cures', component: CuresComponent},
-    { path: 'deviceDs', component: DeviceDsComponent},
-    { path: 'patologys', component: PatologysComponent},
+    { path: 'devices', component: DevicesComponent},
+    { path: 'readings', component: ReadingsComponent},
     { path: 'work-in-progress', component: WorkInProgressComponent}
   ]}
 ];
@@ -35,4 +33,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class DoctorRoutingModule { }
+export class DeviceRoutingModule { }

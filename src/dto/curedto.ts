@@ -16,7 +16,9 @@ export class CureDTO {
 	
 	name: string;
 	
-	quantity: string;
+	dosage: string;
+
+	posology: string;
 	
     notes: string;
     

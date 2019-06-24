@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AdminRoutingModule } from './admin-routing.module';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { DeviceRoutingModule } from './device-routing.module';
+import { DeviceDashboardComponent } from './device-dashboard/device-dashboard.component';
 import { UsersComponent } from './users/users.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 import { DevicesComponent } from './devices/devices.component';
+import { ReadingsComponent } from './readings/readings.component';
 
 /**
  * Modulo dell'admin, qui vengono dichiarate le component che utilizza 
@@ -13,14 +14,14 @@ import { DevicesComponent } from './devices/devices.component';
  * 
  * @author Vittorio Valent
  * 
- * @see AdminRoutingModule
+ * @see DeviceRoutingModule
  */
 @NgModule({
-  declarations: [AdminDashboardComponent, UsersComponent, WorkInProgressComponent, DevicesComponent ],
+  declarations: [DeviceDashboardComponent, UsersComponent, WorkInProgressComponent, DevicesComponent, ReadingsComponent],
   imports: [
     CommonModule,
-    AdminRoutingModule,
+    DeviceRoutingModule,
     FormsModule
   ]
 })
-export class AdminModule { }
+export class DeviceModule { }

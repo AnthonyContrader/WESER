@@ -6,7 +6,7 @@ import { DoctorDashboardComponent } from './doctor-dashboard/doctor-dashboard.co
 import { UsersComponent } from './users/users.component';
 import { CuresComponent } from './cures/cures.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
-import { DevicesComponent } from './devices/devices.component';
+import { DeviceDsComponent } from './deviceDs/deviceDs.component';
 import { PatologysComponent } from './patologys/patologys.component';
 
 /**
@@ -18,7 +18,7 @@ import { PatologysComponent } from './patologys/patologys.component';
  * @see DoctorRoutingModule
  */
 @NgModule({
-  declarations: [DoctorDashboardComponent, UsersComponent, CuresComponent, WorkInProgressComponent, DevicesComponent, PatologysComponent],
+  declarations: [DoctorDashboardComponent, UsersComponent, CuresComponent, WorkInProgressComponent, DeviceDsComponent, PatologysComponent],
   imports: [
     CommonModule,
     DoctorRoutingModule,
