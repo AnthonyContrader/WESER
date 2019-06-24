@@ -2,6 +2,8 @@ package it.contrader.model;
 
 import javax.persistence.Entity;
 
+import java.util.List;
+
 import javax.persistence.*;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,7 +32,6 @@ public class Patology {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column
 	private String pato;
 	
 	private String carename;

@@ -1,9 +1,9 @@
 package it.contrader.converter;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import it.contrader.dto.CureDTO;
-
 import it.contrader.model.Cure;
 
 /**
@@ -16,12 +16,28 @@ import it.contrader.model.Cure;
  */
 @Component
 public class CureConverter extends AbstractConverter<Cure,CureDTO> {
-
+ @Autowired
+ private PatologyConverter converter;
+ private ReadingConverter converterR;
+ 
 	@Override
 	public Cure toEntity(CureDTO cureDTO) {
 		Cure cure = null;
 		if (cureDTO != null) {
-			cure = new Cure(cureDTO.getId(),cureDTO.getCf(),cureDTO.getAge(),cureDTO.getPato(),cureDTO.getName(),cureDTO.getDosage(),cureDTO.getPosology(),cureDTO.getNotes());			
+			cure = new Cure();		
+			cure.setId(cureDTO.getId());
+			if(cureDTO.getReadingDTO()!= null) {
+				cure.setReading(converterR.toEntity(cureDTO.getReadingDTO()));
+			}
+			cure.setAge(cureDTO.getAge());
+			if(cureDTO.getPatologyDTO()!= null) {
+				cure.setPatology(converter.toEntity(cureDTO.getPatologyDTO()));
+			}
+			cure.setName(cureDTO.getName());
+			cure.setDosage(cureDTO.getDosage());
+			cure.setPosology(cureDTO.getPosology());
+			cure.setNotes(cureDTO.getNotes());
+		
 		}
 		return cure;
 	}
@@ -30,9 +46,22 @@ public class CureConverter extends AbstractConverter<Cure,CureDTO> {
 	public CureDTO toDTO(Cure cure) {
 		CureDTO cureDTO = null;
 		if (cure != null) {
-			cureDTO = new CureDTO(cure.getId(),cure.getCf(),cure.getAge(),cure.getPato(),cure.getName(),cure.getDosage(),cure.getPosology(),cure.getNotes());
+			cureDTO = new CureDTO();
+			cureDTO.setId(cure.getId());
+			if(cure.getReading()!= null) {
+				cureDTO.setReadingDTO(converterR.toDTO(cure.getReading()));
+				}
+			cureDTO.setAge(cure.getAge());
+			if(cure.getPatology()!= null) {
+				cureDTO.setPatologyDTO(converter.toDTO(cure.getPatology()));
+				}
+			cureDTO.setName(cure.getName());
+			cureDTO.setDosage(cure.getDosage());
+			cureDTO.setPosology(cure.getPosology());
+			cureDTO.setNotes(cure.getNotes());
 			
 		}
 		return cureDTO;
 	}
 }
+	

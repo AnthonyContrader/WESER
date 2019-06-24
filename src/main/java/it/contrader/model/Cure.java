@@ -30,12 +30,13 @@ public class Cure {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column
-	private String cf;
+	@ManyToOne
+	private Reading reading;
 	
 	private String age;
 	
-	private String pato;
+	@ManyToOne
+	private Patology patology;
 	
 	private String name;
 	
@@ -44,7 +45,5 @@ public class Cure {
 	private String posology;
 	
 	private String notes;
-
-	
 	
 }

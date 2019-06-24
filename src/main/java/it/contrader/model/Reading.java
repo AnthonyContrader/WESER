@@ -32,7 +32,6 @@ public class Reading {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column
 	private String cf;
 
 	private String rd;

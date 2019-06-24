@@ -21,12 +21,12 @@ import lombok.NoArgsConstructor;
 public class CureDTO {
 	
 	private long id;
-
-	private String cf;
+	
+	private ReadingDTO readingDTO;
 	
 	private String age;
 	
-	private String pato;
+	private PatologyDTO patologyDTO;
 	
 	private String name;
 	
@@ -35,6 +35,10 @@ public class CureDTO {
 	private String posology;
 	
 	private String notes;
+	
+	
+	
+	
 
 	
 
