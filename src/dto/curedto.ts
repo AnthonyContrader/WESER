@@ -1,3 +1,6 @@
+import { PatologyDTO } from './patologydto';
+import { ReadingDTO } from './readingdto';
+
 /**
  * Classe DTO di User. DEVE essere uguale (stesso nome classe, stessi attributi e stessi nomi) a
  * quello nel backend. 
@@ -8,11 +11,11 @@ export class CureDTO {
 
     id: number;
 
-    cf: string;
+    readingDTO : ReadingDTO;
 	
 	age: number;
 	
-	pato: string;
+	patologyDTO : PatologyDTO;
 	
 	name: string;
 	

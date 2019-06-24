@@ -36,13 +36,13 @@
         </tr>
         <tr>
           <td>
-            <input placeholder="cf" [(ngModel)]="curetoinsert.cf">
+            <input placeholder="cf" [(ngModel)]="curetoinsert.readingDTO.cf">
           </td>
           <td>
             <input placeholder="age" [(ngModel)]="curetoinsert.age">
           </td>
           <td>
-            <input placeholder="pato" [(ngModel)]="curetoinsert.pato">
+            <input placeholder="pato" [(ngModel)]="curetoinsert.patologyDTO.pato">
           </td>
           <td>
             <input placeholder="name" [(ngModel)]="curetoinsert.name">
@@ -65,13 +65,13 @@
         </tr>
         <tr *ngFor="let cure of cures">
           <td>
-            <input [(ngModel)]="cure.cf">
+            <input [(ngModel)]="cure.readingDTO.cf">
           </td>
           <td>
             <input [(ngModel)]="cure.age">
           </td>
           <td>
-            <input [(ngModel)]="cure.pato">
+            <input [(ngModel)]="cure.patologyDTO.pato">
           </td>
           <td>
             <input [(ngModel)]="cure.name">

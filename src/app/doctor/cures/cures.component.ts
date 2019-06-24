@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CureService } from 'src/service/cure.service';
 import { CureDTO } from 'src/dto/curedto';
+import { PatologyDTO } from 'src/dto/patologydto';
+import { ReadingDTO } from 'src/dto/readingdto';
 
 @Component({
   selector: 'app-cures',
@@ -16,10 +18,16 @@ export class CuresComponent implements OnInit {
 
   ngOnInit() {
     this.getCures();
+    this.curetoinsert = new CureDTO();
+    this.curetoinsert.patologyDTO = new PatologyDTO();
+    this.curetoinsert.readingDTO = new ReadingDTO();
   }
 
   getCures() {
-    this.service.getAll().subscribe(cures => this.cures = cures);
+    this.service.getAll().subscribe(data => {
+      console.log(data);
+      this.cures = data;
+    });
   }
 
   delete(cure: CureDTO) {
@@ -31,7 +39,9 @@ export class CuresComponent implements OnInit {
   }
 
   insert(cure: CureDTO) {
-    this.service.insert(cure).subscribe(() => this.getCures());
+    console.log(this.curetoinsert);
+    this.service.insert(this.curetoinsert).subscribe(() => this.getCures());
+    console.log();
   }
 
   clear(){
