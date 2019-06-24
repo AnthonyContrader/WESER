@@ -18,6 +18,7 @@ import it.contrader.model.Cure;
 public class CureConverter extends AbstractConverter<Cure,CureDTO> {
  @Autowired
  private PatologyConverter converter;
+ @Autowired
  private ReadingConverter converterR;
  
 	@Override
@@ -50,11 +51,11 @@ public class CureConverter extends AbstractConverter<Cure,CureDTO> {
 			cureDTO.setId(cure.getId());
 			if(cure.getReading()!= null) {
 				cureDTO.setReadingDTO(converterR.toDTO(cure.getReading()));
-				}
+			}
 			cureDTO.setAge(cure.getAge());
 			if(cure.getPatology()!= null) {
 				cureDTO.setPatologyDTO(converter.toDTO(cure.getPatology()));
-				}
+			}
 			cureDTO.setName(cure.getName());
 			cureDTO.setDosage(cure.getDosage());
 			cureDTO.setPosology(cure.getPosology());
