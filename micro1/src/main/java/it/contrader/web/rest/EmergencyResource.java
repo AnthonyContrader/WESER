@@ -6,8 +6,6 @@ import it.contrader.web.rest.errors.BadRequestAlertException;
 import it.contrader.web.rest.util.HeaderUtil;
 import it.contrader.web.rest.util.PaginationUtil;
 import it.contrader.service.dto.EmergencyDTO;
-import it.contrader.service.dto.EmergencyCriteria;
-import it.contrader.service.EmergencyQueryService;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,11 +35,8 @@ public class EmergencyResource {
 
     private final EmergencyService emergencyService;
 
-    private final EmergencyQueryService emergencyQueryService;
-
-    public EmergencyResource(EmergencyService emergencyService, EmergencyQueryService emergencyQueryService) {
+    public EmergencyResource(EmergencyService emergencyService) {
         this.emergencyService = emergencyService;
-        this.emergencyQueryService = emergencyQueryService;
     }
 
     /**
@@ -90,14 +85,13 @@ public class EmergencyResource {
      * GET  /emergencies : get all the emergencies.
      *
      * @param pageable the pagination information
-     * @param criteria the criterias which the requested entities should match
      * @return the ResponseEntity with status 200 (OK) and the list of emergencies in body
      */
     @GetMapping("/emergencies")
     @Timed
-    public ResponseEntity<List<EmergencyDTO>> getAllEmergencies(EmergencyCriteria criteria, Pageable pageable) {
-        log.debug("REST request to get Emergencies by criteria: {}", criteria);
-        Page<EmergencyDTO> page = emergencyQueryService.findByCriteria(criteria, pageable);
+    public ResponseEntity<List<EmergencyDTO>> getAllEmergencies(Pageable pageable) {
+        log.debug("REST request to get a page of Emergencies");
+        Page<EmergencyDTO> page = emergencyService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/emergencies");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

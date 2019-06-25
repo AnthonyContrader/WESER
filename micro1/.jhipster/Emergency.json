@@ -9,12 +9,12 @@
             "fieldValidateRules": []
         }
     ],
-    "changelogDate": "20190625141523",
+    "changelogDate": "20190625152201",
     "dto": "mapstruct",
     "searchEngine": false,
-    "service": "serviceClass",
+    "service": "serviceImpl",
     "entityTableName": "emergency",
-    "jpaMetamodelFiltering": true,
+    "jpaMetamodelFiltering": false,
     "pagination": "pagination",
     "microserviceName": "micro1"
 }

@@ -8,8 +8,6 @@ import it.contrader.service.EmergencyService;
 import it.contrader.service.dto.EmergencyDTO;
 import it.contrader.service.mapper.EmergencyMapper;
 import it.contrader.web.rest.errors.ExceptionTranslator;
-import it.contrader.service.dto.EmergencyCriteria;
-import it.contrader.service.EmergencyQueryService;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -59,9 +57,6 @@ public class EmergencyResourceIntTest {
     private EmergencyService emergencyService;
 
     @Autowired
-    private EmergencyQueryService emergencyQueryService;
-
-    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -80,7 +75,7 @@ public class EmergencyResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final EmergencyResource emergencyResource = new EmergencyResource(emergencyService, emergencyQueryService);
+        final EmergencyResource emergencyResource = new EmergencyResource(emergencyService);
         this.restEmergencyMockMvc = MockMvcBuilders.standaloneSetup(emergencyResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
@@ -172,67 +167,6 @@ public class EmergencyResourceIntTest {
             .andExpect(jsonPath("$.id").value(emergency.getId().intValue()))
             .andExpect(jsonPath("$.num").value(DEFAULT_NUM.toString()));
     }
-
-    @Test
-    @Transactional
-    public void getAllEmergenciesByNumIsEqualToSomething() throws Exception {
-        // Initialize the database
-        emergencyRepository.saveAndFlush(emergency);
-
-        // Get all the emergencyList where num equals to DEFAULT_NUM
-        defaultEmergencyShouldBeFound("num.equals=" + DEFAULT_NUM);
-
-        // Get all the emergencyList where num equals to UPDATED_NUM
-        defaultEmergencyShouldNotBeFound("num.equals=" + UPDATED_NUM);
-    }
-
-    @Test
-    @Transactional
-    public void getAllEmergenciesByNumIsInShouldWork() throws Exception {
-        // Initialize the database
-        emergencyRepository.saveAndFlush(emergency);
-
-        // Get all the emergencyList where num in DEFAULT_NUM or UPDATED_NUM
-        defaultEmergencyShouldBeFound("num.in=" + DEFAULT_NUM + "," + UPDATED_NUM);
-
-        // Get all the emergencyList where num equals to UPDATED_NUM
-        defaultEmergencyShouldNotBeFound("num.in=" + UPDATED_NUM);
-    }
-
-    @Test
-    @Transactional
-    public void getAllEmergenciesByNumIsNullOrNotNull() throws Exception {
-        // Initialize the database
-        emergencyRepository.saveAndFlush(emergency);
-
-        // Get all the emergencyList where num is not null
-        defaultEmergencyShouldBeFound("num.specified=true");
-
-        // Get all the emergencyList where num is null
-        defaultEmergencyShouldNotBeFound("num.specified=false");
-    }
-    /**
-     * Executes the search, and checks that the default entity is returned
-     */
-    private void defaultEmergencyShouldBeFound(String filter) throws Exception {
-        restEmergencyMockMvc.perform(get("/api/emergencies?sort=id,desc&" + filter))
-            .andExpect(status().isOk())
-            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.[*].id").value(hasItem(emergency.getId().intValue())))
-            .andExpect(jsonPath("$.[*].num").value(hasItem(DEFAULT_NUM.toString())));
-    }
-
-    /**
-     * Executes the search, and checks that the default entity is not returned
-     */
-    private void defaultEmergencyShouldNotBeFound(String filter) throws Exception {
-        restEmergencyMockMvc.perform(get("/api/emergencies?sort=id,desc&" + filter))
-            .andExpect(status().isOk())
-            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$").isArray())
-            .andExpect(jsonPath("$").isEmpty());
-    }
-
     @Test
     @Transactional
     public void getNonExistingEmergency() throws Exception {
