@@ -1,0 +1,20 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "num",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20190626080136",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "emergency",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination",
+    "microserviceName": "micro1"
+}
