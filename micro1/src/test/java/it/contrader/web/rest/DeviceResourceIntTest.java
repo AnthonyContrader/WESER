@@ -42,14 +42,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = Micro1App.class)
 public class DeviceResourceIntTest {
 
-    private static final String DEFAULT_REGNUMB = "AAAAAAAAAA";
-    private static final String UPDATED_REGNUMB = "BBBBBBBBBB";
-
     private static final String DEFAULT_DEVTYPE = "AAAAAAAAAA";
     private static final String UPDATED_DEVTYPE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
-    private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
+    private static final String DEFAULT_DESCR = "AAAAAAAAAA";
+    private static final String UPDATED_DESCR = "BBBBBBBBBB";
 
     private static final Integer DEFAULT_MP = 1;
     private static final Integer UPDATED_MP = 2;
@@ -121,9 +118,8 @@ public class DeviceResourceIntTest {
      */
     public static Device createEntity(EntityManager em) {
         Device device = new Device()
-            .regnumb(DEFAULT_REGNUMB)
             .devtype(DEFAULT_DEVTYPE)
-            .description(DEFAULT_DESCRIPTION)
+            .descr(DEFAULT_DESCR)
             .mp(DEFAULT_MP)
             .mpr(DEFAULT_MPR)
             .mc(DEFAULT_MC)
@@ -156,9 +152,8 @@ public class DeviceResourceIntTest {
         List<Device> deviceList = deviceRepository.findAll();
         assertThat(deviceList).hasSize(databaseSizeBeforeCreate + 1);
         Device testDevice = deviceList.get(deviceList.size() - 1);
-        assertThat(testDevice.getRegnumb()).isEqualTo(DEFAULT_REGNUMB);
         assertThat(testDevice.getDevtype()).isEqualTo(DEFAULT_DEVTYPE);
-        assertThat(testDevice.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
+        assertThat(testDevice.getDescr()).isEqualTo(DEFAULT_DESCR);
         assertThat(testDevice.getMp()).isEqualTo(DEFAULT_MP);
         assertThat(testDevice.getMpr()).isEqualTo(DEFAULT_MPR);
         assertThat(testDevice.getMc()).isEqualTo(DEFAULT_MC);
@@ -200,9 +195,8 @@ public class DeviceResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(device.getId().intValue())))
-            .andExpect(jsonPath("$.[*].regnumb").value(hasItem(DEFAULT_REGNUMB.toString())))
             .andExpect(jsonPath("$.[*].devtype").value(hasItem(DEFAULT_DEVTYPE.toString())))
-            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
+            .andExpect(jsonPath("$.[*].descr").value(hasItem(DEFAULT_DESCR.toString())))
             .andExpect(jsonPath("$.[*].mp").value(hasItem(DEFAULT_MP)))
             .andExpect(jsonPath("$.[*].mpr").value(hasItem(DEFAULT_MPR)))
             .andExpect(jsonPath("$.[*].mc").value(hasItem(DEFAULT_MC)))
@@ -225,9 +219,8 @@ public class DeviceResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(device.getId().intValue()))
-            .andExpect(jsonPath("$.regnumb").value(DEFAULT_REGNUMB.toString()))
             .andExpect(jsonPath("$.devtype").value(DEFAULT_DEVTYPE.toString()))
-            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
+            .andExpect(jsonPath("$.descr").value(DEFAULT_DESCR.toString()))
             .andExpect(jsonPath("$.mp").value(DEFAULT_MP))
             .andExpect(jsonPath("$.mpr").value(DEFAULT_MPR))
             .andExpect(jsonPath("$.mc").value(DEFAULT_MC))
@@ -258,9 +251,8 @@ public class DeviceResourceIntTest {
         // Disconnect from session so that the updates on updatedDevice are not directly saved in db
         em.detach(updatedDevice);
         updatedDevice
-            .regnumb(UPDATED_REGNUMB)
             .devtype(UPDATED_DEVTYPE)
-            .description(UPDATED_DESCRIPTION)
+            .descr(UPDATED_DESCR)
             .mp(UPDATED_MP)
             .mpr(UPDATED_MPR)
             .mc(UPDATED_MC)
@@ -280,9 +272,8 @@ public class DeviceResourceIntTest {
         List<Device> deviceList = deviceRepository.findAll();
         assertThat(deviceList).hasSize(databaseSizeBeforeUpdate);
         Device testDevice = deviceList.get(deviceList.size() - 1);
-        assertThat(testDevice.getRegnumb()).isEqualTo(UPDATED_REGNUMB);
         assertThat(testDevice.getDevtype()).isEqualTo(UPDATED_DEVTYPE);
-        assertThat(testDevice.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
+        assertThat(testDevice.getDescr()).isEqualTo(UPDATED_DESCR);
         assertThat(testDevice.getMp()).isEqualTo(UPDATED_MP);
         assertThat(testDevice.getMpr()).isEqualTo(UPDATED_MPR);
         assertThat(testDevice.getMc()).isEqualTo(UPDATED_MC);

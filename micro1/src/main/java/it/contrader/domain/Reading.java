@@ -26,17 +26,17 @@ public class Reading implements Serializable {
     @Column(name = "cf")
     private String cf;
 
-    @Column(name = "regdev")
-    private String regdev;
+    @Column(name = "rd")
+    private String rd;
 
     @Column(name = "mp")
     private Integer mp;
 
-    @Column(name = "cir")
-    private Integer cir;
-
     @Column(name = "mpr")
     private Integer mpr;
+
+    @Column(name = "cir")
+    private Integer cir;
 
     @Column(name = "bre")
     private Integer bre;
@@ -44,8 +44,8 @@ public class Reading implements Serializable {
     @Column(name = "temp")
     private Float temp;
 
-    @Column(name = "dataora")
-    private LocalDate dataora;
+    @Column(name = "jhi_date")
+    private LocalDate date;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -69,17 +69,17 @@ public class Reading implements Serializable {
         this.cf = cf;
     }
 
-    public String getRegdev() {
-        return regdev;
+    public String getRd() {
+        return rd;
     }
 
-    public Reading regdev(String regdev) {
-        this.regdev = regdev;
+    public Reading rd(String rd) {
+        this.rd = rd;
         return this;
     }
 
-    public void setRegdev(String regdev) {
-        this.regdev = regdev;
+    public void setRd(String rd) {
+        this.rd = rd;
     }
 
     public Integer getMp() {
@@ -95,19 +95,6 @@ public class Reading implements Serializable {
         this.mp = mp;
     }
 
-    public Integer getCir() {
-        return cir;
-    }
-
-    public Reading cir(Integer cir) {
-        this.cir = cir;
-        return this;
-    }
-
-    public void setCir(Integer cir) {
-        this.cir = cir;
-    }
-
     public Integer getMpr() {
         return mpr;
     }
@@ -119,6 +106,19 @@ public class Reading implements Serializable {
 
     public void setMpr(Integer mpr) {
         this.mpr = mpr;
+    }
+
+    public Integer getCir() {
+        return cir;
+    }
+
+    public Reading cir(Integer cir) {
+        this.cir = cir;
+        return this;
+    }
+
+    public void setCir(Integer cir) {
+        this.cir = cir;
     }
 
     public Integer getBre() {
@@ -147,17 +147,17 @@ public class Reading implements Serializable {
         this.temp = temp;
     }
 
-    public LocalDate getDataora() {
-        return dataora;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public Reading dataora(LocalDate dataora) {
-        this.dataora = dataora;
+    public Reading date(LocalDate date) {
+        this.date = date;
         return this;
     }
 
-    public void setDataora(LocalDate dataora) {
-        this.dataora = dataora;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -186,13 +186,13 @@ public class Reading implements Serializable {
         return "Reading{" +
             "id=" + getId() +
             ", cf='" + getCf() + "'" +
-            ", regdev='" + getRegdev() + "'" +
+            ", rd='" + getRd() + "'" +
             ", mp=" + getMp() +
-            ", cir=" + getCir() +
             ", mpr=" + getMpr() +
+            ", cir=" + getCir() +
             ", bre=" + getBre() +
             ", temp=" + getTemp() +
-            ", dataora='" + getDataora() + "'" +
+            ", date='" + getDate() + "'" +
             "}";
     }
 }

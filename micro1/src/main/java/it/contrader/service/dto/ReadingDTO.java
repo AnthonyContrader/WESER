@@ -13,19 +13,19 @@ public class ReadingDTO implements Serializable {
 
     private String cf;
 
-    private String regdev;
+    private String rd;
 
     private Integer mp;
 
-    private Integer cir;
-
     private Integer mpr;
+
+    private Integer cir;
 
     private Integer bre;
 
     private Float temp;
 
-    private LocalDate dataora;
+    private LocalDate date;
 
     public Long getId() {
         return id;
@@ -43,12 +43,12 @@ public class ReadingDTO implements Serializable {
         this.cf = cf;
     }
 
-    public String getRegdev() {
-        return regdev;
+    public String getRd() {
+        return rd;
     }
 
-    public void setRegdev(String regdev) {
-        this.regdev = regdev;
+    public void setRd(String rd) {
+        this.rd = rd;
     }
 
     public Integer getMp() {
@@ -59,20 +59,20 @@ public class ReadingDTO implements Serializable {
         this.mp = mp;
     }
 
-    public Integer getCir() {
-        return cir;
-    }
-
-    public void setCir(Integer cir) {
-        this.cir = cir;
-    }
-
     public Integer getMpr() {
         return mpr;
     }
 
     public void setMpr(Integer mpr) {
         this.mpr = mpr;
+    }
+
+    public Integer getCir() {
+        return cir;
+    }
+
+    public void setCir(Integer cir) {
+        this.cir = cir;
     }
 
     public Integer getBre() {
@@ -91,12 +91,12 @@ public class ReadingDTO implements Serializable {
         this.temp = temp;
     }
 
-    public LocalDate getDataora() {
-        return dataora;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setDataora(LocalDate dataora) {
-        this.dataora = dataora;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     @Override
@@ -125,13 +125,13 @@ public class ReadingDTO implements Serializable {
         return "ReadingDTO{" +
             "id=" + getId() +
             ", cf='" + getCf() + "'" +
-            ", regdev='" + getRegdev() + "'" +
+            ", rd='" + getRd() + "'" +
             ", mp=" + getMp() +
-            ", cir=" + getCir() +
             ", mpr=" + getMpr() +
+            ", cir=" + getCir() +
             ", bre=" + getBre() +
             ", temp=" + getTemp() +
-            ", dataora='" + getDataora() + "'" +
+            ", date='" + getDate() + "'" +
             "}";
     }
 }

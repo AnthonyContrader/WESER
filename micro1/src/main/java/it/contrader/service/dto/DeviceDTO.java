@@ -10,11 +10,9 @@ public class DeviceDTO implements Serializable {
 
     private Long id;
 
-    private String regnumb;
-
     private String devtype;
 
-    private String description;
+    private String descr;
 
     private Integer mp;
 
@@ -40,14 +38,6 @@ public class DeviceDTO implements Serializable {
         this.id = id;
     }
 
-    public String getRegnumb() {
-        return regnumb;
-    }
-
-    public void setRegnumb(String regnumb) {
-        this.regnumb = regnumb;
-    }
-
     public String getDevtype() {
         return devtype;
     }
@@ -56,12 +46,12 @@ public class DeviceDTO implements Serializable {
         this.devtype = devtype;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescr() {
+        return descr;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescr(String descr) {
+        this.descr = descr;
     }
 
     public Integer getMp() {
@@ -153,9 +143,8 @@ public class DeviceDTO implements Serializable {
     public String toString() {
         return "DeviceDTO{" +
             "id=" + getId() +
-            ", regnumb='" + getRegnumb() + "'" +
             ", devtype='" + getDevtype() + "'" +
-            ", description='" + getDescription() + "'" +
+            ", descr='" + getDescr() + "'" +
             ", mp=" + getMp() +
             ", mpr=" + getMpr() +
             ", mc=" + getMc() +

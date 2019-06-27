@@ -28,15 +28,6 @@ public class Patology implements Serializable {
     @Column(name = "carename")
     private String carename;
 
-    @Column(name = "cf")
-    private String cf;
-
-    @Column(name = "quantity")
-    private String quantity;
-
-    @Column(name = "notes")
-    private String notes;
-
     @Column(name = "mp")
     private Integer mp;
 
@@ -60,6 +51,9 @@ public class Patology implements Serializable {
 
     @Column(name = "mte")
     private Float mte;
+
+    @Column(name = "notes")
+    private String notes;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -94,45 +88,6 @@ public class Patology implements Serializable {
 
     public void setCarename(String carename) {
         this.carename = carename;
-    }
-
-    public String getCf() {
-        return cf;
-    }
-
-    public Patology cf(String cf) {
-        this.cf = cf;
-        return this;
-    }
-
-    public void setCf(String cf) {
-        this.cf = cf;
-    }
-
-    public String getQuantity() {
-        return quantity;
-    }
-
-    public Patology quantity(String quantity) {
-        this.quantity = quantity;
-        return this;
-    }
-
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getNotes() {
-        return notes;
-    }
-
-    public Patology notes(String notes) {
-        this.notes = notes;
-        return this;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
     }
 
     public Integer getMp() {
@@ -238,6 +193,19 @@ public class Patology implements Serializable {
     public void setMte(Float mte) {
         this.mte = mte;
     }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public Patology notes(String notes) {
+        this.notes = notes;
+        return this;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -266,9 +234,6 @@ public class Patology implements Serializable {
             "id=" + getId() +
             ", pato='" + getPato() + "'" +
             ", carename='" + getCarename() + "'" +
-            ", cf='" + getCf() + "'" +
-            ", quantity='" + getQuantity() + "'" +
-            ", notes='" + getNotes() + "'" +
             ", mp=" + getMp() +
             ", mpr=" + getMpr() +
             ", mc=" + getMc() +
@@ -277,6 +242,7 @@ public class Patology implements Serializable {
             ", mbr=" + getMbr() +
             ", mt=" + getMt() +
             ", mte=" + getMte() +
+            ", notes='" + getNotes() + "'" +
             "}";
     }
 }

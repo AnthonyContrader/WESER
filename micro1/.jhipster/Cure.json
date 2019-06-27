@@ -4,11 +4,6 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "name",
-            "fieldType": "String",
-            "fieldValidateRules": []
-        },
-        {
             "fieldName": "cf",
             "fieldType": "String",
             "fieldValidateRules": []
@@ -24,12 +19,17 @@
             "fieldValidateRules": []
         },
         {
-            "fieldName": "carename",
+            "fieldName": "name",
             "fieldType": "String",
             "fieldValidateRules": []
         },
         {
-            "fieldName": "quantity",
+            "fieldName": "dosage",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "posology",
             "fieldType": "String",
             "fieldValidateRules": []
         },
@@ -39,7 +39,7 @@
             "fieldValidateRules": []
         }
     ],
-    "changelogDate": "20190626080625",
+    "changelogDate": "20190627135719",
     "dto": "mapstruct",
     "searchEngine": false,
     "service": "serviceImpl",

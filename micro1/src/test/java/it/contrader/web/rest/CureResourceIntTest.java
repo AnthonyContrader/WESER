@@ -42,9 +42,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = Micro1App.class)
 public class CureResourceIntTest {
 
-    private static final String DEFAULT_NAME = "AAAAAAAAAA";
-    private static final String UPDATED_NAME = "BBBBBBBBBB";
-
     private static final String DEFAULT_CF = "AAAAAAAAAA";
     private static final String UPDATED_CF = "BBBBBBBBBB";
 
@@ -54,11 +51,14 @@ public class CureResourceIntTest {
     private static final String DEFAULT_PATO = "AAAAAAAAAA";
     private static final String UPDATED_PATO = "BBBBBBBBBB";
 
-    private static final String DEFAULT_CARENAME = "AAAAAAAAAA";
-    private static final String UPDATED_CARENAME = "BBBBBBBBBB";
+    private static final String DEFAULT_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_NAME = "BBBBBBBBBB";
 
-    private static final String DEFAULT_QUANTITY = "AAAAAAAAAA";
-    private static final String UPDATED_QUANTITY = "BBBBBBBBBB";
+    private static final String DEFAULT_DOSAGE = "AAAAAAAAAA";
+    private static final String UPDATED_DOSAGE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_POSOLOGY = "AAAAAAAAAA";
+    private static final String UPDATED_POSOLOGY = "BBBBBBBBBB";
 
     private static final String DEFAULT_NOTES = "AAAAAAAAAA";
     private static final String UPDATED_NOTES = "BBBBBBBBBB";
@@ -109,12 +109,12 @@ public class CureResourceIntTest {
      */
     public static Cure createEntity(EntityManager em) {
         Cure cure = new Cure()
-            .name(DEFAULT_NAME)
             .cf(DEFAULT_CF)
             .age(DEFAULT_AGE)
             .pato(DEFAULT_PATO)
-            .carename(DEFAULT_CARENAME)
-            .quantity(DEFAULT_QUANTITY)
+            .name(DEFAULT_NAME)
+            .dosage(DEFAULT_DOSAGE)
+            .posology(DEFAULT_POSOLOGY)
             .notes(DEFAULT_NOTES);
         return cure;
     }
@@ -140,12 +140,12 @@ public class CureResourceIntTest {
         List<Cure> cureList = cureRepository.findAll();
         assertThat(cureList).hasSize(databaseSizeBeforeCreate + 1);
         Cure testCure = cureList.get(cureList.size() - 1);
-        assertThat(testCure.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testCure.getCf()).isEqualTo(DEFAULT_CF);
         assertThat(testCure.getAge()).isEqualTo(DEFAULT_AGE);
         assertThat(testCure.getPato()).isEqualTo(DEFAULT_PATO);
-        assertThat(testCure.getCarename()).isEqualTo(DEFAULT_CARENAME);
-        assertThat(testCure.getQuantity()).isEqualTo(DEFAULT_QUANTITY);
+        assertThat(testCure.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testCure.getDosage()).isEqualTo(DEFAULT_DOSAGE);
+        assertThat(testCure.getPosology()).isEqualTo(DEFAULT_POSOLOGY);
         assertThat(testCure.getNotes()).isEqualTo(DEFAULT_NOTES);
     }
 
@@ -180,12 +180,12 @@ public class CureResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(cure.getId().intValue())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
             .andExpect(jsonPath("$.[*].cf").value(hasItem(DEFAULT_CF.toString())))
             .andExpect(jsonPath("$.[*].age").value(hasItem(DEFAULT_AGE)))
             .andExpect(jsonPath("$.[*].pato").value(hasItem(DEFAULT_PATO.toString())))
-            .andExpect(jsonPath("$.[*].carename").value(hasItem(DEFAULT_CARENAME.toString())))
-            .andExpect(jsonPath("$.[*].quantity").value(hasItem(DEFAULT_QUANTITY.toString())))
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
+            .andExpect(jsonPath("$.[*].dosage").value(hasItem(DEFAULT_DOSAGE.toString())))
+            .andExpect(jsonPath("$.[*].posology").value(hasItem(DEFAULT_POSOLOGY.toString())))
             .andExpect(jsonPath("$.[*].notes").value(hasItem(DEFAULT_NOTES.toString())));
     }
     
@@ -201,12 +201,12 @@ public class CureResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(cure.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
             .andExpect(jsonPath("$.cf").value(DEFAULT_CF.toString()))
             .andExpect(jsonPath("$.age").value(DEFAULT_AGE))
             .andExpect(jsonPath("$.pato").value(DEFAULT_PATO.toString()))
-            .andExpect(jsonPath("$.carename").value(DEFAULT_CARENAME.toString()))
-            .andExpect(jsonPath("$.quantity").value(DEFAULT_QUANTITY.toString()))
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
+            .andExpect(jsonPath("$.dosage").value(DEFAULT_DOSAGE.toString()))
+            .andExpect(jsonPath("$.posology").value(DEFAULT_POSOLOGY.toString()))
             .andExpect(jsonPath("$.notes").value(DEFAULT_NOTES.toString()));
     }
     @Test
@@ -230,12 +230,12 @@ public class CureResourceIntTest {
         // Disconnect from session so that the updates on updatedCure are not directly saved in db
         em.detach(updatedCure);
         updatedCure
-            .name(UPDATED_NAME)
             .cf(UPDATED_CF)
             .age(UPDATED_AGE)
             .pato(UPDATED_PATO)
-            .carename(UPDATED_CARENAME)
-            .quantity(UPDATED_QUANTITY)
+            .name(UPDATED_NAME)
+            .dosage(UPDATED_DOSAGE)
+            .posology(UPDATED_POSOLOGY)
             .notes(UPDATED_NOTES);
         CureDTO cureDTO = cureMapper.toDto(updatedCure);
 
@@ -248,12 +248,12 @@ public class CureResourceIntTest {
         List<Cure> cureList = cureRepository.findAll();
         assertThat(cureList).hasSize(databaseSizeBeforeUpdate);
         Cure testCure = cureList.get(cureList.size() - 1);
-        assertThat(testCure.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testCure.getCf()).isEqualTo(UPDATED_CF);
         assertThat(testCure.getAge()).isEqualTo(UPDATED_AGE);
         assertThat(testCure.getPato()).isEqualTo(UPDATED_PATO);
-        assertThat(testCure.getCarename()).isEqualTo(UPDATED_CARENAME);
-        assertThat(testCure.getQuantity()).isEqualTo(UPDATED_QUANTITY);
+        assertThat(testCure.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testCure.getDosage()).isEqualTo(UPDATED_DOSAGE);
+        assertThat(testCure.getPosology()).isEqualTo(UPDATED_POSOLOGY);
         assertThat(testCure.getNotes()).isEqualTo(UPDATED_NOTES);
     }
 

@@ -9,7 +9,7 @@
             "fieldValidateRules": []
         }
     ],
-    "changelogDate": "20190626080136",
+    "changelogDate": "20190627135817",
     "dto": "mapstruct",
     "searchEngine": false,
     "service": "serviceImpl",

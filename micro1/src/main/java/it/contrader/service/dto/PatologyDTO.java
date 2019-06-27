@@ -14,12 +14,6 @@ public class PatologyDTO implements Serializable {
 
     private String carename;
 
-    private String cf;
-
-    private String quantity;
-
-    private String notes;
-
     private Integer mp;
 
     private Integer mpr;
@@ -35,6 +29,8 @@ public class PatologyDTO implements Serializable {
     private Float mt;
 
     private Float mte;
+
+    private String notes;
 
     public Long getId() {
         return id;
@@ -58,30 +54,6 @@ public class PatologyDTO implements Serializable {
 
     public void setCarename(String carename) {
         this.carename = carename;
-    }
-
-    public String getCf() {
-        return cf;
-    }
-
-    public void setCf(String cf) {
-        this.cf = cf;
-    }
-
-    public String getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getNotes() {
-        return notes;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
     }
 
     public Integer getMp() {
@@ -148,6 +120,14 @@ public class PatologyDTO implements Serializable {
         this.mte = mte;
     }
 
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -175,9 +155,6 @@ public class PatologyDTO implements Serializable {
             "id=" + getId() +
             ", pato='" + getPato() + "'" +
             ", carename='" + getCarename() + "'" +
-            ", cf='" + getCf() + "'" +
-            ", quantity='" + getQuantity() + "'" +
-            ", notes='" + getNotes() + "'" +
             ", mp=" + getMp() +
             ", mpr=" + getMpr() +
             ", mc=" + getMc() +
@@ -186,6 +163,7 @@ public class PatologyDTO implements Serializable {
             ", mbr=" + getMbr() +
             ", mt=" + getMt() +
             ", mte=" + getMte() +
+            ", notes='" + getNotes() + "'" +
             "}";
     }
 }

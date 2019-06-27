@@ -22,14 +22,11 @@ public class Device implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "regnumb")
-    private String regnumb;
-
     @Column(name = "devtype")
     private String devtype;
 
-    @Column(name = "description")
-    private String description;
+    @Column(name = "descr")
+    private String descr;
 
     @Column(name = "mp")
     private Integer mp;
@@ -64,19 +61,6 @@ public class Device implements Serializable {
         this.id = id;
     }
 
-    public String getRegnumb() {
-        return regnumb;
-    }
-
-    public Device regnumb(String regnumb) {
-        this.regnumb = regnumb;
-        return this;
-    }
-
-    public void setRegnumb(String regnumb) {
-        this.regnumb = regnumb;
-    }
-
     public String getDevtype() {
         return devtype;
     }
@@ -90,17 +74,17 @@ public class Device implements Serializable {
         this.devtype = devtype;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescr() {
+        return descr;
     }
 
-    public Device description(String description) {
-        this.description = description;
+    public Device descr(String descr) {
+        this.descr = descr;
         return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescr(String descr) {
+        this.descr = descr;
     }
 
     public Integer getMp() {
@@ -232,9 +216,8 @@ public class Device implements Serializable {
     public String toString() {
         return "Device{" +
             "id=" + getId() +
-            ", regnumb='" + getRegnumb() + "'" +
             ", devtype='" + getDevtype() + "'" +
-            ", description='" + getDescription() + "'" +
+            ", descr='" + getDescr() + "'" +
             ", mp=" + getMp() +
             ", mpr=" + getMpr() +
             ", mc=" + getMc() +

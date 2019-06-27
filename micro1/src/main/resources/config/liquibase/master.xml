@@ -5,14 +5,12 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20190625141523_added_entity_Emergency.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20190625151429_added_entity_Payment.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20190625152201_added_entity_Emergency.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20190626080136_added_entity_Emergency.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20190626080625_added_entity_Cure.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20190626081114_added_entity_Device.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20190626082136_added_entity_Patology.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20190626083352_added_entity_Reading.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190627135719_added_entity_Cure.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190627135817_added_entity_Emergency.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190627140235_added_entity_Patology.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190627140424_added_entity_Payment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190627140641_added_entity_Reading.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190627140943_added_entity_Device.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

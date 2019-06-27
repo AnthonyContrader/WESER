@@ -48,15 +48,6 @@ public class PatologyResourceIntTest {
     private static final String DEFAULT_CARENAME = "AAAAAAAAAA";
     private static final String UPDATED_CARENAME = "BBBBBBBBBB";
 
-    private static final String DEFAULT_CF = "AAAAAAAAAA";
-    private static final String UPDATED_CF = "BBBBBBBBBB";
-
-    private static final String DEFAULT_QUANTITY = "AAAAAAAAAA";
-    private static final String UPDATED_QUANTITY = "BBBBBBBBBB";
-
-    private static final String DEFAULT_NOTES = "AAAAAAAAAA";
-    private static final String UPDATED_NOTES = "BBBBBBBBBB";
-
     private static final Integer DEFAULT_MP = 1;
     private static final Integer UPDATED_MP = 2;
 
@@ -80,6 +71,9 @@ public class PatologyResourceIntTest {
 
     private static final Float DEFAULT_MTE = 1F;
     private static final Float UPDATED_MTE = 2F;
+
+    private static final String DEFAULT_NOTES = "AAAAAAAAAA";
+    private static final String UPDATED_NOTES = "BBBBBBBBBB";
 
     @Autowired
     private PatologyRepository patologyRepository;
@@ -129,9 +123,6 @@ public class PatologyResourceIntTest {
         Patology patology = new Patology()
             .pato(DEFAULT_PATO)
             .carename(DEFAULT_CARENAME)
-            .cf(DEFAULT_CF)
-            .quantity(DEFAULT_QUANTITY)
-            .notes(DEFAULT_NOTES)
             .mp(DEFAULT_MP)
             .mpr(DEFAULT_MPR)
             .mc(DEFAULT_MC)
@@ -139,7 +130,8 @@ public class PatologyResourceIntTest {
             .mb(DEFAULT_MB)
             .mbr(DEFAULT_MBR)
             .mt(DEFAULT_MT)
-            .mte(DEFAULT_MTE);
+            .mte(DEFAULT_MTE)
+            .notes(DEFAULT_NOTES);
         return patology;
     }
 
@@ -166,9 +158,6 @@ public class PatologyResourceIntTest {
         Patology testPatology = patologyList.get(patologyList.size() - 1);
         assertThat(testPatology.getPato()).isEqualTo(DEFAULT_PATO);
         assertThat(testPatology.getCarename()).isEqualTo(DEFAULT_CARENAME);
-        assertThat(testPatology.getCf()).isEqualTo(DEFAULT_CF);
-        assertThat(testPatology.getQuantity()).isEqualTo(DEFAULT_QUANTITY);
-        assertThat(testPatology.getNotes()).isEqualTo(DEFAULT_NOTES);
         assertThat(testPatology.getMp()).isEqualTo(DEFAULT_MP);
         assertThat(testPatology.getMpr()).isEqualTo(DEFAULT_MPR);
         assertThat(testPatology.getMc()).isEqualTo(DEFAULT_MC);
@@ -177,6 +166,7 @@ public class PatologyResourceIntTest {
         assertThat(testPatology.getMbr()).isEqualTo(DEFAULT_MBR);
         assertThat(testPatology.getMt()).isEqualTo(DEFAULT_MT);
         assertThat(testPatology.getMte()).isEqualTo(DEFAULT_MTE);
+        assertThat(testPatology.getNotes()).isEqualTo(DEFAULT_NOTES);
     }
 
     @Test
@@ -212,9 +202,6 @@ public class PatologyResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(patology.getId().intValue())))
             .andExpect(jsonPath("$.[*].pato").value(hasItem(DEFAULT_PATO.toString())))
             .andExpect(jsonPath("$.[*].carename").value(hasItem(DEFAULT_CARENAME.toString())))
-            .andExpect(jsonPath("$.[*].cf").value(hasItem(DEFAULT_CF.toString())))
-            .andExpect(jsonPath("$.[*].quantity").value(hasItem(DEFAULT_QUANTITY.toString())))
-            .andExpect(jsonPath("$.[*].notes").value(hasItem(DEFAULT_NOTES.toString())))
             .andExpect(jsonPath("$.[*].mp").value(hasItem(DEFAULT_MP)))
             .andExpect(jsonPath("$.[*].mpr").value(hasItem(DEFAULT_MPR)))
             .andExpect(jsonPath("$.[*].mc").value(hasItem(DEFAULT_MC)))
@@ -222,7 +209,8 @@ public class PatologyResourceIntTest {
             .andExpect(jsonPath("$.[*].mb").value(hasItem(DEFAULT_MB)))
             .andExpect(jsonPath("$.[*].mbr").value(hasItem(DEFAULT_MBR)))
             .andExpect(jsonPath("$.[*].mt").value(hasItem(DEFAULT_MT.doubleValue())))
-            .andExpect(jsonPath("$.[*].mte").value(hasItem(DEFAULT_MTE.doubleValue())));
+            .andExpect(jsonPath("$.[*].mte").value(hasItem(DEFAULT_MTE.doubleValue())))
+            .andExpect(jsonPath("$.[*].notes").value(hasItem(DEFAULT_NOTES.toString())));
     }
     
 
@@ -239,9 +227,6 @@ public class PatologyResourceIntTest {
             .andExpect(jsonPath("$.id").value(patology.getId().intValue()))
             .andExpect(jsonPath("$.pato").value(DEFAULT_PATO.toString()))
             .andExpect(jsonPath("$.carename").value(DEFAULT_CARENAME.toString()))
-            .andExpect(jsonPath("$.cf").value(DEFAULT_CF.toString()))
-            .andExpect(jsonPath("$.quantity").value(DEFAULT_QUANTITY.toString()))
-            .andExpect(jsonPath("$.notes").value(DEFAULT_NOTES.toString()))
             .andExpect(jsonPath("$.mp").value(DEFAULT_MP))
             .andExpect(jsonPath("$.mpr").value(DEFAULT_MPR))
             .andExpect(jsonPath("$.mc").value(DEFAULT_MC))
@@ -249,7 +234,8 @@ public class PatologyResourceIntTest {
             .andExpect(jsonPath("$.mb").value(DEFAULT_MB))
             .andExpect(jsonPath("$.mbr").value(DEFAULT_MBR))
             .andExpect(jsonPath("$.mt").value(DEFAULT_MT.doubleValue()))
-            .andExpect(jsonPath("$.mte").value(DEFAULT_MTE.doubleValue()));
+            .andExpect(jsonPath("$.mte").value(DEFAULT_MTE.doubleValue()))
+            .andExpect(jsonPath("$.notes").value(DEFAULT_NOTES.toString()));
     }
     @Test
     @Transactional
@@ -274,9 +260,6 @@ public class PatologyResourceIntTest {
         updatedPatology
             .pato(UPDATED_PATO)
             .carename(UPDATED_CARENAME)
-            .cf(UPDATED_CF)
-            .quantity(UPDATED_QUANTITY)
-            .notes(UPDATED_NOTES)
             .mp(UPDATED_MP)
             .mpr(UPDATED_MPR)
             .mc(UPDATED_MC)
@@ -284,7 +267,8 @@ public class PatologyResourceIntTest {
             .mb(UPDATED_MB)
             .mbr(UPDATED_MBR)
             .mt(UPDATED_MT)
-            .mte(UPDATED_MTE);
+            .mte(UPDATED_MTE)
+            .notes(UPDATED_NOTES);
         PatologyDTO patologyDTO = patologyMapper.toDto(updatedPatology);
 
         restPatologyMockMvc.perform(put("/api/patologies")
@@ -298,9 +282,6 @@ public class PatologyResourceIntTest {
         Patology testPatology = patologyList.get(patologyList.size() - 1);
         assertThat(testPatology.getPato()).isEqualTo(UPDATED_PATO);
         assertThat(testPatology.getCarename()).isEqualTo(UPDATED_CARENAME);
-        assertThat(testPatology.getCf()).isEqualTo(UPDATED_CF);
-        assertThat(testPatology.getQuantity()).isEqualTo(UPDATED_QUANTITY);
-        assertThat(testPatology.getNotes()).isEqualTo(UPDATED_NOTES);
         assertThat(testPatology.getMp()).isEqualTo(UPDATED_MP);
         assertThat(testPatology.getMpr()).isEqualTo(UPDATED_MPR);
         assertThat(testPatology.getMc()).isEqualTo(UPDATED_MC);
@@ -309,6 +290,7 @@ public class PatologyResourceIntTest {
         assertThat(testPatology.getMbr()).isEqualTo(UPDATED_MBR);
         assertThat(testPatology.getMt()).isEqualTo(UPDATED_MT);
         assertThat(testPatology.getMte()).isEqualTo(UPDATED_MTE);
+        assertThat(testPatology.getNotes()).isEqualTo(UPDATED_NOTES);
     }
 
     @Test

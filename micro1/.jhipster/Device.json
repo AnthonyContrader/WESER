@@ -4,17 +4,12 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "regnumb",
-            "fieldType": "String",
-            "fieldValidateRules": []
-        },
-        {
             "fieldName": "devtype",
             "fieldType": "String",
             "fieldValidateRules": []
         },
         {
-            "fieldName": "description",
+            "fieldName": "descr",
             "fieldType": "String",
             "fieldValidateRules": []
         },
@@ -59,7 +54,7 @@
             "fieldValidateRules": []
         }
     ],
-    "changelogDate": "20190626081114",
+    "changelogDate": "20190627140943",
     "dto": "mapstruct",
     "searchEngine": false,
     "service": "serviceImpl",

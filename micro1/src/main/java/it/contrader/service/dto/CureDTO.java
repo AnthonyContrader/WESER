@@ -10,17 +10,17 @@ public class CureDTO implements Serializable {
 
     private Long id;
 
-    private String name;
-
     private String cf;
 
     private Integer age;
 
     private String pato;
 
-    private String carename;
+    private String name;
 
-    private String quantity;
+    private String dosage;
+
+    private String posology;
 
     private String notes;
 
@@ -30,14 +30,6 @@ public class CureDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getCf() {
@@ -64,20 +56,28 @@ public class CureDTO implements Serializable {
         this.pato = pato;
     }
 
-    public String getCarename() {
-        return carename;
+    public String getName() {
+        return name;
     }
 
-    public void setCarename(String carename) {
-        this.carename = carename;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getQuantity() {
-        return quantity;
+    public String getDosage() {
+        return dosage;
     }
 
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
+    public void setDosage(String dosage) {
+        this.dosage = dosage;
+    }
+
+    public String getPosology() {
+        return posology;
+    }
+
+    public void setPosology(String posology) {
+        this.posology = posology;
     }
 
     public String getNotes() {
@@ -113,12 +113,12 @@ public class CureDTO implements Serializable {
     public String toString() {
         return "CureDTO{" +
             "id=" + getId() +
-            ", name='" + getName() + "'" +
             ", cf='" + getCf() + "'" +
             ", age=" + getAge() +
             ", pato='" + getPato() + "'" +
-            ", carename='" + getCarename() + "'" +
-            ", quantity='" + getQuantity() + "'" +
+            ", name='" + getName() + "'" +
+            ", dosage='" + getDosage() + "'" +
+            ", posology='" + getPosology() + "'" +
             ", notes='" + getNotes() + "'" +
             "}";
     }

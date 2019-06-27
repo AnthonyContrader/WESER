@@ -9,7 +9,7 @@
             "fieldValidateRules": []
         },
         {
-            "fieldName": "regdev",
+            "fieldName": "rd",
             "fieldType": "String",
             "fieldValidateRules": []
         },
@@ -19,12 +19,12 @@
             "fieldValidateRules": []
         },
         {
-            "fieldName": "cir",
+            "fieldName": "mpr",
             "fieldType": "Integer",
             "fieldValidateRules": []
         },
         {
-            "fieldName": "mpr",
+            "fieldName": "cir",
             "fieldType": "Integer",
             "fieldValidateRules": []
         },
@@ -39,12 +39,12 @@
             "fieldValidateRules": []
         },
         {
-            "fieldName": "dataora",
+            "fieldName": "date",
             "fieldType": "LocalDate",
             "fieldValidateRules": []
         }
     ],
-    "changelogDate": "20190626083352",
+    "changelogDate": "20190627140641",
     "dto": "mapstruct",
     "searchEngine": false,
     "service": "serviceImpl",

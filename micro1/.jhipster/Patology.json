@@ -14,21 +14,6 @@
             "fieldValidateRules": []
         },
         {
-            "fieldName": "cf",
-            "fieldType": "String",
-            "fieldValidateRules": []
-        },
-        {
-            "fieldName": "quantity",
-            "fieldType": "String",
-            "fieldValidateRules": []
-        },
-        {
-            "fieldName": "notes",
-            "fieldType": "String",
-            "fieldValidateRules": []
-        },
-        {
             "fieldName": "mp",
             "fieldType": "Integer",
             "fieldValidateRules": []
@@ -67,9 +52,14 @@
             "fieldName": "mte",
             "fieldType": "Float",
             "fieldValidateRules": []
+        },
+        {
+            "fieldName": "notes",
+            "fieldType": "String",
+            "fieldValidateRules": []
         }
     ],
-    "changelogDate": "20190626082136",
+    "changelogDate": "20190627140235",
     "dto": "mapstruct",
     "searchEngine": false,
     "service": "serviceImpl",

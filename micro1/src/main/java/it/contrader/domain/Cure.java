@@ -22,9 +22,6 @@ public class Cure implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
-
     @Column(name = "cf")
     private String cf;
 
@@ -34,11 +31,14 @@ public class Cure implements Serializable {
     @Column(name = "pato")
     private String pato;
 
-    @Column(name = "carename")
-    private String carename;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "quantity")
-    private String quantity;
+    @Column(name = "dosage")
+    private String dosage;
+
+    @Column(name = "posology")
+    private String posology;
 
     @Column(name = "notes")
     private String notes;
@@ -50,19 +50,6 @@ public class Cure implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Cure name(String name) {
-        this.name = name;
-        return this;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getCf() {
@@ -104,30 +91,43 @@ public class Cure implements Serializable {
         this.pato = pato;
     }
 
-    public String getCarename() {
-        return carename;
+    public String getName() {
+        return name;
     }
 
-    public Cure carename(String carename) {
-        this.carename = carename;
+    public Cure name(String name) {
+        this.name = name;
         return this;
     }
 
-    public void setCarename(String carename) {
-        this.carename = carename;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getQuantity() {
-        return quantity;
+    public String getDosage() {
+        return dosage;
     }
 
-    public Cure quantity(String quantity) {
-        this.quantity = quantity;
+    public Cure dosage(String dosage) {
+        this.dosage = dosage;
         return this;
     }
 
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
+    public void setDosage(String dosage) {
+        this.dosage = dosage;
+    }
+
+    public String getPosology() {
+        return posology;
+    }
+
+    public Cure posology(String posology) {
+        this.posology = posology;
+        return this;
+    }
+
+    public void setPosology(String posology) {
+        this.posology = posology;
     }
 
     public String getNotes() {
@@ -168,12 +168,12 @@ public class Cure implements Serializable {
     public String toString() {
         return "Cure{" +
             "id=" + getId() +
-            ", name='" + getName() + "'" +
             ", cf='" + getCf() + "'" +
             ", age=" + getAge() +
             ", pato='" + getPato() + "'" +
-            ", carename='" + getCarename() + "'" +
-            ", quantity='" + getQuantity() + "'" +
+            ", name='" + getName() + "'" +
+            ", dosage='" + getDosage() + "'" +
+            ", posology='" + getPosology() + "'" +
             ", notes='" + getNotes() + "'" +
             "}";
     }

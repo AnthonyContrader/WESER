@@ -47,17 +47,17 @@ public class ReadingResourceIntTest {
     private static final String DEFAULT_CF = "AAAAAAAAAA";
     private static final String UPDATED_CF = "BBBBBBBBBB";
 
-    private static final String DEFAULT_REGDEV = "AAAAAAAAAA";
-    private static final String UPDATED_REGDEV = "BBBBBBBBBB";
+    private static final String DEFAULT_RD = "AAAAAAAAAA";
+    private static final String UPDATED_RD = "BBBBBBBBBB";
 
     private static final Integer DEFAULT_MP = 1;
     private static final Integer UPDATED_MP = 2;
 
-    private static final Integer DEFAULT_CIR = 1;
-    private static final Integer UPDATED_CIR = 2;
-
     private static final Integer DEFAULT_MPR = 1;
     private static final Integer UPDATED_MPR = 2;
+
+    private static final Integer DEFAULT_CIR = 1;
+    private static final Integer UPDATED_CIR = 2;
 
     private static final Integer DEFAULT_BRE = 1;
     private static final Integer UPDATED_BRE = 2;
@@ -65,8 +65,8 @@ public class ReadingResourceIntTest {
     private static final Float DEFAULT_TEMP = 1F;
     private static final Float UPDATED_TEMP = 2F;
 
-    private static final LocalDate DEFAULT_DATAORA = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_DATAORA = LocalDate.now(ZoneId.systemDefault());
+    private static final LocalDate DEFAULT_DATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_DATE = LocalDate.now(ZoneId.systemDefault());
 
     @Autowired
     private ReadingRepository readingRepository;
@@ -115,13 +115,13 @@ public class ReadingResourceIntTest {
     public static Reading createEntity(EntityManager em) {
         Reading reading = new Reading()
             .cf(DEFAULT_CF)
-            .regdev(DEFAULT_REGDEV)
+            .rd(DEFAULT_RD)
             .mp(DEFAULT_MP)
-            .cir(DEFAULT_CIR)
             .mpr(DEFAULT_MPR)
+            .cir(DEFAULT_CIR)
             .bre(DEFAULT_BRE)
             .temp(DEFAULT_TEMP)
-            .dataora(DEFAULT_DATAORA);
+            .date(DEFAULT_DATE);
         return reading;
     }
 
@@ -147,13 +147,13 @@ public class ReadingResourceIntTest {
         assertThat(readingList).hasSize(databaseSizeBeforeCreate + 1);
         Reading testReading = readingList.get(readingList.size() - 1);
         assertThat(testReading.getCf()).isEqualTo(DEFAULT_CF);
-        assertThat(testReading.getRegdev()).isEqualTo(DEFAULT_REGDEV);
+        assertThat(testReading.getRd()).isEqualTo(DEFAULT_RD);
         assertThat(testReading.getMp()).isEqualTo(DEFAULT_MP);
-        assertThat(testReading.getCir()).isEqualTo(DEFAULT_CIR);
         assertThat(testReading.getMpr()).isEqualTo(DEFAULT_MPR);
+        assertThat(testReading.getCir()).isEqualTo(DEFAULT_CIR);
         assertThat(testReading.getBre()).isEqualTo(DEFAULT_BRE);
         assertThat(testReading.getTemp()).isEqualTo(DEFAULT_TEMP);
-        assertThat(testReading.getDataora()).isEqualTo(DEFAULT_DATAORA);
+        assertThat(testReading.getDate()).isEqualTo(DEFAULT_DATE);
     }
 
     @Test
@@ -188,13 +188,13 @@ public class ReadingResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(reading.getId().intValue())))
             .andExpect(jsonPath("$.[*].cf").value(hasItem(DEFAULT_CF.toString())))
-            .andExpect(jsonPath("$.[*].regdev").value(hasItem(DEFAULT_REGDEV.toString())))
+            .andExpect(jsonPath("$.[*].rd").value(hasItem(DEFAULT_RD.toString())))
             .andExpect(jsonPath("$.[*].mp").value(hasItem(DEFAULT_MP)))
-            .andExpect(jsonPath("$.[*].cir").value(hasItem(DEFAULT_CIR)))
             .andExpect(jsonPath("$.[*].mpr").value(hasItem(DEFAULT_MPR)))
+            .andExpect(jsonPath("$.[*].cir").value(hasItem(DEFAULT_CIR)))
             .andExpect(jsonPath("$.[*].bre").value(hasItem(DEFAULT_BRE)))
             .andExpect(jsonPath("$.[*].temp").value(hasItem(DEFAULT_TEMP.doubleValue())))
-            .andExpect(jsonPath("$.[*].dataora").value(hasItem(DEFAULT_DATAORA.toString())));
+            .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())));
     }
     
 
@@ -210,13 +210,13 @@ public class ReadingResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(reading.getId().intValue()))
             .andExpect(jsonPath("$.cf").value(DEFAULT_CF.toString()))
-            .andExpect(jsonPath("$.regdev").value(DEFAULT_REGDEV.toString()))
+            .andExpect(jsonPath("$.rd").value(DEFAULT_RD.toString()))
             .andExpect(jsonPath("$.mp").value(DEFAULT_MP))
-            .andExpect(jsonPath("$.cir").value(DEFAULT_CIR))
             .andExpect(jsonPath("$.mpr").value(DEFAULT_MPR))
+            .andExpect(jsonPath("$.cir").value(DEFAULT_CIR))
             .andExpect(jsonPath("$.bre").value(DEFAULT_BRE))
             .andExpect(jsonPath("$.temp").value(DEFAULT_TEMP.doubleValue()))
-            .andExpect(jsonPath("$.dataora").value(DEFAULT_DATAORA.toString()));
+            .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()));
     }
     @Test
     @Transactional
@@ -240,13 +240,13 @@ public class ReadingResourceIntTest {
         em.detach(updatedReading);
         updatedReading
             .cf(UPDATED_CF)
-            .regdev(UPDATED_REGDEV)
+            .rd(UPDATED_RD)
             .mp(UPDATED_MP)
-            .cir(UPDATED_CIR)
             .mpr(UPDATED_MPR)
+            .cir(UPDATED_CIR)
             .bre(UPDATED_BRE)
             .temp(UPDATED_TEMP)
-            .dataora(UPDATED_DATAORA);
+            .date(UPDATED_DATE);
         ReadingDTO readingDTO = readingMapper.toDto(updatedReading);
 
         restReadingMockMvc.perform(put("/api/readings")
@@ -259,13 +259,13 @@ public class ReadingResourceIntTest {
         assertThat(readingList).hasSize(databaseSizeBeforeUpdate);
         Reading testReading = readingList.get(readingList.size() - 1);
         assertThat(testReading.getCf()).isEqualTo(UPDATED_CF);
-        assertThat(testReading.getRegdev()).isEqualTo(UPDATED_REGDEV);
+        assertThat(testReading.getRd()).isEqualTo(UPDATED_RD);
         assertThat(testReading.getMp()).isEqualTo(UPDATED_MP);
-        assertThat(testReading.getCir()).isEqualTo(UPDATED_CIR);
         assertThat(testReading.getMpr()).isEqualTo(UPDATED_MPR);
+        assertThat(testReading.getCir()).isEqualTo(UPDATED_CIR);
         assertThat(testReading.getBre()).isEqualTo(UPDATED_BRE);
         assertThat(testReading.getTemp()).isEqualTo(UPDATED_TEMP);
-        assertThat(testReading.getDataora()).isEqualTo(UPDATED_DATAORA);
+        assertThat(testReading.getDate()).isEqualTo(UPDATED_DATE);
     }
 
     @Test
