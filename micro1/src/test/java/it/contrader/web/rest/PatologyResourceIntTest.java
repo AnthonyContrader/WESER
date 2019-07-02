@@ -51,11 +51,11 @@ public class PatologyResourceIntTest {
     private static final Integer DEFAULT_MP = 1;
     private static final Integer UPDATED_MP = 2;
 
-    private static final Integer DEFAULT_MPR = 1;
-    private static final Integer UPDATED_MPR = 2;
-
     private static final Integer DEFAULT_MC = 1;
     private static final Integer UPDATED_MC = 2;
+
+    private static final Integer DEFAULT_MPR = 1;
+    private static final Integer UPDATED_MPR = 2;
 
     private static final Integer DEFAULT_MCI = 1;
     private static final Integer UPDATED_MCI = 2;
@@ -124,8 +124,8 @@ public class PatologyResourceIntTest {
             .pato(DEFAULT_PATO)
             .carename(DEFAULT_CARENAME)
             .mp(DEFAULT_MP)
-            .mpr(DEFAULT_MPR)
             .mc(DEFAULT_MC)
+            .mpr(DEFAULT_MPR)
             .mci(DEFAULT_MCI)
             .mb(DEFAULT_MB)
             .mbr(DEFAULT_MBR)
@@ -159,8 +159,8 @@ public class PatologyResourceIntTest {
         assertThat(testPatology.getPato()).isEqualTo(DEFAULT_PATO);
         assertThat(testPatology.getCarename()).isEqualTo(DEFAULT_CARENAME);
         assertThat(testPatology.getMp()).isEqualTo(DEFAULT_MP);
-        assertThat(testPatology.getMpr()).isEqualTo(DEFAULT_MPR);
         assertThat(testPatology.getMc()).isEqualTo(DEFAULT_MC);
+        assertThat(testPatology.getMpr()).isEqualTo(DEFAULT_MPR);
         assertThat(testPatology.getMci()).isEqualTo(DEFAULT_MCI);
         assertThat(testPatology.getMb()).isEqualTo(DEFAULT_MB);
         assertThat(testPatology.getMbr()).isEqualTo(DEFAULT_MBR);
@@ -203,8 +203,8 @@ public class PatologyResourceIntTest {
             .andExpect(jsonPath("$.[*].pato").value(hasItem(DEFAULT_PATO.toString())))
             .andExpect(jsonPath("$.[*].carename").value(hasItem(DEFAULT_CARENAME.toString())))
             .andExpect(jsonPath("$.[*].mp").value(hasItem(DEFAULT_MP)))
-            .andExpect(jsonPath("$.[*].mpr").value(hasItem(DEFAULT_MPR)))
             .andExpect(jsonPath("$.[*].mc").value(hasItem(DEFAULT_MC)))
+            .andExpect(jsonPath("$.[*].mpr").value(hasItem(DEFAULT_MPR)))
             .andExpect(jsonPath("$.[*].mci").value(hasItem(DEFAULT_MCI)))
             .andExpect(jsonPath("$.[*].mb").value(hasItem(DEFAULT_MB)))
             .andExpect(jsonPath("$.[*].mbr").value(hasItem(DEFAULT_MBR)))
@@ -228,8 +228,8 @@ public class PatologyResourceIntTest {
             .andExpect(jsonPath("$.pato").value(DEFAULT_PATO.toString()))
             .andExpect(jsonPath("$.carename").value(DEFAULT_CARENAME.toString()))
             .andExpect(jsonPath("$.mp").value(DEFAULT_MP))
-            .andExpect(jsonPath("$.mpr").value(DEFAULT_MPR))
             .andExpect(jsonPath("$.mc").value(DEFAULT_MC))
+            .andExpect(jsonPath("$.mpr").value(DEFAULT_MPR))
             .andExpect(jsonPath("$.mci").value(DEFAULT_MCI))
             .andExpect(jsonPath("$.mb").value(DEFAULT_MB))
             .andExpect(jsonPath("$.mbr").value(DEFAULT_MBR))
@@ -261,8 +261,8 @@ public class PatologyResourceIntTest {
             .pato(UPDATED_PATO)
             .carename(UPDATED_CARENAME)
             .mp(UPDATED_MP)
-            .mpr(UPDATED_MPR)
             .mc(UPDATED_MC)
+            .mpr(UPDATED_MPR)
             .mci(UPDATED_MCI)
             .mb(UPDATED_MB)
             .mbr(UPDATED_MBR)
@@ -283,8 +283,8 @@ public class PatologyResourceIntTest {
         assertThat(testPatology.getPato()).isEqualTo(UPDATED_PATO);
         assertThat(testPatology.getCarename()).isEqualTo(UPDATED_CARENAME);
         assertThat(testPatology.getMp()).isEqualTo(UPDATED_MP);
-        assertThat(testPatology.getMpr()).isEqualTo(UPDATED_MPR);
         assertThat(testPatology.getMc()).isEqualTo(UPDATED_MC);
+        assertThat(testPatology.getMpr()).isEqualTo(UPDATED_MPR);
         assertThat(testPatology.getMci()).isEqualTo(UPDATED_MCI);
         assertThat(testPatology.getMb()).isEqualTo(UPDATED_MB);
         assertThat(testPatology.getMbr()).isEqualTo(UPDATED_MBR);

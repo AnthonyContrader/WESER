@@ -16,9 +16,9 @@ public class PatologyDTO implements Serializable {
 
     private Integer mp;
 
-    private Integer mpr;
-
     private Integer mc;
+
+    private Integer mpr;
 
     private Integer mci;
 
@@ -64,20 +64,20 @@ public class PatologyDTO implements Serializable {
         this.mp = mp;
     }
 
-    public Integer getMpr() {
-        return mpr;
-    }
-
-    public void setMpr(Integer mpr) {
-        this.mpr = mpr;
-    }
-
     public Integer getMc() {
         return mc;
     }
 
     public void setMc(Integer mc) {
         this.mc = mc;
+    }
+
+    public Integer getMpr() {
+        return mpr;
+    }
+
+    public void setMpr(Integer mpr) {
+        this.mpr = mpr;
     }
 
     public Integer getMci() {
@@ -156,8 +156,8 @@ public class PatologyDTO implements Serializable {
             ", pato='" + getPato() + "'" +
             ", carename='" + getCarename() + "'" +
             ", mp=" + getMp() +
-            ", mpr=" + getMpr() +
             ", mc=" + getMc() +
+            ", mpr=" + getMpr() +
             ", mci=" + getMci() +
             ", mb=" + getMb() +
             ", mbr=" + getMbr() +

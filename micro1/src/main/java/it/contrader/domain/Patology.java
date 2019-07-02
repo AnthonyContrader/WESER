@@ -31,11 +31,11 @@ public class Patology implements Serializable {
     @Column(name = "mp")
     private Integer mp;
 
-    @Column(name = "mpr")
-    private Integer mpr;
-
     @Column(name = "mc")
     private Integer mc;
+
+    @Column(name = "mpr")
+    private Integer mpr;
 
     @Column(name = "mci")
     private Integer mci;
@@ -103,19 +103,6 @@ public class Patology implements Serializable {
         this.mp = mp;
     }
 
-    public Integer getMpr() {
-        return mpr;
-    }
-
-    public Patology mpr(Integer mpr) {
-        this.mpr = mpr;
-        return this;
-    }
-
-    public void setMpr(Integer mpr) {
-        this.mpr = mpr;
-    }
-
     public Integer getMc() {
         return mc;
     }
@@ -127,6 +114,19 @@ public class Patology implements Serializable {
 
     public void setMc(Integer mc) {
         this.mc = mc;
+    }
+
+    public Integer getMpr() {
+        return mpr;
+    }
+
+    public Patology mpr(Integer mpr) {
+        this.mpr = mpr;
+        return this;
+    }
+
+    public void setMpr(Integer mpr) {
+        this.mpr = mpr;
     }
 
     public Integer getMci() {
@@ -235,8 +235,8 @@ public class Patology implements Serializable {
             ", pato='" + getPato() + "'" +
             ", carename='" + getCarename() + "'" +
             ", mp=" + getMp() +
-            ", mpr=" + getMpr() +
             ", mc=" + getMc() +
+            ", mpr=" + getMpr() +
             ", mci=" + getMci() +
             ", mb=" + getMb() +
             ", mbr=" + getMbr() +
