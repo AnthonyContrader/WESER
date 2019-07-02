@@ -30,13 +30,13 @@
         </tr>
         <tr *ngFor="let cure of cures">
           <td>
-            <input [(ngModel)]="cure.cf">
+            <input [(ngModel)]="cure.readingDTO.cf">
           </td>
           <td>
             <input [(ngModel)]="cure.age">
           </td>
           <td>
-            <input [(ngModel)]="cure.pato">
+            <input [(ngModel)]="cure.patologyDTO.pato">
           </td>
           <td>
             <input [(ngModel)]="cure.name">
