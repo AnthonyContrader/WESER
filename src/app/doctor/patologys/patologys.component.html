@@ -1,0 +1,137 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="coll_1">
+      <table>
+        <tr>
+          <th>
+            Patology Name
+          </th>
+          <th>
+            Cure
+          </th>
+          <th>
+            Min press
+          </th>
+          <th>
+            Max press
+          </th>
+          <th>
+            Min cir
+          </th>
+          <th>
+            Max cir
+          </th>
+          <th>
+            Min breath
+          </th>
+          <th>
+            Max breath
+          </th>
+          <th>
+            Min temp
+          </th>
+          <th>
+            Max temp
+          </th>
+          <th>
+            Notes
+          </th>
+          <th>
+            Edit
+          </th>
+          <th>
+            Patology
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="pato" [(ngModel)]="patologytoinsert.pato">
+          </td>
+          <td>
+            <input placeholder="carename" [(ngModel)]="patologytoinsert.carename">
+          </td>
+          <td>
+            <input placeholder="mp" [(ngModel)]="patologytoinsert.mp">
+          </td>
+          <td>
+            <input placeholder="mpr" [(ngModel)]="patologytoinsert.mpr">
+          </td>
+          <td>
+            <input placeholder="mc" [(ngModel)]="patologytoinsert.mc">
+          </td>
+          <td>
+            <input placeholder="mci" [(ngModel)]="patologytoinsert.mci">
+          </td>
+          <td>
+            <input placeholder="mb" [(ngModel)]="patologytoinsert.mb">
+          </td>
+          <td>
+            <input placeholder="mbr" [(ngModel)]="patologytoinsert.mbr">
+          </td>
+          <td>
+            <input placeholder="mt" [(ngModel)]="patologytoinsert.mt">
+          </td>
+          <td>
+            <input placeholder="mte" [(ngModel)]="patologytoinsert.mte">
+          </td>
+          <td>
+            <input placeholder="notes" [(ngModel)]="patologytoinsert.notes">
+          </td>
+          <td>
+            <button (click)="insert(patologytoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let patology of patologys">
+          <td>
+            <input [(ngModel)]="patology.pato">
+          </td>
+          <td>
+            <input [(ngModel)]="patology.carename">
+          </td>
+          <td>
+            <input [(ngModel)]="patology.mp">
+          </td>
+          <td>
+            <input [(ngModel)]="patology.mpr">
+          </td>
+          <td>
+            <input [(ngModel)]="patology.mc">
+          </td>
+          <td>
+            <input [(ngModel)]="patology.mci">
+          </td>
+          <td>
+            <input [(ngModel)]="patology.mb">
+          </td>
+          <td>
+            <input [(ngModel)]="patology.mbr">
+          </td>
+          <td>
+            <input [(ngModel)]="patology.mt">
+          </td>
+          <td>
+            <input [(ngModel)]="patology.mte">
+          </td>
+          <td>
+            <input [(ngModel)]="patology.notes">
+          </td>
+          <td>
+            <button (click)=update(patology)>Update</button>
+          </td>
+          <td>
+            <button (click)="delete(patology)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="coll_1">
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="coll_1">
+      <table>
+        <tr>
+          <th>
+           Ssn
+          </th>
+          <th>
+            Age
+          </th>
+          <th>
+            Patology
+          </th>
+          <th>
+            Cure name
+          </th>
+          <th>
+           Dosage
+          </th>
+          <th>
+            Posology
+          </th>
+          <th>
+            Notes
+          </th>
+        </tr>
+        <tr *ngFor="let cure of cures">
+          <td>
+            <input [(ngModel)]="cure.cf">
+          </td>
+          <td>
+            <input [(ngModel)]="cure.age">
+          </td>
+          <td>
+            <input [(ngModel)]="cure.pato">
+          </td>
+          <td>
+            <input [(ngModel)]="cure.name">
+          </td>
+          <td>
+            <input [(ngModel)]="cure.dosage">
+          </td>
+          <td>
+              <input [(ngModel)]="cure.posology">
+            </td>
+          <td>
+            <input [(ngModel)]="cure.notes">
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

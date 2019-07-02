@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="coll_1">
+      <table>
+        <tr>
+          <th>
+           Card type
+          </th>
+          <th>
+            Card number
+          </th>
+          <th>
+            Card owner
+          </th>
+          <th>
+            Card expire
+          </th>
+          <th>
+            CVV
+          </th>
+          <th>
+            Edit
+          </th>
+          <th>
+            Cure
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="ct" [(ngModel)]="paymenttoinsert.ct">
+          </td>
+          <td>
+            <input placeholder="cn" [(ngModel)]="paymenttoinsert.cn">
+          </td>
+          <td>
+            <input placeholder="co" [(ngModel)]="paymenttoinsert.co">
+          </td>
+          <td>
+            <input placeholder="ce" [(ngModel)]="paymenttoinsert.ce">
+          </td>
+          <td>
+            <input placeholder="cvv" [(ngModel)]="paymenttoinsert.cvv">
+          </td>
+          <td>
+            <button (click)="insert(paymenttoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let payment of payments">
+          <td>
+            <input [(ngModel)]="payment.ct">
+          </td>
+          <td>
+            <input [(ngModel)]="payment.cn">
+          </td>
+          <td>
+            <input [(ngModel)]="payment.co">
+          </td>
+          <td>
+            <input [(ngModel)]="payment.ce">
+          </td>
+          <td>
+            <input [(ngModel)]="payment.cvv">
+          </td>
+          <td>
+            <button (click)=update(payment)>Update</button>
+          </td>
+          <td>
+            <button (click)="delete(payment)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

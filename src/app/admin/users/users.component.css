@@ -1,0 +1,54 @@
+*{
+    text-align: center;
+}
+
+/*Tables*/
+table {
+	border-collapse: collapse;
+	width: 100%;
+	float: left;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+}
+
+th, td {
+	text-align: center;
+	padding: 2px;
+}
+
+td{
+    font-size: 16px;
+}
+
+
+tr:nth-child(even) {
+	background-color: rgb(109, 94, 206);
+}
+
+th {
+	background-color:#4D4199 ;
+	color: #ffffff;
+}
+
+a:hover {
+	color: #999999;
+}
+
+input, select{
+    background-color: inherit;
+    font-size: inherit;
+}
+
+input:hover,  input:active, input:focus{
+    border: 2px solid #F7931E;
+}
+
+button:hover{
+    background-color: #F7931E;
+}
+
+.coll_1 {
+    flex: 0 0 83.333333%;
+	max-width: 83.333333%;
+	overflow: auto;
+}

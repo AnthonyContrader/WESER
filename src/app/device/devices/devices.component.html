@@ -1,0 +1,128 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="coll_1">
+      <table>
+        <tr>
+          <th>
+           Type
+          </th>
+          <th>
+            Des
+          </th>
+          <th>
+            mp
+          </th>
+          <th>
+            Mpr
+          </th>
+          <th>
+            mc
+          </th>
+          <th>
+            Mci
+          </th>
+          <th>
+            mb
+          </th>
+          <th>
+            Mbr
+          </th>
+          <th>
+            mt
+          </th>
+          <th>
+            Mte
+          </th>
+          <th>
+            Edit
+          </th>
+          <th>
+            Device
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="type" [(ngModel)]="devicetoinsert.devtype">
+          </td>
+          <td>
+            <input placeholder="descr" [(ngModel)]="devicetoinsert.descr">
+          </td>
+          <td>
+            <input placeholder="mp" [(ngModel)]="devicetoinsert.mp">
+          </td>
+          <td>
+            <input placeholder="mpr" [(ngModel)]="devicetoinsert.mpr">
+          </td>
+          <td>
+            <input placeholder="mc" [(ngModel)]="devicetoinsert.mc">
+          </td>
+          <td>
+            <input placeholder="mci" [(ngModel)]="devicetoinsert.mci">
+          </td>
+          <td>
+            <input placeholder="mb" [(ngModel)]="devicetoinsert.mb">
+          </td>
+          <td>
+            <input placeholder="mbr" [(ngModel)]="devicetoinsert.mbr">
+          </td>
+          <td>
+            <input placeholder="mt" [(ngModel)]="devicetoinsert.mt">
+          </td>
+          <td>
+            <input placeholder="mte" [(ngModel)]="devicetoinsert.mte">
+          </td>
+          <td>
+            <button (click)="insert(devicetoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let device of devices">
+          <td>
+            <input [(ngModel)]="device.devtype">
+          </td>
+          <td>
+            <input [(ngModel)]="device.descr">
+          </td>
+          <td>
+            <input [(ngModel)]="device.mp">
+          </td>
+          <td>
+            <input [(ngModel)]="device.mpr">
+          </td>
+          <td>
+            <input [(ngModel)]="device.mc">
+          </td>
+          <td>
+            <input [(ngModel)]="device.mci">
+          </td>
+          <td>
+            <input [(ngModel)]="device.mb">
+          </td>
+          <td>
+            <input [(ngModel)]="device.mbr">
+          </td>
+          <td>
+            <input [(ngModel)]="device.mt">
+          </td>
+          <td>
+            <input [(ngModel)]="device.mte">
+          </td>
+          <td>
+            <button (click)=update(device)>Update</button>
+          </td>
+          <td>
+            <button (click)="delete(device)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

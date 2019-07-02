@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="coll_1">
+      <table>
+        <tr>
+          <th>
+           Emergency Number
+          </th>
+          <th>
+            Edit
+          </th>
+          <th>
+            Emergency
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="num" [(ngModel)]="emergencytoinsert.num">
+          </td>
+          <td>
+            <button (click)="insert(emergencytoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let emergency of emergencys">
+          <td>
+            <input [(ngModel)]="emergency.num">
+          </td>
+          <td>
+            <button (click)=update(emergency)>Update</button>
+          </td>
+          <td>
+            <button (click)="delete(emergency)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

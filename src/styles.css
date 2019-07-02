@@ -1,0 +1,20 @@
+button{
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 6px 28px;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 8px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    width: 150px;
+}
+
+button:hover{
+    background-color: #F7931E;
+    color: #ffffff;
+}

@@ -1,0 +1,101 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="coll_1">
+      <table>
+        <tr>
+          <th>
+           Ssn
+          </th>
+          <th>
+            Age
+          </th>
+          <th>
+            Patology
+          </th>
+          <th>
+            Cure name
+          </th>
+          <th>
+           Dosage
+          </th>
+          <th>
+            Posology
+          </th>
+          <th>
+            Notes
+          </th>
+          <th>
+            Edit
+          </th>
+          <th>
+            Cure
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="cf" [(ngModel)]="curetoinsert.cf">
+          </td>
+          <td>
+            <input placeholder="age" [(ngModel)]="curetoinsert.age">
+          </td>
+          <td>
+            <input placeholder="pato" [(ngModel)]="curetoinsert.pato">
+          </td>
+          <td>
+            <input placeholder="name" [(ngModel)]="curetoinsert.name">
+          </td>
+          <td>
+            <input placeholder="dosage" [(ngModel)]="curetoinsert.dosage">
+          </td>
+          <td>
+              <input placeholder="posology" [(ngModel)]="curetoinsert.posology">
+            </td>
+          <td>
+            <input placeholder="notes" [(ngModel)]="curetoinsert.notes">
+          </td>
+          <td>
+            <button (click)="insert(curetoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let cure of cures">
+          <td>
+            <input [(ngModel)]="cure.cf">
+          </td>
+          <td>
+            <input [(ngModel)]="cure.age">
+          </td>
+          <td>
+            <input [(ngModel)]="cure.pato">
+          </td>
+          <td>
+            <input [(ngModel)]="cure.name">
+          </td>
+          <td>
+            <input [(ngModel)]="cure.dosage">
+          </td>
+          <td>
+              <input [(ngModel)]="cure.posology">
+            </td>
+          <td>
+            <input [(ngModel)]="cure.notes">
+          </td>
+          <td>
+            <button (click)=update(cure)>Update</button>
+          </td>
+          <td>
+            <button (click)="delete(cure)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

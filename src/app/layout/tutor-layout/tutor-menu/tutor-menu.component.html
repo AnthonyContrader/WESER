@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="sidenav">
+            <button class="menubtn">
+                <a [routerLink]="['/tutor-dashboard']"> <i class="fas fa-home" style="margin-right: 10px"> </i>
+                    Dashboard </a>
+            </button>
+            <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#account"
+                (click)="accountcollapse()">
+                <i class="fas fa-user" style="margin-right: 15px"></i> Account
+            </button>
+            <div class="collapsebtn" id="account" *ngIf="isAccountCollapsed">
+                <button class="menubtn" style="background-color:  rgb(109, 94, 206); padding-left: 40px">
+                    <a [routerLink]="['/tutor-dashboard/work-in-progress']"> <i class="fas fa-user-edit"
+                            style="margin-right: 15px"></i>
+                        Edit Profile</a>
+                </button>
+                <button class="menubtn" style="background-color: rgb(109, 94, 206); padding-left: 40px">
+                    <a [routerLink]="['/tutor-dashboard/work-in-progress']"><i class="fas fa-file-alt"
+                            style="margin-right: 15px"></i>General Info</a>
+                </button>
+            </div>
+            <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#emergencys"
+                (click)="emergencyscollapse()">
+                <i class="fas fa fa-phone" style="margin-right: 15px"></i>Emergencys
+            </button>
+            <div class="collapsebtn" id="emergencys" *ngIf="isEmergencyCollapsed">
+                <button class="menubtn" style="padding-left: 40px; background-color: rgb(109, 94, 206);">
+                    <a [routerLink]="['/tutor-dashboard/emergencys']"> <i class="fas fa-edit"
+                            style="margin-right: 10px">
+                        </i> Manage Emergencys </a>
+                </button>
+            </div>
+            <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#payments"
+                (click)="paymentscollapse()">
+                <i class="fas fa fa-credit-card" style="margin-right: 15px"></i>Payments
+            </button>
+            <div class="collapsebtn" id="payments" *ngIf="isPaymentCollapsed">
+                <button class="menubtn" style="padding-left: 40px; background-color: rgb(109, 94, 206);">
+                    <a [routerLink]="['/tutor-dashboard/payments']"> <i class="fas fa-edit" style="margin-right: 10px">
+                        </i> Manage Payments </a>
+                </button>
+            </div>
+            <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#cures"
+            (click)="curescollapse()">
+            <i class="fas fa fa-plus-square" style="margin-right: 15px"></i>Cures
+        </button>
+        <div class="collapsebtn" id="cures" *ngIf="isCureCollapsed">
+            <button class="menubtn" style="padding-left: 40px; background-color:  rgb(109, 94, 206);">
+                <a [routerLink]="['/tutor-dashboard/cureTs']"> <i class="fas fa-edit" style="margin-right: 10px">
+                    </i> View Cures </a>
+            </button>
+        </div>
+            <button class="menubtn" (click)="logout()">
+                <i class="fas fa-sign-out-alt" style="margin-right: 15px"></i>Logout
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="coll_1">
+      <table>
+        <tr>
+          <th>
+            Username
+          </th>
+          <th>
+            Email
+          </th>
+          <th>
+            Usertype
+          </th>
+          <th>
+            Edit
+          </th>
+          <th>
+            User
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="login" [(ngModel)]="usertoinsert.login">
+          </td>
+          <td>
+            <input placeholder="email" [(ngModel)]="usertoinsert.email">
+          </td>
+          <td>
+            <select placeholder="authorities" [(ngModel)]="usertoinsert.authorities">
+              <option value="ROLE_ADMIN">ROLE_ADMIN</option>
+              <option value="ROLE_TUTOR">ROLE_TUTOR</option>
+              <option value="ROLE_DOCTOR">ROLE_DOCTOR</option>
+              <option value="ROLE_DEVICE">ROLE_DEVICE</option>
+            </select>
+          </td>
+          <td>
+            <button (click)="insert(usertoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let user of users">
+          <td>
+            <input [(ngModel)]="user.login">
+          </td>
+          <td>
+            <input [(ngModel)]="user.email">
+          </td>
+          <td>
+            <input [(ngModel)] = "user.authorities">
+          </td>
+          <td>
+            <button (click)=update(user)>Update</button>
+          </td>
+          <td>
+            <button (click)="delete(user)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>
