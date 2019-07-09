@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AbstractService } from './abstractservice';
+import { AbstractUService } from './abstractUservice';
 import { UserDTO } from 'src/dto/userdto';
 import { HttpClient } from '@angular/common/http';
 import { LoginDTO } from 'src/dto/logindto';
@@ -17,17 +17,15 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService extends AbstractService<UserDTO> {
-
+export class UserService extends AbstractUService<UserDTO>{
+   
   constructor(http: HttpClient) {
-    super(http);
-    this.type = 'users';
-    this.port = '8080';
+      super(http);
+      this.type ='users';
+     this.port = '8080';
   }
   auth() {
     const user = JSON.parse(localStorage.getItem('currentUser')) as UserDTO;
-
-    console.log(user.authorities + 'user');
     if (user) {
       return 'Bearer ' + user.authorities;
     } else {
@@ -47,41 +45,6 @@ export class UserService extends AbstractService<UserDTO> {
         Authorization: this.auth()
       }
     });
-  }
-
-  getAll(): Observable<UserDTO[]> {
-    return this.http.get<UserDTO[]>('http://localhost:' + this.port + '/' + 'api' + '/' + this.type , {
-      headers: {
-        Authorization : this.auth()
-      }
-    });
-  }
-
-  insert(userdto: UserDTO): Observable<UserDTO> {
-    return this.http.post<UserDTO>('http://localhost:8080/api/users' , userdto , {
-      headers: {
-        Authorization : this.auth()
-      }
-    });
-  }
-
-  update(userdto: UserDTO): Observable<UserDTO> {
-    return this.http.put<UserDTO>('http://localhost:8080/api/users', userdto , {
-      headers: {
-        Authorization : this.auth()
-      }
-    });
-
-  }
-
-  delete(id: number): Observable<any> {
-    return this.http.delete('http://localhost:8080/api/users/{login}' ,  {
-      headers: {
-        
-        Authorization : this.auth()
-      }
-    });
-
   }
 
 }

@@ -11,9 +11,9 @@ import { UserDTO } from 'src/dto/userdto';
     providedIn: 'root'
 })
 export class EmergencyService extends AbstractService<EmergencyDTO>{
-    constructor(http: HttpClient) {
+    constructor(protected http: HttpClient) {
         super(http);
-        this.nome = 'micro1';
+        this.nome = 'micro2';
         this.type ='emergencies';
        this.port = '8080';
     }
@@ -29,16 +29,14 @@ export class EmergencyService extends AbstractService<EmergencyDTO>{
         }
       }
 
-    getAll(): Observable<EmergencyDTO[]> {
-        return this.http.get<EmergencyDTO[]>('http://localhost:' + this.port + '/' + this.nome + '/' + this.type , {
-         
-        headers: {
-            Authorization : this.auth()
-            
+      userLogged(username: string) {
+        // console.log('qua: ', this.auth());
+         console.log(this.auth());
+         return this.http.get('http://localhost:8080/api/users/' + username, {
+           headers: {
+             Authorization: this.auth()
+           }
+         });
+        }
 
-          }
-          
-        });
-        console.log(this.getAll)
-      }
 }

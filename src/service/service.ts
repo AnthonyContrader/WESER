@@ -12,7 +12,9 @@ export interface Service<DTO> {
 
     read(id: number): Observable<DTO> ;
 
-    delete(id: number): Observable<any>;
+    delete(id: number): Observable<DTO>;
+
+    deleteU(login: string): Observable<DTO>;
 
     update(dto: DTO): Observable<DTO> ;
 

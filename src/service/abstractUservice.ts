@@ -3,11 +3,10 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { UserDTO} from '../dto/userdto';
 
-export abstract class AbstractService<DTO>  implements Service <DTO> {
+export abstract class AbstractUService<DTO>  implements Service <DTO> {
 
   type: string;
   port: string;
-  nome: string;
 
   constructor(protected http: HttpClient) {
 
@@ -25,14 +24,14 @@ export abstract class AbstractService<DTO>  implements Service <DTO> {
   }
 
   getAllBy(id: number): Observable<DTO[]> {
-    return this.http.get<DTO[]>('http://localhost:' + this.port + '/' + this.nome + '/' + this.type + id, {
+    return this.http.get<DTO[]>('http://localhost:' + this.port + '/' + this.type + id, {
       headers: {
         Authorization : this.auth()
       }
     });
   }
   getAll(): Observable<DTO[]> {
-    return this.http.get<DTO[]>('http://localhost:' + this.port + '/' + this.nome + '/' + 'api' + '/' + this.type , {
+    return this.http.get<DTO[]>('http://localhost:' + this.port + '/' + 'api' + '/' + this.type , {
       headers: {
         Authorization : this.auth()
       }
@@ -40,16 +39,15 @@ export abstract class AbstractService<DTO>  implements Service <DTO> {
   }
 
   read(id: number): Observable<DTO> {
-    return this.http.get<DTO>('http://localhost:' + this.port + '/' + this.nome + '/' + 'api' + '/'  + this.type + id , {
+    return this.http.get<DTO>('http://localhost:' + this.port + '/' + 'api' + '/'  + this.type + id , {
       headers: {
         Authorization : this.auth()
       }
     });
   }
 
-
   delete(id: number): Observable<DTO> {
-    return this.http.delete<DTO>('http://localhost:' + this.port + '/' + this.nome + '/' + 'api' + '/' + this.type + '/' + id , {
+    return this.http.delete<DTO>('http://localhost:' + this.port + '/' + 'api' + '/' + this.type + '/' + id , {
       headers: {
         Authorization : this.auth()
       }
@@ -57,7 +55,7 @@ export abstract class AbstractService<DTO>  implements Service <DTO> {
   }
 
   deleteU(login: string): Observable<DTO> {
-    return this.http.delete<DTO>('http://localhost:' + this.port + '/' + this.nome + '/' + 'api' + '/' + this.type + '/' + login , {
+    return this.http.delete<DTO>('http://localhost:' + this.port + '/' + 'api' + '/' + this.type + '/' + login , {
       headers: {
         Authorization : this.auth()
       }
@@ -65,7 +63,7 @@ export abstract class AbstractService<DTO>  implements Service <DTO> {
   }
 
   insert(dto: DTO): Observable<DTO> {
-    return this.http.post<DTO>('http://localhost:' + this.port + '/' + this.nome + '/' + 'api' + '/' + this.type, dto , {
+    return this.http.post<DTO>('http://localhost:' + this.port + '/' + 'api' + '/' + this.type, dto , {
       headers: {
         Authorization : this.auth()
       }
@@ -73,7 +71,7 @@ export abstract class AbstractService<DTO>  implements Service <DTO> {
   }
 
   update(dto: DTO): Observable<DTO> {
-    return this.http.put<DTO>('http://localhost:' + this.port + '/' + this.nome + '/' + 'api' + '/' + this.type, dto , {
+    return this.http.put<DTO>('http://localhost:' + this.port + '/' + 'api' + '/' + this.type, dto , {
       headers: {
         Authorization : this.auth()
       }

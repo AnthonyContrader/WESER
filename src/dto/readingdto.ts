@@ -16,6 +16,6 @@ export class ReadingDTO {
 
     temp: number;
 
-    date: string;
+    dh: string;
 
 }
